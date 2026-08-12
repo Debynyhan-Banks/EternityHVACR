@@ -23,7 +23,7 @@ const maintenance = [
 
 export default function Home() {
   return <main>
-    <div className="topbar"><span>Serving Greater Cleveland & Northeast Ohio</span><a href="#contact">Emergency service request <b>→</b></a></div>
+    <div className="topbar"><span>Black-owned • Serving Greater Cleveland & Northeast Ohio</span><a href="#contact">Emergency service request <b>→</b></a></div>
     <header className="header">
       <a className="logo-crop" href="#top" aria-label="Eternity Mechanical Services home"><img src="/images/eternity-logo.svg" alt="Eternity Mechanical Services" /></a>
       <nav aria-label="Primary navigation"><a href="#services">Services</a><a href="#pathways">Residential</a><a href="#commercial">Commercial</a><a href="#services">Refrigeration</a><a href="#maintenance">Maintenance</a><a href="#projects">Projects</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
@@ -41,7 +41,7 @@ export default function Home() {
         <div className="hero-trust"><span>✓ Licensed contractor</span><span>✓ Residential & commercial</span><span>✓ Professional diagnostics</span><span>✓ Preventive maintenance</span></div>
       </div>
       <div className="hero-media">
-        <img src="/images/hero-technician.jpg" alt="Professional HVAC technician measuring commercial refrigeration equipment" />
+        <img src="/images/hero-technician-black.jpg" alt="Black skilled trades professional servicing an electrical control system" />
         <div className="media-label"><span><i /> Technical service</span><b>Measured before recommended.</b></div>
         <div className="metric-card"><p>System evaluation</p><div><span>Electrical</span><i>Verified</i></div><div><span>Temperature</span><i>Measured</i></div><div><span>Operation</span><i>Documented</i></div></div>
         <i className="hero-line line-one" /><i className="hero-line line-two" />
@@ -58,8 +58,8 @@ export default function Home() {
     <div className="infinity-divider" aria-hidden="true"><span /><div><img src="/images/eternity-logo.svg" alt="" /></div><span /></div>
 
     <section className="section pathways" id="pathways">
-      <article><div className="path-image"><img src="/images/residential-hvac.jpg" alt="Technician inspecting a residential outdoor air conditioning system" /><span>Residential</span></div><div className="path-content"><p className="kicker">For homeowners</p><h2>Residential HVAC</h2><p>Professional comfort solutions built around the system, the home and long-term performance.</p><ul><li>Air conditioning</li><li>Furnaces</li><li>Heat pumps</li><li>System replacement</li><li>Thermostats & controls</li><li>Preventive maintenance</li></ul><a className="inline-cta" href="#schedule">Residential services <span>→</span></a></div></article>
-      <article><div className="path-image commercial-image"><img src="/images/commercial-rooftop.jpg" alt="Technicians servicing commercial rooftop HVAC equipment" /><span>Commercial</span></div><div className="path-content"><p className="kicker">For businesses & operators</p><h2>Commercial Mechanical</h2><p>Responsive HVAC/R service for buildings, operations, tenants, customers and inventory.</p><ul><li>Rooftop units</li><li>Commercial HVAC</li><li>Refrigeration</li><li>Restaurants & retail</li><li>Multifamily properties</li><li>Property management</li></ul><a className="inline-cta" href="#commercial">Commercial services <span>→</span></a></div></article>
+      <article><div className="path-image apartment-image"><img src="/images/apartment-complex.jpg" alt="Modern multifamily apartment complex" /><span>Residential & multifamily</span></div><div className="path-content"><p className="kicker">For homeowners & property managers</p><h2>Homes & Apartment Communities</h2><p>Professional comfort solutions for single-family homes, apartment communities and multifamily properties.</p><ul><li>Air conditioning</li><li>Furnaces</li><li>Heat pumps</li><li>Apartment HVAC service</li><li>Thermostats & controls</li><li>Preventive maintenance</li></ul><a className="inline-cta" href="#schedule">Residential services <span>→</span></a></div></article>
+      <article><div className="path-image commercial-image"><img src="/images/walk-in-cold-storage.jpg" alt="Commercial walk-in cold storage room with refrigeration equipment" /><span>Commercial refrigeration</span></div><div className="path-content"><p className="kicker">For businesses & operators</p><h2>Commercial HVAC/R</h2><p>Responsive HVAC and refrigeration service for facilities, walk-in coolers, operations and inventory.</p><ul><li>Rooftop units</li><li>Commercial HVAC</li><li>Walk-in coolers</li><li>Restaurants & retail</li><li>Cold storage</li><li>Property management</li></ul><a className="inline-cta" href="#commercial">Commercial services <span>→</span></a></div></article>
     </section>
 
     <section className="diagnostic branded-section" id="diagnostics">
@@ -78,17 +78,17 @@ export default function Home() {
     <section className="commercial" id="commercial">
       <div className="commercial-copy"><p className="kicker light">Commercial capability</p><h2>Mechanical Service Built for Business</h2><p>HVAC and refrigeration problems affect customers, employees, tenants, inventory and operations. Eternity Mechanical Services provides responsive mechanical service and preventive maintenance for commercial properties.</p><div className="commercial-actions"><a className="btn btn-orange" href="#schedule">Request commercial service <span>↗</span></a><a href="#maintenance">Discuss a maintenance plan <span>→</span></a></div></div>
       <div className="commercial-lists"><article><h3>Facilities served</h3><ul><li>Restaurants & food service</li><li>Retail</li><li>Multifamily housing</li><li>Property management</li><li>Churches & community facilities</li><li>Offices & light commercial</li></ul></article><article><h3>Mechanical services</h3><ul><li>RTU service & replacement</li><li>Commercial split systems</li><li>Walk-in refrigeration</li><li>Preventive maintenance</li><li>System diagnostics & controls</li><li>Emergency repairs</li></ul></article></div>
-      <div className="commercial-photo"><img src="/images/hero-technician.jpg" alt="Commercial refrigeration technician using diagnostic equipment" /><span>HVAC • Refrigeration • Controls</span></div>
+      <div className="commercial-photo"><img src="/images/walk-in-cold-storage.jpg" alt="Walk-in cold storage facility with commercial refrigeration equipment" /><span>Walk-ins • Cold storage • Controls</span></div>
     </section>
 
     <section className="section maintenance" id="maintenance">
-      <div className="maintenance-image"><img src="/images/maintenance.jpg" alt="Mechanical technician inspecting and servicing equipment components" /><div><b>Preventive maintenance</b><span>Inspection • Measurement • Documentation</span></div></div>
+      <div className="maintenance-image"><img src="/images/black-technician-equipment.jpg" alt="Black technician performing precision equipment maintenance" /><div><b>Preventive maintenance</b><span>Inspection • Measurement • Documentation</span></div></div>
       <div className="maintenance-copy"><p className="kicker">Planned performance</p><h2>Maintain Equipment Before It Becomes an Emergency.</h2><p>Planned maintenance helps identify developing problems, protect equipment life and create better decisions around repair and replacement.</p><div className="maintenance-grid">{maintenance.map(([number,title]) => <span key={number}><i>{number}</i>{title}</span>)}</div><div className="maintenance-actions"><a className="btn" href="#schedule">Request maintenance pricing <span>→</span></a><span>Residential and commercial pathways available.</span></div></div>
     </section>
 
     <section className="section projects" id="projects">
       <div className="section-head"><div><p className="kicker">Proof of work</p><h2>Our Work</h2></div><p>This gallery is structured for real project documentation. Final project details should be added only after the business supplies approved photos and verified information.</p></div>
-      <div className="project-grid"><article><img src="/images/residential-hvac.jpg" alt="Example residential HVAC project placeholder" /><div><span>Project placeholder</span><h3>Residential Installation</h3><p>Add the verified problem, solution, equipment and result.</p></div></article><article><img src="/images/commercial-rooftop.jpg" alt="Example commercial rooftop equipment project placeholder" /><div><span>Project placeholder</span><h3>Commercial HVAC</h3><p>Add approved location and scope when a real case study is supplied.</p></div></article><article><img src="/images/diagnostics.jpg" alt="Example HVAC diagnostic service project placeholder" /><div><span>Project placeholder</span><h3>System Diagnostics</h3><p>Add documented readings and verified service outcome.</p></div></article></div>
+      <div className="project-grid"><article><img src="/images/apartment-complex.jpg" alt="Modern apartment community representing multifamily HVAC service" /><div><span>Capability example</span><h3>Apartment Communities</h3><p>Showcase an approved multifamily HVAC project and verified service outcome here.</p></div></article><article><img src="/images/walk-in-cold-storage.jpg" alt="Walk-in cold storage room representing commercial refrigeration service" /><div><span>Capability example</span><h3>Walk-In Coolers & Cold Storage</h3><p>Add an approved refrigeration repair, installation or maintenance case study.</p></div></article><article><img src="/images/hero-technician-black.jpg" alt="Black skilled trades professional working on an electrical control" /><div><span>Capability example</span><h3>System Diagnostics</h3><p>Add documented readings and a verified HVAC or refrigeration service result.</p></div></article></div>
       <a className="inline-cta centered-link" href="#contact">Submit project information <span>→</span></a>
     </section>
 
