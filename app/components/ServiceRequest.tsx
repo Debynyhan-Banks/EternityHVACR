@@ -80,7 +80,7 @@ export default function ServiceRequest() {
         <p>Share enough detail for the team to understand the equipment and urgency.</p>
         <label className="field-label">When do you need service?<select value={data.timing} onChange={(event) => update("timing", event.target.value)} required><option value="" disabled>Select timing</option><option>Emergency / system down</option><option>As soon as available</option><option>This week</option><option>Planning an estimate</option><option>Routine maintenance</option></select></label>
         <label className="field-label">Equipment or issue<textarea value={data.details} onChange={(event) => update("details", event.target.value)} placeholder="Tell us what equipment is affected, what you are noticing, and any access details." required /></label>
-        {data.timing === "Emergency / system down" && <div className="urgent-note"><b>Emergency request:</b> add the confirmed business phone number before launch so customers can call immediately.</div>}
+        {data.timing === "Emergency / system down" && <div className="urgent-note"><b>Emergency request:</b> call <a href="tel:+12162536468">216-253-6468</a> for immediate assistance.</div>}
       </fieldset>}
 
       {step === 2 && <fieldset>
