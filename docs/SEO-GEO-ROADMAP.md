@@ -33,11 +33,11 @@ This plan treats SEO, local search, generative-engine visibility and conversion 
 
 ### Confirmed gaps
 
-- [ ] Replace public placeholder copy for reviews, projects, hours, email, licenses and municipalities
+- [x] Replace public placeholder copy for reviews, projects, hours, email, licenses and municipalities
 - [ ] Make the service-request form deliver to a confirmed destination
-- [ ] Add `/robots.txt`
-- [ ] Add `/sitemap.xml`
-- [ ] Add local-business and organization structured data
+- [x] Add `/robots.txt`
+- [x] Add `/sitemap.xml`
+- [x] Add local-business and organization structured data
 - [ ] Connect and verify Google Search Console
 - [ ] Connect Bing Webmaster Tools and IndexNow
 - [ ] Complete or connect the Google Business Profile
@@ -52,19 +52,19 @@ This plan treats SEO, local search, generative-engine visibility and conversion 
 
 ### Business identity
 
-- [ ] Confirm the exact public business name and legal name
-- [ ] Confirm business email, hours and emergency availability
-- [ ] Confirm physical address or service-area-business presentation
+- [x] Confirm the exact public business name and legal name
+- [x] Confirm business email, hours and emergency availability
+- [x] Confirm physical address or service-area-business presentation
 - [ ] Confirm primary cities and ZIP codes served
-- [ ] Add license, insurance and certification information
-- [ ] Remove every “to be confirmed” or internal-editorial message from the public site
+- [x] Add license and insurance information
+- [x] Remove every “to be confirmed” or internal-editorial message from the public site
 
 ### Technical search foundation
 
-- [ ] Add `robots.txt` with sitemap location and appropriate crawler access
-- [ ] Add an XML sitemap
-- [ ] Add `HVACBusiness`/`LocalBusiness` structured data
-- [ ] Add `Organization` and `WebSite` structured data
+- [x] Add `robots.txt` with sitemap location and appropriate crawler access
+- [x] Add an XML sitemap
+- [x] Add `HVACBusiness`/`LocalBusiness` structured data
+- [x] Add `Organization` and `WebSite` structured data
 - [ ] Add breadcrumbs and breadcrumb structured data when multiple pages exist
 - [ ] Validate structured data and indexing eligibility
 - [ ] Verify both root and `www` domain behavior and canonicalization
@@ -73,7 +73,7 @@ This plan treats SEO, local search, generative-engine visibility and conversion 
 
 ### Lead capture
 
-- [ ] Choose the service-request destination: email, CRM or database
+- [x] Choose the service-request destination: `ben@eternityhvacr.com`
 - [ ] Submit requests directly instead of opening an email with no recipient
 - [ ] Add spam protection and validation
 - [ ] Show an on-page confirmation with expected response time
@@ -84,7 +84,7 @@ This plan treats SEO, local search, generative-engine visibility and conversion 
 
 - [ ] Convert large photographs to WebP or AVIF
 - [ ] Provide responsive image sizes
-- [ ] Prioritize the hero image and lazy-load below-the-fold images
+- [x] Prioritize the hero image and lazy-load below-the-fold images
 - [ ] Measure mobile Core Web Vitals
 - [ ] Review keyboard navigation, focus states, labels and contrast
 
@@ -186,7 +186,7 @@ Priority case-study subjects:
 
 **Goal:** make Eternity easy for Google AI features, ChatGPT search and other answer systems to discover, understand and cite.
 
-- [ ] Explicitly allow `OAI-SearchBot` in crawler policy
+- [x] Explicitly allow `OAI-SearchBot` in crawler policy
 - [ ] Keep important answers in visible page text
 - [ ] Give direct answers before longer explanations
 - [ ] Add author or reviewer information to technical content

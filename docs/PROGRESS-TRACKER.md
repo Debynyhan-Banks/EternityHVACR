@@ -20,7 +20,7 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current status:** In review
 
-**Next action:** Publish and verify the Phase 1 foundation release, then have Ben confirm that a test request reaches `ben@eternityhvacr.com`.
+**Next action:** Have Ben confirm that a test request reaches `ben@eternityhvacr.com`, then connect Google Search Console, Bing Webmaster Tools and conversion analytics.
 
 ## Phase 1 information blockers
 
@@ -44,9 +44,9 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | Baseline | Custom domain, SSL and public deployment | Complete | None | `eternityhvacr.com` is public over HTTPS |
 | Baseline | Mobile hero, phone links and social preview | Complete | Phone number | Verified on production |
 | Baseline | Readable typography update | Complete | None | Published August 20, 2026 |
-| 1 | Remove all public placeholder content | In review | Core business facts confirmed | Production page review |
+| 1 | Remove all public placeholder content | Complete | Core business facts confirmed | Production page review passed August 20, 2026 |
 | 1 | Functional service-request delivery | In review | Destination confirmed as `ben@eternityhvacr.com` | End-to-end email test received by Ben |
-| 1 | Robots and XML sitemap | In review | None | Both production URLs return HTTP 200 |
+| 1 | Robots and XML sitemap | Complete | None | Both production URLs returned HTTP 200 on August 20, 2026 |
 | 1 | Business structured data | In review | Core business facts confirmed | Production source verified; Rich Results Test has no critical errors |
 | 1 | Google Search Console | Waiting on Eternity | Account access | Domain verified and sitemap accepted |
 | 1 | Bing Webmaster and IndexNow | Waiting on Eternity | Account access | Domain verified and test URL submitted |
@@ -81,17 +81,17 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 ### Definition of done
 
-- [ ] Production build succeeds
-- [ ] No unapproved claims are published
+- [x] Production build succeeds
+- [x] No unapproved claims are published
 - [ ] Test form reaches the intended recipient
-- [ ] Phone links still call 216-253-6468
-- [ ] Sitemap and robots URLs return HTTP 200
-- [ ] Homepage remains indexable and canonical
+- [x] Phone links still call 216-253-6468
+- [x] Sitemap and robots URLs return HTTP 200
+- [x] Homepage remains indexable and canonical
 - [ ] Structured data validates
 - [ ] Mobile layout remains readable
-- [ ] Production deployment succeeds
-- [ ] GitHub repository contains the exact deployed source
-- [ ] This tracker is updated with results and date
+- [x] Production deployment succeeds
+- [x] GitHub repository contains the exact deployed source
+- [x] This tracker is updated with results and date
 
 ## Work log
 
@@ -105,6 +105,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-20 | Recorded email, hours and service-area-business details | Phase 1 technical work is ready to begin | Confirm remaining business and service-area facts |
 | 2026-08-20 | Recorded license, insurance, emergency service, lead manager and Google profile | Core Phase 1 business facts confirmed | Begin the Phase 1 website release |
 | 2026-08-20 | Built Phase 1 foundation release | Added accurate business facts, email request workflow, crawler files and structured data; removed placeholders and compressed the largest photograph | Publish and verify production |
+| 2026-08-20 | Published and verified Phase 1 foundation release | Official domain, robots file and sitemap returned HTTP 200; production source contains the confirmed business facts and schema | Ben to confirm receipt of a test email request; validate schema in Google's Rich Results Test |
 
 ## Decision log
 
@@ -119,7 +120,7 @@ Record important decisions so later work does not rely on memory.
 
 | Asset group | Requested | Received | Approved | Published |
 |---|---:|---:|---:|---:|
-| Business information | Yes | Partial | Partial | No |
+| Business information | Yes | Partial | Partial | Partial |
 | Owner/team biographies | Yes | No | No | No |
 | Team photographs | Yes | No | No | No |
 | Residential projects | Yes | No | No | No |
