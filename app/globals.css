@@ -59,4 +59,82 @@ body .maintenance-image>img{object-position:left center}
   .media-label{left:20px;top:24px;bottom:auto}
   .media-label b{display:none}
 }
+
+/* Readable type scale */
+.topbar{font-size:12px}
+.header nav,.call-link{font-size:13px}
+.btn,.btn-outline{font-size:14px}
+.eyebrow,.kicker{font-size:12px}
+.hero-lede{font-size:18px}
+.emergency-link>span{font-size:13px}
+.emergency-link small{font-size:11px}
+.emergency-link b{font-size:14px}
+.hero-trust{font-size:13px}
+.media-label span,.metric-card p,.metric-card div{font-size:11px}
+.credential-strip div{font-size:11px}
+.section-head>p{font-size:16px}
+.service-card>span{font-size:12px}
+.service-card p{font-size:15px}
+.service-card>b,.path-image>span,.inline-cta{font-size:12px}
+.path-content>p:not(.kicker){font-size:16px}
+.path-content li{font-size:14px}
+.diagnostic-copy>p:not(.kicker){font-size:16px}
+.example-label,.dash-top small,.dash-temp small,.dash-grid small{font-size:11px}
+.dash-top b{font-size:16px}
+.dash-top>span,.dash-grid b,.dash-bottom{font-size:12px}
+.process-grid span{font-size:12px}
+.process-grid p{font-size:14px}
+.commercial-actions>a:last-child{font-size:13px}
+.commercial-lists h3{font-size:15px}
+.commercial-lists li{font-size:14px}
+.commercial-photo span{font-size:11px}
+.maintenance-image b{font-size:15px}
+.maintenance-image span{font-size:11px}
+.maintenance-copy>p:not(.kicker){font-size:16px;line-height:1.75}
+.maintenance-grid span{font-size:14px}
+.maintenance-grid i{font-size:11px}
+.maintenance-actions>span{max-width:220px;font-size:12px}
+.project-grid span{font-size:11px}
+.project-grid p{font-size:14px}
+.proof-service>div>p:not(.kicker){font-size:16px;line-height:1.75}
+.proof-points i{font-size:11px}
+.proof-points b{font-size:15px}
+.proof-points small{font-size:13px;line-height:1.5}
+.review-placeholder>p:not(.kicker),.service-area>p:not(.kicker){font-size:15px;line-height:1.7}
+.schedule-copy>p:not(.kicker){font-size:16px}
+.schedule-points{font-size:13px}
+.form-eyebrow{font-size:11px}
+.form-progress b{font-size:13px}
+.request-form legend{font-size:30px}
+.request-form fieldset>p{font-size:14px}
+.choice-grid label span{font-size:14px}
+.customer-row>b,.customer-row label{font-size:12px}
+.field-label{font-size:12px}
+.field-label select,.field-label textarea,.field-label input{font-size:16px}
+.urgent-note{font-size:13px;line-height:1.5}
+.request-summary span{font-size:12px}
+.form-back,.form-next,.request-complete button{font-size:14px}
+.request-form>small{font-size:11px;line-height:1.5}
+.emergency>div:first-child>p:not(.kicker){font-size:16px;line-height:1.7}
+.emergency small{font-size:12px;line-height:1.5}
+.footer-brand>p{font-size:14px}
+.footer-grid h3{font-size:12px}
+.footer-grid a,.footer-grid span,.footer-grid p{font-size:13px}
+.footer-bottom{font-size:11px}
+.mobile-menu a{font-size:14px}
+
+@media(max-width:700px){
+  .topbar{font-size:11px}
+  .btn-small{font-size:12px}
+  .hero{min-height:900px}
+  .hero-copy{min-height:900px}
+  .hero h1{font-size:clamp(44px,12.5vw,54px)}
+  .hero-lede{font-size:17px;line-height:1.65}
+  .hero-trust{font-size:13px;line-height:1.45}
+  .credential-strip div{font-size:10px;line-height:1.35}
+  .service-card h3,.project-grid h3{font-size:22px}
+  .path-content h2{font-size:38px}
+  .request-form legend{font-size:28px}
+  .mobile-bar a{font-size:12px}
+}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.service-card,.btn{transition:none}}
