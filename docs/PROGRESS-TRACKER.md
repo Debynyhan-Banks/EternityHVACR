@@ -18,9 +18,9 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current milestone:** Phase 1 — Search and lead foundation
 
-**Current status:** Ready
+**Current status:** In review
 
-**Next action:** Begin the Phase 1 website release: connect the request form to Ben, publish the confirmed email and hours, replace the 24/7 promise with accurate emergency-service language, remove placeholders, and add robots, sitemap and business structured data.
+**Next action:** Publish and verify the Phase 1 foundation release, then have Ben confirm that a test request reaches `ben@eternityhvacr.com`.
 
 ## Phase 1 information blockers
 
@@ -44,14 +44,14 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | Baseline | Custom domain, SSL and public deployment | Complete | None | `eternityhvacr.com` is public over HTTPS |
 | Baseline | Mobile hero, phone links and social preview | Complete | Phone number | Verified on production |
 | Baseline | Readable typography update | Complete | None | Published August 20, 2026 |
-| 1 | Remove all public placeholder content | Ready | Core business facts confirmed | No internal notes visible publicly |
-| 1 | Functional service-request delivery | Ready | Destination confirmed as `ben@eternityhvacr.com` | End-to-end test request received |
-| 1 | Robots and XML sitemap | Ready | None | Both production URLs return HTTP 200 |
-| 1 | Business structured data | Ready | Core business facts confirmed | Rich Results Test has no critical errors |
+| 1 | Remove all public placeholder content | In review | Core business facts confirmed | Production page review |
+| 1 | Functional service-request delivery | In review | Destination confirmed as `ben@eternityhvacr.com` | End-to-end email test received by Ben |
+| 1 | Robots and XML sitemap | In review | None | Both production URLs return HTTP 200 |
+| 1 | Business structured data | In review | Core business facts confirmed | Production source verified; Rich Results Test has no critical errors |
 | 1 | Google Search Console | Waiting on Eternity | Account access | Domain verified and sitemap accepted |
 | 1 | Bing Webmaster and IndexNow | Waiting on Eternity | Account access | Domain verified and test URL submitted |
 | 1 | Conversion analytics | Waiting on Eternity | Analytics account choice | Call and form events visible |
-| 1 | Responsive image optimization | Ready | None | Mobile performance review completed |
+| 1 | Responsive image optimization | In progress | None | Largest homepage photograph compressed; full mobile performance review remains |
 | 2 | Priority service pages | Waiting on Eternity | Confirmed services | Unique pages published and internally linked |
 | 2 | Market pages | Waiting on Eternity | Confirmed customer segments | Approved pages published |
 | 2 | Service-area hub and city pages | Waiting on Eternity | Approved cities and proof | Only genuine service areas published |
@@ -104,6 +104,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-20 | Created roadmap, intake checklist and progress tracker | Planning system established | Collect Phase 1 business information |
 | 2026-08-20 | Recorded email, hours and service-area-business details | Phase 1 technical work is ready to begin | Confirm remaining business and service-area facts |
 | 2026-08-20 | Recorded license, insurance, emergency service, lead manager and Google profile | Core Phase 1 business facts confirmed | Begin the Phase 1 website release |
+| 2026-08-20 | Built Phase 1 foundation release | Added accurate business facts, email request workflow, crawler files and structured data; removed placeholders and compressed the largest photograph | Publish and verify production |
 
 ## Decision log
 

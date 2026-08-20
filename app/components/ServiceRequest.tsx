@@ -38,7 +38,7 @@ export default function ServiceRequest() {
       `Service: ${data.service}\nCustomer type: ${data.customer}\nTiming: ${data.timing}\nDetails: ${data.details}\nName: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}`,
     );
     setComplete(true);
-    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:ben@eternityhvacr.com?subject=${subject}&body=${body}`;
   }
 
   if (complete) {
@@ -47,7 +47,8 @@ export default function ServiceRequest() {
         <span>✓</span>
         <p className="form-eyebrow">Request prepared</p>
         <h3>Your service details are ready.</h3>
-        <p>Your email application should open with the request completed. Add Eternity Mechanical’s confirmed service email before sending.</p>
+        <p>Your email application should open with the request addressed to Ben at Eternity Mechanical Services. Review the details and press send.</p>
+        <a href="mailto:ben@eternityhvacr.com">Email ben@eternityhvacr.com directly</a>
         <button type="button" onClick={() => { setComplete(false); setStep(0); setData(initial); }}>Start another request</button>
       </div>
     );
@@ -92,7 +93,7 @@ export default function ServiceRequest() {
 
       <div className="form-actions">
         {step > 0 && <button className="form-back" type="button" onClick={() => setStep((value) => value - 1)}>← Back</button>}
-        {step < 2 ? <button className="form-next" type="button" disabled={!ready} onClick={() => setStep((value) => value + 1)}>Continue <span>→</span></button> : <button className="form-next" type="submit" disabled={!ready}>Prepare request <span>↗</span></button>}
+        {step < 2 ? <button className="form-next" type="button" disabled={!ready} onClick={() => setStep((value) => value + 1)}>Continue <span>→</span></button> : <button className="form-next" type="submit" disabled={!ready}>Email request to Ben <span>↗</span></button>}
       </div>
       <small>Appointment availability and service details are confirmed by Eternity Mechanical Services.</small>
     </form>
