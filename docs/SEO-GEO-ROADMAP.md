@@ -263,7 +263,7 @@ Features should not be published until Eternity has a person and process respons
 
 ## Recommended implementation order
 
-1. Collect the Phase 1 business information and choose the form destination.
+1. Use the confirmed public email, hours and service-area-business details; collect the remaining Phase 1 facts.
 2. Remove placeholders and repair the service-request workflow.
 3. Add robots, sitemap and structured data.
 4. Connect Search Console, Google Business Profile and Bing.
@@ -273,4 +273,4 @@ Features should not be published until Eternity has a person and process respons
 8. Add the service-area hub and approved city pages.
 9. Build the answer library and differentiating tools progressively.
 
-Use [PROGRESS-TRACKER.md](PROGRESS-TRACKER.md) as the source of truth for status and [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md) for required input.
+Use [PROGRESS-TRACKER.md](PROGRESS-TRACKER.md) as the source of truth for status, [BUSINESS-FACTS.md](BUSINESS-FACTS.md) for approved public information and [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md) for required input.

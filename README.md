@@ -12,6 +12,7 @@ The SEO, GEO, content and lead-generation improvement program is documented here
 
 - [SEO and GEO roadmap](docs/SEO-GEO-ROADMAP.md)
 - [Progress tracker](docs/PROGRESS-TRACKER.md)
+- [Confirmed business facts](docs/BUSINESS-FACTS.md)
 - [Business information and content checklist](docs/CLIENT-CONTENT-CHECKLIST.md)
 
 Start with the **Next action** section in the progress tracker. Update the checklist and work log as information is received and milestones are completed.

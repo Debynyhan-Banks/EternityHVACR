@@ -18,17 +18,17 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current milestone:** Phase 1 — Search and lead foundation
 
-**Current status:** Waiting on Eternity
+**Current status:** Ready
 
-**Next action:** Eternity supplies the Phase 1 blockers listed below. Then implement the form, public business details, robots file, sitemap and structured data as one focused release.
+**Next action:** Begin the Phase 1 technical release using the confirmed email, hours and service-area-business details. Before publishing location pages or license claims, Eternity must still supply the exact cities/ZIP codes, license language, insurance language and Google Business Profile status.
 
 ## Phase 1 information blockers
 
-- [ ] Service-request email or CRM destination
-- [ ] Confirmed business email
-- [ ] Confirmed hours
+- [x] Service-request email destination — `ben@eternityhvacr.com`
+- [x] Confirmed business email — `ben@eternityhvacr.com`
+- [x] Confirmed hours — Monday–Friday 7:00 a.m.–7:00 p.m.; Saturday 9:00 a.m.–5:00 p.m.; Sunday closed
 - [ ] Confirmation of the 24/7 emergency-service claim
-- [ ] Business address or service-area-business preference
+- [x] Business address or service-area-business preference — service-area business
 - [ ] Approved cities and ZIP codes
 - [ ] License and insurance language
 - [ ] Google Business Profile URL
@@ -44,7 +44,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | Baseline | Mobile hero, phone links and social preview | Complete | Phone number | Verified on production |
 | Baseline | Readable typography update | Complete | None | Published August 20, 2026 |
 | 1 | Remove all public placeholder content | Waiting on Eternity | Business facts and approvals | No internal notes visible publicly |
-| 1 | Functional service-request delivery | Waiting on Eternity | Destination and workflow | End-to-end test request received |
+| 1 | Functional service-request delivery | Ready | Destination confirmed as `ben@eternityhvacr.com` | End-to-end test request received |
 | 1 | Robots and XML sitemap | Ready | None | Both production URLs return HTTP 200 |
 | 1 | Business structured data | Waiting on Eternity | NAP, hours, service area, credentials | Rich Results Test has no critical errors |
 | 1 | Google Search Console | Waiting on Eternity | Account access | Domain verified and sitemap accepted |
@@ -101,6 +101,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-17 | Published website source to GitHub | Repository established | Keep source synchronized |
 | 2026-08-20 | Increased typography sizes | Readability update published | Begin SEO/GEO foundation |
 | 2026-08-20 | Created roadmap, intake checklist and progress tracker | Planning system established | Collect Phase 1 business information |
+| 2026-08-20 | Recorded email, hours and service-area-business details | Phase 1 technical work is ready to begin | Confirm remaining business and service-area facts |
 
 ## Decision log
 
@@ -115,7 +116,7 @@ Record important decisions so later work does not rely on memory.
 
 | Asset group | Requested | Received | Approved | Published |
 |---|---:|---:|---:|---:|
-| Business information | Yes | No | No | No |
+| Business information | Yes | Partial | Partial | No |
 | Owner/team biographies | Yes | No | No | No |
 | Team photographs | Yes | No | No | No |
 | Residential projects | Yes | No | No | No |
@@ -146,4 +147,5 @@ Complete after analytics and search platforms are connected.
 ## Related documents
 
 - [Full SEO, GEO and growth roadmap](SEO-GEO-ROADMAP.md)
+- [Confirmed business facts](BUSINESS-FACTS.md)
 - [Information and content checklist](CLIENT-CONTENT-CHECKLIST.md)

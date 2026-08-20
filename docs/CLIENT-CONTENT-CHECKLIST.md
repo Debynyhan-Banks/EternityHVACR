@@ -8,20 +8,20 @@ This checklist identifies what is needed from Eternity Mechanical Services to co
 
 Please provide these first:
 
-- [ ] Public business email that should receive service requests
-- [ ] Exact public business name
-- [ ] Legal business name, if different
-- [ ] Business hours by day
+- [x] Public business email that should receive service requests — `ben@eternityhvacr.com`
+- [x] Exact public business name — Eternity Mechanical Services LLC
+- [x] Legal business name — Eternity Mechanical Services LLC
+- [x] Business hours by day — Monday–Friday 7:00 a.m.–7:00 p.m.; Saturday 9:00 a.m.–5:00 p.m.; Sunday closed
 - [ ] Whether 24/7 emergency service is genuinely available
 - [ ] Expected response time for normal and emergency requests
-- [ ] Physical business address or confirmation that Eternity is a service-area business
-- [ ] Primary service radius
+- [x] Physical business address or confirmation that Eternity is a service-area business — service-area business
+- [x] Primary service region — all of Cuyahoga County and surrounding Cleveland metropolitan areas
 - [ ] Confirmed cities and ZIP codes served
 - [ ] HVAC/R license numbers that may be published
 - [ ] Insurance or bonding statement that may be published
 - [ ] Google Business Profile URL or confirmation that it must be created
-- [ ] Preferred lead workflow: email, text alert, CRM or stored website request
-- [ ] Person responsible for receiving and responding to website requests
+- [x] Preferred lead workflow — send website requests to `ben@eternityhvacr.com`
+- [ ] Person responsible for receiving and responding to website requests — presumed to be Ben; confirm role and responsibility
 
 ## Business profile information
 
@@ -71,7 +71,7 @@ For every offered service, provide any equipment types, brands, limitations and 
 Provide a verified list of:
 
 - [ ] Primary city
-- [ ] Primary county or counties
+- [x] Primary county or counties — Cuyahoga County
 - [ ] All cities regularly served
 - [ ] ZIP codes regularly served
 - [ ] Maximum normal travel radius
@@ -79,7 +79,7 @@ Provide a verified list of:
 - [ ] Areas excluded from service
 - [ ] After-hours travel limitations
 
-We will not publish city pages until the business confirms it genuinely serves those locations.
+General coverage is confirmed as Cuyahoga County and surrounding Cleveland metropolitan areas. We will not publish city pages until the business confirms the exact cities it genuinely serves.
 
 ## Reviews and reputation
 
