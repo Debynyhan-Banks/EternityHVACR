@@ -20,18 +20,19 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current status:** Ready
 
-**Next action:** Begin the Phase 1 technical release using the confirmed email, hours and service-area-business details. Before publishing location pages or license claims, Eternity must still supply the exact cities/ZIP codes, license language, insurance language and Google Business Profile status.
+**Next action:** Begin the Phase 1 website release: connect the request form to Ben, publish the confirmed email and hours, replace the 24/7 promise with accurate emergency-service language, remove placeholders, and add robots, sitemap and business structured data.
 
 ## Phase 1 information blockers
 
 - [x] Service-request email destination — `ben@eternityhvacr.com`
 - [x] Confirmed business email — `ben@eternityhvacr.com`
 - [x] Confirmed hours — Monday–Friday 7:00 a.m.–7:00 p.m.; Saturday 9:00 a.m.–5:00 p.m.; Sunday closed
-- [ ] Confirmation of the 24/7 emergency-service claim
+- [x] Emergency service outside normal hours — confirmed; exact 24/7 coverage remains unconfirmed
 - [x] Business address or service-area-business preference — service-area business
-- [ ] Approved cities and ZIP codes
-- [ ] License and insurance language
-- [ ] Google Business Profile URL
+- [x] General service area — Cleveland, Cuyahoga County suburbs and surrounding metro ZIP codes
+- [ ] Exact city and ZIP-code list for location pages and service-area checker
+- [x] License and insurance language — license #28303; insured
+- [x] Google Business Profile share URL — `https://share.google/1bUl6S4x9x90TJ7Mf`
 - [ ] Expected response time for requests
 
 Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md)
@@ -43,10 +44,10 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | Baseline | Custom domain, SSL and public deployment | Complete | None | `eternityhvacr.com` is public over HTTPS |
 | Baseline | Mobile hero, phone links and social preview | Complete | Phone number | Verified on production |
 | Baseline | Readable typography update | Complete | None | Published August 20, 2026 |
-| 1 | Remove all public placeholder content | Waiting on Eternity | Business facts and approvals | No internal notes visible publicly |
+| 1 | Remove all public placeholder content | Ready | Core business facts confirmed | No internal notes visible publicly |
 | 1 | Functional service-request delivery | Ready | Destination confirmed as `ben@eternityhvacr.com` | End-to-end test request received |
 | 1 | Robots and XML sitemap | Ready | None | Both production URLs return HTTP 200 |
-| 1 | Business structured data | Waiting on Eternity | NAP, hours, service area, credentials | Rich Results Test has no critical errors |
+| 1 | Business structured data | Ready | Core business facts confirmed | Rich Results Test has no critical errors |
 | 1 | Google Search Console | Waiting on Eternity | Account access | Domain verified and sitemap accepted |
 | 1 | Bing Webmaster and IndexNow | Waiting on Eternity | Account access | Domain verified and test URL submitted |
 | 1 | Conversion analytics | Waiting on Eternity | Analytics account choice | Call and form events visible |
@@ -102,6 +103,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-20 | Increased typography sizes | Readability update published | Begin SEO/GEO foundation |
 | 2026-08-20 | Created roadmap, intake checklist and progress tracker | Planning system established | Collect Phase 1 business information |
 | 2026-08-20 | Recorded email, hours and service-area-business details | Phase 1 technical work is ready to begin | Confirm remaining business and service-area facts |
+| 2026-08-20 | Recorded license, insurance, emergency service, lead manager and Google profile | Core Phase 1 business facts confirmed | Begin the Phase 1 website release |
 
 ## Decision log
 

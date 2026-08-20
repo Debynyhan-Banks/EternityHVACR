@@ -14,9 +14,14 @@ This document is the source of truth for approved public business details used i
 | Public phone | 216-253-6468 |
 | Public email | `ben@eternityhvacr.com` |
 | Service-request destination | `ben@eternityhvacr.com` |
+| Service-request manager | Ben |
 | Business type | Service-area business |
 | Address presentation | Do not publish a customer-facing street address unless later approved |
-| Primary coverage | All of Cuyahoga County and surrounding Cleveland metropolitan areas |
+| Primary coverage | Cleveland, all Cuyahoga County suburbs and surrounding Cleveland metropolitan ZIP codes |
+| License | License #28303 |
+| Insurance | Insured |
+| Emergency service | Available outside normal business hours |
+| Google Business Profile | `https://share.google/1bUl6S4x9x90TJ7Mf` |
 | Monday–Friday hours | 7:00 a.m.–7:00 p.m. |
 | Saturday hours | 9:00 a.m.–5:00 p.m. |
 | Sunday hours | Closed |
@@ -24,22 +29,22 @@ This document is the source of truth for approved public business details used i
 ## Interpretation notes
 
 - The repeated email supplied by Eternity is recorded as both the public email and the service-request destination.
-- “Surrounding metro areas” is suitable for general website copy, but exact cities and ZIP codes are still required before publishing location pages or a ZIP-code service checker.
-- The supplied hours do not confirm 24/7 emergency availability. The website must not promise 24/7 service unless Eternity explicitly approves that claim.
+- Cleveland, Cuyahoga County and all surrounding suburbs are approved for general website copy. An exact city and ZIP-code list is still required before publishing location pages or a ZIP-code service checker.
+- Emergency service is confirmed outside normal hours. Exact 24/7 coverage and expected response time remain unconfirmed, so public copy should say “Emergency service available” rather than promise 24/7 response.
 - Being a service-area business means the website can describe the service region without publishing a customer-facing street address.
+- The Google share link was supplied by Eternity and redirects through Google's sharing service. Keep it as the approved profile link unless a permanent Maps or Business Profile URL is later supplied.
 
 ## Still needed
 
-- [ ] Confirm whether any after-hours or emergency service exists outside the listed hours
+- [ ] Confirm whether emergency service is continuously available 24/7 or subject to availability
 - [ ] Expected response time for normal requests
 - [ ] Expected response time for urgent requests
 - [ ] Exact cities regularly served
 - [ ] ZIP codes regularly served
 - [ ] Maximum normal travel radius
 - [ ] Areas served only for commercial work
-- [ ] HVAC/R license numbers approved for publication
-- [ ] Insurance or bonding statement approved for publication
-- [ ] Google Business Profile URL or confirmation that a profile must be created
+- [ ] Confirm the license type and issuing jurisdiction for license #28303
+- [ ] Provide a permanent Google Maps or Business Profile URL if preferred over the supplied share link
 - [ ] Year founded
 - [ ] Owner/founder name, title and biography
 - [ ] Approved minority-owned statement and any certifications

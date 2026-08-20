@@ -12,16 +12,16 @@ Please provide these first:
 - [x] Exact public business name — Eternity Mechanical Services LLC
 - [x] Legal business name — Eternity Mechanical Services LLC
 - [x] Business hours by day — Monday–Friday 7:00 a.m.–7:00 p.m.; Saturday 9:00 a.m.–5:00 p.m.; Sunday closed
-- [ ] Whether 24/7 emergency service is genuinely available
+- [x] Emergency service outside normal hours — available; exact 24/7 coverage remains to be confirmed
 - [ ] Expected response time for normal and emergency requests
 - [x] Physical business address or confirmation that Eternity is a service-area business — service-area business
 - [x] Primary service region — all of Cuyahoga County and surrounding Cleveland metropolitan areas
-- [ ] Confirmed cities and ZIP codes served
-- [ ] HVAC/R license numbers that may be published
-- [ ] Insurance or bonding statement that may be published
-- [ ] Google Business Profile URL or confirmation that it must be created
+- [x] General cities and ZIP-code coverage — Cleveland, all surrounding suburbs and surrounding metropolitan ZIP codes
+- [x] HVAC/R license number that may be published — license #28303
+- [x] Insurance statement that may be published — insured
+- [x] Google Business Profile share link — `https://share.google/1bUl6S4x9x90TJ7Mf`
 - [x] Preferred lead workflow — send website requests to `ben@eternityhvacr.com`
-- [ ] Person responsible for receiving and responding to website requests — presumed to be Ben; confirm role and responsibility
+- [x] Person responsible for receiving and responding to website requests — Ben
 
 ## Business profile information
 
@@ -62,7 +62,7 @@ Mark each item as offered, not offered or planned:
 - [ ] Multifamily HVAC
 - [ ] New construction
 - [ ] Preventive-maintenance agreements
-- [ ] Emergency service
+- [x] Emergency service
 
 For every offered service, provide any equipment types, brands, limitations and typical customer categories.
 
@@ -72,8 +72,10 @@ Provide a verified list of:
 
 - [ ] Primary city
 - [x] Primary county or counties — Cuyahoga County
-- [ ] All cities regularly served
-- [ ] ZIP codes regularly served
+- [x] General city coverage — Cleveland and all surrounding suburbs
+- [x] General ZIP coverage — surrounding Cleveland metropolitan ZIP codes
+- [ ] Exact cities regularly served, for location-page planning
+- [ ] Exact ZIP codes regularly served, for the service-area checker
 - [ ] Maximum normal travel radius
 - [ ] Areas served only for commercial work
 - [ ] Areas excluded from service

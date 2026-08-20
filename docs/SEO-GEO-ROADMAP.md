@@ -263,7 +263,7 @@ Features should not be published until Eternity has a person and process respons
 
 ## Recommended implementation order
 
-1. Use the confirmed public email, hours and service-area-business details; collect the remaining Phase 1 facts.
+1. Use the confirmed public email, hours, service area, license, insurance and emergency-service details; collect the remaining exact city/ZIP data.
 2. Remove placeholders and repair the service-request workflow.
 3. Add robots, sitemap and structured data.
 4. Connect Search Console, Google Business Profile and Bing.
