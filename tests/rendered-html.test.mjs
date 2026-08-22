@@ -138,3 +138,15 @@ test("sends a branded confirmation to the customer after internal delivery", asy
   assert.match(source, /customer_confirmation/);
   assert.match(source, /confirmationSent: true/);
 });
+
+test("keeps client and server service-request validation aligned", async () => {
+  const [component, route] = await Promise.all([
+    readFile(new URL("../app/components/ServiceRequest.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/api/service-request/route.ts", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(component, /data\.details\.trim\(\)\.length >= 10/);
+  assert.match(component, /data\.phone\.replace\(\/\\D\/g, ""\)\.length >= 7/);
+  assert.match(component, /result\.error/);
+  assert.doesNotMatch(route, /elapsed > 24/);
+});

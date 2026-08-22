@@ -117,6 +117,7 @@ body .maintenance-image>img{object-position:left center}
 .request-complete>a{margin-top:14px;color:var(--blue);font-size:14px;font-weight:800;text-decoration:underline;text-underline-offset:4px}
 .request-form>small{font-size:11px;line-height:1.5}
 .form-honeypot{position:absolute!important;left:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important}.form-error{margin:0 0 14px;padding:12px 14px;border-left:4px solid #c2410c;background:#fff1e8;color:#7c2d12;font-size:13px;line-height:1.5}.form-error a{font-weight:900;text-decoration:underline;text-underline-offset:3px}
+.field-hint{color:#667085;font-size:9px;font-weight:600;letter-spacing:0;text-transform:none}
 .emergency>div:first-child>p:not(.kicker){font-size:16px;line-height:1.7}
 .emergency small{font-size:12px;line-height:1.5}
 .footer-brand>p{font-size:14px}

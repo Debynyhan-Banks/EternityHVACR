@@ -326,7 +326,7 @@ export async function POST(request: Request) {
   const startedAt = typeof payload.startedAt === "number" ? payload.startedAt : 0;
   const elapsed = Date.now() - startedAt;
 
-  if (website || !startedAt || elapsed < 1500 || elapsed > 24 * 60 * 60 * 1000) {
+  if (website || !startedAt || elapsed < 1500) {
     return Response.json({ error: "Unable to validate this request." }, { status: 400 });
   }
 

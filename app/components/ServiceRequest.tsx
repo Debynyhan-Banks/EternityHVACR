@@ -49,12 +49,13 @@ export default function ServiceRequest() {
         body: JSON.stringify({ ...data, startedAt }),
       });
 
-      const result = await response.json() as { confirmationSent?: boolean };
-      if (!response.ok) throw new Error("Request delivery failed");
+      const result = await response.json() as { error?: string; confirmationSent?: boolean };
+      if (!response.ok) throw new Error(result.error || "We couldn’t send your request. Please try again.");
       setConfirmationSent(result.confirmationSent !== false);
       setComplete(true);
-    } catch {
-      setError("We couldn’t send your request. Please try again, call 216-253-6468, or email Ben directly.");
+    } catch (reason) {
+      const message = reason instanceof Error ? reason.message : "We couldn’t send your request. Please try again.";
+      setError(`${message} You can also call 216-253-6468 or email Ben directly.`);
     } finally {
       setSubmitting(false);
     }
@@ -80,8 +81,12 @@ export default function ServiceRequest() {
   const ready = step === 0
     ? Boolean(data.service && data.customer)
     : step === 1
-      ? Boolean(data.timing && data.details)
-      : Boolean(data.name && data.phone && data.email);
+      ? Boolean(data.timing && data.details.trim().length >= 10)
+      : Boolean(
+          data.name.trim().length >= 2
+          && data.phone.replace(/\D/g, "").length >= 7
+          && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim()),
+        );
 
   return (
     <form className="request-form" onSubmit={submit}>
@@ -103,14 +108,14 @@ export default function ServiceRequest() {
         <legend>Tell us what’s happening.</legend>
         <p>Share enough detail for the team to understand the equipment and urgency.</p>
         <label className="field-label">When do you need service?<select value={data.timing} onChange={(event) => update("timing", event.target.value)} required><option value="" disabled>Select timing</option><option>Emergency / system down</option><option>As soon as available</option><option>This week</option><option>Planning an estimate</option><option>Routine maintenance</option></select></label>
-        <label className="field-label">Equipment or issue<textarea value={data.details} onChange={(event) => update("details", event.target.value)} placeholder="Tell us what equipment is affected, what you are noticing, and any access details." required /></label>
+        <label className="field-label">Equipment or issue<textarea value={data.details} minLength={10} onChange={(event) => update("details", event.target.value)} placeholder="Tell us what equipment is affected, what you are noticing, and any access details." required /><small className="field-hint">Please enter at least 10 characters.</small></label>
         {data.timing === "Emergency / system down" && <div className="urgent-note"><b>Emergency request:</b> call <a href="tel:+12162536468">216-253-6468</a> for immediate assistance.</div>}
       </fieldset>}
 
       {step === 2 && <fieldset>
         <legend>How should we contact you?</legend>
         <p>We’ll use these details only to follow up about your request.</p>
-        <div className="contact-fields"><label className="field-label">Name<input value={data.name} onChange={(event) => update("name", event.target.value)} placeholder="Full name" required /></label><label className="field-label">Phone<input value={data.phone} type="tel" onChange={(event) => update("phone", event.target.value)} placeholder="Phone number" required /></label><label className="field-label full">Email<input value={data.email} type="email" onChange={(event) => update("email", event.target.value)} placeholder="Email address" required /></label></div>
+        <div className="contact-fields"><label className="field-label">Name<input value={data.name} minLength={2} onChange={(event) => update("name", event.target.value)} placeholder="Full name" required /></label><label className="field-label">Phone<input value={data.phone} type="tel" onChange={(event) => update("phone", event.target.value)} placeholder="Phone number" required /><small className="field-hint">Enter at least 7 digits.</small></label><label className="field-label full">Email<input value={data.email} type="email" onChange={(event) => update("email", event.target.value)} placeholder="Email address" required /></label></div>
         <label className="form-honeypot" aria-hidden="true">Website<input value={data.website} onChange={(event) => update("website", event.target.value)} tabIndex={-1} autoComplete="off" /></label>
         <div className="request-summary"><span>{data.service}</span><span>{data.customer}</span><span>{data.timing}</span></div>
       </fieldset>}

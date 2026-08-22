@@ -110,6 +110,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-22 | Published and tested direct website service requests | Production endpoint accepted the test and Resend reported delivery to `ben@eternityhvacr.com` | Have Ben confirm the message is visible in his inbox |
 | 2026-08-22 | Confirmed delivery and branded the service-request email | Ben received the production test; notification now has branded hierarchy and one-click reply/call actions | Connect conversion analytics and webmaster reporting |
 | 2026-08-22 | Added automatic customer confirmation emails | Customers receive a branded request summary, next-step guidance and direct contact information after successful form delivery | Verify the production confirmation, then connect conversion analytics |
+| 2026-08-22 | Diagnosed and corrected a form validation mismatch | Live logs showed a 400 response before email delivery; client checks now match the server and display the specific error | Republish and retest the production form |
 
 ## Decision log
 
