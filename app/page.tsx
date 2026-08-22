@@ -74,13 +74,17 @@ export default function Home() {
 
     <section className="diagnostic branded-section" id="diagnostics">
       <div className="diagnostic-copy"><p className="kicker light">A better service process</p><h2>Diagnose First.<br />Recommend Second.</h2><p>Professional HVAC service should begin with evidence. Eternity Mechanical Services evaluates system operation, electrical performance, temperatures, airflow, refrigerant conditions and equipment condition before recommending repairs.</p><blockquote>Measured. Diagnosed. Documented.</blockquote><a className="btn btn-orange" href="#schedule">Schedule diagnostics <span>→</span></a></div>
-      <div className="diagnostic-display">
-        <p className="example-label">Example diagnostic visualization</p>
-        <div className="dash-top"><div><small>System status</small><b>Technical evaluation</b></div><span><i /> In progress</span></div>
-        <div className="dash-temp"><div><small>Supply temperature</small><strong>—°</strong></div><div><small>Return temperature</small><strong>—°</strong></div><div><small>Temperature split</small><strong>—°</strong></div></div>
-        <div className="dash-grid"><span><small>System pressure</small><b>Measure</b></span><span><small>Superheat</small><b>Measure</b></span><span><small>Subcooling</small><b>Measure</b></span><span><small>Voltage</small><b>Verify</b></span><span><small>Amp draw</small><b>Verify</b></span><span><small>Airflow</small><b>Inspect</b></span></div>
-        <div className="dash-bottom"><span>Equipment condition</span><b>Document findings</b></div>
-      </div>
+      <figure className="diagnostic-display diagnostic-report">
+        <img
+          src="/images/system-diagnostic-report.webp"
+          alt="Illustrative Eternity Mechanical system diagnostic report showing equipment readings, observations, and recommendations"
+          width="1001"
+          height="709"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption>Example customer-facing diagnostic report</figcaption>
+      </figure>
     </section>
 
     <section className="section process"><div className="center-head"><p className="kicker">Our process</p><h2>Professional Service From Start to Finish</h2><p>Clear steps, useful communication and accountable work.</p></div><div className="process-grid">{process.map(([number,title,copy]) => <article key={number}><span>{number}</span><i /><h3>{title}</h3><p>{copy}</p></article>)}</div></section>
