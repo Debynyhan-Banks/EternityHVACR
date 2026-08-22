@@ -41,7 +41,17 @@ export default function Home() {
         <div className="hero-trust"><span>✓ Licensed contractor</span><span>✓ Residential & commercial</span><span>✓ Professional diagnostics</span><span>✓ Preventive maintenance</span></div>
       </div>
       <div className="hero-media">
-        <img src="/images/hero-technician-black.jpg" alt="Black skilled trades professional servicing an electrical control system" />
+        <picture>
+          <source media="(max-width: 700px)" srcSet="/images/hero-eternity-technician-mobile.jpg" />
+          <img
+            src="/images/hero-eternity-technician.jpg"
+            alt="Eternity Mechanical Services technician servicing an indoor HVAC air handler"
+            width="1440"
+            height="1440"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
         <div className="media-label"><span><i /> Technical service</span><b>Measured before recommended.</b></div>
         <div className="metric-card"><p>System evaluation</p><div><span>Electrical</span><i>Verified</i></div><div><span>Temperature</span><i>Measured</i></div><div><span>Operation</span><i>Documented</i></div></div>
         <i className="hero-line line-one" /><i className="hero-line line-two" />
