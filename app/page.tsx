@@ -76,7 +76,7 @@ export default function Home() {
       <div className="diagnostic-copy"><p className="kicker light">A better service process</p><h2>Diagnose First.<br />Recommend Second.</h2><p>Professional HVAC service should begin with evidence. Eternity Mechanical Services evaluates system operation, electrical performance, temperatures, airflow, refrigerant conditions and equipment condition before recommending repairs.</p><blockquote>Measured. Diagnosed. Documented.</blockquote><a className="btn btn-orange" href="#schedule">Schedule diagnostics <span>→</span></a></div>
       <figure className="diagnostic-display diagnostic-report">
         <img
-          src="/images/system-diagnostic-report.webp"
+          src="/images/system-diagnostic-report.jpg"
           alt="Illustrative Eternity Mechanical system diagnostic report showing equipment readings, observations, and recommendations"
           width="1001"
           height="709"
