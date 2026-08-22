@@ -10,6 +10,7 @@ type RequestData = {
   name: string;
   phone: string;
   email: string;
+  website: string;
 };
 
 const initial: RequestData = {
@@ -20,36 +21,52 @@ const initial: RequestData = {
   name: "",
   phone: "",
   email: "",
+  website: "",
 };
 
 export default function ServiceRequest() {
   const [step, setStep] = useState(0);
   const [data, setData] = useState<RequestData>(initial);
   const [complete, setComplete] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+  const [startedAt, setStartedAt] = useState(() => Date.now());
 
   function update<K extends keyof RequestData>(key: K, value: RequestData[K]) {
     setData((current) => ({ ...current, [key]: value }));
   }
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const subject = encodeURIComponent(`Eternity Mechanical service request — ${data.service}`);
-    const body = encodeURIComponent(
-      `Service: ${data.service}\nCustomer type: ${data.customer}\nTiming: ${data.timing}\nDetails: ${data.details}\nName: ${data.name}\nPhone: ${data.phone}\nEmail: ${data.email}`,
-    );
-    setComplete(true);
-    window.location.href = `mailto:ben@eternityhvacr.com?subject=${subject}&body=${body}`;
+    setSubmitting(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/service-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...data, startedAt }),
+      });
+
+      if (!response.ok) throw new Error("Request delivery failed");
+      setComplete(true);
+    } catch {
+      setError("We couldn’t send your request. Please try again, call 216-253-6468, or email Ben directly.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   if (complete) {
     return (
       <div className="request-form request-complete" role="status">
         <span>✓</span>
-        <p className="form-eyebrow">Request prepared</p>
-        <h3>Your service details are ready.</h3>
-        <p>Your email application should open with the request addressed to Ben at Eternity Mechanical Services. Review the details and press send.</p>
+        <p className="form-eyebrow">Request sent</p>
+        <h3>Thank you. Your request is with Eternity.</h3>
+        <p>Ben and the Eternity Mechanical Services team can review your details and contact you using the information provided.</p>
+        <a href="tel:+12162536468">For urgent service, call 216-253-6468</a>
         <a href="mailto:ben@eternityhvacr.com">Email ben@eternityhvacr.com directly</a>
-        <button type="button" onClick={() => { setComplete(false); setStep(0); setData(initial); }}>Start another request</button>
+        <button type="button" onClick={() => { setComplete(false); setStep(0); setData(initial); setStartedAt(Date.now()); }}>Start another request</button>
       </div>
     );
   }
@@ -88,12 +105,15 @@ export default function ServiceRequest() {
         <legend>How should we contact you?</legend>
         <p>We’ll use these details only to follow up about your request.</p>
         <div className="contact-fields"><label className="field-label">Name<input value={data.name} onChange={(event) => update("name", event.target.value)} placeholder="Full name" required /></label><label className="field-label">Phone<input value={data.phone} type="tel" onChange={(event) => update("phone", event.target.value)} placeholder="Phone number" required /></label><label className="field-label full">Email<input value={data.email} type="email" onChange={(event) => update("email", event.target.value)} placeholder="Email address" required /></label></div>
+        <label className="form-honeypot" aria-hidden="true">Website<input value={data.website} onChange={(event) => update("website", event.target.value)} tabIndex={-1} autoComplete="off" /></label>
         <div className="request-summary"><span>{data.service}</span><span>{data.customer}</span><span>{data.timing}</span></div>
       </fieldset>}
 
+      {error && <div className="form-error" role="alert">{error} <a href="mailto:ben@eternityhvacr.com">Email Ben</a></div>}
+
       <div className="form-actions">
-        {step > 0 && <button className="form-back" type="button" onClick={() => setStep((value) => value - 1)}>← Back</button>}
-        {step < 2 ? <button className="form-next" type="button" disabled={!ready} onClick={() => setStep((value) => value + 1)}>Continue <span>→</span></button> : <button className="form-next" type="submit" disabled={!ready}>Email request to Ben <span>↗</span></button>}
+        {step > 0 && <button className="form-back" type="button" disabled={submitting} onClick={() => setStep((value) => value - 1)}>← Back</button>}
+        {step < 2 ? <button className="form-next" type="button" disabled={!ready} onClick={() => setStep((value) => value + 1)}>Continue <span>→</span></button> : <button className="form-next" type="submit" disabled={!ready || submitting}>{submitting ? "Sending request…" : "Send request to Eternity"} <span>↗</span></button>}
       </div>
       <small>Appointment availability and service details are confirmed by Eternity Mechanical Services.</small>
     </form>

@@ -1,21 +1,14 @@
 import assert from "node:assert/strict";
-import { access, readFile, readdir } from "node:fs/promises";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-const developmentPreviewMeta =
-  /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
-const templateRoot = new URL("../", import.meta.url);
-const previewRoot = new URL("../app/_sites-preview/", import.meta.url);
-
-async function render() {
+async function dispatch(request) {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
-  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}-${request.url}`);
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("http://localhost/", {
-      headers: { accept: "text/html" },
-    }),
+    request,
     {
       ASSETS: {
         fetch: async () => new Response("Not found", { status: 404 }),
@@ -28,64 +21,97 @@ async function render() {
   );
 }
 
-test("server-renders the starter loading skeleton", async () => {
+async function render(pathname = "/") {
+  return dispatch(new Request(`https://eternityhvacr.com${pathname}`, {
+    headers: { accept: "text/html" },
+  }));
+}
+
+test("renders the Eternity homepage with approved business information", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
 
   const html = await response.text();
-  assert.match(html, developmentPreviewMeta);
-  assert.match(html, /<title>Your site is taking shape<\/title>/i);
-  assert.match(html, /Building your site/);
-  assert.match(html, /Your site is taking shape/);
-  assert.match(
-    html,
-    /Your first version will appear here automatically when it’s ready\./,
-  );
-  assert.doesNotMatch(html, /Codex/);
-  assert.match(html, /react-loading-skeleton/);
-  assert.match(html, /role="status"/);
+  assert.match(html, /<title>Eternity Mechanical Services \| HVAC &amp; Mechanical Contractor<\/title>/i);
+  assert.match(html, /<link rel="canonical" href="https:\/\/eternityhvacr\.com"\s*\/>/i);
+  assert.match(html, /Built for Comfort\./);
+  assert.match(html, /216-253-6468/);
+  assert.match(html, /ben@eternityhvacr\.com/);
+  assert.match(html, /License #28303/);
+  assert.match(html, /Cuyahoga County/);
+  assert.match(html, /system-diagnostic-report\.jpg/);
+  assert.doesNotMatch(html, /Your site is taking shape|Building your site|Lorem ipsum/i);
 });
 
-test("keeps the loading skeleton scoped and disposable", async () => {
-  const [preview, css, page, layout, packageJson, files] = await Promise.all([
-    readFile(new URL("SkeletonPreview.tsx", previewRoot), "utf8"),
-    readFile(new URL("preview.css", previewRoot), "utf8"),
-    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../package.json", import.meta.url), "utf8"),
-    readdir(previewRoot),
+test("includes indexable metadata and structured business data", async () => {
+  const response = await render();
+  const html = await response.text();
+
+  assert.match(html, /<meta name="robots" content="index, follow"\s*\/>/i);
+  assert.match(html, /<script type="application\/ld\+json">/i);
+  assert.match(html, /&quot;HVACBusiness&quot;|"HVACBusiness"/);
+  assert.match(html, /&quot;Organization&quot;|"Organization"/);
+  assert.match(html, /&quot;WebSite&quot;|"WebSite"/);
+  assert.match(html, /https:\/\/share\.google\/1bUl6S4x9x90TJ7Mf/);
+});
+
+test("publishes crawler files with the canonical sitemap", async () => {
+  const [robots, sitemap] = await Promise.all([
+    readFile(new URL("../public/robots.txt", import.meta.url), "utf8"),
+    readFile(new URL("../public/sitemap.xml", import.meta.url), "utf8"),
   ]);
 
-  assert.deepEqual(files.sort(), ["SkeletonPreview.tsx", "preview.css"]);
-  assert.match(preview, /from "react-loading-skeleton"/);
-  assert.match(preview, /baseColor="#eceae7"/);
-  assert.match(preview, /highlightColor="#f9f8f6"/);
-  assert.match(preview, /duration=\{2\.8\}/);
-  assert.match(preview, /sites-skeleton-search-placeholder/);
-  assert.match(packageJson, /"react-loading-skeleton": "3\.5\.0"/);
+  assert.match(robots, /User-agent: OAI-SearchBot[\s\S]*Allow: \//);
+  assert.match(robots, /Sitemap: https:\/\/eternityhvacr\.com\/sitemap\.xml/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/<\/loc>/);
+  assert.match(sitemap, /system-diagnostic-report\.jpg|hero-technician-black\.jpg/);
+});
 
-  const shellIndex = preview.indexOf('className="sites-skeleton-shell"');
-  const statusIndex = preview.indexOf('className="sites-skeleton-status"');
-  assert.ok(shellIndex >= 0 && statusIndex > shellIndex);
-  assert.match(css, /position:\s*fixed/);
-  assert.match(css, /inset:\s*0/);
-  assert.match(css, /opacity:\s*0\.52/);
-  assert.match(css, /prefers-reduced-motion:\s*reduce/);
-  assert.doesNotMatch(css, /#020617|canvas|pets|progress/i);
-  assert.doesNotMatch(
-    preview,
-    /loading-spinner|status-mark|status-progress|canvas|cookie|random/i,
-  );
+test("rejects invalid and cross-origin service requests", async () => {
+  const crossOrigin = await dispatch(new Request("https://eternityhvacr.com/api/service-request", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Origin: "https://example.com",
+      "x-forwarded-for": "192.0.2.10",
+    },
+    body: JSON.stringify({}),
+  }));
+  assert.equal(crossOrigin.status, 403);
 
-  assert.match(page, /export const metadata:\s*Metadata/);
-  assert.match(page, /"codex-preview": "development"/);
-  assert.match(page, /<SkeletonPreview \/>/);
-  assert.match(layout, /title:\s*"Starter Project"/);
-  assert.doesNotMatch(layout, /codex-preview|_sites-preview|themeColor|\bViewport\b/);
-  assert.doesNotMatch(css, /(^|\s)(html|body)\s*\{/m);
+  const invalid = await dispatch(new Request("https://eternityhvacr.com/api/service-request", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Origin: "https://eternityhvacr.com",
+      "x-forwarded-for": "192.0.2.11",
+    },
+    body: JSON.stringify({ startedAt: Date.now() }),
+  }));
+  assert.equal(invalid.status, 400);
+});
 
-  await assert.rejects(
-    access(new URL("public/_sites-preview", templateRoot)),
-  );
+test("keeps delivery unavailable until the server-side email key is configured", async () => {
+  const response = await dispatch(new Request("https://eternityhvacr.com/api/service-request", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Origin: "https://eternityhvacr.com",
+      "x-forwarded-for": "192.0.2.12",
+    },
+    body: JSON.stringify({
+      service: "Air conditioning",
+      customer: "My home",
+      timing: "This week",
+      details: "The system is running but the home is not cooling.",
+      name: "Test Customer",
+      phone: "216-555-0100",
+      email: "test@example.com",
+      website: "",
+      startedAt: Date.now() - 2000,
+    }),
+  }));
+
+  assert.equal(response.status, 503);
 });
