@@ -30,6 +30,7 @@ export default function ServiceRequest() {
   const [complete, setComplete] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const [confirmationSent, setConfirmationSent] = useState(true);
   const [startedAt, setStartedAt] = useState(() => Date.now());
 
   function update<K extends keyof RequestData>(key: K, value: RequestData[K]) {
@@ -48,7 +49,9 @@ export default function ServiceRequest() {
         body: JSON.stringify({ ...data, startedAt }),
       });
 
+      const result = await response.json() as { confirmationSent?: boolean };
       if (!response.ok) throw new Error("Request delivery failed");
+      setConfirmationSent(result.confirmationSent !== false);
       setComplete(true);
     } catch {
       setError("We couldn’t send your request. Please try again, call 216-253-6468, or email Ben directly.");
@@ -64,9 +67,12 @@ export default function ServiceRequest() {
         <p className="form-eyebrow">Request sent</p>
         <h3>Thank you. Your request is with Eternity.</h3>
         <p>Ben and the Eternity Mechanical Services team can review your details and contact you using the information provided.</p>
+        {confirmationSent
+          ? <p>A confirmation email has been sent to {data.email}.</p>
+          : <p>Your request was delivered, but we could not send the confirmation email. Please save this page or contact Eternity directly if needed.</p>}
         <a href="tel:+12162536468">For urgent service, call 216-253-6468</a>
         <a href="mailto:ben@eternityhvacr.com">Email ben@eternityhvacr.com directly</a>
-        <button type="button" onClick={() => { setComplete(false); setStep(0); setData(initial); setStartedAt(Date.now()); }}>Start another request</button>
+        <button type="button" onClick={() => { setComplete(false); setStep(0); setData(initial); setConfirmationSent(true); setStartedAt(Date.now()); }}>Start another request</button>
       </div>
     );
   }

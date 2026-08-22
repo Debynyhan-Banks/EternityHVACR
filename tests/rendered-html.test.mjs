@@ -127,3 +127,14 @@ test("uses a branded and actionable service-request email", async () => {
   assert.match(source, /Call customer/);
   assert.match(source, /role="presentation"/);
 });
+
+test("sends a branded confirmation to the customer after internal delivery", async () => {
+  const source = await readFile(new URL("../app/api/service-request/route.ts", import.meta.url), "utf8");
+
+  assert.match(source, /We received your service request \| Eternity Mechanical Services/);
+  assert.match(source, /Request received/);
+  assert.match(source, /What happens next/);
+  assert.match(source, /Appointment availability and service details are confirmed directly/);
+  assert.match(source, /customer_confirmation/);
+  assert.match(source, /confirmationSent: true/);
+});
