@@ -115,3 +115,15 @@ test("keeps delivery unavailable until the server-side email key is configured",
 
   assert.equal(response.status, 503);
 });
+
+test("uses a branded and actionable service-request email", async () => {
+  const source = await readFile(new URL("../app/api/service-request/route.ts", import.meta.url), "utf8");
+
+  assert.match(source, /ETERNITY/);
+  assert.match(source, /MECHANICAL SERVICES/);
+  assert.match(source, /background:#071b3c/);
+  assert.match(source, /border-bottom:5px solid #f47a38/);
+  assert.match(source, /Reply to customer/);
+  assert.match(source, /Call customer/);
+  assert.match(source, /role="presentation"/);
+});

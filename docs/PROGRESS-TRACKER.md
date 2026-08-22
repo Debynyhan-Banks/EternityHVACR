@@ -18,9 +18,9 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current milestone:** Phase 1 — Search and lead foundation
 
-**Current status:** In review
+**Current status:** In progress
 
-**Next action:** Have Ben confirm that the production test request is visible in `ben@eternityhvacr.com`, then continue the remaining Phase 1 search, analytics and performance work.
+**Next action:** Connect conversion analytics and the webmaster accounts, then complete the mobile performance review.
 
 ## Phase 1 information blockers
 
@@ -45,7 +45,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | Baseline | Mobile hero, phone links and social preview | Complete | Phone number | Verified on production |
 | Baseline | Readable typography update | Complete | None | Published August 20, 2026 |
 | 1 | Remove all public placeholder content | Complete | Core business facts confirmed | Verified on production August 22, 2026 |
-| 1 | Functional service-request delivery | In review | Resend sender domain and destination confirmed as `ben@eternityhvacr.com` | Resend reports the production test delivered; awaiting Ben's inbox confirmation |
+| 1 | Functional service-request delivery | Complete | Resend sender domain and destination confirmed as `ben@eternityhvacr.com` | Ben confirmed the production test email was received August 22, 2026 |
 | 1 | Robots and XML sitemap | Complete | None | Both production URLs returned HTTP 200 on August 22, 2026 |
 | 1 | Business structured data | In review | Core business facts confirmed | Production source verified; Rich Results Test has no critical errors |
 | 1 | Google Search Console | Waiting on Eternity | Account access | Domain verified and sitemap accepted |
@@ -108,6 +108,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-22 | Verified the Phase 1 production release and replaced obsolete starter tests | Homepage, crawler files and latest diagnostic artwork are live; production build and site-specific checks pass | Connect direct service-request delivery and complete the end-to-end email test |
 | 2026-08-22 | Configured the Resend sending domain and built direct request delivery | `mail.eternityhvacr.com` verified; restricted sending key connected; server validation, spam controls and five automated checks pass | Publish and complete the production delivery test |
 | 2026-08-22 | Published and tested direct website service requests | Production endpoint accepted the test and Resend reported delivery to `ben@eternityhvacr.com` | Have Ben confirm the message is visible in his inbox |
+| 2026-08-22 | Confirmed delivery and branded the service-request email | Ben received the production test; notification now has branded hierarchy and one-click reply/call actions | Connect conversion analytics and webmaster reporting |
 
 ## Decision log
 
