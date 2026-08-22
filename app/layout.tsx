@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Eternity Mechanical Services | HVAC & Mechanical Contractor",
   description: "Professional HVAC, refrigeration, installation, repair and preventive maintenance for residential and commercial customers throughout Northeast Ohio.",
   alternates: { canonical: "/" },
+  robots: { index: true, follow: true },
   openGraph: {
     title: "Eternity Mechanical Services | HVAC/R in Northeast Ohio",
     description: "Built for Comfort. Engineered for Reliability.",
@@ -22,6 +23,71 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: "Eternity Mechanical Services | HVAC/R in Northeast Ohio", description: "Built for Comfort. Engineered for Reliability.", images: ["/og-eternity-hvacr.png"] },
 };
 
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": ["HVACBusiness", "Organization"],
+      "@id": "https://eternityhvacr.com/#business",
+      name: "Eternity Mechanical Services LLC",
+      url: "https://eternityhvacr.com",
+      logo: "https://eternityhvacr.com/images/eternity-logo.svg",
+      image: "https://eternityhvacr.com/og-eternity-hvacr.png",
+      telephone: "+1-216-253-6468",
+      email: "ben@eternityhvacr.com",
+      description: "Licensed and insured HVAC/R and mechanical contractor serving residential, commercial and multifamily customers throughout Greater Cleveland.",
+      identifier: {
+        "@type": "PropertyValue",
+        propertyID: "Contractor license",
+        value: "28303",
+      },
+      areaServed: [
+        { "@type": "City", name: "Cleveland" },
+        { "@type": "AdministrativeArea", name: "Cuyahoga County" },
+        { "@type": "AdministrativeArea", name: "Greater Cleveland metropolitan area" },
+      ],
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "07:00",
+          closes: "19:00",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: "Saturday",
+          opens: "09:00",
+          closes: "17:00",
+        },
+      ],
+      contactPoint: {
+        "@type": "ContactPoint",
+        telephone: "+1-216-253-6468",
+        email: "ben@eternityhvacr.com",
+        contactType: "customer service",
+        areaServed: "Greater Cleveland, Ohio",
+      },
+      knowsAbout: [
+        "Air conditioning",
+        "Heating",
+        "Commercial HVAC",
+        "Commercial refrigeration",
+        "Walk-in coolers",
+        "Multifamily HVAC",
+        "Preventive maintenance",
+      ],
+      sameAs: ["https://share.google/1bUl6S4x9x90TJ7Mf"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://eternityhvacr.com/#website",
+      url: "https://eternityhvacr.com",
+      name: "Eternity Mechanical Services",
+      publisher: { "@id": "https://eternityhvacr.com/#business" },
+    },
+  ],
+};
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body className={`${manrope.variable} ${inter.variable}`}>{children}</body></html>;
+  return <html lang="en"><body className={`${manrope.variable} ${inter.variable}`}><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} />{children}</body></html>;
 }

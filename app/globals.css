@@ -114,6 +114,7 @@ body .maintenance-image>img{object-position:left center}
 .urgent-note{font-size:13px;line-height:1.5}
 .request-summary span{font-size:12px}
 .form-back,.form-next,.request-complete button{font-size:14px}
+.request-complete>a{margin-top:14px;color:var(--blue);font-size:14px;font-weight:800;text-decoration:underline;text-underline-offset:4px}
 .request-form>small{font-size:11px;line-height:1.5}
 .emergency>div:first-child>p:not(.kicker){font-size:16px;line-height:1.7}
 .emergency small{font-size:12px;line-height:1.5}
