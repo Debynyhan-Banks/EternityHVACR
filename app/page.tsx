@@ -78,8 +78,8 @@ export default function Home() {
         <img
           src="/images/system-diagnostic-report.jpg"
           alt="Illustrative Eternity Mechanical system diagnostic report showing equipment readings, observations, and recommendations"
-          width="1001"
-          height="709"
+          width="1536"
+          height="1024"
           loading="lazy"
           decoding="async"
         />
