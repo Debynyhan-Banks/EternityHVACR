@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
+import AnalyticsEvents from "./components/Analytics";
 import "./globals.css";
+
+const GOOGLE_ANALYTICS_ID = "G-32W3PBPDBY";
 
 const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"] });
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
@@ -89,5 +92,20 @@ const businessSchema = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body className={`${manrope.variable} ${inter.variable}`}><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} />{children}</body></html>;
+  return (
+    <html lang="en">
+      <head>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`} />
+        <script dangerouslySetInnerHTML={{ __html: `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${GOOGLE_ANALYTICS_ID}');` }} />
+      </head>
+      <body className={`${manrope.variable} ${inter.variable}`}>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} />
+        <AnalyticsEvents />
+        {children}
+      </body>
+    </html>
+  );
 }

@@ -150,3 +150,18 @@ test("keeps client and server service-request validation aligned", async () => {
   assert.match(component, /result\.error/);
   assert.doesNotMatch(route, /elapsed > 24/);
 });
+
+test("installs Google Analytics and records lead actions without customer PII", async () => {
+  const [layout, analytics, form] = await Promise.all([
+    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/Analytics.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/ServiceRequest.tsx", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(layout, /G-32W3PBPDBY/);
+  assert.match(layout, /googletagmanager\.com\/gtag\/js/);
+  assert.match(form, /trackGoogleEvent\("generate_lead"/);
+  assert.match(analytics, /"phone_click"/);
+  assert.match(analytics, /"email_click"/);
+  assert.doesNotMatch(form, /trackGoogleEvent\([\s\S]{0,300}(?:data\.name|data\.phone|data\.email|data\.details)/);
+});

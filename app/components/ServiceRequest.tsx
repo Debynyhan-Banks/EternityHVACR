@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { trackGoogleEvent } from "./Analytics";
 
 type RequestData = {
   service: string;
@@ -52,6 +53,12 @@ export default function ServiceRequest() {
       const result = await response.json() as { error?: string; confirmationSent?: boolean };
       if (!response.ok) throw new Error(result.error || "We couldn’t send your request. Please try again.");
       setConfirmationSent(result.confirmationSent !== false);
+      trackGoogleEvent("generate_lead", {
+        lead_source: "website_service_request",
+        service_type: data.service,
+        customer_type: data.customer,
+        requested_timing: data.timing,
+      });
       setComplete(true);
     } catch (reason) {
       const message = reason instanceof Error ? reason.message : "We couldn’t send your request. Please try again.";
