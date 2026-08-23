@@ -20,7 +20,7 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current status:** In progress
 
-**Next action:** Verify the Google Analytics tag and lead events in Realtime, connect the webmaster accounts, then complete the mobile performance review.
+**Next action:** Connect Google Search Console and Bing Webmaster Tools, then complete the mobile performance review.
 
 ## Phase 1 information blockers
 
@@ -50,7 +50,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 1 | Business structured data | In review | Core business facts confirmed | Production source verified; Rich Results Test has no critical errors |
 | 1 | Google Search Console | Waiting on Eternity | Account access | Domain verified and sitemap accepted |
 | 1 | Bing Webmaster and IndexNow | Waiting on Eternity | Account access | Domain verified and test URL submitted |
-| 1 | Conversion analytics | In review | Google Analytics property created | Page views, successful service requests, phone clicks and email clicks are published; verify in Realtime |
+| 1 | Conversion analytics | Complete | Google Analytics property created | Corrected property ID published; Realtime showed the Eternity page view and active user on August 23, 2026 |
 | 1 | Responsive image optimization | In progress | None | Largest homepage photograph compressed; full mobile performance review remains |
 | 2 | Priority service pages | Waiting on Eternity | Confirmed services | Unique pages published and internally linked |
 | 2 | Market pages | Waiting on Eternity | Confirmed customer segments | Approved pages published |
@@ -112,6 +112,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-22 | Added automatic customer confirmation emails | Customers receive a branded request summary, next-step guidance and direct contact information after successful form delivery | Verify the production confirmation, then connect conversion analytics |
 | 2026-08-22 | Diagnosed and corrected a form validation mismatch | Live logs showed a 400 response before email delivery; client checks now match the server and display the specific error | Republish and retest the production form |
 | 2026-08-23 | Connected the Google Analytics property and lead events | Installed the verified Eternity property ID `G-32W3PBPD8Y`; successful requests, phone clicks and email clicks are measured without customer PII | Verify activity in Google Analytics Realtime |
+| 2026-08-23 | Verified Google Analytics collection | Corrected the misread measurement ID and confirmed an active user, page view, first visit and session start in Realtime | Connect Google Search Console and Bing Webmaster Tools |
 
 ## Decision log
 
