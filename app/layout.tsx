@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   description: "Professional HVAC, refrigeration, installation, repair and preventive maintenance for residential and commercial customers throughout Northeast Ohio.",
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
+  icons: { icon: "/favicon.svg" },
   openGraph: {
     title: "Eternity Mechanical Services | HVAC/R in Northeast Ohio",
     description: "Built for Comfort. Engineered for Reliability.",

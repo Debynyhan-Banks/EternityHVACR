@@ -99,7 +99,13 @@ export default function ServiceRequest() {
     <form className="request-form" onSubmit={submit}>
       <div className="form-progress">
         <div><p className="form-eyebrow">Service request</p><b>Step {step + 1} of 3</b></div>
-        <div aria-label={`Step ${step + 1} of 3`}><i style={{ width: `${((step + 1) / 3) * 100}%` }} /></div>
+        <div
+          role="progressbar"
+          aria-label={`Step ${step + 1} of 3`}
+          aria-valuemin={1}
+          aria-valuemax={3}
+          aria-valuenow={step + 1}
+        ><i style={{ width: `${((step + 1) / 3) * 100}%` }} /></div>
       </div>
 
       {step === 0 && <fieldset>

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-:root{--navy:#071b3c;--deep:#0a3475;--blue:#0b57d0;--light:#eaf3ff;--orange:#f47a38;--gray:#f5f7fa;--text:#101828;--muted:#667085;--white:#fff;--line:#d9e1ec;--cyan:#e8f8fb}
+:root{--navy:#071b3c;--deep:#0a3475;--blue:#0b57d0;--light:#eaf3ff;--orange:#f47a38;--orange-accessible:#a94411;--gray:#f5f7fa;--text:#101828;--muted:#5e6879;--white:#fff;--line:#d9e1ec;--cyan:#e8f8fb}
 body .header .logo-crop{flex:0 0 150px;width:150px;height:70px;overflow:visible;display:flex;align-items:center}
 body .header .logo-crop img{position:static;width:132px;height:auto;max-width:132px}
 body .hero-copy:after{right:-115px;bottom:34px;width:430px;height:108px;background:url('/images/eternity-logo.svg') center top/430px auto no-repeat}
@@ -148,5 +148,9 @@ body .maintenance-image>img{object-position:left center}
 .diagnostic-report img{width:100%;height:auto;border-radius:8px;background:#fff}
 .diagnostic-report figcaption{padding:12px 4px 2px;color:#9db1cf;font-size:11px;font-weight:800;letter-spacing:.08em;text-align:right;text-transform:uppercase}
 @media(max-width:700px){.diagnostic-report{padding:7px;box-shadow:9px 9px 0 rgba(11,87,208,.22)}.diagnostic-report figcaption{padding:10px 3px 3px;font-size:9px;text-align:left}}
+
+.service-card.orange>span,.review-placeholder>span{color:var(--orange-accessible)}
+.btn-orange{border-color:var(--orange-accessible);background:var(--orange-accessible);box-shadow:0 7px 0 #6e2b0b}
+.request-form>small{color:var(--muted)}
 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.service-card,.btn{transition:none}}
