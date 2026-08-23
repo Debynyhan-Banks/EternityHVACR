@@ -111,7 +111,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-22 | Confirmed delivery and branded the service-request email | Ben received the production test; notification now has branded hierarchy and one-click reply/call actions | Connect conversion analytics and webmaster reporting |
 | 2026-08-22 | Added automatic customer confirmation emails | Customers receive a branded request summary, next-step guidance and direct contact information after successful form delivery | Verify the production confirmation, then connect conversion analytics |
 | 2026-08-22 | Diagnosed and corrected a form validation mismatch | Live logs showed a 400 response before email delivery; client checks now match the server and display the specific error | Republish and retest the production form |
-| 2026-08-23 | Connected the Google Analytics property and lead events | Installed `G-32W3PBPDBY`; successful requests, phone clicks and email clicks are measured without customer PII | Verify activity in Google Analytics Realtime |
+| 2026-08-23 | Connected the Google Analytics property and lead events | Installed the verified Eternity property ID `G-32W3PBPD8Y`; successful requests, phone clicks and email clicks are measured without customer PII | Verify activity in Google Analytics Realtime |
 
 ## Decision log
 

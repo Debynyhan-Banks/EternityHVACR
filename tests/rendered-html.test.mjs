@@ -158,7 +158,7 @@ test("installs Google Analytics and records lead actions without customer PII", 
     readFile(new URL("../app/components/ServiceRequest.tsx", import.meta.url), "utf8"),
   ]);
 
-  assert.match(layout, /G-32W3PBPDBY/);
+  assert.match(layout, /G-32W3PBPD8Y/);
   assert.match(layout, /googletagmanager\.com\/gtag\/js/);
   assert.match(form, /trackGoogleEvent\("generate_lead"/);
   assert.match(analytics, /"phone_click"/);

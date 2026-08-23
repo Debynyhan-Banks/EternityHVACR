@@ -3,7 +3,7 @@ import { Inter, Manrope } from "next/font/google";
 import AnalyticsEvents from "./components/Analytics";
 import "./globals.css";
 
-const GOOGLE_ANALYTICS_ID = "G-32W3PBPDBY";
+const GOOGLE_ANALYTICS_ID = "G-32W3PBPD8Y";
 
 const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"] });
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
