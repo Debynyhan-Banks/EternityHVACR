@@ -96,11 +96,23 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <head>
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`} />
         <script dangerouslySetInnerHTML={{ __html: `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', '${GOOGLE_ANALYTICS_ID}');` }} />
+gtag('config', '${GOOGLE_ANALYTICS_ID}');
+(function loadAnalytics(){
+  function insertTag(){
+    if (document.querySelector('script[data-eternity-analytics]')) return;
+    var script = document.createElement('script');
+    script.async = true;
+    script.dataset.eternityAnalytics = 'true';
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}';
+    document.head.appendChild(script);
+  }
+  function scheduleTag(){ window.setTimeout(insertTag, 2500); }
+  if (document.readyState === 'complete') scheduleTag();
+  else window.addEventListener('load', scheduleTag, { once: true });
+})();` }} />
       </head>
       <body className={`${manrope.variable} ${inter.variable}`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} />
