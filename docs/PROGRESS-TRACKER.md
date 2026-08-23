@@ -20,7 +20,7 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current status:** In progress
 
-**Next action:** Connect Bing Webmaster Tools, then complete the mobile performance review.
+**Next action:** Recheck Google and Bing indexing after processing, then confirm the exact service-area cities and ZIP codes for Phase 2 pages.
 
 ## Phase 1 information blockers
 
@@ -49,9 +49,9 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 1 | Robots and XML sitemap | Complete | None | Both production URLs returned HTTP 200 on August 22, 2026 |
 | 1 | Business structured data | In review | Core business facts confirmed | Production source verified; Rich Results Test has no critical errors |
 | 1 | Google Search Console | Complete | Account access | Domain property verified through GoDaddy DNS; sitemap accepted with Success status and one discovered page on August 23, 2026 |
-| 1 | Bing Webmaster and IndexNow | Waiting on Eternity | Account access | Domain verified and test URL submitted |
+| 1 | Bing Webmaster and IndexNow | Complete | Account access | Search Console property imported; sitemap accepted for processing without errors or warnings; homepage URL submitted successfully on August 23, 2026 |
 | 1 | Conversion analytics | Complete | Google Analytics property created | Corrected property ID published; Realtime showed the Eternity page view and active user on August 23, 2026 |
-| 1 | Responsive image optimization | In progress | None | Largest homepage photograph compressed; full mobile performance review remains |
+| 1 | Responsive image optimization | Complete | None | Live mobile audit: Performance 86, Accessibility 100, SEO 100, LCP 2.7 seconds and CLS 0 on August 23, 2026 |
 | 2 | Priority service pages | Waiting on Eternity | Confirmed services | Unique pages published and internally linked |
 | 2 | Market pages | Waiting on Eternity | Confirmed customer segments | Approved pages published |
 | 2 | Service-area hub and city pages | Waiting on Eternity | Approved cities and proof | Only genuine service areas published |
@@ -114,6 +114,8 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-23 | Connected the Google Analytics property and lead events | Installed the verified Eternity property ID `G-32W3PBPD8Y`; successful requests, phone clicks and email clicks are measured without customer PII | Verify activity in Google Analytics Realtime |
 | 2026-08-23 | Verified Google Analytics collection | Corrected the misread measurement ID and confirmed an active user, page view, first visit and session start in Realtime | Connect Google Search Console and Bing Webmaster Tools |
 | 2026-08-23 | Connected Google Search Console and submitted the sitemap | Verified the full `eternityhvacr.com` domain through GoDaddy DNS; Google accepted `https://eternityhvacr.com/sitemap.xml` with Success status and one discovered page | Connect Bing Webmaster Tools and review mobile performance |
+| 2026-08-23 | Connected Bing Webmaster Tools | Imported the verified Google property, submitted the XML sitemap without errors or warnings and submitted the homepage for crawling | Recheck Bing processing within 48 hours |
+| 2026-08-23 | Completed the mobile performance and accessibility review | Added modern responsive images, fixed the favicon request, corrected progress semantics and color contrast, and deferred analytics until after first paint; live mobile scores reached Performance 86, Accessibility 100 and SEO 100 | Recheck webmaster indexing and begin Phase 2 service-area planning |
 
 ## Decision log
 
