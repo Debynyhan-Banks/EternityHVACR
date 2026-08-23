@@ -1,6 +1,6 @@
 # Eternity Mechanical Services Website Progress Tracker
 
-Last updated: August 22, 2026
+Last updated: August 23, 2026
 
 This file is the source of truth for the SEO, GEO, content and feature program. Update it whenever a task begins, finishes, becomes blocked or changes scope.
 
@@ -20,7 +20,7 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current status:** In progress
 
-**Next action:** Connect Google Search Console and Bing Webmaster Tools, then complete the mobile performance review.
+**Next action:** Connect Bing Webmaster Tools, then complete the mobile performance review.
 
 ## Phase 1 information blockers
 
@@ -48,7 +48,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 1 | Functional service-request delivery | Complete | Resend sender domain and destination confirmed as `ben@eternityhvacr.com` | Ben confirmed the production test email was received August 22, 2026 |
 | 1 | Robots and XML sitemap | Complete | None | Both production URLs returned HTTP 200 on August 22, 2026 |
 | 1 | Business structured data | In review | Core business facts confirmed | Production source verified; Rich Results Test has no critical errors |
-| 1 | Google Search Console | Waiting on Eternity | Account access | Domain verified and sitemap accepted |
+| 1 | Google Search Console | Complete | Account access | Domain property verified through GoDaddy DNS; sitemap accepted with Success status and one discovered page on August 23, 2026 |
 | 1 | Bing Webmaster and IndexNow | Waiting on Eternity | Account access | Domain verified and test URL submitted |
 | 1 | Conversion analytics | Complete | Google Analytics property created | Corrected property ID published; Realtime showed the Eternity page view and active user on August 23, 2026 |
 | 1 | Responsive image optimization | In progress | None | Largest homepage photograph compressed; full mobile performance review remains |
@@ -113,6 +113,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-22 | Diagnosed and corrected a form validation mismatch | Live logs showed a 400 response before email delivery; client checks now match the server and display the specific error | Republish and retest the production form |
 | 2026-08-23 | Connected the Google Analytics property and lead events | Installed the verified Eternity property ID `G-32W3PBPD8Y`; successful requests, phone clicks and email clicks are measured without customer PII | Verify activity in Google Analytics Realtime |
 | 2026-08-23 | Verified Google Analytics collection | Corrected the misread measurement ID and confirmed an active user, page view, first visit and session start in Realtime | Connect Google Search Console and Bing Webmaster Tools |
+| 2026-08-23 | Connected Google Search Console and submitted the sitemap | Verified the full `eternityhvacr.com` domain through GoDaddy DNS; Google accepted `https://eternityhvacr.com/sitemap.xml` with Success status and one discovered page | Connect Bing Webmaster Tools and review mobile performance |
 
 ## Decision log
 
