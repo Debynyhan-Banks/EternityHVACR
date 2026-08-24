@@ -16,11 +16,11 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 ## Current position
 
-**Current milestone:** Phase 1 — Search and lead foundation
+**Current milestone:** Phase 2 — Priority services and service-area foundation
 
 **Current status:** In progress
 
-**Next action:** Recheck Google and Bing indexing after processing, then confirm the exact service-area cities and ZIP codes for Phase 2 pages.
+**Next action:** Publish and verify the three priority service pages and the approved Greater Cleveland service-area hub.
 
 ## Phase 1 information blockers
 
@@ -30,10 +30,10 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 - [x] Emergency service outside normal hours — confirmed; exact 24/7 coverage remains unconfirmed
 - [x] Business address or service-area-business preference — service-area business
 - [x] General service area — Cleveland, Cuyahoga County suburbs and surrounding metro ZIP codes
-- [ ] Exact city and ZIP-code list for location pages and service-area checker
+- [x] Exact city and ZIP-code list for location pages and service-area checker — 20 priority markets plus approved extended communities
 - [x] License and insurance language — license #28303; insured
 - [x] Google Business Profile share URL — `https://share.google/1bUl6S4x9x90TJ7Mf`
-- [ ] Expected response time for requests
+- [x] Expected response time for website requests — 15 minutes during regular business hours
 
 Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md)
 
@@ -52,15 +52,15 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 1 | Bing Webmaster and IndexNow | Complete | Account access | Search Console property imported; sitemap accepted for processing without errors or warnings; homepage URL submitted successfully on August 23, 2026 |
 | 1 | Conversion analytics | Complete | Google Analytics property created | Corrected property ID published; Realtime showed the Eternity page view and active user on August 23, 2026 |
 | 1 | Responsive image optimization | Complete | None | Live mobile audit: Performance 86, Accessibility 100, SEO 100, LCP 2.7 seconds and CLS 0 on August 23, 2026 |
-| 2 | Priority service pages | Waiting on Eternity | Confirmed services | Unique pages published and internally linked |
+| 2 | Priority service pages | In progress | Commercial refrigeration, commercial HVAC and preventive maintenance confirmed as priorities | Unique pages published and internally linked |
 | 2 | Market pages | Waiting on Eternity | Confirmed customer segments | Approved pages published |
-| 2 | Service-area hub and city pages | Waiting on Eternity | Approved cities and proof | Only genuine service areas published |
+| 2 | Service-area hub and city pages | In progress | Approved priority and extended city/ZIP list | Service-area hub in development; city pages require local proof before publication |
 | 3 | Owner, team and credentials | Waiting on Eternity | Bios, photos and documents | Approved trust content published |
 | 3 | Verified review system | Waiting on Eternity | Review links and permission | Reviews and review CTA live |
 | 3 | First three case studies | Waiting on Eternity | Project information and photos | Three verified case studies live |
 | 4 | Answer library | Waiting on Eternity | Technical review process | First four expert answers live |
 | 4 | AI-crawler and referral measurement | Ready | Analytics in Phase 1 | OAI-SearchBot allowed and referrals tracked |
-| 5 | Service-area checker | Waiting on Eternity | ZIP list | Tested service-area response |
+| 5 | Service-area checker | Ready | Approved ZIP list | Tested service-area response |
 | 5 | Photo/video request uploads | Waiting on Eternity | Storage and retention decisions | Secure upload test completed |
 | 5 | Commercial equipment intake | Waiting on Eternity | Field requirements | Make/model/serial request path live |
 | 5 | Maintenance-plan comparison | Waiting on Eternity | Plan details | Approved comparison published |
@@ -116,6 +116,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-23 | Connected Google Search Console and submitted the sitemap | Verified the full `eternityhvacr.com` domain through GoDaddy DNS; Google accepted `https://eternityhvacr.com/sitemap.xml` with Success status and one discovered page | Connect Bing Webmaster Tools and review mobile performance |
 | 2026-08-23 | Connected Bing Webmaster Tools | Imported the verified Google property, submitted the XML sitemap without errors or warnings and submitted the homepage for crawling | Recheck Bing processing within 48 hours |
 | 2026-08-23 | Completed the mobile performance and accessibility review | Added modern responsive images, fixed the favicon request, corrected progress semantics and color contrast, and deferred analytics until after first paint; live mobile scores reached Performance 86, Accessibility 100 and SEO 100 | Recheck webmaster indexing and begin Phase 2 service-area planning |
+| 2026-08-24 | Confirmed Phase 2 priorities and service coverage | Set a 15-minute website-response target, prioritized commercial refrigeration, commercial HVAC and preventive maintenance, and approved 20 priority markets plus extended Northeast Ohio communities | Build and publish the priority service pages and service-area hub |
 
 ## Decision log
 
@@ -125,6 +126,8 @@ Record important decisions so later work does not rely on memory.
 |---|---|---|---|
 | 2026-08-20 | Use real proof and verified facts instead of sample claims | Trust, compliance and long-term search value | Project direction |
 | 2026-08-20 | Prioritize commercial refrigeration and multifamily content | Strong differentiation from generic residential HVAC sites | Project direction |
+| 2026-08-24 | Prioritize commercial refrigeration, commercial HVAC and preventive maintenance lead pages | These are Eternity's confirmed lead-generation priorities | Eternity |
+| 2026-08-24 | Publish one comprehensive service-area hub before dedicated city pages | Avoid thin location pages until genuine local proof and project details are available | Project direction |
 
 ## Asset intake tracker
 

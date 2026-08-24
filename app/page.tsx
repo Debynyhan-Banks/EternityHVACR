@@ -1,12 +1,13 @@
 import ServiceRequest from "./components/ServiceRequest";
+import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 
 const services = [
-  { icon: "AC", title: "Air Conditioning", copy: "Diagnostics, repair, replacement, installation and seasonal service.", tone: "blue" },
-  { icon: "HT", title: "Heating", copy: "Furnaces, heat pumps, heating diagnostics, installation and repair.", tone: "orange" },
-  { icon: "RTU", title: "Commercial HVAC", copy: "Rooftop units, packaged equipment, replacements, service and preventive maintenance.", tone: "navy" },
-  { icon: "RF", title: "Commercial Refrigeration", copy: "Walk-ins, refrigeration equipment, controls, diagnostics, repair and maintenance.", tone: "cyan" },
-  { icon: "IN", title: "Installation & Replacement", copy: "Professional equipment replacement and new HVAC installations.", tone: "gray" },
-  { icon: "PM", title: "Preventive Maintenance", copy: "Planned inspections designed to reduce failures and extend equipment life.", tone: "pale" },
+  { icon: "AC", title: "Air Conditioning", copy: "Diagnostics, repair, replacement, installation and seasonal service.", tone: "blue", href: "#schedule" },
+  { icon: "HT", title: "Heating", copy: "Furnaces, heat pumps, heating diagnostics, installation and repair.", tone: "orange", href: "#schedule" },
+  { icon: "RTU", title: "Commercial HVAC", copy: "Rooftop units, packaged equipment, replacements, service and preventive maintenance.", tone: "navy", href: "/services/commercial-hvac" },
+  { icon: "RF", title: "Commercial Refrigeration", copy: "Walk-ins, refrigeration equipment, controls, diagnostics, repair and maintenance.", tone: "cyan", href: "/services/commercial-refrigeration" },
+  { icon: "IN", title: "Installation & Replacement", copy: "Professional equipment replacement and new HVAC installations.", tone: "gray", href: "#schedule" },
+  { icon: "PM", title: "Preventive Maintenance", copy: "Planned inspections designed to reduce failures and extend equipment life.", tone: "pale", href: "/services/preventive-maintenance" },
 ];
 
 const process = [
@@ -23,13 +24,7 @@ const maintenance = [
 
 export default function Home() {
   return <main>
-    <div className="topbar"><span>Black-owned • Licensed & insured • License #28303</span><a href="tel:+12162536468">Emergency service available: 216-253-6468 <b>→</b></a></div>
-    <header className="header">
-      <a className="logo-crop" href="#top" aria-label="Eternity Mechanical Services home"><img src="/images/eternity-logo.svg" alt="Eternity Mechanical Services" /></a>
-      <nav aria-label="Primary navigation"><a href="#services">Services</a><a href="#pathways">Residential</a><a href="#commercial">Commercial</a><a href="#services">Refrigeration</a><a href="#maintenance">Maintenance</a><a href="#projects">Projects</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
-      <div className="header-actions"><a className="call-link" href="tel:+12162536468">Call 216-253-6468</a><a className="btn btn-small" href="#schedule">Schedule service</a></div>
-      <details className="mobile-menu"><summary aria-label="Open navigation"><span /><span /><span /></summary><div><a href="#services">Services</a><a href="#pathways">Residential</a><a href="#commercial">Commercial</a><a href="#maintenance">Maintenance</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div></details>
-    </header>
+    <SiteHeader />
 
     <section className="hero" id="top">
       <div className="hero-copy">
@@ -63,7 +58,7 @@ export default function Home() {
 
     <section className="section services" id="services">
       <div className="section-head"><div><p className="kicker">Capabilities</p><h2>Complete Mechanical Services</h2></div><p>From residential comfort systems to commercial HVAC and refrigeration, Eternity Mechanical Services provides professional installation, diagnostics, repair and maintenance.</p></div>
-      <div className="service-grid">{services.map((service) => <a href="#schedule" className={`service-card ${service.tone}`} key={service.title}><span>{service.icon}</span><i>↗</i><h3>{service.title}</h3><p>{service.copy}</p><b>Explore service</b></a>)}</div>
+      <div className="service-grid">{services.map((service) => <a href={service.href} className={`service-card ${service.tone}`} key={service.title}><span>{service.icon}</span><i>↗</i><h3>{service.title}</h3><p>{service.copy}</p><b>Explore service</b></a>)}</div>
     </section>
 
     <div className="infinity-divider" aria-hidden="true"><span /><div><img src="/images/eternity-logo.svg" alt="" /></div><span /></div>
@@ -109,13 +104,12 @@ export default function Home() {
 
     <section className="proof-service branded-section" id="about"><div><p className="kicker light">Accountable service</p><h2>Professional work is more than the repair.</h2><p>It is how the equipment is evaluated, how findings are communicated, how the work is completed and how the result is verified.</p></div><div className="proof-points"><span><i>01</i><b>Technical competence</b><small>System-level evaluation and disciplined workmanship.</small></span><span><i>02</i><b>Professional communication</b><small>Clear findings, options and expectations.</small></span><span><i>03</i><b>Long-term relationships</b><small>Service built around equipment life and customer trust.</small></span></div></section>
 
-    <section className="section reviews" id="reviews"><div className="review-placeholder"><span>✓ VERIFIED PROFILE</span><p className="kicker">Local business information</p><h2>Find Eternity on Google.</h2><p>View the company’s current Google Business Profile for public information, directions and customer feedback.</p><a className="btn-outline" href="https://share.google/1bUl6S4x9x90TJ7Mf" target="_blank" rel="noreferrer">View Google profile <span>↗</span></a></div><div className="service-area"><p className="kicker">Regional coverage</p><h2>Cleveland & the Surrounding Metro</h2><p>Eternity is a service-area business serving Cleveland, Cuyahoga County suburbs and surrounding Greater Cleveland communities.</p><div className="map-visual"><i className="lake">Lake Erie</i><span className="road r1" /><span className="road r2" /><span className="road r3" /><b>NE<br />OHIO</b><i className="pin p1" /><i className="pin p2" /><i className="pin p3" /></div><a className="inline-cta" href="#schedule">Request service <span>→</span></a></div></section>
+    <section className="section reviews" id="reviews"><div className="review-placeholder"><span>✓ VERIFIED PROFILE</span><p className="kicker">Local business information</p><h2>Find Eternity on Google.</h2><p>View the company’s current Google Business Profile for public information, directions and customer feedback.</p><a className="btn-outline" href="https://share.google/1bUl6S4x9x90TJ7Mf" target="_blank" rel="noreferrer">View Google profile <span>↗</span></a></div><div className="service-area"><p className="kicker">Regional coverage</p><h2>Greater Cleveland & Northeast Ohio</h2><p>Eternity is a service-area business serving approved priority and extended communities across Greater Cleveland and Northeast Ohio.</p><div className="map-visual"><i className="lake">Lake Erie</i><span className="road r1" /><span className="road r2" /><span className="road r3" /><b>NE<br />OHIO</b><i className="pin p1" /><i className="pin p2" /><i className="pin p3" /></div><a className="inline-cta" href="/areas-we-serve">View areas we serve <span>→</span></a></div></section>
 
-    <section className="section schedule" id="schedule"><div className="schedule-copy"><p className="kicker light">Ready to get started?</p><h2>Tell us what the equipment needs.</h2><p>Use the guided request to describe the system, property and timing. Eternity Mechanical Services can then help determine the appropriate next step.</p><div className="schedule-points"><span>✓ Residential & commercial</span><span>✓ HVAC & refrigeration</span><span>✓ Repair, replacement & maintenance</span></div></div><ServiceRequest /></section>
+    <section className="section schedule" id="schedule"><div className="schedule-copy"><p className="kicker light">Ready to get started?</p><h2>Tell us what the equipment needs.</h2><p>Use the guided request to describe the system, property and timing. Website requests are typically reviewed within 15 minutes during regular business hours.</p><div className="schedule-points"><span>✓ Residential & commercial</span><span>✓ HVAC & refrigeration</span><span>✓ Repair, replacement & maintenance</span></div></div><ServiceRequest /></section>
 
     <section className="emergency" id="contact"><div><p className="kicker light">Emergency service available</p><h2>HVAC or Refrigeration Problem?</h2><p>Call for urgent help or tell us what’s happening through the guided service request.</p></div><div><a className="btn btn-orange" href="tel:+12162536468">Call 216-253-6468 <span>↗</span></a><a className="btn-outline light-outline" href="#schedule">Request service <span>→</span></a><small>Regular hours: Monday–Friday 7 a.m.–7 p.m.; Saturday 9 a.m.–5 p.m.; Sunday closed. Emergency service is available outside normal hours.</small></div></section>
 
-    <footer><div className="footer-grid"><div className="footer-brand"><div className="logo-crop footer-logo"><img src="/images/eternity-logo.svg" alt="Eternity Mechanical Services" /></div><p>Licensed and insured HVAC, refrigeration, installation, repair and preventive maintenance for residential and commercial customers.</p></div><div><h3>Services</h3><a href="#services">Air conditioning</a><a href="#services">Heating</a><a href="#commercial">Commercial HVAC</a><a href="#services">Refrigeration</a><a href="#services">Installation</a><a href="#maintenance">Maintenance</a></div><div><h3>Company</h3><a href="#about">About</a><a href="#projects">Capabilities</a><a href="https://share.google/1bUl6S4x9x90TJ7Mf" target="_blank" rel="noreferrer">Google profile</a><a href="#contact">Service area</a><a href="#contact">Contact</a></div><div><h3>Customer</h3><a href="#schedule">Request service</a><a href="#schedule">Request estimate</a><a href="#commercial">Commercial service</a><a href="#maintenance">Maintenance</a></div><div><h3>Contact</h3><p>Cleveland, Cuyahoga County<br />Surrounding metro communities</p><a href="tel:+12162536468">216-253-6468</a><a href="mailto:ben@eternityhvacr.com">ben@eternityhvacr.com</a><span>Mon–Fri: 7 a.m.–7 p.m.</span><span>Sat: 9 a.m.–5 p.m. • Sun: Closed</span></div></div><div className="footer-bottom"><span>© 2026 Eternity Mechanical Services LLC. All rights reserved.</span><span>Licensed & insured • License #28303</span><span>Service-area business • Greater Cleveland</span></div></footer>
-    <div className="mobile-bar"><a href="tel:+12162536468"><span>☎</span>Call</a><a href="#schedule"><span>＋</span>Schedule</a><a href="#schedule"><span>◇</span>Estimate</a></div>
+    <SiteFooter />
   </main>;
 }

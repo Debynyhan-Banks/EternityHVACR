@@ -230,7 +230,7 @@ function buildCustomerHtmlEmail({
               <td style="padding:22px 32px 8px;">
                 <div style="padding:18px;background:#eaf3ff;color:#344054;font-size:14px;line-height:1.7;">
                   <strong style="display:block;margin-bottom:5px;color:#071b3c;">What happens next</strong>
-                  The team will review your information and contact you using the details you provided. Appointment availability and service details are confirmed directly by Eternity Mechanical Services.
+                  The team typically reviews website requests within 15 minutes during regular business hours and will contact you using the details you provided. Appointment availability and service details are confirmed directly by Eternity Mechanical Services.
                 </div>
               </td>
             </tr>

@@ -74,7 +74,7 @@ export default function ServiceRequest() {
         <span>✓</span>
         <p className="form-eyebrow">Request sent</p>
         <h3>Thank you. Your request is with Eternity.</h3>
-        <p>Ben and the Eternity Mechanical Services team can review your details and contact you using the information provided.</p>
+        <p>Ben and the Eternity Mechanical Services team typically review website requests within 15 minutes during regular business hours and will contact you using the information provided.</p>
         {confirmationSent
           ? <p>A confirmation email has been sent to {data.email}.</p>
           : <p>Your request was delivered, but we could not send the confirmation email. Please save this page or contact Eternity directly if needed.</p>}

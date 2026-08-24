@@ -1,6 +1,6 @@
 # Eternity Mechanical Services Information and Content Checklist
 
-Last updated: August 20, 2026
+Last updated: August 24, 2026
 
 This checklist identifies what is needed from Eternity Mechanical Services to complete the SEO, GEO and lead-generation roadmap accurately. Do not send account passwords, private customer information or payment information through the repository.
 
@@ -13,7 +13,7 @@ Please provide these first:
 - [x] Legal business name — Eternity Mechanical Services LLC
 - [x] Business hours by day — Monday–Friday 7:00 a.m.–7:00 p.m.; Saturday 9:00 a.m.–5:00 p.m.; Sunday closed
 - [x] Emergency service outside normal hours — available; exact 24/7 coverage remains to be confirmed
-- [ ] Expected response time for normal and emergency requests
+- [x] Expected response time for website requests — 15 minutes during regular business hours; urgent requests should call directly
 - [x] Physical business address or confirmation that Eternity is a service-area business — service-area business
 - [x] Primary service region — all of Cuyahoga County and surrounding Cleveland metropolitan areas
 - [x] General cities and ZIP-code coverage — Cleveland, all surrounding suburbs and surrounding metropolitan ZIP codes
@@ -74,8 +74,8 @@ Provide a verified list of:
 - [x] Primary county or counties — Cuyahoga County
 - [x] General city coverage — Cleveland and all surrounding suburbs
 - [x] General ZIP coverage — surrounding Cleveland metropolitan ZIP codes
-- [ ] Exact cities regularly served, for location-page planning
-- [ ] Exact ZIP codes regularly served, for the service-area checker
+- [x] Exact cities regularly served, for location-page planning — 20 priority markets plus approved extended Northeast Ohio communities
+- [x] Exact ZIP codes regularly served, for the service-area checker — approved August 24, 2026 and recorded in the website service-area data
 - [ ] Maximum normal travel radius
 - [ ] Areas served only for commercial work
 - [ ] Areas excluded from service
@@ -181,7 +181,7 @@ Complete this for every project selected for publication:
 - [ ] Should visitors be able to upload images or video?
 - [ ] Which file types and maximum size are acceptable?
 - [ ] Should customers receive an automatic confirmation?
-- [ ] What response-time promise can be maintained?
+- [x] What response-time promise can be maintained? — website requests are typically reviewed within 15 minutes during regular business hours
 - [ ] Is live scheduling operationally possible?
 - [ ] Is SMS communication approved?
 - [ ] Is a property-manager portal needed later?

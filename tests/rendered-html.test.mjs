@@ -65,7 +65,46 @@ test("publishes crawler files with the canonical sitemap", async () => {
   assert.match(robots, /User-agent: OAI-SearchBot[\s\S]*Allow: \//);
   assert.match(robots, /Sitemap: https:\/\/eternityhvacr\.com\/sitemap\.xml/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/services\/commercial-refrigeration<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/services\/commercial-hvac<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/services\/preventive-maintenance<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/areas-we-serve<\/loc>/);
   assert.match(sitemap, /system-diagnostic-report\.jpg|hero-technician-black\.jpg/);
+});
+
+test("renders the priority service pages with unique search content", async () => {
+  const pages = [
+    ["/services/commercial-refrigeration", /Commercial Refrigeration Service in Greater Cleveland/, /Walk-in cooler and freezer service/],
+    ["/services/commercial-hvac", /Commercial HVAC Service for Greater Cleveland Facilities/, /Rooftop-unit diagnostics and repair/],
+    ["/services/preventive-maintenance", /HVAC and Refrigeration Maintenance Before Problems Become Emergencies/, /System and equipment inspection/],
+  ];
+
+  for (const [pathname, heading, capability] of pages) {
+    const response = await render(pathname);
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    assert.match(html, heading);
+    assert.match(html, capability);
+    assert.match(html, /15-minute response target/i);
+    assert.match(html, /&quot;Service&quot;|"Service"/);
+    assert.match(html, /&quot;FAQPage&quot;|"FAQPage"/);
+    assert.match(html, new RegExp(`<link rel="canonical" href="https://eternityhvacr\\.com${pathname}"`));
+  }
+});
+
+test("publishes the approved Greater Cleveland service areas", async () => {
+  const response = await render("/areas-we-serve");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+
+  assert.match(html, /Serving Greater Cleveland &amp; Northeast Ohio/);
+  assert.match(html, /Cleveland Heights/);
+  assert.match(html, /44106/);
+  assert.match(html, /North Ridgeville/);
+  assert.match(html, /44039/);
+  assert.match(html, /Cuyahoga Falls/);
+  assert.match(html, /44221/);
+  assert.match(html, /&quot;ItemList&quot;|"ItemList"/);
 });
 
 test("rejects invalid and cross-origin service requests", async () => {
