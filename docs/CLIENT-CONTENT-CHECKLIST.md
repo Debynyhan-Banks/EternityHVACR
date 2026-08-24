@@ -123,7 +123,7 @@ Original, real business photography is the most valuable visual asset. Smartphon
 
 ### For each project
 
-Received August 24, 2026: one documented Euclid 44123 residential installation with three photographs, plus one commercial rooftop diagnostic/service photograph from the 44119 Cleveland/Euclid-area market. Additional projects and angles are still needed to meet the portfolio targets above.
+Received August 24, 2026: documented Euclid residential installations in 44123 and 44119, including three completed-equipment photographs and one technician-at-work photograph; plus one commercial rooftop diagnostic/service photograph from the 44119 Cleveland/Euclid-area market. Additional projects and angles are still needed to meet the portfolio targets above.
 
 - [ ] One wide establishing photo
 - [ ] One clear equipment photo

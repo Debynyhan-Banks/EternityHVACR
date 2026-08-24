@@ -68,7 +68,7 @@ export default function LocationLanding({ content, schema }: { content: Location
           </div>
           <div className="location-hero-proof">
             <span>Real project proof</span>
-            <strong>Residential installation completed in Euclid 44123</strong>
+            <strong>Verified residential installations in Euclid 44119 and 44123</strong>
           </div>
         </div>
         <figure className="location-hero-media">
@@ -147,6 +147,32 @@ export default function LocationLanding({ content, schema }: { content: Location
             <ProjectImage src="/images/euclid/euclid-oh-residential-condenser-installation-1200.webp" smallSrc="/images/euclid/euclid-oh-residential-condenser-installation-720.webp" alt="Residential air-conditioning condenser and insulated refrigerant lines in Euclid" width={1200} height={2132} />
             <figcaption>Installed cooling equipment and line-set connection</figcaption>
           </figure>
+        </div>
+      </section>
+
+      <section className="section secondary-residential-project">
+        <figure>
+          <ProjectImage
+            src="/images/euclid/euclid-oh-sinclair-furnace-installation-1200.webp"
+            smallSrc="/images/euclid/euclid-oh-sinclair-furnace-installation-720.webp"
+            alt="Eternity Mechanical technician completing a Sinclair furnace and evaporator coil installation in Euclid, Ohio"
+            width={1200}
+            height={2132}
+          />
+          <figcaption>Full residential HVAC installation • Euclid 44119</figcaption>
+        </figure>
+        <div>
+          <p className="kicker">Additional verified Euclid work</p>
+          <h2>Full-system installation in Euclid 44119</h2>
+          <p>Eternity completed a full residential heating and cooling installation with an 80,000 BTU, 96% efficiency furnace, 3-ton air-conditioning system, outdoor condenser and matching evaporator coil.</p>
+          <p>The field photograph documents the indoor Sinclair furnace and coil installation in progress. The exact residential street address is intentionally not published.</p>
+          <div className="secondary-project-specs" aria-label="Euclid 44119 installation specifications">
+            <div><strong>80,000 BTU</strong><span>Furnace rating</span></div>
+            <div><strong>96%</strong><span>Efficiency rating</span></div>
+            <div><strong>3 ton</strong><span>Cooling capacity</span></div>
+            <div><strong>Full install</strong><span>Furnace, coil & condenser</span></div>
+          </div>
+          <a className="inline-cta" href="/#schedule">Request installation service <span>→</span></a>
         </div>
       </section>
 

@@ -121,10 +121,15 @@ test("renders the proof-backed Euclid service-area page", async () => {
   assert.match(html, /PA4SAN53000N/);
   assert.match(html, /CVAVA3017XMA/);
   assert.match(html, /cleveland-commercial-rooftop-hvac-service-1200\.webp/);
+  assert.match(html, /euclid-oh-sinclair-furnace-installation-1200\.webp/);
+  assert.match(html, /Full-system installation in Euclid 44119/);
+  assert.match(html, /3 ton/);
+  assert.match(html, /96%/);
   assert.match(html, /&quot;FAQPage&quot;|"FAQPage"/);
   assert.match(html, /&quot;ImageObject&quot;|"ImageObject"/);
   assert.match(html, /<link rel="canonical" href="https:\/\/eternityhvacr\.com\/areas-we-serve\/euclid-oh"/);
   assert.doesNotMatch(html, /repairs were completed|parts were replaced|system was restored/i);
+  assert.doesNotMatch(html, /334 E 197th/i);
 });
 
 test("rejects invalid and cross-origin service requests", async () => {

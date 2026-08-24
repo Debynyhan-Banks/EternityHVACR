@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/areas-we-serve/euclid-oh" },
   openGraph: {
     title: "HVAC & Refrigeration Service in Euclid, Ohio",
-    description: "See genuine Eternity Mechanical project work in Euclid 44123 and request residential or commercial HVAC/R service.",
+    description: "See genuine Eternity Mechanical project work in Euclid 44119 and 44123 and request residential or commercial HVAC/R service.",
     url: "/areas-we-serve/euclid-oh",
     type: "website",
     images: [{
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 const faqs: LocationLandingContent["faqs"] = [
   ["Does Eternity Mechanical provide HVAC service throughout Euclid?", "Yes. Eternity serves approved Euclid ZIP codes 44117, 44119, 44123, 44132 and 44143. Appointment availability is confirmed directly based on the property, equipment and current schedule."],
   ["Do you service both residential and commercial HVAC systems?", "Yes. Eternity provides residential heating and cooling service as well as commercial rooftop, packaged and split-system HVAC service."],
-  ["Can Eternity replace an entire furnace and air-conditioning system?", "Yes. The Euclid 44123 project shown on this page included a furnace, cased evaporator coil, outdoor condenser and associated installation components."],
+  ["Can Eternity replace an entire furnace and air-conditioning system?", "Yes. The Euclid 44119 and 44123 projects shown on this page document complete residential heating and cooling installations with furnaces, evaporator coils, outdoor condensers and associated installation components."],
   ["Do you service commercial rooftop HVAC units?", "Yes. Eternity provides commercial rooftop-unit diagnostics, repair, replacement planning and preventive maintenance."],
   ["Does Eternity work with newer R-454B equipment?", "Yes. The documented Euclid installation uses a Payne R-454B air conditioner and matching R-454B evaporator coil."],
   ["What areas around Euclid do you serve?", "Approved nearby markets include Cleveland, Richmond Heights, South Euclid, Cleveland Heights, Wickliffe, Willoughby and Mentor, along with additional Greater Cleveland and Northeast Ohio communities."],
@@ -61,6 +61,7 @@ const schema = {
       image: [
         "https://eternityhvacr.com/images/euclid/euclid-oh-payne-hvac-installation-1200.webp",
         "https://eternityhvacr.com/images/euclid/euclid-oh-residential-furnace-installation-1200.webp",
+        "https://eternityhvacr.com/images/euclid/euclid-oh-sinclair-furnace-installation-1200.webp",
       ],
     },
     {
@@ -84,6 +85,12 @@ const schema = {
       contentUrl: "https://eternityhvacr.com/images/euclid/euclid-oh-payne-hvac-installation-1200.webp",
       caption: "Residential HVAC installation completed by Eternity Mechanical in Euclid, Ohio 44123",
       representativeOfPage: true,
+      creator: { "@id": "https://eternityhvacr.com/#business" },
+    },
+    {
+      "@type": "ImageObject",
+      contentUrl: "https://eternityhvacr.com/images/euclid/euclid-oh-sinclair-furnace-installation-1200.webp",
+      caption: "Eternity Mechanical technician completing a full residential HVAC installation in Euclid, Ohio 44119",
       creator: { "@id": "https://eternityhvacr.com/#business" },
     },
   ],
