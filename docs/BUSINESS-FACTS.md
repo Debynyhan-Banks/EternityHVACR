@@ -1,6 +1,6 @@
 # Eternity Mechanical Services Confirmed Business Facts
 
-Last updated: August 20, 2026
+Last updated: August 24, 2026
 
 This document is the source of truth for approved public business details used in website copy, contact actions, structured data and search profiles.
 
@@ -26,10 +26,17 @@ This document is the source of truth for approved public business details used i
 | Saturday hours | 9:00 a.m.–5:00 p.m. |
 | Sunday hours | Closed |
 
+## Verified project evidence
+
+| Project | Approved public facts |
+|---|---|
+| Euclid residential HVAC installation | Completed in Euclid, OH 44123. Full heating and cooling installation with an 80,000 BTU, 80% AFUE Payne furnace; Payne PA4SAN53000N 2.5-ton / 30,000 BTU R-454B air conditioner; matching CVAVA3017XMA 17.5-inch vertical cased R-454B evaporator coil; equipment pad; 30A fused disconnect; AC electrical whip; and associated installation work. Genuine project photographs were supplied August 24, 2026. Do not publish internal acquisition costs or contractor pricing. |
+| Commercial rooftop HVAC service | Commercial rooftop packaged-unit diagnostic/service in the 44119 Cleveland/Euclid-area market. Documented conditions include significant equipment contamination, dust accumulation on the blower motor, no installed filter and a frozen evaporator coil. Genuine project photography was supplied August 24, 2026. The exact municipality, customer, equipment capacity, repair outcome, parts replaced, final diagnosis and pricing remain unverified and must not be published as facts. |
+
 ## Interpretation notes
 
 - The repeated email supplied by Eternity is recorded as both the public email and the service-request destination.
-- Cleveland, Cuyahoga County and all surrounding suburbs are approved for general website copy. An exact city and ZIP-code list is still required before publishing location pages or a ZIP-code service checker.
+- Cleveland, Cuyahoga County and the approved priority and extended communities in `app/data/serviceAreas.ts` are approved for general website copy. Dedicated location pages still require genuine, location-specific proof before publication.
 - Emergency service is confirmed outside normal hours. Exact 24/7 coverage and expected response time remain unconfirmed, so public copy should say “Emergency service available” rather than promise 24/7 response.
 - Being a service-area business means the website can describe the service region without publishing a customer-facing street address.
 - The Google share link was supplied by Eternity and redirects through Google's sharing service. Keep it as the approved profile link unless a permanent Maps or Business Profile URL is later supplied.
@@ -39,8 +46,8 @@ This document is the source of truth for approved public business details used i
 - [ ] Confirm whether emergency service is continuously available 24/7 or subject to availability
 - [ ] Expected response time for normal requests
 - [ ] Expected response time for urgent requests
-- [ ] Exact cities regularly served
-- [ ] ZIP codes regularly served
+- [x] Exact cities regularly served — approved priority and extended list is maintained in `app/data/serviceAreas.ts`
+- [x] ZIP codes regularly served — approved list is maintained in `app/data/serviceAreas.ts`
 - [ ] Maximum normal travel radius
 - [ ] Areas served only for commercial work
 - [ ] Confirm the license type and issuing jurisdiction for license #28303
