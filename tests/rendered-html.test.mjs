@@ -69,6 +69,7 @@ test("publishes crawler files with the canonical sitemap", async () => {
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/services\/commercial-hvac<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/services\/preventive-maintenance<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/areas-we-serve<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/areas-we-serve\/euclid-oh<\/loc>/);
   assert.match(sitemap, /system-diagnostic-report\.jpg|hero-technician-black\.jpg/);
 });
 
@@ -105,6 +106,25 @@ test("publishes the approved Greater Cleveland service areas", async () => {
   assert.match(html, /Cuyahoga Falls/);
   assert.match(html, /44221/);
   assert.match(html, /&quot;ItemList&quot;|"ItemList"/);
+  assert.match(html, /href="\/areas-we-serve\/euclid-oh"/);
+});
+
+test("renders the proof-backed Euclid service-area page", async () => {
+  const response = await render("/areas-we-serve/euclid-oh");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+
+  assert.match(html, /HVAC &amp; Refrigeration Service in Euclid, Ohio/);
+  assert.match(html, /Complete(?:d)? a full residential heating and cooling installation|full residential heating and cooling installation/i);
+  assert.match(html, /80,000 BTU/);
+  assert.match(html, /R-454B/);
+  assert.match(html, /PA4SAN53000N/);
+  assert.match(html, /CVAVA3017XMA/);
+  assert.match(html, /cleveland-commercial-rooftop-hvac-service-1200\.webp/);
+  assert.match(html, /&quot;FAQPage&quot;|"FAQPage"/);
+  assert.match(html, /&quot;ImageObject&quot;|"ImageObject"/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/eternityhvacr\.com\/areas-we-serve\/euclid-oh"/);
+  assert.doesNotMatch(html, /repairs were completed|parts were replaced|system was restored/i);
 });
 
 test("rejects invalid and cross-origin service requests", async () => {

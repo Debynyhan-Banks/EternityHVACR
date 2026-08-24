@@ -51,4 +51,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://eternityhvacr.com/areas-we-serve/euclid-oh</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://eternityhvacr.com/images/euclid/euclid-oh-payne-hvac-installation-1200.webp</image:loc>
+      <image:caption>Payne residential HVAC system installed by Eternity Mechanical in Euclid Ohio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://eternityhvacr.com/images/euclid/euclid-oh-residential-furnace-installation-1200.webp</image:loc>
+      <image:caption>Residential furnace and evaporator coil installation in Euclid Ohio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://eternityhvacr.com/images/euclid/cleveland-commercial-rooftop-hvac-service-1200.webp</image:loc>
+      <image:caption>Commercial rooftop HVAC diagnostic service in the Cleveland and Euclid area</image:caption>
+    </image:image>
+  </url>
 </urlset>
