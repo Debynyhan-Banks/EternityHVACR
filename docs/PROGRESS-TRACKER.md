@@ -1,6 +1,6 @@
 # Eternity Mechanical Services Website Progress Tracker
 
-Last updated: August 23, 2026
+Last updated: August 24, 2026
 
 This file is the source of truth for the SEO, GEO, content and feature program. Update it whenever a task begins, finishes, becomes blocked or changes scope.
 
@@ -20,7 +20,7 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current status:** In progress
 
-**Next action:** Publish and verify the three priority service pages and the approved Greater Cleveland service-area hub.
+**Next action:** Monitor the expanded sitemap in Google and Bing, then collect genuine local project proof for the first dedicated city page and case studies.
 
 ## Phase 1 information blockers
 
@@ -52,9 +52,9 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 1 | Bing Webmaster and IndexNow | Complete | Account access | Search Console property imported; sitemap accepted for processing without errors or warnings; homepage URL submitted successfully on August 23, 2026 |
 | 1 | Conversion analytics | Complete | Google Analytics property created | Corrected property ID published; Realtime showed the Eternity page view and active user on August 23, 2026 |
 | 1 | Responsive image optimization | Complete | None | Live mobile audit: Performance 86, Accessibility 100, SEO 100, LCP 2.7 seconds and CLS 0 on August 23, 2026 |
-| 2 | Priority service pages | In progress | Commercial refrigeration, commercial HVAC and preventive maintenance confirmed as priorities | Unique pages published and internally linked |
+| 2 | Priority service pages | Complete | Commercial refrigeration, commercial HVAC and preventive maintenance confirmed as priorities | Three unique pages published, internally linked and verified on production August 24, 2026 |
 | 2 | Market pages | Waiting on Eternity | Confirmed customer segments | Approved pages published |
-| 2 | Service-area hub and city pages | In progress | Approved priority and extended city/ZIP list | Service-area hub in development; city pages require local proof before publication |
+| 2 | Service-area hub and city pages | In progress | Approved priority and extended city/ZIP list | Comprehensive service-area hub published August 24, 2026; city pages require local proof before publication |
 | 3 | Owner, team and credentials | Waiting on Eternity | Bios, photos and documents | Approved trust content published |
 | 3 | Verified review system | Waiting on Eternity | Review links and permission | Reviews and review CTA live |
 | 3 | First three case studies | Waiting on Eternity | Project information and photos | Three verified case studies live |
@@ -117,6 +117,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-23 | Connected Bing Webmaster Tools | Imported the verified Google property, submitted the XML sitemap without errors or warnings and submitted the homepage for crawling | Recheck Bing processing within 48 hours |
 | 2026-08-23 | Completed the mobile performance and accessibility review | Added modern responsive images, fixed the favicon request, corrected progress semantics and color contrast, and deferred analytics until after first paint; live mobile scores reached Performance 86, Accessibility 100 and SEO 100 | Recheck webmaster indexing and begin Phase 2 service-area planning |
 | 2026-08-24 | Confirmed Phase 2 priorities and service coverage | Set a 15-minute website-response target, prioritized commercial refrigeration, commercial HVAC and preventive maintenance, and approved 20 priority markets plus extended Northeast Ohio communities | Build and publish the priority service pages and service-area hub |
+| 2026-08-24 | Published the Phase 2 service and service-area release | Added unique commercial refrigeration, commercial HVAC and preventive-maintenance pages; published the approved service-area hub; updated navigation, structured data, response messaging and sitemap; all production routes returned HTTP 200 | Monitor indexing and collect local proof for city pages and case studies |
 
 ## Decision log
 
