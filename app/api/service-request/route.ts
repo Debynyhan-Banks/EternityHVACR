@@ -87,15 +87,15 @@ function buildInternalHtmlEmail({
         <td align="center" style="padding:32px 12px;">
           <table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:640px;background:#ffffff;border:1px solid #d9e1ec;">
             <tr>
-              <td style="padding:28px 32px;background:#0B2646;border-bottom:5px solid #FF4439;">
+              <td style="padding:28px 32px;background:#0B2646;border-bottom:5px solid #F47A38;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td>
                       <div style="color:#ffffff;font-size:24px;font-weight:800;letter-spacing:1.5px;line-height:1.1;">ETERNITY</div>
-                      <div style="margin-top:5px;color:#FFAAA4;font-size:10px;font-weight:700;letter-spacing:2px;line-height:1.2;">MECHANICAL SERVICES</div>
+                      <div style="margin-top:5px;color:#FFC3A0;font-size:10px;font-weight:700;letter-spacing:2px;line-height:1.2;">MECHANICAL SERVICES</div>
                     </td>
                     <td align="right" valign="middle">
-                      <span style="display:inline-block;padding:7px 10px;background:${isUrgent ? "#FF4439" : "#0B2646"};color:#ffffff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">${isUrgent ? "Urgent request" : "Website lead"}</span>
+                      <span style="display:inline-block;padding:7px 10px;background:${isUrgent ? "#F47A38" : "#0B2646"};color:#ffffff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">${isUrgent ? "Urgent request" : "Website lead"}</span>
                     </td>
                   </tr>
                 </table>
@@ -192,12 +192,12 @@ function buildCustomerHtmlEmail({
         <td align="center" style="padding:32px 12px;">
           <table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:640px;background:#ffffff;border:1px solid #d9e1ec;">
             <tr>
-              <td style="padding:28px 32px;background:#0B2646;border-bottom:5px solid #FF4439;">
+              <td style="padding:28px 32px;background:#0B2646;border-bottom:5px solid #F47A38;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td>
                       <div style="color:#ffffff;font-size:24px;font-weight:800;letter-spacing:1.5px;line-height:1.1;">ETERNITY</div>
-                      <div style="margin-top:5px;color:#FFAAA4;font-size:10px;font-weight:700;letter-spacing:2px;line-height:1.2;">MECHANICAL SERVICES</div>
+                      <div style="margin-top:5px;color:#FFC3A0;font-size:10px;font-weight:700;letter-spacing:2px;line-height:1.2;">MECHANICAL SERVICES</div>
                     </td>
                     <td align="right" valign="middle"><span style="display:inline-block;padding:7px 10px;background:#0B2646;color:#ffffff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Request received</span></td>
                   </tr>
@@ -234,7 +234,7 @@ function buildCustomerHtmlEmail({
                 </div>
               </td>
             </tr>
-            ${isUrgent ? `<tr><td style="padding:14px 32px 0;"><div style="padding:16px;background:#fff1e8;border-left:4px solid #FF4439;color:#7c2d12;font-size:13px;line-height:1.6;"><strong>System down or urgent situation?</strong> Please call <a href="tel:+12162536468" style="color:#7c2d12;font-weight:700;">216-253-6468</a> for immediate assistance.</div></td></tr>` : ""}
+            ${isUrgent ? `<tr><td style="padding:14px 32px 0;"><div style="padding:16px;background:#fff1e8;border-left:4px solid #F47A38;color:#7c2d12;font-size:13px;line-height:1.6;"><strong>System down or urgent situation?</strong> Please call <a href="tel:+12162536468" style="color:#7c2d12;font-weight:700;">216-253-6468</a> for immediate assistance.</div></td></tr>` : ""}
             <tr>
               <td style="padding:26px 32px 34px;">
                 <a href="tel:+12162536468" style="display:inline-block;padding:14px 18px;background:#0B2646;color:#ffffff;font-size:13px;font-weight:700;text-decoration:none;">Call 216-253-6468 &rarr;</a>

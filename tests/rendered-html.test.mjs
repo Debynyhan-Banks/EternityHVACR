@@ -186,7 +186,7 @@ test("uses a branded and actionable service-request email", async () => {
   assert.match(source, /ETERNITY/);
   assert.match(source, /MECHANICAL SERVICES/);
   assert.match(source, /background:#0B2646/);
-  assert.match(source, /border-bottom:5px solid #FF4439/);
+  assert.match(source, /border-bottom:5px solid #F47A38/);
   assert.match(source, /Reply to customer/);
   assert.match(source, /Call customer/);
   assert.match(source, /role="presentation"/);
@@ -240,7 +240,7 @@ test("uses the tightly cropped transparent Eternity brand assets", async () => {
 
   for (const asset of [logo, mark, favicon]) {
     assert.match(asset, /#0B2646/);
-    assert.match(asset, /#FF4439/);
+    assert.match(asset, /#F47A38/);
     assert.doesNotMatch(asset, /<metadata|<rect/i);
   }
   assert.match(logo, /viewBox="50 270 924 486"/);

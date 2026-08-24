@@ -41,7 +41,7 @@ This document is the source of truth for approved public business details used i
 | Primary logo | Eternity infinity mark with the `ETERNITY` wordmark and `MECHANICAL SERVICES` descriptor supplied August 24, 2026 |
 | Standalone mark | Eternity infinity symbol supplied August 24, 2026; approved for favicon and restrained decorative use |
 | Primary navy | `#0B2646` |
-| Primary coral | `#FF4439` |
+| Primary orange | `#F47A38` |
 | Logo background | Transparent |
 
 ## Interpretation notes
