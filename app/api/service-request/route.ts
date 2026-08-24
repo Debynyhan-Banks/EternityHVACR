@@ -87,15 +87,15 @@ function buildInternalHtmlEmail({
         <td align="center" style="padding:32px 12px;">
           <table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:640px;background:#ffffff;border:1px solid #d9e1ec;">
             <tr>
-              <td style="padding:28px 32px;background:#071b3c;border-bottom:5px solid #f47a38;">
+              <td style="padding:28px 32px;background:#0B2646;border-bottom:5px solid #FF4439;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td>
                       <div style="color:#ffffff;font-size:24px;font-weight:800;letter-spacing:1.5px;line-height:1.1;">ETERNITY</div>
-                      <div style="margin-top:5px;color:#8ebcfb;font-size:10px;font-weight:700;letter-spacing:2px;line-height:1.2;">MECHANICAL SERVICES</div>
+                      <div style="margin-top:5px;color:#FFAAA4;font-size:10px;font-weight:700;letter-spacing:2px;line-height:1.2;">MECHANICAL SERVICES</div>
                     </td>
                     <td align="right" valign="middle">
-                      <span style="display:inline-block;padding:7px 10px;background:${isUrgent ? "#f47a38" : "#0b57d0"};color:#ffffff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">${isUrgent ? "Urgent request" : "Website lead"}</span>
+                      <span style="display:inline-block;padding:7px 10px;background:${isUrgent ? "#FF4439" : "#0B2646"};color:#ffffff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">${isUrgent ? "Urgent request" : "Website lead"}</span>
                     </td>
                   </tr>
                 </table>
@@ -103,8 +103,8 @@ function buildInternalHtmlEmail({
             </tr>
             <tr>
               <td style="padding:34px 32px 18px;">
-                <div style="color:#0b57d0;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">New service request</div>
-                <h1 style="margin:10px 0 8px;color:#071b3c;font-size:28px;line-height:1.25;">${escapeHtml(service)}</h1>
+                <div style="color:#0B2646;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">New service request</div>
+                <h1 style="margin:10px 0 8px;color:#0B2646;font-size:28px;line-height:1.25;">${escapeHtml(service)}</h1>
                 <p style="margin:0;color:#667085;font-size:15px;line-height:1.6;">A customer submitted this request through eternityhvacr.com.</p>
               </td>
             </tr>
@@ -112,11 +112,11 @@ function buildInternalHtmlEmail({
               <td style="padding:10px 32px 8px;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;border:1px solid #d9e1ec;">
                   <tr>
-                    <td style="width:34%;padding:14px 16px;background:#eaf3ff;border-bottom:1px solid #d9e1ec;color:#44536a;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;">Customer type</td>
+                    <td style="width:34%;padding:14px 16px;background:#F1F5F8;border-bottom:1px solid #d9e1ec;color:#44536a;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;">Customer type</td>
                     <td style="padding:14px 16px;border-bottom:1px solid #d9e1ec;color:#101828;font-size:14px;font-weight:700;">${escapeHtml(customer)}</td>
                   </tr>
                   <tr>
-                    <td style="width:34%;padding:14px 16px;background:#eaf3ff;color:#44536a;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;">Timing</td>
+                    <td style="width:34%;padding:14px 16px;background:#F1F5F8;color:#44536a;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;">Timing</td>
                     <td style="padding:14px 16px;color:${isUrgent ? "#b54708" : "#101828"};font-size:14px;font-weight:700;">${escapeHtml(timing)}</td>
                   </tr>
                 </table>
@@ -124,17 +124,17 @@ function buildInternalHtmlEmail({
             </tr>
             <tr>
               <td style="padding:22px 32px 8px;">
-                <h2 style="margin:0 0 10px;color:#071b3c;font-size:16px;line-height:1.3;">Equipment or issue</h2>
-                <div style="padding:18px;background:#f8fafc;border-left:4px solid #0b57d0;color:#344054;font-size:14px;line-height:1.7;">${safeDetails}</div>
+                <h2 style="margin:0 0 10px;color:#0B2646;font-size:16px;line-height:1.3;">Equipment or issue</h2>
+                <div style="padding:18px;background:#f8fafc;border-left:4px solid #0B2646;color:#344054;font-size:14px;line-height:1.7;">${safeDetails}</div>
               </td>
             </tr>
             <tr>
               <td style="padding:22px 32px 8px;">
-                <h2 style="margin:0 0 10px;color:#071b3c;font-size:16px;line-height:1.3;">Customer contact</h2>
+                <h2 style="margin:0 0 10px;color:#0B2646;font-size:16px;line-height:1.3;">Customer contact</h2>
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
                   <tr><td style="padding:5px 0;color:#667085;font-size:13px;">Name</td><td align="right" style="padding:5px 0;color:#101828;font-size:14px;font-weight:700;">${escapeHtml(name)}</td></tr>
-                  <tr><td style="padding:5px 0;color:#667085;font-size:13px;">Phone</td><td align="right" style="padding:5px 0;font-size:14px;font-weight:700;"><a href="tel:${phoneHref}" style="color:#0b57d0;text-decoration:none;">${escapeHtml(phone)}</a></td></tr>
-                  <tr><td style="padding:5px 0;color:#667085;font-size:13px;">Email</td><td align="right" style="padding:5px 0;font-size:14px;font-weight:700;"><a href="mailto:${escapeHtml(email)}" style="color:#0b57d0;text-decoration:none;">${escapeHtml(email)}</a></td></tr>
+                  <tr><td style="padding:5px 0;color:#667085;font-size:13px;">Phone</td><td align="right" style="padding:5px 0;font-size:14px;font-weight:700;"><a href="tel:${phoneHref}" style="color:#0B2646;text-decoration:none;">${escapeHtml(phone)}</a></td></tr>
+                  <tr><td style="padding:5px 0;color:#667085;font-size:13px;">Email</td><td align="right" style="padding:5px 0;font-size:14px;font-weight:700;"><a href="mailto:${escapeHtml(email)}" style="color:#0B2646;text-decoration:none;">${escapeHtml(email)}</a></td></tr>
                 </table>
               </td>
             </tr>
@@ -142,14 +142,14 @@ function buildInternalHtmlEmail({
               <td style="padding:26px 32px 34px;">
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                   <tr>
-                    <td style="padding-right:10px;"><a href="mailto:${escapeHtml(email)}" style="display:inline-block;padding:14px 18px;background:#0b57d0;color:#ffffff;font-size:13px;font-weight:700;text-decoration:none;">Reply to customer &rarr;</a></td>
-                    <td><a href="tel:${phoneHref}" style="display:inline-block;padding:13px 18px;border:1px solid #071b3c;color:#071b3c;font-size:13px;font-weight:700;text-decoration:none;">Call customer</a></td>
+                    <td style="padding-right:10px;"><a href="mailto:${escapeHtml(email)}" style="display:inline-block;padding:14px 18px;background:#0B2646;color:#ffffff;font-size:13px;font-weight:700;text-decoration:none;">Reply to customer &rarr;</a></td>
+                    <td><a href="tel:${phoneHref}" style="display:inline-block;padding:13px 18px;border:1px solid #0B2646;color:#0B2646;font-size:13px;font-weight:700;text-decoration:none;">Call customer</a></td>
                   </tr>
                 </table>
               </td>
             </tr>
             <tr>
-              <td style="padding:20px 32px;background:#071b3c;color:#aebcd1;font-size:11px;line-height:1.6;">
+              <td style="padding:20px 32px;background:#0B2646;color:#aebcd1;font-size:11px;line-height:1.6;">
                 Submitted through <a href="https://eternityhvacr.com" style="color:#ffffff;text-decoration:none;">eternityhvacr.com</a> &bull; Replying to this email responds directly to ${escapeHtml(name)}.
               </td>
             </tr>
@@ -192,57 +192,57 @@ function buildCustomerHtmlEmail({
         <td align="center" style="padding:32px 12px;">
           <table role="presentation" width="640" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:640px;background:#ffffff;border:1px solid #d9e1ec;">
             <tr>
-              <td style="padding:28px 32px;background:#071b3c;border-bottom:5px solid #f47a38;">
+              <td style="padding:28px 32px;background:#0B2646;border-bottom:5px solid #FF4439;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                   <tr>
                     <td>
                       <div style="color:#ffffff;font-size:24px;font-weight:800;letter-spacing:1.5px;line-height:1.1;">ETERNITY</div>
-                      <div style="margin-top:5px;color:#8ebcfb;font-size:10px;font-weight:700;letter-spacing:2px;line-height:1.2;">MECHANICAL SERVICES</div>
+                      <div style="margin-top:5px;color:#FFAAA4;font-size:10px;font-weight:700;letter-spacing:2px;line-height:1.2;">MECHANICAL SERVICES</div>
                     </td>
-                    <td align="right" valign="middle"><span style="display:inline-block;padding:7px 10px;background:#0b57d0;color:#ffffff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Request received</span></td>
+                    <td align="right" valign="middle"><span style="display:inline-block;padding:7px 10px;background:#0B2646;color:#ffffff;font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Request received</span></td>
                   </tr>
                 </table>
               </td>
             </tr>
             <tr>
               <td style="padding:34px 32px 18px;">
-                <div style="color:#0b57d0;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">Thank you for contacting Eternity</div>
-                <h1 style="margin:10px 0 8px;color:#071b3c;font-size:28px;line-height:1.25;">We received your request, ${escapeHtml(firstName)}.</h1>
+                <div style="color:#0B2646;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">Thank you for contacting Eternity</div>
+                <h1 style="margin:10px 0 8px;color:#0B2646;font-size:28px;line-height:1.25;">We received your request, ${escapeHtml(firstName)}.</h1>
                 <p style="margin:0;color:#667085;font-size:15px;line-height:1.7;">Your details have been delivered to the Eternity Mechanical Services team for review.</p>
               </td>
             </tr>
             <tr>
               <td style="padding:10px 32px 8px;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;border:1px solid #d9e1ec;">
-                  <tr><td style="width:34%;padding:14px 16px;background:#eaf3ff;border-bottom:1px solid #d9e1ec;color:#44536a;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;">Service</td><td style="padding:14px 16px;border-bottom:1px solid #d9e1ec;color:#101828;font-size:14px;font-weight:700;">${escapeHtml(service)}</td></tr>
-                  <tr><td style="padding:14px 16px;background:#eaf3ff;border-bottom:1px solid #d9e1ec;color:#44536a;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;">Property</td><td style="padding:14px 16px;border-bottom:1px solid #d9e1ec;color:#101828;font-size:14px;font-weight:700;">${escapeHtml(customer)}</td></tr>
-                  <tr><td style="padding:14px 16px;background:#eaf3ff;color:#44536a;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;">Requested timing</td><td style="padding:14px 16px;color:${isUrgent ? "#b54708" : "#101828"};font-size:14px;font-weight:700;">${escapeHtml(timing)}</td></tr>
+                  <tr><td style="width:34%;padding:14px 16px;background:#F1F5F8;border-bottom:1px solid #d9e1ec;color:#44536a;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;">Service</td><td style="padding:14px 16px;border-bottom:1px solid #d9e1ec;color:#101828;font-size:14px;font-weight:700;">${escapeHtml(service)}</td></tr>
+                  <tr><td style="padding:14px 16px;background:#F1F5F8;border-bottom:1px solid #d9e1ec;color:#44536a;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;">Property</td><td style="padding:14px 16px;border-bottom:1px solid #d9e1ec;color:#101828;font-size:14px;font-weight:700;">${escapeHtml(customer)}</td></tr>
+                  <tr><td style="padding:14px 16px;background:#F1F5F8;color:#44536a;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;">Requested timing</td><td style="padding:14px 16px;color:${isUrgent ? "#b54708" : "#101828"};font-size:14px;font-weight:700;">${escapeHtml(timing)}</td></tr>
                 </table>
               </td>
             </tr>
             <tr>
               <td style="padding:22px 32px 8px;">
-                <h2 style="margin:0 0 10px;color:#071b3c;font-size:16px;line-height:1.3;">Your request details</h2>
-                <div style="padding:18px;background:#f8fafc;border-left:4px solid #0b57d0;color:#344054;font-size:14px;line-height:1.7;">${safeDetails}</div>
+                <h2 style="margin:0 0 10px;color:#0B2646;font-size:16px;line-height:1.3;">Your request details</h2>
+                <div style="padding:18px;background:#f8fafc;border-left:4px solid #0B2646;color:#344054;font-size:14px;line-height:1.7;">${safeDetails}</div>
               </td>
             </tr>
             <tr>
               <td style="padding:22px 32px 8px;">
-                <div style="padding:18px;background:#eaf3ff;color:#344054;font-size:14px;line-height:1.7;">
-                  <strong style="display:block;margin-bottom:5px;color:#071b3c;">What happens next</strong>
+                <div style="padding:18px;background:#F1F5F8;color:#344054;font-size:14px;line-height:1.7;">
+                  <strong style="display:block;margin-bottom:5px;color:#0B2646;">What happens next</strong>
                   The team typically reviews website requests within 15 minutes during regular business hours and will contact you using the details you provided. Appointment availability and service details are confirmed directly by Eternity Mechanical Services.
                 </div>
               </td>
             </tr>
-            ${isUrgent ? `<tr><td style="padding:14px 32px 0;"><div style="padding:16px;background:#fff1e8;border-left:4px solid #f47a38;color:#7c2d12;font-size:13px;line-height:1.6;"><strong>System down or urgent situation?</strong> Please call <a href="tel:+12162536468" style="color:#7c2d12;font-weight:700;">216-253-6468</a> for immediate assistance.</div></td></tr>` : ""}
+            ${isUrgent ? `<tr><td style="padding:14px 32px 0;"><div style="padding:16px;background:#fff1e8;border-left:4px solid #FF4439;color:#7c2d12;font-size:13px;line-height:1.6;"><strong>System down or urgent situation?</strong> Please call <a href="tel:+12162536468" style="color:#7c2d12;font-weight:700;">216-253-6468</a> for immediate assistance.</div></td></tr>` : ""}
             <tr>
               <td style="padding:26px 32px 34px;">
-                <a href="tel:+12162536468" style="display:inline-block;padding:14px 18px;background:#0b57d0;color:#ffffff;font-size:13px;font-weight:700;text-decoration:none;">Call 216-253-6468 &rarr;</a>
+                <a href="tel:+12162536468" style="display:inline-block;padding:14px 18px;background:#0B2646;color:#ffffff;font-size:13px;font-weight:700;text-decoration:none;">Call 216-253-6468 &rarr;</a>
                 <p style="margin:15px 0 0;color:#667085;font-size:12px;line-height:1.6;">You can also reply directly to this email if you need to add information.</p>
               </td>
             </tr>
             <tr>
-              <td style="padding:20px 32px;background:#071b3c;color:#aebcd1;font-size:11px;line-height:1.7;">
+              <td style="padding:20px 32px;background:#0B2646;color:#aebcd1;font-size:11px;line-height:1.7;">
                 Eternity Mechanical Services LLC<br>
                 Greater Cleveland, Ohio &bull; <a href="https://eternityhvacr.com" style="color:#ffffff;text-decoration:none;">eternityhvacr.com</a><br>
                 Monday&ndash;Friday 7:00 a.m.&ndash;7:00 p.m. &bull; Saturday 9:00 a.m.&ndash;5:00 p.m.

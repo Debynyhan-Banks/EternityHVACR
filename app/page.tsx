@@ -61,7 +61,7 @@ export default function Home() {
       <div className="service-grid">{services.map((service) => <a href={service.href} className={`service-card ${service.tone}`} key={service.title}><span>{service.icon}</span><i>↗</i><h3>{service.title}</h3><p>{service.copy}</p><b>Explore service</b></a>)}</div>
     </section>
 
-    <div className="infinity-divider" aria-hidden="true"><span /><div><img src="/images/eternity-logo.svg" alt="" /></div><span /></div>
+    <div className="infinity-divider" aria-hidden="true"><span /><div><img src="/images/eternity-mark.svg" alt="" /></div><span /></div>
 
     <section className="section pathways" id="pathways">
       <article><div className="path-image apartment-image"><img src="/images/apartment-complex.webp" alt="Modern multifamily apartment complex" width="800" height="540" loading="lazy" decoding="async" /><span>Residential & multifamily</span></div><div className="path-content"><p className="kicker">For homeowners & property managers</p><h2>Homes & Apartment Communities</h2><p>Professional comfort solutions for single-family homes, apartment communities and multifamily properties.</p><ul><li>Air conditioning</li><li>Furnaces</li><li>Heat pumps</li><li>Apartment HVAC service</li><li>Thermostats & controls</li><li>Preventive maintenance</li></ul><a className="inline-cta" href="#schedule">Residential services <span>→</span></a></div></article>

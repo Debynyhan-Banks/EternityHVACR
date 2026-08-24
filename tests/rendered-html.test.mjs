@@ -180,8 +180,8 @@ test("uses a branded and actionable service-request email", async () => {
 
   assert.match(source, /ETERNITY/);
   assert.match(source, /MECHANICAL SERVICES/);
-  assert.match(source, /background:#071b3c/);
-  assert.match(source, /border-bottom:5px solid #f47a38/);
+  assert.match(source, /background:#0B2646/);
+  assert.match(source, /border-bottom:5px solid #FF4439/);
   assert.match(source, /Reply to customer/);
   assert.match(source, /Call customer/);
   assert.match(source, /role="presentation"/);
@@ -223,4 +223,23 @@ test("installs Google Analytics and records lead actions without customer PII", 
   assert.match(analytics, /"phone_click"/);
   assert.match(analytics, /"email_click"/);
   assert.doesNotMatch(form, /trackGoogleEvent\([\s\S]{0,300}(?:data\.name|data\.phone|data\.email|data\.details)/);
+});
+
+test("uses the tightly cropped transparent Eternity brand assets", async () => {
+  const [logo, mark, favicon, chrome] = await Promise.all([
+    readFile(new URL("../public/images/eternity-logo.svg", import.meta.url), "utf8"),
+    readFile(new URL("../public/images/eternity-mark.svg", import.meta.url), "utf8"),
+    readFile(new URL("../public/favicon.svg", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/SiteChrome.tsx", import.meta.url), "utf8"),
+  ]);
+
+  for (const asset of [logo, mark, favicon]) {
+    assert.match(asset, /#0B2646/);
+    assert.match(asset, /#FF4439/);
+    assert.doesNotMatch(asset, /<metadata|<rect/i);
+  }
+  assert.match(logo, /viewBox="50 270 924 486"/);
+  assert.match(mark, /viewBox="286 270 452 236"/);
+  assert.match(favicon, /viewBox="286 270 452 236"/);
+  assert.match(chrome, /eternity-logo-reverse\.svg/);
 });

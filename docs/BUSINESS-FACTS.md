@@ -33,6 +33,16 @@ This document is the source of truth for approved public business details used i
 | Euclid residential HVAC installation | Completed in Euclid, OH 44123. Full heating and cooling installation with an 80,000 BTU, 80% AFUE Payne furnace; Payne PA4SAN53000N 2.5-ton / 30,000 BTU R-454B air conditioner; matching CVAVA3017XMA 17.5-inch vertical cased R-454B evaporator coil; equipment pad; 30A fused disconnect; AC electrical whip; and associated installation work. Genuine project photographs were supplied August 24, 2026. Do not publish internal acquisition costs or contractor pricing. |
 | Commercial rooftop HVAC service | Commercial rooftop packaged-unit diagnostic/service in the 44119 Cleveland/Euclid-area market. Documented conditions include significant equipment contamination, dust accumulation on the blower motor, no installed filter and a frozen evaporator coil. Genuine project photography was supplied August 24, 2026. The exact municipality, customer, equipment capacity, repair outcome, parts replaced, final diagnosis and pricing remain unverified and must not be published as facts. |
 
+## Approved brand identity
+
+| Element | Approved value |
+|---|---|
+| Primary logo | Eternity infinity mark with the `ETERNITY` wordmark and `MECHANICAL SERVICES` descriptor supplied August 24, 2026 |
+| Standalone mark | Eternity infinity symbol supplied August 24, 2026; approved for favicon and restrained decorative use |
+| Primary navy | `#0B2646` |
+| Primary coral | `#FF4439` |
+| Logo background | Transparent |
+
 ## Interpretation notes
 
 - The repeated email supplied by Eternity is recorded as both the public email and the service-request destination.
