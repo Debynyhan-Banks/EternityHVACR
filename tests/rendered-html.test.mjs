@@ -70,6 +70,7 @@ test("publishes crawler files with the canonical sitemap", async () => {
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/services\/preventive-maintenance<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/areas-we-serve<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/areas-we-serve\/euclid-oh<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/projects\/euclid-central-air-installation<\/loc>/);
   assert.match(sitemap, /system-diagnostic-report\.jpg|hero-technician-black\.jpg/);
 });
 
@@ -122,13 +123,31 @@ test("renders the proof-backed Euclid service-area page", async () => {
   assert.match(html, /CVAVA3017XMA/);
   assert.match(html, /cleveland-commercial-rooftop-hvac-service-1200\.webp/);
   assert.match(html, /euclid-oh-sinclair-furnace-installation-1200\.webp/);
-  assert.match(html, /Full-system installation in Euclid 44119/);
+  assert.match(html, /Central air and furnace installation in Euclid 44119/);
   assert.match(html, /3 ton/);
   assert.match(html, /96%/);
   assert.match(html, /&quot;FAQPage&quot;|"FAQPage"/);
   assert.match(html, /&quot;ImageObject&quot;|"ImageObject"/);
   assert.match(html, /<link rel="canonical" href="https:\/\/eternityhvacr\.com\/areas-we-serve\/euclid-oh"/);
   assert.doesNotMatch(html, /repairs were completed|parts were replaced|system was restored/i);
+  assert.doesNotMatch(html, /334 E 197th/i);
+});
+
+test("renders the first verified residential project case study", async () => {
+  const response = await render("/projects/euclid-central-air-installation");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+
+  assert.match(html, /Central Air &amp; High-Efficiency Furnace Installation in Euclid/);
+  assert.match(html, /more than 40 years old/i);
+  assert.match(html, /August 2026/);
+  assert.match(html, /80,000 BTU/);
+  assert.match(html, /96%/);
+  assert.match(html, /3 ton/);
+  assert.match(html, /euclid-oh-sinclair-furnace-installation-1200\.webp/);
+  assert.match(html, /&quot;Article&quot;|"Article"/);
+  assert.match(html, /&quot;BreadcrumbList&quot;|"BreadcrumbList"/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/eternityhvacr\.com\/projects\/euclid-central-air-installation"/);
   assert.doesNotMatch(html, /334 E 197th/i);
 });
 

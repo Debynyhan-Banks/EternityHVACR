@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://eternityhvacr.com/</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -53,7 +53,7 @@
   </url>
   <url>
     <loc>https://eternityhvacr.com/areas-we-serve/euclid-oh</loc>
-    <lastmod>2026-08-24</lastmod>
+    <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
     <image:image>
@@ -71,6 +71,16 @@
     <image:image>
       <image:loc>https://eternityhvacr.com/images/euclid/euclid-oh-sinclair-furnace-installation-1200.webp</image:loc>
       <image:caption>Eternity Mechanical technician completing a residential HVAC installation in Euclid Ohio 44119</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://eternityhvacr.com/projects/euclid-central-air-installation</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://eternityhvacr.com/images/euclid/euclid-oh-sinclair-furnace-installation-1200.webp</image:loc>
+      <image:caption>Completed central air and high-efficiency furnace installation in Euclid Ohio</image:caption>
     </image:image>
   </url>
 </urlset>

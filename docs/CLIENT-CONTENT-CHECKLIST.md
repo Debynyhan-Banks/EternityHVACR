@@ -1,6 +1,6 @@
 # Eternity Mechanical Services Information and Content Checklist
 
-Last updated: August 24, 2026
+Last updated: August 25, 2026
 
 This checklist identifies what is needed from Eternity Mechanical Services to complete the SEO, GEO and lead-generation roadmap accurately. Do not send account passwords, private customer information or payment information through the repository.
 
@@ -124,6 +124,8 @@ Original, real business photography is the most valuable visual asset. Smartphon
 ### For each project
 
 Received August 24, 2026: documented Euclid residential installations in 44123 and 44119, including three completed-equipment photographs and one technician-at-work photograph; plus one commercial rooftop diagnostic/service photograph from the 44119 Cleveland/Euclid-area market. Additional projects and angles are still needed to meet the portfolio targets above.
+
+Case-study details confirmed August 25, 2026 for the Euclid 44119 installation: completed August 2026; homeowner wanted central air; existing furnace was more than 40 years old; full 80,000 BTU, 96% efficiency furnace and 3-ton cooling system installed; owner identified the technician photograph as the final result. Customer quotation and explicit street-address publication permission were not provided.
 
 - [ ] One wide establishing photo
 - [ ] One clear equipment photo

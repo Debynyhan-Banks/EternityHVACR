@@ -90,7 +90,7 @@ const schema = {
     {
       "@type": "ImageObject",
       contentUrl: "https://eternityhvacr.com/images/euclid/euclid-oh-sinclair-furnace-installation-1200.webp",
-      caption: "Eternity Mechanical technician completing a full residential HVAC installation in Euclid, Ohio 44119",
+      caption: "Eternity Mechanical technician beside a completed central-air and furnace installation in Euclid, Ohio 44119",
       creator: { "@id": "https://eternityhvacr.com/#business" },
     },
   ],

@@ -155,24 +155,24 @@ export default function LocationLanding({ content, schema }: { content: Location
           <ProjectImage
             src="/images/euclid/euclid-oh-sinclair-furnace-installation-1200.webp"
             smallSrc="/images/euclid/euclid-oh-sinclair-furnace-installation-720.webp"
-            alt="Eternity Mechanical technician completing a Sinclair furnace and evaporator coil installation in Euclid, Ohio"
+            alt="Eternity Mechanical technician beside a completed Sinclair furnace and evaporator coil installation in Euclid, Ohio"
             width={1200}
             height={2132}
           />
           <figcaption>Full residential HVAC installation • Euclid 44119</figcaption>
         </figure>
         <div>
-          <p className="kicker">Additional verified Euclid work</p>
-          <h2>Full-system installation in Euclid 44119</h2>
-          <p>Eternity completed a full residential heating and cooling installation with an 80,000 BTU, 96% efficiency furnace, 3-ton air-conditioning system, outdoor condenser and matching evaporator coil.</p>
-          <p>The field photograph documents the indoor Sinclair furnace and coil installation in progress. The exact residential street address is intentionally not published.</p>
+          <p className="kicker">Residential case study</p>
+          <h2>Central air and furnace installation in Euclid 44119</h2>
+          <p>The homeowner wanted central air, and the furnace serving the home was more than 40 years old. Eternity completed a full residential heating and cooling installation with an 80,000 BTU, 96% efficiency furnace, 3-ton air-conditioning system, outdoor condenser and matching evaporator coil in August 2026.</p>
+          <p>The field photograph shows the Eternity technician beside the completed indoor Sinclair furnace and coil installation. The exact residential street address is intentionally not published.</p>
           <div className="secondary-project-specs" aria-label="Euclid 44119 installation specifications">
             <div><strong>80,000 BTU</strong><span>Furnace rating</span></div>
             <div><strong>96%</strong><span>Efficiency rating</span></div>
             <div><strong>3 ton</strong><span>Cooling capacity</span></div>
             <div><strong>Full install</strong><span>Furnace, coil & condenser</span></div>
           </div>
-          <a className="inline-cta" href="/#schedule">Request installation service <span>→</span></a>
+          <a className="inline-cta" href="/projects/euclid-central-air-installation">Read the full case study <span>→</span></a>
         </div>
       </section>
 

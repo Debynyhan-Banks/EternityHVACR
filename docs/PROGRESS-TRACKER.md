@@ -1,6 +1,6 @@
 # Eternity Mechanical Services Website Progress Tracker
 
-Last updated: August 24, 2026
+Last updated: August 25, 2026
 
 This file is the source of truth for the SEO, GEO, content and feature program. Update it whenever a task begins, finishes, becomes blocked or changes scope.
 
@@ -16,11 +16,11 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 ## Current position
 
-**Current milestone:** Phase 2 — First proof-backed city page
+**Current milestone:** Phase 3 — First verified project case study
 
 **Current status:** Complete
 
-**Next action:** Submit the new Euclid URL for indexing, then turn the verified 44123 installation into a dedicated case study. Confirm the exact municipality for the 44119 rooftop project before using it as proof for another city page.
+**Next action:** Collect the problem, approved work, completion date and final result for the 44123 residential installation so it can become the second verified case study. Continue collecting approved reviews and owner/team information.
 
 ## Phase 1 information blockers
 
@@ -57,7 +57,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2 | Service-area hub and city pages | In progress | Approved priority and extended city/ZIP list plus genuine local proof | Comprehensive service-area hub and first proof-backed Euclid page published August 24, 2026; future city pages remain gated by location-specific evidence |
 | 3 | Owner, team and credentials | Waiting on Eternity | Bios, photos and documents | Approved trust content published |
 | 3 | Verified review system | Waiting on Eternity | Review links and permission | Reviews and review CTA live |
-| 3 | First three case studies | Waiting on Eternity | Project information and photos | Three verified case studies live |
+| 3 | First three case studies | In progress | Project information and photos | First verified case study published for the Euclid 44119 installation; two additional case studies remain |
 | 4 | Answer library | Waiting on Eternity | Technical review process | First four expert answers live |
 | 4 | AI-crawler and referral measurement | Ready | Analytics in Phase 1 | OAI-SearchBot allowed and referrals tracked |
 | 5 | Service-area checker | Ready | Approved ZIP list | Tested service-area response |
@@ -122,6 +122,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-24 | Applied the approved Eternity logo and color system | Replaced the previous logo and favicon with tightly cropped transparent vector assets; introduced the approved navy `#0B2646` and coral `#FF4439` palette across the site and service-request emails; added a transparent reversed footer logo; 13 automated checks pass | Keep future website and marketing assets aligned with the approved identity |
 | 2026-08-24 | Restored Eternity's orange accent color | Retained the new transparent logo and navy foundation while replacing the coral-red accent with the original orange `#F47A38` across the website, logo, favicon and service-request emails | Use navy and orange for future website and marketing assets |
 | 2026-08-24 | Added a second verified Euclid residential installation | Published the 44119 full-system installation with an 80,000 BTU, 96% efficiency furnace, 3-ton cooling system, condenser and coil; optimized the technician-at-work photograph and withheld the residential street address from public copy | Build the dedicated Euclid installation case-study collection |
+| 2026-08-25 | Published Eternity's first complete project case study | Documented the Euclid 44119 homeowner's central-air goal, more-than-40-year-old furnace, August 2026 completion, full matched-system installation and final project photograph without exposing the residential street address | Collect the final details needed for a second verified case study |
 
 ## Decision log
 
