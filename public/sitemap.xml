@@ -74,6 +74,22 @@
     </image:image>
   </url>
   <url>
+    <loc>https://eternityhvacr.com/projects</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://eternityhvacr.com/projects/euclid-payne-hvac-installation</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://eternityhvacr.com/images/euclid/euclid-oh-residential-furnace-installation-1200.webp</image:loc>
+      <image:caption>Matched Payne furnace and air conditioning installation in Euclid Ohio</image:caption>
+    </image:image>
+  </url>
+  <url>
     <loc>https://eternityhvacr.com/projects/euclid-central-air-installation</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>yearly</changefreq>

@@ -44,7 +44,7 @@ const schema = {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://eternityhvacr.com/" },
-        { "@type": "ListItem", position: 2, name: "Euclid HVAC Service", item: "https://eternityhvacr.com/areas-we-serve/euclid-oh" },
+        { "@type": "ListItem", position: 2, name: "Projects", item: "https://eternityhvacr.com/projects" },
         { "@type": "ListItem", position: 3, name: "Euclid Central Air Installation", item: pageUrl },
       ],
     },
@@ -67,7 +67,7 @@ export default function EuclidCentralAirCaseStudy() {
       <section className="case-study-hero">
         <div className="case-study-hero-copy">
           <nav className="case-study-breadcrumbs" aria-label="Breadcrumb">
-            <a href="/">Home</a><span aria-hidden="true">/</span><a href="/areas-we-serve/euclid-oh">Euclid HVAC</a><span aria-hidden="true">/</span><span>Case study</span>
+            <a href="/">Home</a><span aria-hidden="true">/</span><a href="/projects">Projects</a><span aria-hidden="true">/</span><span>Case study</span>
           </nav>
           <p className="eyebrow"><i /> Residential project • August 2026</p>
           <h1>Central Air & High-Efficiency Furnace Installation in Euclid</h1>

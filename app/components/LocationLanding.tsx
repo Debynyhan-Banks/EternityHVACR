@@ -117,6 +117,7 @@ export default function LocationLanding({ content, schema }: { content: Location
             <div><strong>R-454B</strong><span>Refrigerant</span></div>
           </div>
           <p className="project-models">The matched cooling system includes a Payne PA4SAN53000N air conditioner and CVAVA3017XMA 17.5-inch vertical cased evaporator coil.</p>
+          <a className="inline-cta" href="/projects/euclid-payne-hvac-installation">Read the 44123 case study <span>→</span></a>
         </div>
         <div className="project-feature-image">
           <ProjectImage

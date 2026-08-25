@@ -70,6 +70,8 @@ test("publishes crawler files with the canonical sitemap", async () => {
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/services\/preventive-maintenance<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/areas-we-serve<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/areas-we-serve\/euclid-oh<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/projects<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/projects\/euclid-payne-hvac-installation<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/projects\/euclid-central-air-installation<\/loc>/);
   assert.match(sitemap, /system-diagnostic-report\.jpg|hero-technician-black\.jpg/);
 });
@@ -152,6 +154,36 @@ test("renders the first verified residential project case study", async () => {
   assert.match(html, /<link rel="canonical" href="https:\/\/eternityhvacr\.com\/projects\/euclid-central-air-installation"/);
   assert.doesNotMatch(html, /334 E 197th/i);
   assert.doesNotMatch(html, /Project outcome/);
+});
+
+test("renders the verified Euclid home-flipper case study without claiming a sale result", async () => {
+  const response = await render("/projects/euclid-payne-hvac-installation");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+
+  assert.match(html, /home flipper/i);
+  assert.match(html, /80,000 BTU/);
+  assert.match(html, /80% AFUE/);
+  assert.match(html, /2\.5 ton|2\.5-ton/);
+  assert.match(html, /matched Payne/i);
+  assert.match(html, /sale speed was not independently measured/i);
+  assert.match(html, /euclid-oh-residential-furnace-installation-1200\.webp/);
+  assert.match(html, /euclid-oh-payne-hvac-installation-1200\.webp/);
+  assert.match(html, /&quot;Article&quot;|"Article"/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/eternityhvacr\.com\/projects\/euclid-payne-hvac-installation"/);
+  assert.doesNotMatch(html, /sold faster|increased the sale price|guaranteed/i);
+});
+
+test("publishes a project library linking both verified case studies", async () => {
+  const response = await render("/projects");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+
+  assert.match(html, /Matched Payne HVAC Replacement/);
+  assert.match(html, /Central Air &amp; High-Efficiency Furnace/);
+  assert.match(html, /href="\/projects\/euclid-payne-hvac-installation"/);
+  assert.match(html, /href="\/projects\/euclid-central-air-installation"/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/eternityhvacr\.com\/projects"/);
 });
 
 test("rejects invalid and cross-origin service requests", async () => {
