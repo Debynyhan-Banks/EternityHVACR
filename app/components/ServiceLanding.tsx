@@ -11,6 +11,14 @@ export type ServiceLandingContent = {
   customers: string[];
   process: Array<[string, string]>;
   faqs: Array<[string, string]>;
+  caseStudy?: {
+    href: string;
+    image: string;
+    imageAlt: string;
+    label: string;
+    title: string;
+    copy: string;
+  };
 };
 
 export default function ServiceLanding({ content }: { content: ServiceLandingContent }) {
@@ -58,6 +66,10 @@ export default function ServiceLanding({ content }: { content: ServiceLandingCon
     <section className="section landing-overview"><div><p className="kicker">Service capabilities</p><h2>Professional service built around the equipment.</h2><p>Eternity begins with the operating condition, symptoms and property needs, then evaluates the system before recommending approved work.</p></div><div className="landing-list">{content.services.map((service) => <span key={service}>✓ {service}</span>)}</div></section>
     <section className="landing-customers"><div><p className="kicker light">Who we help</p><h2>Service for the properties that depend on reliable operation.</h2></div><div>{content.customers.map((customer) => <article key={customer}><span>✓</span><h3>{customer}</h3></article>)}</div></section>
     <section className="section landing-process"><div className="center-head"><p className="kicker">How service works</p><h2>Measured before recommended.</h2></div><div>{content.process.map(([title, copy], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></section>
+    {content.caseStudy && <section className="commercial-proof">
+      <figure><img src={content.caseStudy.image} alt={content.caseStudy.imageAlt} width="1200" height="900" loading="lazy" decoding="async" /><figcaption>{content.caseStudy.label}</figcaption></figure>
+      <div><p className="kicker light">Verified field work</p><h2>{content.caseStudy.title}</h2><p>{content.caseStudy.copy}</p><a className="inline-cta light-link" href={content.caseStudy.href}>Read the case study <span>→</span></a></div>
+    </section>}
     <section className="section landing-faq"><div><p className="kicker">Common questions</p><h2>Before you request service</h2></div><div>{content.faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
     <section className="emergency landing-cta"><div><p className="kicker light">Ready to get started?</p><h2>Tell Eternity what the equipment needs.</h2><p>Use the guided request form for service details, timing and contact information.</p></div><div><a className="btn btn-orange" href="/#schedule">Request service <span>↗</span></a><a className="btn-outline light-outline" href="/areas-we-serve">View service areas <span>→</span></a><small>Emergency service is available outside normal hours. Call 216-253-6468 for urgent help.</small></div></section>
     <SiteFooter />

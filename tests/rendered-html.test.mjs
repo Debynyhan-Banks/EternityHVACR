@@ -71,6 +71,7 @@ test("publishes crawler files with the canonical sitemap", async () => {
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/areas-we-serve<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/areas-we-serve\/euclid-oh<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/projects<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/projects\/euclid-rooftop-hvac-diagnostic<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/projects\/euclid-payne-hvac-installation<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/projects\/euclid-central-air-installation<\/loc>/);
   assert.match(sitemap, /system-diagnostic-report\.jpg|hero-technician-black\.jpg/);
@@ -174,16 +175,35 @@ test("renders the verified Euclid home-flipper case study without claiming a sal
   assert.doesNotMatch(html, /sold faster|increased the sale price|guaranteed/i);
 });
 
-test("publishes a project library linking both verified case studies", async () => {
+test("publishes a project library linking all three verified case studies", async () => {
   const response = await render("/projects");
   assert.equal(response.status, 200);
   const html = await response.text();
 
   assert.match(html, /Matched Payne HVAC Replacement/);
   assert.match(html, /Central Air &amp; High-Efficiency Furnace/);
+  assert.match(html, /Frozen Rooftop HVAC Diagnostic/);
+  assert.match(html, /href="\/projects\/euclid-rooftop-hvac-diagnostic"/);
   assert.match(html, /href="\/projects\/euclid-payne-hvac-installation"/);
   assert.match(html, /href="\/projects\/euclid-central-air-installation"/);
   assert.match(html, /<link rel="canonical" href="https:\/\/eternityhvacr\.com\/projects"/);
+});
+
+test("renders the Euclid rooftop diagnostic as findings rather than assumed repairs", async () => {
+  const response = await render("/projects/euclid-rooftop-hvac-diagnostic");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+
+  assert.match(html, /frozen solid/i);
+  assert.match(html, /No leak found/);
+  assert.match(html, /pressure test/i);
+  assert.match(html, /grease and dirt/i);
+  assert.match(html, /air filter nor a refrigerant filter-drier/i);
+  assert.match(html, /No cleaning, component installation, refrigerant charge or restored-operation result was provided/i);
+  assert.match(html, /cleveland-commercial-rooftop-hvac-service-1200\.webp/);
+  assert.match(html, /&quot;Article&quot;|"Article"/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/eternityhvacr\.com\/projects\/euclid-rooftop-hvac-diagnostic"/);
+  assert.doesNotMatch(html, /leak repaired|refrigerant added|system restored/i);
 });
 
 test("rejects invalid and cross-origin service requests", async () => {

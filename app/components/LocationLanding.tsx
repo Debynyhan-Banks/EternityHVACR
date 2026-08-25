@@ -193,7 +193,7 @@ export default function LocationLanding({ content, schema }: { content: Location
           <h2>Commercial HVAC diagnostics & service</h2>
           <p>During a rooftop packaged-unit service call in the 44119 Cleveland/Euclid-area market, Eternity encountered significant equipment contamination, dust accumulation on the blower motor, a missing filter and a frozen evaporator coil.</p>
           <p>Conditions like these require a careful inspection of the equipment and operating conditions. The photograph documents the equipment condition at the service visit.</p>
-          <a className="inline-cta light-link" href="/services/commercial-hvac">View commercial HVAC service <span>→</span></a>
+          <a className="inline-cta light-link" href="/projects/euclid-rooftop-hvac-diagnostic">Read the rooftop diagnostic case study <span>→</span></a>
         </div>
       </section>
 

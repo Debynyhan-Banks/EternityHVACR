@@ -16,11 +16,11 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 ## Current position
 
-**Current milestone:** Phase 3 — Verified project case-study library
+**Current milestone:** Phase 3 — First three verified project case studies
 
 **Current status:** Complete
 
-**Next action:** Collect verified facts and approved photographs for a third project case study. Continue collecting approved reviews and owner/team information.
+**Next action:** Add a verified customer-review pathway and collect approved owner/team information.
 
 ## Phase 1 information blockers
 
@@ -57,7 +57,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2 | Service-area hub and city pages | In progress | Approved priority and extended city/ZIP list plus genuine local proof | Comprehensive service-area hub and first proof-backed Euclid page published August 24, 2026; future city pages remain gated by location-specific evidence |
 | 3 | Owner, team and credentials | Waiting on Eternity | Bios, photos and documents | Approved trust content published |
 | 3 | Verified review system | Waiting on Eternity | Review links and permission | Reviews and review CTA live |
-| 3 | First three case studies | In progress | Project information and photos | Verified case studies published for the Euclid 44119 and 44123 installations; one additional case study remains |
+| 3 | First three case studies | Complete | Project information and photos | Two residential installations and one commercial rooftop diagnostic published with verified facts and field photography |
 | 4 | Answer library | Waiting on Eternity | Technical review process | First four expert answers live |
 | 4 | AI-crawler and referral measurement | Ready | Analytics in Phase 1 | OAI-SearchBot allowed and referrals tracked |
 | 5 | Service-area checker | Ready | Approved ZIP list | Tested service-area response |
@@ -125,6 +125,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-25 | Published Eternity's first complete project case study | Documented the Euclid 44119 homeowner's central-air goal, more-than-40-year-old furnace, August 2026 completion, full matched-system installation and final project photograph without exposing the residential street address | Collect the final details needed for a second verified case study |
 | 2026-08-25 | Reworked the first case study's result section for authenticity | Replaced generic outcome language with a documented before, installed and finished record; explicitly avoided unverified performance, savings and testimonial claims | Use the same evidence-first standard for future case studies |
 | 2026-08-25 | Published the second verified residential case study | Documented the Euclid 44123 home-flipper project, outdated starting system and matched 80,000 BTU, 80% AFUE Payne furnace, coil and 2.5-ton condenser; separated the owner's faster-sale goal from unmeasured sales results | Collect evidence for the third project case study |
+| 2026-08-25 | Published the third verified case study | Documented the Euclid 44119 frozen rooftop-unit diagnostic, no-leak pressure-test finding, severe blower contamination and missing filter/filter drier without claiming unreported repairs or restored operation | Build the verified customer-review pathway |
 
 ## Decision log
 

@@ -15,6 +15,15 @@ export const metadata: Metadata = {
 
 const projects = [
   {
+    href: "/projects/euclid-rooftop-hvac-diagnostic",
+    image: "/images/euclid/cleveland-commercial-rooftop-hvac-service-1200.webp",
+    imageSmall: "/images/euclid/cleveland-commercial-rooftop-hvac-service-720.webp",
+    alt: "Commercial rooftop HVAC unit opened for diagnostic service in Euclid",
+    label: "Euclid 44119 • Commercial diagnostic",
+    title: "Frozen Rooftop HVAC Diagnostic",
+    copy: "A suspected refrigerant leak tested against the actual conditions: a frozen evaporator, no leak found, severe blower contamination and missing filtration.",
+  },
+  {
     href: "/projects/euclid-payne-hvac-installation",
     image: "/images/euclid/euclid-oh-residential-furnace-installation-1200.webp",
     imageSmall: "/images/euclid/euclid-oh-residential-furnace-installation-720.webp",
@@ -44,7 +53,7 @@ export default function ProjectsPage() {
         <p>Each case study uses genuine project photography and confirmed job facts. Customer goals are separated from outcomes that were not measured.</p>
       </section>
       <section className="section project-index-section">
-        <div className="section-head"><div><p className="kicker">Project library</p><h2>Residential installations in Euclid</h2></div><p>Two complete heating and cooling replacements serving different property goals.</p></div>
+        <div className="section-head"><div><p className="kicker">Project library</p><h2>Residential and commercial HVAC work in Euclid</h2></div><p>Three field-documented projects covering installation, property preparation and measured diagnostics.</p></div>
         <div className="project-index-grid">
           {projects.map((project) => (
             <a className="project-index-card" href={project.href} key={project.href}>
