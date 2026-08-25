@@ -144,11 +144,14 @@ test("renders the first verified residential project case study", async () => {
   assert.match(html, /80,000 BTU/);
   assert.match(html, /96%/);
   assert.match(html, /3 ton/);
+  assert.match(html, /Documented before &amp; after/);
+  assert.match(html, /No energy-savings estimate/);
   assert.match(html, /euclid-oh-sinclair-furnace-installation-1200\.webp/);
   assert.match(html, /&quot;Article&quot;|"Article"/);
   assert.match(html, /&quot;BreadcrumbList&quot;|"BreadcrumbList"/);
   assert.match(html, /<link rel="canonical" href="https:\/\/eternityhvacr\.com\/projects\/euclid-central-air-installation"/);
   assert.doesNotMatch(html, /334 E 197th/i);
+  assert.doesNotMatch(html, /Project outcome/);
 });
 
 test("rejects invalid and cross-origin service requests", async () => {

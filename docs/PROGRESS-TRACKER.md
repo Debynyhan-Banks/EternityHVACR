@@ -123,6 +123,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-24 | Restored Eternity's orange accent color | Retained the new transparent logo and navy foundation while replacing the coral-red accent with the original orange `#F47A38` across the website, logo, favicon and service-request emails | Use navy and orange for future website and marketing assets |
 | 2026-08-24 | Added a second verified Euclid residential installation | Published the 44119 full-system installation with an 80,000 BTU, 96% efficiency furnace, 3-ton cooling system, condenser and coil; optimized the technician-at-work photograph and withheld the residential street address from public copy | Build the dedicated Euclid installation case-study collection |
 | 2026-08-25 | Published Eternity's first complete project case study | Documented the Euclid 44119 homeowner's central-air goal, more-than-40-year-old furnace, August 2026 completion, full matched-system installation and final project photograph without exposing the residential street address | Collect the final details needed for a second verified case study |
+| 2026-08-25 | Reworked the first case study's result section for authenticity | Replaced generic outcome language with a documented before, installed and finished record; explicitly avoided unverified performance, savings and testimonial claims | Use the same evidence-first standard for future case studies |
 
 ## Decision log
 

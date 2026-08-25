@@ -140,21 +140,21 @@ export default function EuclidCentralAirCaseStudy() {
 
       <section className="section case-study-result">
         <div>
-          <p className="kicker">The final result</p>
-          <h2>Central air added and a 40-plus-year-old furnace replaced.</h2>
-          <p>The finished installation gave the homeowner the central air conditioning she wanted while replacing the home’s more-than-40-year-old furnace with a modern high-efficiency unit.</p>
-          <p>The supplied final project photograph shows the Eternity technician beside the completed indoor furnace and evaporator-coil installation.</p>
+          <p className="kicker">What changed at the home</p>
+          <h2>The homeowner’s request became a specific equipment upgrade.</h2>
+          <p>Before this project, the homeowner was asking to add central air and the furnace in the home was more than 40 years old.</p>
+          <p>In August 2026, Eternity replaced that furnace with an 80,000 BTU, 96% efficiency Sinclair unit and installed the matching evaporator coil and 3-ton outdoor condenser needed for central air.</p>
+          <p>The project photograph documents the completed indoor furnace and coil with the Eternity technician beside the equipment. No energy-savings estimate, before-and-after temperature reading or customer testimonial was provided, so none is claimed here.</p>
           <small>For homeowner privacy, the project is identified publicly by city and ZIP code rather than its residential street address.</small>
         </div>
         <aside className="case-study-result-card">
-          <span>Project outcome</span>
-          <strong>Complete residential heating and cooling system</strong>
-          <ul>
-            <li>Central air installed</li>
-            <li>Aging furnace replaced</li>
-            <li>Matched indoor and outdoor equipment</li>
-            <li>Completed August 2026</li>
-          </ul>
+          <span>Documented before & after</span>
+          <strong>One project, two comfort needs</strong>
+          <div className="case-study-before-after">
+            <div><em>Before</em><b>Central air requested</b><small>Existing furnace was more than 40 years old</small></div>
+            <div><em>Installed</em><b>96% furnace + 3-ton AC</b><small>80,000 BTU furnace, matching coil and condenser</small></div>
+            <div><em>Finished</em><b>August 2026</b><small>Euclid, Ohio 44119</small></div>
+          </div>
         </aside>
       </section>
 

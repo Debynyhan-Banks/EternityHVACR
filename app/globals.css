@@ -336,9 +336,12 @@ body .maintenance-image>img{object-position:left center}
 .case-study-result-card{padding:38px;border:1px solid var(--line);background:var(--light);box-shadow:16px 16px 0 rgba(244,122,56,.16)}
 .case-study-result-card>span{color:var(--orange-accessible);font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.12em}
 .case-study-result-card>strong{display:block;margin:18px 0 26px;color:var(--navy);font-size:30px;line-height:1.18}
-.case-study-result-card ul{margin:0;padding:0;list-style:none}
-.case-study-result-card li{padding:13px 0;border-top:1px solid #d4dee8;color:#44536a;font-size:13px;font-weight:800}
-.case-study-result-card li:before{content:"✓";margin-right:10px;color:var(--orange-accessible);font-weight:900}
+.case-study-before-after{display:grid;gap:0}
+.case-study-before-after>div{padding:17px 0;border-top:1px solid #d4dee8}
+.case-study-before-after em,.case-study-before-after b,.case-study-before-after small{display:block}
+.case-study-before-after em{color:var(--orange-accessible);font-size:9px;font-style:normal;font-weight:900;text-transform:uppercase;letter-spacing:.11em}
+.case-study-before-after b{margin-top:7px;color:var(--navy);font-size:15px}
+.case-study-before-after small{margin-top:5px;color:#5e6879;font-size:11px;line-height:1.5}
 
 @media(max-width:1000px){.case-study-hero,.case-study-solution,.case-study-result{grid-template-columns:1fr}.case-study-hero-image{min-height:680px}.case-study-solution{gap:50px}.case-study-result-card{max-width:620px}}
 @media(max-width:700px){.case-study-hero-copy{padding:55px 20px 65px}.case-study-breadcrumbs{margin-bottom:28px}.case-study-hero h1{font-size:46px}.case-study-quick-facts{grid-template-columns:1fr}.case-study-hero-image{min-height:590px;padding:24px 18px 46px}.case-study-hero-image img{height:525px;box-shadow:10px 10px 0 rgba(244,122,56,.32)}.case-study-hero-image figcaption{left:12px;right:12px;bottom:10px;text-align:center}.case-study-summary{grid-template-columns:1fr 1fr;padding:12px}.case-study-summary div{padding:14px;border-bottom:1px solid var(--line)}.case-study-summary div:nth-child(2n){border-right:0}.case-study-summary div:nth-last-child(-n+2){border-bottom:0}.case-study-story-grid{grid-template-columns:1fr}.case-study-story-grid article{min-height:auto}.case-study-story-grid h3{margin-top:34px}.case-study-solution{padding:70px 20px}.case-study-install-list{grid-template-columns:1fr}.case-study-result{gap:42px}.case-study-result-card{padding:28px;box-shadow:9px 9px 0 rgba(244,122,56,.16)}}
