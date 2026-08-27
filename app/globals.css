@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
 
 :root{--navy:#0B2646;--deep:#071A31;--blue:#0B2646;--light:#F1F5F8;--orange:#F47A38;--orange-accessible:#A94411;--gray:#f5f7fa;--text:#101828;--muted:#5e6879;--white:#fff;--line:#D5DEE7;--cyan:#F6F8FA}
 body .header .logo-crop{flex:0 0 150px;width:150px;height:70px;overflow:visible;display:flex;align-items:center}
