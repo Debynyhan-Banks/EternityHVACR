@@ -99,19 +99,22 @@ General coverage is confirmed as Cuyahoga County and surrounding Cleveland metro
 
 For each owner, manager or technician who will appear publicly:
 
-- [ ] Full name and title
-- [ ] Short biography
-- [ ] Years of experience
-- [ ] Areas of expertise
+- [x] Full name and title — Bernard Gray, Owner; Debynyhan Banks, Technician
+- [x] Short biography — approved text-only profiles received August 27, 2026
+- [x] Years of experience — Bernard Gray, 28 years; Debynyhan Banks, more than 5 years
+- [x] Areas of expertise — Bernard: HVAC, boilers and refrigeration; Debynyhan: technical work, website, marketing and administration
 - [ ] Licenses or certifications
-- [ ] Professional headshot or approved work photograph
-- [ ] Permission to publish
+- [x] Education — Debynyhan Banks, computer science degree and MBA
+- [ ] Professional headshot or approved work photograph — intentionally deferred at Debynyhan’s request
+- [x] Permission to publish — names, titles and biographies supplied for publication August 27, 2026
 
 ## Images needed
 
 Original, real business photography is the most valuable visual asset. Smartphone photographs are acceptable when they are sharp, well lit and do not expose private customer information.
 
 ### Immediate priority
+
+Owner and team photography is intentionally deferred. Publish the approved text-only profiles until images are supplied later.
 
 - [ ] 2–3 owner or team photographs
 - [ ] 3–5 technicians actively working

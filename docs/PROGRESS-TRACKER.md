@@ -16,11 +16,11 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 ## Current position
 
-**Current milestone:** Phase 3 — Verified customer-review pathway
+**Current milestone:** Phase 3 — Owner and team trust content
 
-**Current status:** Complete
+**Current status:** Complete — text-only release
 
-**Next action:** Collect approved owner/team information, biographies and photographs.
+**Next action:** Build AI-crawler and referral measurement, then the ZIP-code service-area checker.
 
 ## Phase 1 information blockers
 
@@ -55,7 +55,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2 | Priority service pages | Complete | Commercial refrigeration, commercial HVAC and preventive maintenance confirmed as priorities | Three unique pages published, internally linked and verified on production August 24, 2026 |
 | 2 | Market pages | Waiting on Eternity | Confirmed customer segments | Approved pages published |
 | 2 | Service-area hub and city pages | In progress | Approved priority and extended city/ZIP list plus genuine local proof | Comprehensive service-area hub and first proof-backed Euclid page published August 24, 2026; future city pages remain gated by location-specific evidence |
-| 3 | Owner, team and credentials | Waiting on Eternity | Bios, photos and documents | Approved trust content published |
+| 3 | Owner, team and credentials | Complete | Approved biographies | Text-only Bernard Gray and Debynyhan Banks team section published August 27, 2026; photographs intentionally deferred |
 | 3 | Verified review system | Complete | Review links and permission | Direct Google review CTA and Charlotte Mancini’s approved five-star review published August 27, 2026 |
 | 3 | First three case studies | Complete | Project information and photos | Two residential installations and one commercial rooftop diagnostic published with verified facts and field photography |
 | 4 | Answer library | Waiting on Eternity | Technical review process | First four expert answers live |
@@ -127,6 +127,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-25 | Published the second verified residential case study | Documented the Euclid 44123 home-flipper project, outdated starting system and matched 80,000 BTU, 80% AFUE Payne furnace, coil and 2.5-ton condenser; separated the owner's faster-sale goal from unmeasured sales results | Collect evidence for the third project case study |
 | 2026-08-25 | Published the third verified case study | Documented the Euclid 44119 frozen rooftop-unit diagnostic, no-leak pressure-test finding, severe blower contamination and missing filter/filter drier without claiming unreported repairs or restored operation | Build the verified customer-review pathway |
 | 2026-08-27 | Published the verified customer-review pathway | Added Charlotte Mancini’s approved five-star review, a direct Google review link in the homepage and footer, and review-link analytics without inventing a city or service type | Collect approved owner/team information and photographs |
+| 2026-08-27 | Published the owner and team section | Added approved text-only profiles for owner Bernard Gray and technician Debynyhan Banks, including verified experience, boiler and refrigeration background, education, marketing and administrative responsibilities; omitted images as requested | Build AI-crawler and referral measurement, then the service-area checker |
 
 ## Decision log
 
@@ -145,7 +146,7 @@ Record important decisions so later work does not rely on memory.
 | Asset group | Requested | Received | Approved | Published |
 |---|---:|---:|---:|---:|
 | Business information | Yes | Partial | Partial | No |
-| Owner/team biographies | Yes | No | No | No |
+| Owner/team biographies | Yes | Yes | Yes | Yes |
 | Team photographs | Yes | No | No | No |
 | Residential projects | Yes | Partial | Yes | Yes |
 | Multifamily projects | Yes | No | No | No |
