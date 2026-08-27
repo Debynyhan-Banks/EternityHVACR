@@ -1,6 +1,6 @@
 # Eternity Mechanical Services Information and Content Checklist
 
-Last updated: August 25, 2026
+Last updated: August 27, 2026
 
 This checklist identifies what is needed from Eternity Mechanical Services to complete the SEO, GEO and lead-generation roadmap accurately. Do not send account passwords, private customer information or payment information through the repository.
 
@@ -85,11 +85,13 @@ General coverage is confirmed as Cuyahoga County and surrounding Cleveland metro
 
 ## Reviews and reputation
 
-- [ ] Google review profile link
-- [ ] Approved customer reviews copied exactly
-- [ ] Customer name display preference: full name, first name and initial, or business name
+- [x] Google review profile link — `https://share.google/1bUl6S4x9x90TJ7Mf`
+- [x] Direct Google review link — `https://g.page/r/CYsWl6Bz9AJvEBM/review`
+- [x] Approved customer reviews copied exactly — Charlotte Mancini five-star review received August 27, 2026
+- [x] Customer name display preference — full name supplied for Charlotte Mancini
 - [ ] Service type and city for each review
-- [ ] Written approval to display each review and related photograph
+- [x] Written approval to display Charlotte Mancini’s review — review text supplied for publication August 27, 2026
+- [ ] Written approval for any related customer photograph — no related photograph supplied
 - [ ] Links to Better Business Bureau, BuildZoom or other verified profiles
 - [ ] Awards or recognitions with issuing organization and year
 

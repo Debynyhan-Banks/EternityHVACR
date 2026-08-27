@@ -1,6 +1,6 @@
 # Eternity Mechanical Services Website Progress Tracker
 
-Last updated: August 25, 2026
+Last updated: August 27, 2026
 
 This file is the source of truth for the SEO, GEO, content and feature program. Update it whenever a task begins, finishes, becomes blocked or changes scope.
 
@@ -16,11 +16,11 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 ## Current position
 
-**Current milestone:** Phase 3 — First three verified project case studies
+**Current milestone:** Phase 3 — Verified customer-review pathway
 
 **Current status:** Complete
 
-**Next action:** Add a verified customer-review pathway and collect approved owner/team information.
+**Next action:** Collect approved owner/team information, biographies and photographs.
 
 ## Phase 1 information blockers
 
@@ -56,7 +56,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2 | Market pages | Waiting on Eternity | Confirmed customer segments | Approved pages published |
 | 2 | Service-area hub and city pages | In progress | Approved priority and extended city/ZIP list plus genuine local proof | Comprehensive service-area hub and first proof-backed Euclid page published August 24, 2026; future city pages remain gated by location-specific evidence |
 | 3 | Owner, team and credentials | Waiting on Eternity | Bios, photos and documents | Approved trust content published |
-| 3 | Verified review system | Waiting on Eternity | Review links and permission | Reviews and review CTA live |
+| 3 | Verified review system | Complete | Review links and permission | Direct Google review CTA and Charlotte Mancini’s approved five-star review published August 27, 2026 |
 | 3 | First three case studies | Complete | Project information and photos | Two residential installations and one commercial rooftop diagnostic published with verified facts and field photography |
 | 4 | Answer library | Waiting on Eternity | Technical review process | First four expert answers live |
 | 4 | AI-crawler and referral measurement | Ready | Analytics in Phase 1 | OAI-SearchBot allowed and referrals tracked |
@@ -126,6 +126,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-25 | Reworked the first case study's result section for authenticity | Replaced generic outcome language with a documented before, installed and finished record; explicitly avoided unverified performance, savings and testimonial claims | Use the same evidence-first standard for future case studies |
 | 2026-08-25 | Published the second verified residential case study | Documented the Euclid 44123 home-flipper project, outdated starting system and matched 80,000 BTU, 80% AFUE Payne furnace, coil and 2.5-ton condenser; separated the owner's faster-sale goal from unmeasured sales results | Collect evidence for the third project case study |
 | 2026-08-25 | Published the third verified case study | Documented the Euclid 44119 frozen rooftop-unit diagnostic, no-leak pressure-test finding, severe blower contamination and missing filter/filter drier without claiming unreported repairs or restored operation | Build the verified customer-review pathway |
+| 2026-08-27 | Published the verified customer-review pathway | Added Charlotte Mancini’s approved five-star review, a direct Google review link in the homepage and footer, and review-link analytics without inventing a city or service type | Collect approved owner/team information and photographs |
 
 ## Decision log
 
@@ -150,7 +151,7 @@ Record important decisions so later work does not rely on memory.
 | Multifamily projects | Yes | No | No | No |
 | Commercial HVAC projects | Yes | Partial | Yes | Yes |
 | Refrigeration projects | Yes | No | No | No |
-| Reviews | Yes | No | No | No |
+| Reviews | Yes | Partial | Yes | Yes |
 | Licenses and certifications | Yes | No | No | No |
 | Maintenance plans | Yes | No | No | No |
 

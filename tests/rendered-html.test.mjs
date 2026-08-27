@@ -40,6 +40,10 @@ test("renders the Eternity homepage with approved business information", async (
   assert.match(html, /ben@eternityhvacr\.com/);
   assert.match(html, /License #28303/);
   assert.match(html, /Cuyahoga County/);
+  assert.match(html, /Charlotte Mancini/);
+  assert.match(html, /I had an excellent experience with Eternity Mechanical Services/);
+  assert.match(html, /https:\/\/g\.page\/r\/CYsWl6Bz9AJvEBM\/review/);
+  assert.match(html, /data-review-link/);
   assert.match(html, /system-diagnostic-report\.jpg/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site|Lorem ipsum/i);
 });
