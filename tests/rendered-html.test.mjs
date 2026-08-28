@@ -53,6 +53,10 @@ test("renders the Eternity homepage with approved business information", async (
   assert.match(html, /Texts are monitored 24\/7 with a 15-minute reply target/);
   assert.match(html, /This is not an arrival-time promise/);
   assert.match(html, /Reply STOP to opt out/);
+  assert.match(html, /href="\/privacy"/);
+  assert.match(html, /href="\/terms"/);
+  assert.match(html, /Emergency \/ system down/);
+  assert.match(html, /Installation estimate/);
   assert.match(html, /Check service availability/);
   assert.match(html, /name="service-zip"/);
   assert.match(html, /system-diagnostic-report\.jpg/);
@@ -115,7 +119,22 @@ test("publishes crawler files with the canonical sitemap", async () => {
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/resources\/rooftop-hvac-short-cycling<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/resources\/furnace-repair-vs-replacement<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/resources\/commercial-refrigeration-maintenance-frequency<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/privacy<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/terms<\/loc>/);
   assert.match(sitemap, /system-diagnostic-report\.jpg|hero-technician-black\.jpg/);
+});
+
+test("publishes clear privacy and website terms", async () => {
+  const [privacyResponse, termsResponse] = await Promise.all([render("/privacy"), render("/terms")]);
+  assert.equal(privacyResponse.status, 200);
+  assert.equal(termsResponse.status, 200);
+  const [privacy, terms] = await Promise.all([privacyResponse.text(), termsResponse.text()]);
+  assert.match(privacy, /We do not sell personal information/);
+  assert.match(privacy, /Eternity does not intentionally send service-request names/);
+  assert.match(privacy, /<link rel="canonical" href="https:\/\/eternityhvacr\.com\/privacy"/);
+  assert.match(terms, /does not create an appointment/);
+  assert.match(terms, /The website is not an emergency-dispatch service/);
+  assert.match(terms, /<link rel="canonical" href="https:\/\/eternityhvacr\.com\/terms"/);
 });
 
 test("publishes an indexable expert-answer library", async () => {
@@ -343,6 +362,7 @@ test("keeps delivery unavailable until the server-side email key is configured",
       "x-forwarded-for": "192.0.2.12",
     },
     body: JSON.stringify({
+      requestType: "Repair or diagnostic",
       service: "Air conditioning",
       customer: "My home",
       timing: "This week",
@@ -350,6 +370,7 @@ test("keeps delivery unavailable until the server-side email key is configured",
       name: "Test Customer",
       phone: "216-555-0100",
       email: "test@example.com",
+      serviceConsent: true,
       website: "",
       startedAt: Date.now() - 2000,
     }),
@@ -390,6 +411,10 @@ test("keeps client and server service-request validation aligned", async () => {
   assert.match(component, /data\.details\.trim\(\)\.length >= 10/);
   assert.match(component, /data\.phone\.replace\(\/\\D\/g, ""\)\.length >= 7/);
   assert.match(component, /result\.error/);
+  assert.match(component, /data\.requestType && data\.customer/);
+  assert.match(component, /data\.serviceConsent/);
+  assert.match(route, /REQUEST_TYPES\.has\(requestType\)/);
+  assert.match(route, /!serviceConsent/);
   assert.doesNotMatch(route, /elapsed > 24/);
 });
 
@@ -404,6 +429,10 @@ test("installs Google Analytics and records lead actions without customer PII", 
   assert.match(layout, /G-32W3PBPD8Y/);
   assert.match(layout, /googletagmanager\.com\/gtag\/js/);
   assert.match(form, /trackGoogleEvent\("generate_lead"/);
+  assert.match(form, /trackGoogleEvent\("service_form_start"/);
+  assert.match(form, /trackGoogleEvent\("service_form_step"/);
+  assert.match(form, /trackGoogleEvent\("service_form_complete"/);
+  assert.match(form, /trackGoogleEvent\("emergency_request"/);
   assert.match(analytics, /"phone_click"/);
   assert.match(analytics, /"email_click"/);
   assert.match(analytics, /"ai_referral_visit"/);

@@ -1,10 +1,20 @@
 const SERVICES = new Set([
   "Air conditioning",
   "Heating",
+  "Boiler",
+  "Heat pump",
   "Commercial HVAC",
   "Refrigeration",
   "Installation",
   "Maintenance",
+]);
+
+const REQUEST_TYPES = new Set([
+  "Emergency / system down",
+  "Repair or diagnostic",
+  "Installation estimate",
+  "Commercial / refrigeration",
+  "Preventive maintenance",
 ]);
 
 const CUSTOMER_TYPES = new Set(["My home", "A business", "A managed property"]);
@@ -22,6 +32,7 @@ const RATE_LIMIT_WINDOW = 15 * 60 * 1000;
 const RATE_LIMIT_MAX = 5;
 
 type ServiceRequestPayload = {
+  requestType?: unknown;
   service?: unknown;
   customer?: unknown;
   timing?: unknown;
@@ -29,6 +40,7 @@ type ServiceRequestPayload = {
   name?: unknown;
   phone?: unknown;
   email?: unknown;
+  serviceConsent?: unknown;
   website?: unknown;
   startedAt?: unknown;
 };
@@ -48,6 +60,7 @@ function escapeHtml(value: string) {
 }
 
 function buildInternalHtmlEmail({
+  requestType,
   service,
   customer,
   timing,
@@ -56,6 +69,7 @@ function buildInternalHtmlEmail({
   phone,
   email,
 }: {
+  requestType: string;
   service: string;
   customer: string;
   timing: string;
@@ -64,7 +78,7 @@ function buildInternalHtmlEmail({
   phone: string;
   email: string;
 }) {
-  const isUrgent = timing === "Emergency / system down";
+  const isUrgent = requestType === "Emergency / system down" || timing === "Emergency / system down";
   const safeDetails = escapeHtml(details).replace(/\r?\n/g, "<br>");
   const phoneDigits = phone.replace(/\D/g, "");
   const phoneHref = phoneDigits.length === 10
@@ -111,6 +125,10 @@ function buildInternalHtmlEmail({
             <tr>
               <td style="padding:10px 32px 8px;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;border:1px solid #d9e1ec;">
+                  <tr>
+                    <td style="width:34%;padding:14px 16px;background:#F1F5F8;border-bottom:1px solid #d9e1ec;color:#44536a;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;">Request path</td>
+                    <td style="padding:14px 16px;border-bottom:1px solid #d9e1ec;color:#101828;font-size:14px;font-weight:700;">${escapeHtml(requestType)}</td>
+                  </tr>
                   <tr>
                     <td style="width:34%;padding:14px 16px;background:#F1F5F8;border-bottom:1px solid #d9e1ec;color:#44536a;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;">Customer type</td>
                     <td style="padding:14px 16px;border-bottom:1px solid #d9e1ec;color:#101828;font-size:14px;font-weight:700;">${escapeHtml(customer)}</td>
@@ -162,19 +180,21 @@ function buildInternalHtmlEmail({
 }
 
 function buildCustomerHtmlEmail({
+  requestType,
   service,
   customer,
   timing,
   details,
   name,
 }: {
+  requestType: string;
   service: string;
   customer: string;
   timing: string;
   details: string;
   name: string;
 }) {
-  const isUrgent = timing === "Emergency / system down";
+  const isUrgent = requestType === "Emergency / system down" || timing === "Emergency / system down";
   const firstName = name.split(/\s+/)[0] || name;
   const safeDetails = escapeHtml(details).replace(/\r?\n/g, "<br>");
 
@@ -214,6 +234,7 @@ function buildCustomerHtmlEmail({
             <tr>
               <td style="padding:10px 32px 8px;">
                 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;border:1px solid #d9e1ec;">
+                  <tr><td style="width:34%;padding:14px 16px;background:#F1F5F8;border-bottom:1px solid #d9e1ec;color:#44536a;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;">Request type</td><td style="padding:14px 16px;border-bottom:1px solid #d9e1ec;color:#101828;font-size:14px;font-weight:700;">${escapeHtml(requestType)}</td></tr>
                   <tr><td style="width:34%;padding:14px 16px;background:#F1F5F8;border-bottom:1px solid #d9e1ec;color:#44536a;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;">Service</td><td style="padding:14px 16px;border-bottom:1px solid #d9e1ec;color:#101828;font-size:14px;font-weight:700;">${escapeHtml(service)}</td></tr>
                   <tr><td style="padding:14px 16px;background:#F1F5F8;border-bottom:1px solid #d9e1ec;color:#44536a;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;">Property</td><td style="padding:14px 16px;border-bottom:1px solid #d9e1ec;color:#101828;font-size:14px;font-weight:700;">${escapeHtml(customer)}</td></tr>
                   <tr><td style="padding:14px 16px;background:#F1F5F8;color:#44536a;font-size:11px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;">Requested timing</td><td style="padding:14px 16px;color:${isUrgent ? "#b54708" : "#101828"};font-size:14px;font-weight:700;">${escapeHtml(timing)}</td></tr>
@@ -315,6 +336,7 @@ export async function POST(request: Request) {
     return Response.json({ error: "Invalid request." }, { status: 400 });
   }
 
+  const requestType = text(payload.requestType, 80);
   const service = text(payload.service, 80);
   const customer = text(payload.customer, 80);
   const timing = text(payload.timing, 80);
@@ -322,6 +344,7 @@ export async function POST(request: Request) {
   const name = text(payload.name, 120);
   const phone = text(payload.phone, 50);
   const email = text(payload.email, 254).toLowerCase();
+  const serviceConsent = payload.serviceConsent === true;
   const website = text(payload.website, 200);
   const startedAt = typeof payload.startedAt === "number" ? payload.startedAt : 0;
   const elapsed = Date.now() - startedAt;
@@ -331,13 +354,15 @@ export async function POST(request: Request) {
   }
 
   if (
-    !SERVICES.has(service)
+    !REQUEST_TYPES.has(requestType)
+    || !SERVICES.has(service)
     || !CUSTOMER_TYPES.has(customer)
     || !TIMINGS.has(timing)
     || details.length < 10
     || name.length < 2
     || phone.replace(/\D/g, "").length < 7
     || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    || !serviceConsent
   ) {
     return Response.json({ error: "Please complete every field with valid information." }, { status: 400 });
   }
@@ -347,10 +372,12 @@ export async function POST(request: Request) {
     return Response.json({ error: "Service request delivery is temporarily unavailable." }, { status: 503 });
   }
 
-  const subject = `${timing === "Emergency / system down" ? "URGENT — " : ""}Website service request — ${service}`;
+  const isUrgent = requestType === "Emergency / system down" || timing === "Emergency / system down";
+  const subject = `${isUrgent ? "URGENT — " : ""}Website service request — ${service}`;
   const plainText = [
     "New service request from eternityhvacr.com",
     "",
+    `Request path: ${requestType}`,
     `Service: ${service}`,
     `Customer type: ${customer}`,
     `Timing: ${timing}`,
@@ -361,6 +388,7 @@ export async function POST(request: Request) {
     `Name: ${name}`,
     `Phone: ${phone}`,
     `Email: ${email}`,
+    "Service-contact authorization: Confirmed on website",
   ].join("\n");
   const requestId = crypto.randomUUID();
 
@@ -370,7 +398,7 @@ export async function POST(request: Request) {
     reply_to: email,
     subject,
     text: plainText,
-    html: buildInternalHtmlEmail({ service, customer, timing, details, name, phone, email }),
+    html: buildInternalHtmlEmail({ requestType, service, customer, timing, details, name, phone, email }),
     tags: [{ name: "source", value: "website_service_request" }],
   });
 
@@ -384,6 +412,7 @@ export async function POST(request: Request) {
     "",
     "We received your service request and delivered it to our team for review.",
     "",
+    `Request type: ${requestType}`,
     `Service: ${service}`,
     `Property: ${customer}`,
     `Requested timing: ${timing}`,
@@ -404,7 +433,7 @@ export async function POST(request: Request) {
     reply_to: "ben@eternityhvacr.com",
     subject: "We received your service request | Eternity Mechanical Services",
     text: confirmationText,
-    html: buildCustomerHtmlEmail({ service, customer, timing, details, name }),
+    html: buildCustomerHtmlEmail({ requestType, service, customer, timing, details, name }),
     tags: [
       { name: "source", value: "website_service_request" },
       { name: "message", value: "customer_confirmation" },

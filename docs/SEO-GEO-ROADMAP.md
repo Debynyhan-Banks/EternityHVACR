@@ -245,7 +245,7 @@ Google’s current guidance says there is no special schema or writing format re
 - [x] ZIP-code service-area checker
 - [ ] Service request with photo or short-video upload
 - [ ] Commercial equipment intake for make, model and serial number
-- [ ] Separate emergency and estimate request paths
+- [x] Separate emergency and estimate request paths
 - [ ] Preventive-maintenance plan comparison
 - [ ] Downloadable example diagnostic report
 - [ ] “Save Eternity to Contacts” mobile action
@@ -271,10 +271,10 @@ Features should not be published until Eternity has a person and process respons
 ### Conversion events
 
 - [x] Phone-number clicks
-- [ ] Service-form starts
-- [ ] Service-form completions
-- [ ] Emergency requests
-- [ ] Residential, commercial and refrigeration lead type
+- [x] Service-form starts
+- [x] Service-form completions
+- [x] Emergency requests
+- [x] Residential, commercial and refrigeration lead type
 - [x] Review-link clicks
 - [ ] Capability-document downloads
 - [ ] Booked and completed jobs by lead source
