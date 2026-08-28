@@ -478,7 +478,7 @@ footer .sms-disclosure a,.footer-bottom a{text-decoration:underline;text-underli
 
 @media(max-width:700px){
   .hero{min-height:0;display:flex;flex-direction:column;background:#fff;color:var(--text)}
-  .hero-copy{order:1;width:100%;min-height:0;padding:38px 20px 32px;display:block;background:#fff;color:var(--text)}
+  .hero-copy{order:2;width:100%;min-height:0;padding:34px 20px 32px;display:block;background:#fff;color:var(--text)}
   .hero-copy:before{display:block;mask-image:linear-gradient(90deg,#000,transparent)}
   .hero-copy:after{display:none}
   .hero-brand{width:145px;margin-bottom:22px}
@@ -491,7 +491,7 @@ footer .sms-disclosure a,.footer-bottom a{text-decoration:underline;text-underli
   .hero-actions>*{width:100%}
   .hero .btn-outline{border-color:var(--navy);background:#fff;color:var(--navy)}
   .hero-assurance{margin-top:21px;display:grid;grid-template-columns:1fr;gap:9px;color:#485a70;font-size:11px}
-  .hero-media{position:relative;inset:auto;order:2;width:100%;height:440px;min-height:440px}
+  .hero-media{position:relative;inset:auto;order:1;width:100%;height:410px;min-height:410px}
   .hero-media>img{object-position:70% center}
   .hero-media:after{background:linear-gradient(180deg,transparent 60%,rgba(7,26,49,.18))}
   .hero-photo-mark{right:14px;bottom:14px;padding:9px 11px}
@@ -506,6 +506,6 @@ footer .sms-disclosure a,.footer-bottom a{text-decoration:underline;text-underli
 @media(max-width:390px){
   .hero-copy{padding-left:16px;padding-right:16px}
   .hero h1{font-size:43px}
-  .hero-media{height:390px;min-height:390px}
+  .hero-media{height:370px;min-height:370px}
   .hero-media>img{object-position:72% center}
 }
