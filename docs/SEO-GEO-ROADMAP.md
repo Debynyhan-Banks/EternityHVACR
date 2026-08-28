@@ -67,6 +67,7 @@ This plan treats SEO, local search, generative-engine visibility and conversion 
 - [ ] Add breadcrumbs and breadcrumb structured data when multiple pages exist
 - [x] Validate structured data and indexing eligibility with automated production-render checks
 - [x] Permanently normalize HTTPS `www` requests to the canonical HTTPS apex while preserving paths and query strings
+- [x] Serve a one-year HSTS policy on canonical pages and application-level permanent redirects without preloading or forcing unverified subdomains
 - [ ] Upgrade the Sites-controlled HTTP-to-HTTPS edge response from 302 to 301/308 if the host exposes redirect configuration; application code cannot override the edge response that occurs before the Worker
 - [ ] Connect Google Search Console and submit the sitemap
 - [ ] Connect Bing Webmaster Tools and IndexNow
@@ -215,6 +216,7 @@ Priority case-study subjects:
 - [ ] Support explanations with real equipment and project images
 - [x] Use descriptive headings based on actual customer questions
 - [x] Link claims to company proof or authoritative technical sources
+- [x] Link relevant service pages directly to each expert guide
 - [x] Track ChatGPT referrals and AI-search landing pages
 
 ### Priority answer library

@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 const canonicalHostname = "eternityhvacr.com";
+const hstsValue = "max-age=31536000";
 
 export function proxy(request: NextRequest) {
   const hostname =
@@ -13,10 +14,14 @@ export function proxy(request: NextRequest) {
     destination.protocol = "https:";
     destination.hostname = canonicalHostname;
     destination.port = "";
-    return NextResponse.redirect(destination, 308);
+    const response = NextResponse.redirect(destination, 308);
+    response.headers.set("Strict-Transport-Security", hstsValue);
+    return response;
   }
 
-  return NextResponse.next();
+  const response = NextResponse.next();
+  response.headers.set("Strict-Transport-Security", hstsValue);
+  return response;
 }
 
 export const config = { matcher: "/:path*" };

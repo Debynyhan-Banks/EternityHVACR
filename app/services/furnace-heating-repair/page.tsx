@@ -52,6 +52,13 @@ const content: ServiceLandingContent = {
       ["Property needs", "Homeowners and property managers may weigh reliability, tenant impact and planned capital work differently."],
     ],
   },
+  relatedGuides: [
+    {
+      href: "/resources/furnace-repair-vs-replacement",
+      title: "When should a furnace be repaired versus replaced?",
+      copy: "Use safety, verified condition, repair history, cost, comfort and long-term plans to evaluate the decision instead of relying on age alone.",
+    },
+  ],
   faqs: [
     ["What should I do if the furnace stops producing heat?", "Check the thermostat setting and whether the system has power without opening equipment panels. If heat is still unavailable, submit the symptoms and call 216-703-3183 for urgent service."],
     ["Do you repair and replace furnaces?", "Yes. Eternity provides furnace diagnostics, repair, maintenance, installation and replacement planning for residential, multifamily and commercial properties."],

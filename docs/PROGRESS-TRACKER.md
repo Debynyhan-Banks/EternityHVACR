@@ -98,6 +98,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 | Date | Change | Outcome | Next step |
 |---|---|---|---|
+| 2026-08-28 | Resolved the actionable HSTS, title-length and expert-guide internal-link audit findings | Added a one-year HSTS policy to normal responses and application redirects, shortened the commercial refrigeration maintenance title to 57 characters, and linked the four expert guides from the most relevant refrigeration, commercial HVAC and furnace service pages; build, lint and 20 production-render tests pass | Publish, verify production headers and rerun the SEMrush crawl |
 | 2026-08-28 | Corrected the structured-data and canonical-host audit findings | Removed the address-dependent `HVACBusiness` type while preserving privacy-safe `Organization`/`WebSite` data, added representative images to every expert `Article`, and added application-level 308 normalization to the HTTPS apex while preserving paths and query strings; the live HTTPS `www` route now returns 308, while the Sites edge still answers plain HTTP with its own 302 before application code runs; build, lint and 20 production-render tests pass | Request a fresh SEMrush crawl and pursue a Sites edge 301/308 option if one becomes available |
 | 2026-08-12 | Connected `eternityhvacr.com` and `www` | Domain and SSL active | Continue site enhancement |
 | 2026-08-13 | Added social preview, mobile hero and phone number | Public deployment complete | Improve discoverability |

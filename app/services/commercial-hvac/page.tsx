@@ -26,6 +26,13 @@ const content: ServiceLandingContent = {
     title: "A frozen evaporator did not automatically mean a refrigerant leak.",
     copy: "The owner suspected low refrigerant and a leak. After the coil thawed, Eternity pressure-tested the system and found no leak, while documenting severe blower contamination and missing filtration.",
   },
+  relatedGuides: [
+    {
+      href: "/resources/rooftop-hvac-short-cycling",
+      title: "What causes a rooftop HVAC unit to short-cycle?",
+      copy: "Understand common control, airflow, electrical, sizing and refrigeration-system causes before replacing parts based on one symptom.",
+    },
+  ],
   faqs: [["What types of commercial HVAC equipment do you service?", "Eternity works with rooftop units, packaged equipment, commercial split systems, controls and related heating and cooling equipment."], ["Do you work with property and facility managers?", "Yes. Commercial service is available for managed properties, multifamily communities, retail, offices, restaurants and community facilities."], ["Can I request emergency commercial HVAC service?", "Yes. Submit the service details online and call 216-703-3183 directly for urgent or system-down situations."], ["How quickly are website requests reviewed?", "Website requests are typically reviewed within 15 minutes during regular business hours. Appointment availability is confirmed directly by Eternity."]],
 };
 

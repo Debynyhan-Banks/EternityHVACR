@@ -25,6 +25,11 @@ export type ServiceLandingContent = {
     title: string;
     copy: string;
   };
+  relatedGuides?: Array<{
+    href: string;
+    title: string;
+    copy: string;
+  }>;
 };
 
 export default function ServiceLanding({ content }: { content: ServiceLandingContent }) {
@@ -79,6 +84,10 @@ export default function ServiceLanding({ content }: { content: ServiceLandingCon
     {content.guidance && <section className="section landing-process">
       <div className="center-head"><p className="kicker">{content.guidance.eyebrow}</p><h2>{content.guidance.title}</h2></div>
       <div>{content.guidance.items.map(([title, copy], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
+    </section>}
+    {content.relatedGuides && <section className="section landing-process">
+      <div className="center-head"><p className="kicker">Expert guidance</p><h2>Learn what the equipment may be telling you.</h2></div>
+      <div>{content.relatedGuides.map((guide, index) => <article key={guide.href}><span>{String(index + 1).padStart(2, "0")}</span><h3>{guide.title}</h3><p>{guide.copy}</p><Link className="inline-cta" href={guide.href}>Read the expert guide <span>→</span></Link></article>)}</div>
     </section>}
     <section className="section landing-faq"><div><p className="kicker">Common questions</p><h2>Before you request service</h2></div><div>{content.faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
     <section className="emergency landing-cta"><div><p className="kicker light">Ready to get started?</p><h2>Tell Eternity what the equipment needs.</h2><p>Use the guided request form for service details, timing and contact information.</p></div><div><Link className="btn btn-orange" href="/#schedule">Request service <span>↗</span></Link><a data-sms-link className="btn-outline light-outline" href="sms:+12167033183">Text Eternity <span>→</span></a><Link className="contact-service-link" href="/areas-we-serve">View service areas →</Link><small>Texts are monitored 24/7 with a 15-minute reply target; this is not an arrival-time promise. Message and data rates may apply. Reply STOP to opt out. For urgent help, call 216-703-3183.</small></div></section>

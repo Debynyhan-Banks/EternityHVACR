@@ -31,6 +31,7 @@ test("renders the Eternity homepage with approved business information", async (
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
+  assert.equal(response.headers.get("strict-transport-security"), "max-age=31536000");
 
   const html = await response.text();
   assert.match(html, /<title>Eternity Mechanical Services \| HVAC &amp; Mechanical Contractor<\/title>/i);
@@ -79,6 +80,7 @@ test("the application permanently redirects alternate origins to the canonical H
     const response = await dispatch(new Request(source, { redirect: "manual" }));
     assert.equal(response.status, 308);
     assert.equal(response.headers.get("location"), "https://eternityhvacr.com/services/boiler-service?source=audit");
+    assert.equal(response.headers.get("strict-transport-security"), "max-age=31536000");
   }
 });
 
@@ -158,15 +160,18 @@ test("renders the first four evidence-backed expert answers", async () => {
     assert.match(html, /&quot;datePublished&quot;:&quot;2026-08-28&quot;|"datePublished":"2026-08-28"/);
     assert.match(html, /&quot;reviewedBy&quot;|"reviewedBy"/);
     assert.match(html, new RegExp(`<link rel="canonical" href="https://eternityhvacr\\.com${pathname}"`));
+    if (pathname === "/resources/commercial-refrigeration-maintenance-frequency") {
+      assert.match(html, /<title>Commercial Refrigeration Maintenance Frequency \| Eternity<\/title>/);
+    }
   }
 });
 
 test("renders the priority service pages with unique search content", async () => {
   const pages = [
-    ["/services/commercial-refrigeration", /Commercial Refrigeration Service in Greater Cleveland/, /Walk-in cooler and freezer service/],
-    ["/services/commercial-hvac", /Commercial HVAC Service for Greater Cleveland Facilities/, /Rooftop-unit diagnostics and repair/],
+    ["/services/commercial-refrigeration", /Commercial Refrigeration Service in Greater Cleveland/, /Walk-in cooler and freezer service/, /href="\/resources\/walk-in-cooler-icing-up"/],
+    ["/services/commercial-hvac", /Commercial HVAC Service for Greater Cleveland Facilities/, /Rooftop-unit diagnostics and repair/, /href="\/resources\/rooftop-hvac-short-cycling"/],
     ["/services/preventive-maintenance", /HVAC and Refrigeration Maintenance Before Problems Become Emergencies/, /System and equipment inspection/],
-    ["/services/furnace-heating-repair", /Furnace and Heating Repair in Greater Cleveland/, /No-heat and intermittent-heating diagnostics/],
+    ["/services/furnace-heating-repair", /Furnace and Heating Repair in Greater Cleveland/, /No-heat and intermittent-heating diagnostics/, /href="\/resources\/furnace-repair-vs-replacement"/],
     ["/services/boiler-service", /Boiler Service and Repair in Greater Cleveland/, /Boiler operating diagnostics/],
     ["/services/heat-pump-service", /Heat Pump Service and Repair in Greater Cleveland/, /Heat-pump heating and cooling diagnostics/],
     ["/services/air-conditioning-repair", /Air-Conditioning Repair in Greater Cleveland/, /No-cooling and intermittent-cooling diagnostics/],
@@ -174,7 +179,7 @@ test("renders the priority service pages with unique search content", async () =
     ["/services/emergency-hvac-r", /Emergency HVAC and Refrigeration Service in Greater Cleveland/, /No-heat and no-cooling diagnostics/],
   ];
 
-  for (const [pathname, heading, capability] of pages) {
+  for (const [pathname, heading, capability, guideLink] of pages) {
     const response = await render(pathname);
     assert.equal(response.status, 200);
     const html = await response.text();
@@ -184,6 +189,10 @@ test("renders the priority service pages with unique search content", async () =
     assert.match(html, /&quot;Service&quot;|"Service"/);
     assert.match(html, /&quot;FAQPage&quot;|"FAQPage"/);
     assert.match(html, new RegExp(`<link rel="canonical" href="https://eternityhvacr\\.com${pathname}"`));
+    if (guideLink) assert.match(html, guideLink);
+    if (pathname === "/services/commercial-refrigeration") {
+      assert.match(html, /href="\/resources\/commercial-refrigeration-maintenance-frequency"/);
+    }
   }
 });
 
