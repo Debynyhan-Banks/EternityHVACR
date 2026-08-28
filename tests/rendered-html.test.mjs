@@ -163,6 +163,9 @@ test("renders the first four evidence-backed expert answers", async () => {
     if (pathname === "/resources/commercial-refrigeration-maintenance-frequency") {
       assert.match(html, /<title>Commercial Refrigeration Maintenance Frequency \| Eternity<\/title>/);
     }
+    if (pathname === "/resources/furnace-repair-vs-replacement") {
+      assert.match(html, /<title>Furnace Repair or Replacement: How to Decide \| Eternity<\/title>/);
+    }
   }
 });
 
