@@ -24,6 +24,13 @@ export default function AnswerArticle({ answer }: { answer: ExpertAnswer }) {
         inLanguage: "en-US",
         mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
         author: { "@type": "Organization", name: "Eternity Mechanical Services LLC", url: "https://eternityhvacr.com/#about" },
+        reviewedBy: {
+          "@type": "Person",
+          name: "Bernard Gray",
+          jobTitle: "Owner",
+          url: "https://eternityhvacr.com/#about",
+          worksFor: { "@id": "https://eternityhvacr.com/#business" },
+        },
         publisher: { "@id": "https://eternityhvacr.com/#business" },
         about: answer.category,
       },
@@ -55,6 +62,7 @@ export default function AnswerArticle({ answer }: { answer: ExpertAnswer }) {
         <p className="eyebrow"><i /> {answer.category}</p>
         <h1>{answer.question}</h1>
         <p className="answer-byline">By Eternity Mechanical Services <span>•</span> Published {published}</p>
+        <p className="answer-reviewer">Reviewed and approved by <a href="https://eternityhvacr.com/#about">Bernard Gray</a>, Owner <span>•</span> 28 years of HVAC/R industry experience</p>
         <div className="direct-answer"><strong>Direct answer</strong><p>{answer.directAnswer}</p></div>
         <p className="answer-local-context"><strong>Greater Cleveland context:</strong> {answer.localContext}</p>
       </header>

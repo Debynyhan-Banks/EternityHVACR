@@ -16,11 +16,11 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 ## Current position
 
-**Current milestone:** Phase 4 — GEO and expert answer library
+**Current milestone:** Google Business Profile operations
 
-**Current status:** In review
+**Current status:** Audit complete; corrections awaiting approval
 
-**Next action:** Collect Bernard’s technical review of the four live answers and begin the Google Business Profile operations audit.
+**Next action:** Approve and apply the documented Google Business Profile correction set, beginning with the public phone, Saturday hours, Richmond service-area error and inaccurate Charlotte Mancini review response.
 
 ## Phase 1 information blockers
 
@@ -50,6 +50,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 1 | Business structured data | In review | Core business facts confirmed | Production source verified; Rich Results Test has no critical errors |
 | 1 | Google Search Console | Complete | Account access | Domain property verified through GoDaddy DNS; sitemap accepted with Success status and one discovered page on August 23, 2026 |
 | 1 | Bing Webmaster and IndexNow | Complete | Account access | Search Console property imported; sitemap accepted for processing without errors or warnings; homepage URL submitted successfully on August 23, 2026 |
+| 1 | Google Business Profile operations audit | Complete | Profile manager access | Read-only identity, category, services, hours, service-area, review, photo and performance audit completed August 28, 2026; no profile edits made |
 | 1 | Conversion analytics | Complete | Google Analytics property created | Corrected property ID published; Realtime showed the Eternity page view and active user on August 23, 2026 |
 | 1 | Responsive image optimization | Complete | None | Live mobile audit: Performance 86, Accessibility 100, SEO 100, LCP 2.7 seconds and CLS 0 on August 23, 2026 |
 | 2 | Priority service pages | Complete | Commercial refrigeration, commercial HVAC and preventive maintenance confirmed as priorities | Three unique pages published, internally linked and verified on production August 24, 2026 |
@@ -58,7 +59,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 3 | Owner, team and credentials | Complete | Approved biographies | Text-only Bernard Gray and Debynyhan Banks team section published August 27, 2026; photographs intentionally deferred |
 | 3 | Verified review system | Complete | Review links and permission | Direct Google review CTA and Charlotte Mancini’s approved five-star review published August 27, 2026 |
 | 3 | First three case studies | Complete | Project information and photos | Two residential installations and one commercial rooftop diagnostic published with verified facts and field photography |
-| 4 | Answer library | In review | Bernard’s technical review | Four source-grounded expert answers, an indexable hub, Article/FAQ/Breadcrumb schema, authoritative sources and internal links published and production-verified August 28, 2026 as Sites version 42 |
+| 4 | Answer library | Complete | None | Bernard reviewed and approved the four live guides August 28, 2026; visible reviewer attribution and `reviewedBy` Person schema were added after approval |
 | 4 | AI-crawler and referral measurement | Complete | Analytics in Phase 1 | OpenAI crawler access is explicit; ChatGPT, Perplexity, Gemini, Copilot, Claude and Meta AI referrals generate a privacy-conscious analytics event |
 | 5 | Service-area checker | Complete | Approved ZIP list | Homepage and service-area page check approved ZIPs, preserve uncertain leads and record privacy-conscious result events |
 | 5 | Photo/video request uploads | Waiting on Eternity | Storage and retention decisions | Secure upload test completed |
@@ -70,11 +71,10 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 ### Proposed scope
 
-- Complete the Google Business Profile category, service, description, hours, service-area, photo and review-response audit
+- Apply the approved Google Business Profile phone, hours, service-area, category, service and review-response corrections from the completed audit
 - Assign the post-service review-request and public-response workflow owner
 - Audit authoritative profiles and citations while preserving service-area-business address privacy
-- Collect Bernard’s review of the four expert answers
-- Apply any approved technical refinements and reviewer attribution
+- Maintain Bernard’s reviewer attribution on the four approved expert answers
 - Define the commercial equipment intake fields for make, model and serial number
 - Continue collecting real refrigeration and multifamily project proof
 
@@ -131,6 +131,8 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-28 | Prepared the first expert answer library for publication | Added an indexable resource hub and four direct-answer guides covering walk-in icing, rooftop-unit short-cycling, furnace repair versus replacement and commercial refrigeration maintenance; included organization authorship, dates, local context, safety boundaries, Article/FAQ/Breadcrumb schema, authoritative sources and internal links without claiming an uncompleted Bernard review; 19 tests and responsive visual QA pass, GitHub `main` is current and Sites version 41 is saved but not deployed | Review the external growth audit, then deploy and verify production |
 | 2026-08-28 | Vetted the external HVAC/R growth audit | Compared every major recommendation with live repository evidence and current Google guidance; recorded completed work, accepted additions, operational decision gates and rejected or unverified claims in a dedicated crosswalk; added explicit GBP, reputation, citation and conversion-feature tasks to the roadmap and intake checklist | Publish the documented answer-library release, then begin the GBP operations audit |
 | 2026-08-28 | Published the documented answer-library release | Created Sites version 42 from the exact GitHub `main` source after the audit crosswalk and roadmap updates; deployed the public site and verified the resource hub, four answer routes, sitemap and crawler policy on production | Collect Bernard’s technical review and begin the GBP operations audit |
+| 2026-08-28 | Completed the Google Business Profile operations audit | Verified manager access and audited identity, contact actions, category, services, hours, service areas, reviews, photos and March–August performance without changing the profile; documented exact corrections and official Google policy references | Obtain approval before changing the Google profile |
+| 2026-08-28 | Recorded Bernard's technical approval | Added visible reviewer credit and `reviewedBy` Person schema to all four expert guides after Bernard reviewed and approved them | Publish and verify the reviewer-attribution release |
 
 ## Decision log
 
@@ -180,5 +182,6 @@ Complete after analytics and search platforms are connected.
 
 - [Full SEO, GEO and growth roadmap](SEO-GEO-ROADMAP.md)
 - [External growth audit crosswalk](GROWTH-AUDIT-CROSSWALK-2026-08-28.md)
+- [Google Business Profile operations audit](GOOGLE-BUSINESS-PROFILE-AUDIT-2026-08-28.md)
 - [Confirmed business facts](BUSINESS-FACTS.md)
 - [Information and content checklist](CLIENT-CONTENT-CHECKLIST.md)

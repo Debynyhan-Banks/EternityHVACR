@@ -1,6 +1,6 @@
 # Eternity Mechanical Services Confirmed Business Facts
 
-Last updated: August 25, 2026
+Last updated: August 28, 2026
 
 This document is the source of truth for approved public business details used in website copy, contact actions, structured data and search profiles.
 
@@ -25,6 +25,11 @@ This document is the source of truth for approved public business details used i
 | Monday–Friday hours | 7:00 a.m.–7:00 p.m. |
 | Saturday hours | 9:00 a.m.–5:00 p.m. |
 | Sunday hours | Closed |
+| Owner | Bernard Gray |
+| Owner experience | 28 years in HVAC/R, including boilers and refrigeration |
+| Technician | Debynyhan Banks |
+| Technician experience | More than 5 years in the industry |
+| Technician education and operations role | Computer science degree and MBA; leads website and marketing and handles much of Eternity's administrative work |
 
 ## Verified project evidence
 
@@ -51,6 +56,8 @@ This document is the source of truth for approved public business details used i
 - Emergency service is confirmed outside normal hours. Exact 24/7 coverage and expected response time remain unconfirmed, so public copy should say “Emergency service available” rather than promise 24/7 response.
 - Being a service-area business means the website can describe the service region without publishing a customer-facing street address.
 - The Google share link was supplied by Eternity and redirects through Google's sharing service. Keep it as the approved profile link unless a permanent Maps or Business Profile URL is later supplied.
+- Bernard Gray reviewed and approved the first four expert answers on August 28, 2026. His reviewer attribution may be displayed on those guides.
+- The August 28, 2026 read-only Google Business Profile audit found that Google currently displays `(216) 703-3183`, while the approved public phone is `216-253-6468`. The profile is also showing Saturday as 9:00 a.m.–5:00 a.m. These are audit findings, not approved fact changes.
 
 ## Still needed
 
@@ -64,7 +71,7 @@ This document is the source of truth for approved public business details used i
 - [ ] Confirm the license type and issuing jurisdiction for license #28303
 - [ ] Provide a permanent Google Maps or Business Profile URL if preferred over the supplied share link
 - [ ] Year founded
-- [ ] Owner/founder name, title and biography
+- [x] Owner/founder name, title and biography — Bernard Gray, Owner; 28 years of HVAC/R experience including boilers and refrigeration
 - [ ] Approved minority-owned statement and any certifications
 
 ## Change control

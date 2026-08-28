@@ -127,12 +127,14 @@ test("renders the first four evidence-backed expert answers", async () => {
     assert.match(html, /Safety limit/);
     assert.match(html, /Published (?:<!-- -->)?August 28, 2026/);
     assert.match(html, /By Eternity Mechanical Services/);
+    assert.match(html, /Reviewed and approved by (?:<[^>]+>)*Bernard Gray/);
+    assert.match(html, /28 years of HVAC\/R industry experience/);
     assert.match(html, /&quot;Article&quot;|"Article"/);
     assert.match(html, /&quot;FAQPage&quot;|"FAQPage"/);
     assert.match(html, /&quot;BreadcrumbList&quot;|"BreadcrumbList"/);
     assert.match(html, /&quot;datePublished&quot;:&quot;2026-08-28&quot;|"datePublished":"2026-08-28"/);
+    assert.match(html, /&quot;reviewedBy&quot;|"reviewedBy"/);
     assert.match(html, new RegExp(`<link rel="canonical" href="https://eternityhvacr\\.com${pathname}"`));
-    assert.doesNotMatch(html, /Reviewed by Bernard|Bernard Gray reviewed/i);
   }
 });
 

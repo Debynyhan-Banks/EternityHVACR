@@ -99,15 +99,17 @@ This plan treats SEO, local search, generative-engine visibility and conversion 
 
 ### Google Business Profile and citation operations
 
-- [ ] Audit primary and secondary business categories
+- [x] Audit primary and secondary business categories
 - [ ] Complete the Services section with every confirmed offering
 - [ ] Add concise service descriptions and only approved, stable pricing or qualified ranges
-- [ ] Verify hours, service-area presentation, phone, website and business description
+- [x] Verify hours, service-area presentation, phone, website and business description
 - [ ] Establish a regular real-project photo and video publishing process
 - [ ] Assign ownership for review requests and public review responses
 - [ ] Audit authoritative profiles and citations for consistent name, phone, website and service-area presentation
 - [ ] Evaluate paid lead directories separately from citation accuracy and organic-search work
 - [ ] Keep an unapproved street address private across every profile because Eternity is a service-area business
+
+The read-only August 28, 2026 audit is documented in [GOOGLE-BUSINESS-PROFILE-AUDIT-2026-08-28.md](GOOGLE-BUSINESS-PROFILE-AUDIT-2026-08-28.md). It found critical phone and Saturday-hours inconsistencies, an incorrect Richmond service area, an almost empty Services section, incomplete category coverage and a Charlotte Mancini review response that describes an installation not mentioned in her review. No Google profile edits were made during the audit.
 
 ## Phase 2 — Service and local-search architecture
 
@@ -225,7 +227,7 @@ Priority case-study subjects:
 
 Each answer should be specific, safe, locally relevant and clear about when professional service is needed.
 
-The first four answers use Eternity Mechanical Services as the organization author and government or manufacturer technical references. Bernard Gray’s reviewer attribution remains intentionally unpublished until he completes a technical review.
+The first four answers use Eternity Mechanical Services as the organization author and government or manufacturer technical references. Bernard Gray completed his technical review and approved the four guides on August 28, 2026; visible reviewer attribution and `reviewedBy` structured data were then added.
 
 Google’s current guidance says there is no special schema or writing format required for AI features. Eternity’s GEO approach therefore remains people-first SEO: original field evidence, direct and safe answers, clear technical structure, crawlable pages and measured lead quality rather than AI-ranking promises.
 
