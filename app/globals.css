@@ -480,25 +480,25 @@ footer .sms-disclosure a,.footer-bottom a{text-decoration:underline;text-underli
 
 @media(max-width:700px){
   .hero{min-height:0;display:grid;grid-template-columns:1fr;grid-template-rows:840px auto;background:#fff;color:var(--text)}
-  .hero-copy{grid-area:1/1;z-index:3;width:100%;min-height:840px;padding:34px 20px 290px;display:block;background:linear-gradient(180deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.9) 22%,rgba(255,255,255,.68) 36%,rgba(255,255,255,.34) 50%,rgba(255,255,255,.06) 65%,rgba(255,255,255,0) 76%);color:var(--text);pointer-events:none}
+  .hero-copy{grid-area:1/1;z-index:3;width:100%;min-height:840px;padding:34px 20px 290px;display:block;background:transparent;color:var(--text);pointer-events:none}
   .hero-copy:before{display:block;mask-image:linear-gradient(90deg,#000,transparent)}
   .hero-copy:after{display:none}
   .hero-brand{width:142px;margin-bottom:17px}
   .hero .eyebrow{color:var(--navy);text-shadow:none}
-  .hero h1{margin:14px 0 11px;color:var(--navy);font-size:clamp(42px,12vw,52px);line-height:.9;text-shadow:0 0 4px #fff,0 0 13px #fff,0 0 22px rgba(255,255,255,.92)}
+  .hero h1{margin:14px 0 11px;color:var(--navy);font-size:clamp(42px,12vw,52px);line-height:.9;text-shadow:none}
   .hero h1 em{color:var(--orange-accessible)}
   .hero-brand-line{margin-bottom:10px;font-size:10px;line-height:1.4}
-  .hero-lede{max-width:360px;margin-bottom:16px;color:#34465b;font-size:13px;line-height:1.48;text-shadow:0 1px 10px #fff,0 1px 10px #fff}
-  .hero-actions{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:8px;pointer-events:auto}
-  .hero-actions>*{width:100%;min-width:0}
-  .hero-actions .btn,.hero-actions .btn-outline{min-height:46px;padding:0 8px;gap:6px;font-size:10px}
+  .hero-lede{max-width:360px;margin-bottom:16px;color:#3f4e61;font-size:13px;line-height:1.48}
+  .hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;pointer-events:auto}
+  .hero-actions>*{width:100%}
+  .hero-actions .btn,.hero-actions .btn-outline{min-height:46px;padding:0 11px;gap:8px;font-size:11px}
   .hero .btn-outline{border-color:var(--navy);background:#fff;color:var(--navy)}
-  .hero-assurance{width:100%;max-width:100%;margin-top:10px;padding:8px 9px;display:flex;gap:8px;flex-wrap:wrap;border:1px solid rgba(11,38,70,.15);border-radius:7px;background:rgba(255,255,255,.9);color:#263d58;font-size:8px;box-shadow:0 8px 22px rgba(11,38,70,.1);backdrop-filter:blur(8px)}
+  .hero-assurance{margin-top:13px;display:flex;gap:10px;color:#485a70;font-size:9px}
   .hero-assurance span:before{width:17px;height:17px;font-size:8px}
-  .hero-media{position:relative;inset:auto;grid-area:1/1;width:100%;height:840px;min-height:840px;background-color:#e9eff6;background-image:linear-gradient(180deg,#fff 0%,#fff 24%,rgba(245,248,251,.96) 42%,rgba(224,233,243,.92) 100%),linear-gradient(rgba(11,38,70,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(11,38,70,.025) 1px,transparent 1px);background-size:auto,34px 34px,34px 34px}
+  .hero-media{position:relative;inset:auto;grid-area:1/1;width:100%;height:840px;min-height:840px;background-color:#fff;background-image:linear-gradient(rgba(11,38,70,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(11,38,70,.025) 1px,transparent 1px);background-size:34px 34px}
   .hero-media:before{content:"";position:absolute;z-index:0;right:-115px;top:290px;width:250px;height:430px;transform:skewX(-24deg);background:linear-gradient(90deg,var(--orange-accessible) 0 16%,#fff 16% 23%,var(--navy) 23% 100%);opacity:.96}
   .hero-media>picture{position:relative;z-index:1}
-  .hero-media>picture>img{object-fit:contain;object-position:center bottom;transform:translateY(-205px) scale(1.1);transform-origin:center bottom}
+  .hero-media>picture>img{object-fit:contain;object-position:center bottom}
   .hero-media:after{background:linear-gradient(180deg,transparent 74%,rgba(7,26,49,.09) 100%)}
   .hero-photo-mark{display:none}
   .hero-service-rail{position:relative;left:auto;bottom:auto;grid-area:2/1;width:100%;min-height:0;transform:none;grid-template-columns:1fr 1fr;border-top-width:4px;box-shadow:none}
@@ -514,5 +514,4 @@ footer .sms-disclosure a,.footer-bottom a{text-decoration:underline;text-underli
   .hero h1{font-size:40px}
   .hero-media{height:800px;min-height:800px}
   .hero-media:before{top:275px;height:390px}
-  .hero-media>picture>img{transform:translateY(-185px) scale(1.08)}
 }
