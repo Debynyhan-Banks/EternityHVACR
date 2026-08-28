@@ -28,10 +28,10 @@ The approved Google service area contains Cleveland, Euclid, Cleveland Heights, 
 | Website and structured data | Approved phone, website and service-area presentation | Production verified | Complete |
 | Google Business Profile | Approved phone, hours, categories, 20-city service area and 20 confirmed services | Manager and public profile verified | Complete |
 | BuildZoom | Retired phone, public street/unit address and duplicated `Bernard Gray Gray` name | Submitted a support request asking for `216-703-3183`, address suppression, `Bernard Gray` and the official website | Submitted; no ticket number was issued; verify the public page and support reply |
-| Porch | Search index exposes an old contractor page with a street address and a service area far beyond the approved 20 Google markets; the live listing URL redirects to Porch's general site | Do not create or accept a marketplace account without a business decision; contact Porch project/account support to request suppression or correction | Waiting on support contact or account-owner decision |
+| Porch | Search index exposes an old contractor page with a street address and a service area far beyond the approved 20 Google markets; the live listing URL redirects to Porch's general site | Sent a correction-only request to `support@porch.com` asking for address suppression, approved public details, service-area correction and removal or correction without lead-service enrollment | Submitted August 28, 2026; verify Porch's reply and the indexed public page |
 | Legal-record aggregators | May reproduce filing or license addresses from public records | Do not treat these as normal marketing citations or request changes unless the underlying legal record is inaccurate | Monitor only |
 
-BuildZoom's free-profile claim flow requires an email-based account and acceptance of its terms. The correction was sent through BuildZoom's general support form instead, so Eternity did not enroll in a lead marketplace or accept new commercial terms. Porch currently directs profile/account questions to `homeconcierge@porch.com` or `855-328-7332`; its indexed contractor URL did not expose a direct edit form.
+BuildZoom's free-profile claim flow requires an email-based account and acceptance of its terms. The correction was sent through BuildZoom's general support form instead, so Eternity did not enroll in a lead marketplace or accept new commercial terms. Porch's indexed contractor URL did not expose a direct edit form, so Debynyhan sent the correction request from her established administrative email to Porch's published professional-support address. No Porch account was created and no marketplace terms were accepted.
 
 ## Post-service review request
 
@@ -85,6 +85,6 @@ On the first weekly check of each month, also record profile views, searches, ca
 ## Open decisions
 
 - Confirm whether business texting is monitored and governed well enough to retain the Google chat action.
-- Decide whether Eternity wants a Porch marketplace account or only a privacy/correction request.
+- Review Porch's reply and create a marketplace account only if Eternity separately approves it; the current request is correction-only.
 - Approve any automated review-request sending; the current workflow is manual.
 - Defer new public photos until Eternity approves an image workflow.

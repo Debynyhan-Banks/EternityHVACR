@@ -111,7 +111,7 @@ This plan treats SEO, local search, generative-engine visibility and conversion 
 
 The August 28, 2026 audit and correction log is documented in [GOOGLE-BUSINESS-PROFILE-AUDIT-2026-08-28.md](GOOGLE-BUSINESS-PROFILE-AUDIT-2026-08-28.md). Eternity confirmed `216-703-3183` as the approved phone and corrected Charlotte Mancini's review response. Google approved Saturday hours, the 20-city service area and the Heating contractor and Air conditioning contractor secondary categories. The Services section was expanded from one service to 20 confirmed offerings.
 
-The continuing operating standard is documented in [LOCAL-PROFILE-OPERATIONS-2026-08-28.md](LOCAL-PROFILE-OPERATIONS-2026-08-28.md). Debynyhan Banks owns routine review requests and responses; Bernard Gray owns technical and high-risk escalations. A weekly Monday check now covers profile drift, new reviews and citation follow-up. BuildZoom correction was submitted; Porch remains a support/account decision.
+The continuing operating standard is documented in [LOCAL-PROFILE-OPERATIONS-2026-08-28.md](LOCAL-PROFILE-OPERATIONS-2026-08-28.md). Debynyhan Banks owns routine review requests and responses; Bernard Gray owns technical and high-risk escalations. A weekly Monday check now covers profile drift, new reviews and citation follow-up. Correction-only requests were submitted to BuildZoom and Porch without creating marketplace accounts.
 
 ## Phase 2 — Service and local-search architecture
 

@@ -18,9 +18,9 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current milestone:** Local profile and reputation operations
 
-**Current status:** Recurring workflow active; citation corrections in follow-up
+**Current status:** Recurring workflow active; BuildZoom and Porch corrections submitted
 
-**Next action:** Verify BuildZoom's response and public correction, contact Porch support or decide against a marketplace account, and confirm SMS operating rules.
+**Next action:** Verify BuildZoom and Porch responses and public corrections, then confirm SMS operating rules.
 
 ## Phase 1 information blockers
 
@@ -51,7 +51,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 1 | Google Search Console | Complete | Account access | Domain property verified through GoDaddy DNS; sitemap accepted with Success status and one discovered page on August 23, 2026 |
 | 1 | Bing Webmaster and IndexNow | Complete | Account access | Search Console property imported; sitemap accepted for processing without errors or warnings; homepage URL submitted successfully on August 23, 2026 |
 | 1 | Google Business Profile operations audit and correction | Complete | None | `216-703-3183` aligned; review response corrected; Google approved Saturday hours, 20-city service area and two secondary categories; Services expanded to 20 confirmed offerings August 28, 2026 |
-| 1 | Recurring review, profile and citation operations | In progress | External directory response | Debynyhan assigned as routine owner, Bernard as technical/high-risk escalation; manual review workflow documented; weekly Monday check active; BuildZoom correction submitted August 28, 2026; Porch follow-up open |
+| 1 | Recurring review, profile and citation operations | In progress | External directory response | Debynyhan assigned as routine owner, Bernard as technical/high-risk escalation; manual review workflow documented; weekly Monday check active; BuildZoom and Porch correction requests submitted August 28, 2026 |
 | 1 | Conversion analytics | Complete | Google Analytics property created | Corrected property ID published; Realtime showed the Eternity page view and active user on August 23, 2026 |
 | 1 | Responsive image optimization | Complete | None | Live mobile audit: Performance 86, Accessibility 100, SEO 100, LCP 2.7 seconds and CLS 0 on August 23, 2026 |
 | 2 | Priority service pages | Complete | Commercial refrigeration, commercial HVAC and preventive maintenance confirmed as priorities | Three unique pages published, internally linked and verified on production August 24, 2026 |
@@ -74,7 +74,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 - Verify the approved Google Business Profile phone, hours, service-area, category, service and review-response corrections during the weekly control cycle
 - Operate the documented post-service review-request and public-response workflow
-- Follow up on BuildZoom and Porch citation corrections while preserving service-area-business address privacy
+- Verify BuildZoom and Porch citation corrections while preserving service-area-business address privacy
 - Maintain Bernard’s reviewer attribution on the four approved expert answers
 - Define the commercial equipment intake fields for make, model and serial number
 - Continue collecting real refrigeration and multifamily project proof
@@ -135,7 +135,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-28 | Completed the Google Business Profile operations audit | Verified manager access and audited identity, contact actions, category, services, hours, service areas, reviews, photos and March–August performance without changing the profile; documented exact corrections and official Google policy references | Obtain approval before changing the Google profile |
 | 2026-08-28 | Published Bernard's technical approval | Added visible reviewer credit and `reviewedBy` Person schema to all four expert guides after Bernard reviewed and approved them; pushed the exact source to GitHub `main`, deployed it through Sites and verified all four production routes | Obtain approval before changing the Google profile |
 | 2026-08-28 | Completed the approved Google Business Profile correction set | Confirmed `216-703-3183` as the public phone; verified Charlotte's corrected response; Google approved Saturday 9 a.m.–5 p.m., the 20 approved priority cities, and Heating contractor plus Air conditioning contractor categories; expanded Services from one to 20 confirmed offerings; published and production-verified the matching website phone update | Establish the recurring review, profile-maintenance and citation workflow |
-| 2026-08-28 | Established local profile, review and citation operations | Assigned Debynyhan to routine review/profile work and Bernard to technical/high-risk escalation; documented a manual post-service email and two-business-day response standard; activated a weekly Monday 9 a.m. Eastern profile check; audited BuildZoom and Porch; submitted BuildZoom's phone, address-privacy, name and website correction without joining its marketplace | Verify BuildZoom's response and decide the Porch support/account path |
+| 2026-08-28 | Established local profile, review and citation operations | Assigned Debynyhan to routine review/profile work and Bernard to technical/high-risk escalation; documented a manual post-service email and two-business-day response standard; activated a weekly Monday 9 a.m. Eastern profile check; audited BuildZoom and Porch; submitted correction-only requests to both directories without creating marketplace accounts or accepting marketplace terms | Verify both directory responses and public corrections |
 
 ## Decision log
 
