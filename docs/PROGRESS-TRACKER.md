@@ -16,11 +16,11 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 ## Current position
 
-**Current milestone:** Phase 3 — Owner and team trust content
+**Current milestone:** Phases 4–5 — AI referral measurement and service-area checker
 
-**Current status:** Complete — text-only release
+**Current status:** Complete
 
-**Next action:** Build AI-crawler and referral measurement, then the ZIP-code service-area checker.
+**Next action:** Establish Bernard’s technical review process and draft the first four expert answers.
 
 ## Phase 1 information blockers
 
@@ -59,8 +59,8 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 3 | Verified review system | Complete | Review links and permission | Direct Google review CTA and Charlotte Mancini’s approved five-star review published August 27, 2026 |
 | 3 | First three case studies | Complete | Project information and photos | Two residential installations and one commercial rooftop diagnostic published with verified facts and field photography |
 | 4 | Answer library | Waiting on Eternity | Technical review process | First four expert answers live |
-| 4 | AI-crawler and referral measurement | Ready | Analytics in Phase 1 | OAI-SearchBot allowed and referrals tracked |
-| 5 | Service-area checker | Ready | Approved ZIP list | Tested service-area response |
+| 4 | AI-crawler and referral measurement | Complete | Analytics in Phase 1 | OpenAI crawler access is explicit; ChatGPT, Perplexity, Gemini, Copilot, Claude and Meta AI referrals generate a privacy-conscious analytics event |
+| 5 | Service-area checker | Complete | Approved ZIP list | Homepage and service-area page check approved ZIPs, preserve uncertain leads and record privacy-conscious result events |
 | 5 | Photo/video request uploads | Waiting on Eternity | Storage and retention decisions | Secure upload test completed |
 | 5 | Commercial equipment intake | Waiting on Eternity | Field requirements | Make/model/serial request path live |
 | 5 | Maintenance-plan comparison | Waiting on Eternity | Plan details | Approved comparison published |
@@ -128,6 +128,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-25 | Published the third verified case study | Documented the Euclid 44119 frozen rooftop-unit diagnostic, no-leak pressure-test finding, severe blower contamination and missing filter/filter drier without claiming unreported repairs or restored operation | Build the verified customer-review pathway |
 | 2026-08-27 | Published the verified customer-review pathway | Added Charlotte Mancini’s approved five-star review, a direct Google review link in the homepage and footer, and review-link analytics without inventing a city or service type | Collect approved owner/team information and photographs |
 | 2026-08-27 | Published the owner and team section | Added approved text-only profiles for owner Bernard Gray and technician Debynyhan Banks, including verified experience, boiler and refrigeration background, education, marketing and administrative responsibilities; omitted images as requested | Build AI-crawler and referral measurement, then the service-area checker |
+| 2026-08-28 | Published AI referral measurement and the ZIP-code checker | Added explicit OpenAI crawler access, privacy-conscious AI referral events, and a responsive service-area checker on the homepage and service-area page; approved ZIPs receive a clear confirmation and unlisted ZIPs are directed to confirm availability | Establish Bernard’s technical review process and draft the first four expert answers |
 
 ## Decision log
 
@@ -171,7 +172,7 @@ Complete after analytics and search platforms are connected.
 | Booked-job conversion rate | — | — | Set after 60 days | CRM |
 | New Google reviews | — | — | Monthly goal required | Business Profile |
 | Mobile Core Web Vitals | — | — | Good | Search Console |
-| ChatGPT referral sessions | — | — | Monitor trend | Analytics |
+| ChatGPT referral sessions | Tracking configured August 28, 2026 | — | Monitor trend | Analytics |
 
 ## Related documents
 

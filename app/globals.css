@@ -363,3 +363,28 @@ body .maintenance-image>img{object-position:left center}
 @media(max-width:1000px){.project-index-grid{grid-template-columns:1fr 1fr}.project-index-card picture{height:440px}}
 @media(max-width:700px){.case-study-hero-copy{padding:55px 20px 65px}.case-study-breadcrumbs{margin-bottom:28px}.case-study-hero h1{font-size:46px}.case-study-quick-facts{grid-template-columns:1fr}.case-study-hero-image{min-height:590px;padding:24px 18px 46px}.case-study-hero-image img{height:525px;box-shadow:10px 10px 0 rgba(244,122,56,.32)}.case-study-hero-image figcaption{left:12px;right:12px;bottom:10px;text-align:center}.case-study-summary{grid-template-columns:1fr 1fr;padding:12px}.case-study-summary div{padding:14px;border-bottom:1px solid var(--line)}.case-study-summary div:nth-child(2n){border-right:0}.case-study-summary div:nth-last-child(-n+2){border-bottom:0}.case-study-story-grid{grid-template-columns:1fr}.case-study-story-grid article{min-height:auto}.case-study-story-grid h3{margin-top:34px}.case-study-solution{padding:70px 20px}.case-study-install-list{grid-template-columns:1fr}.case-study-result{gap:42px}.case-study-result-card{padding:28px;box-shadow:9px 9px 0 rgba(244,122,56,.16)}.project-index-hero{padding:72px 20px}.project-index-hero h1{font-size:48px}.project-index-grid{grid-template-columns:1fr}.project-index-card picture{height:440px}.project-index-card>div{padding:25px}}
 .rooftop-case-image img{width:min(100%,900px);height:auto}
+
+/* Service-area checker */
+.checker-section{max-width:1440px;padding-top:60px;padding-bottom:60px;background:var(--light)}
+.service-area-checker{padding:34px;display:grid;grid-template-columns:.8fr 1.2fr;gap:20px 42px;align-items:end;border:1px solid #b9cde4;border-radius:12px;background:#fff;box-shadow:12px 12px 0 rgba(11,38,70,.06)}
+.checker-intro>span{color:var(--orange-accessible);font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.12em}
+.checker-intro h3{margin:10px 0 8px;color:var(--navy);font-size:28px;line-height:1.05;letter-spacing:-.04em}
+.checker-intro p{margin:0;color:var(--muted);font-size:12px;line-height:1.6}
+.service-area-checker form label{display:block;margin-bottom:8px;color:#44536a;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+.service-area-checker form>div{display:flex}
+.service-area-checker input{min-width:0;height:54px;flex:1;padding:0 16px;border:1px solid #aebed2;border-right:0;border-radius:7px 0 0 7px;background:#fff;color:var(--navy);font-size:17px;font-weight:800;outline:none}
+.service-area-checker input:focus{border-color:var(--blue);box-shadow:inset 0 0 0 1px var(--blue)}
+.service-area-checker input[aria-invalid="true"]{border-color:#b42318}
+.service-area-checker button{min-height:54px;padding:0 19px;border:0;border-radius:0 7px 7px 0;background:var(--blue);color:#fff;font-size:11px;font-weight:900;cursor:pointer}
+.service-area-checker button span{margin-left:8px}
+.checker-result{grid-column:2;padding:16px;border-left:4px solid var(--blue);background:var(--light)}
+.checker-result:empty{display:none}
+.checker-result.invalid{border-color:#b42318;background:#fff4f2}
+.checker-result.confirm{border-color:var(--orange);background:#fff7ed}
+.checker-result p{margin:0}.checker-result strong,.checker-result span{display:block}.checker-result strong{color:var(--navy);font-size:13px}.checker-result span{margin-top:5px;color:#526174;font-size:10px;line-height:1.55}
+.checker-result>div{margin-top:12px;display:flex;gap:18px;flex-wrap:wrap}.checker-result a{padding-bottom:3px;border-bottom:1px solid var(--blue);color:var(--blue);font-size:10px;font-weight:900}
+.checker-compact{margin-top:20px;padding:20px;display:block;border-radius:8px;box-shadow:none}
+.checker-compact .checker-intro{margin-bottom:14px}.checker-compact .checker-intro h3{font-size:20px}.checker-compact .checker-intro p{display:none}.checker-compact .checker-result{margin-top:14px}.service-area-link{margin-top:20px}
+.service-area .map-visual{height:200px}
+
+@media(max-width:700px){.service-area-checker{padding:24px 18px;grid-template-columns:1fr;align-items:stretch}.checker-result{grid-column:1}.service-area-checker form>div{display:grid;grid-template-columns:1fr}.service-area-checker input{border-right:1px solid #aebed2;border-radius:7px 7px 0 0}.service-area-checker button{border-radius:0 0 7px 7px}.checker-compact{padding:18px}.checker-intro h3{font-size:24px}}

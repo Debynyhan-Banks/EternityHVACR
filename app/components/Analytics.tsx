@@ -13,8 +13,29 @@ export function trackGoogleEvent(name: string, parameters: Record<string, string
   window.gtag?.("event", name, parameters);
 }
 
+const aiSources: Array<[string, string]> = [
+  ["chatgpt", "chatgpt"], ["openai", "chatgpt"], ["perplexity", "perplexity"],
+  ["gemini", "gemini"], ["copilot", "copilot"], ["claude", "claude"], ["meta.ai", "meta_ai"],
+];
+
+function detectAiSource() {
+  const campaignSource = new URLSearchParams(window.location.search).get("utm_source")?.toLowerCase() ?? "";
+  const referrerHost = document.referrer ? new URL(document.referrer).hostname.toLowerCase() : "";
+  const match = aiSources.find(([pattern]) => campaignSource.includes(pattern) || referrerHost.includes(pattern));
+  return match?.[1] ?? null;
+}
+
 export default function AnalyticsEvents() {
   useEffect(() => {
+    const aiSource = detectAiSource();
+    if (aiSource && !sessionStorage.getItem("eternity_ai_referral_tracked")) {
+      trackGoogleEvent("ai_referral_visit", {
+        ai_source: aiSource,
+        landing_page: window.location.pathname,
+      });
+      sessionStorage.setItem("eternity_ai_referral_tracked", "true");
+    }
+
     function trackContactClick(event: MouseEvent) {
       if (!(event.target instanceof Element)) return;
 

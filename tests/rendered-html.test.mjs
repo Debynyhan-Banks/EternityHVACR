@@ -48,6 +48,8 @@ test("renders the Eternity homepage with approved business information", async (
   assert.match(html, /I had an excellent experience with Eternity Mechanical Services/);
   assert.match(html, /https:\/\/g\.page\/r\/CYsWl6Bz9AJvEBM\/review/);
   assert.match(html, /data-review-link/);
+  assert.match(html, /Check service availability/);
+  assert.match(html, /name="service-zip"/);
   assert.match(html, /system-diagnostic-report\.jpg/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site|Lorem ipsum/i);
 });
@@ -71,6 +73,8 @@ test("publishes crawler files with the canonical sitemap", async () => {
   ]);
 
   assert.match(robots, /User-agent: OAI-SearchBot[\s\S]*Allow: \//);
+  assert.match(robots, /User-agent: GPTBot[\s\S]*Allow: \//);
+  assert.match(robots, /User-agent: ChatGPT-User[\s\S]*Allow: \//);
   assert.match(robots, /Sitemap: https:\/\/eternityhvacr\.com\/sitemap\.xml/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/services\/commercial-refrigeration<\/loc>/);
@@ -119,6 +123,8 @@ test("publishes the approved Greater Cleveland service areas", async () => {
   assert.match(html, /44221/);
   assert.match(html, /&quot;ItemList&quot;|"ItemList"/);
   assert.match(html, /href="\/areas-we-serve\/euclid-oh"/);
+  assert.match(html, /ZIP-code checker/);
+  assert.match(html, /Property ZIP code/);
 });
 
 test("renders the proof-backed Euclid service-area page", async () => {
@@ -298,10 +304,11 @@ test("keeps client and server service-request validation aligned", async () => {
 });
 
 test("installs Google Analytics and records lead actions without customer PII", async () => {
-  const [layout, analytics, form] = await Promise.all([
+  const [layout, analytics, form, checker] = await Promise.all([
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/components/Analytics.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/components/ServiceRequest.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/ServiceAreaChecker.tsx", import.meta.url), "utf8"),
   ]);
 
   assert.match(layout, /G-32W3PBPD8Y/);
@@ -309,6 +316,15 @@ test("installs Google Analytics and records lead actions without customer PII", 
   assert.match(form, /trackGoogleEvent\("generate_lead"/);
   assert.match(analytics, /"phone_click"/);
   assert.match(analytics, /"email_click"/);
+  assert.match(analytics, /"ai_referral_visit"/);
+  assert.match(analytics, /chatgpt/);
+  assert.match(analytics, /perplexity/);
+  assert.match(checker, /trackGoogleEvent\("service_area_check"/);
+  assert.match(checker, /service_area_result: "approved"/);
+  assert.match(checker, /service_area_result: "confirmation_needed"/);
+  const checkerEvents = [...checker.matchAll(/trackGoogleEvent\("service_area_check",\s*\{([\s\S]*?)\}\);/g)];
+  assert.equal(checkerEvents.length, 2);
+  for (const event of checkerEvents) assert.doesNotMatch(event[1], /normalizedZip|\bzip\b/i);
   assert.doesNotMatch(form, /trackGoogleEvent\([\s\S]{0,300}(?:data\.name|data\.phone|data\.email|data\.details)/);
 });
 

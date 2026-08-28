@@ -4,5 +4,11 @@ Allow: /
 User-agent: OAI-SearchBot
 Allow: /
 
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
 Sitemap: https://eternityhvacr.com/sitemap.xml
 Host: https://eternityhvacr.com

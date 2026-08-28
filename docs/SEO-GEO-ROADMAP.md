@@ -194,7 +194,7 @@ Priority case-study subjects:
 - [ ] Support explanations with real equipment and project images
 - [ ] Use descriptive headings based on actual customer questions
 - [ ] Link claims to company proof or authoritative technical sources
-- [ ] Track ChatGPT referrals and AI-search landing pages
+- [x] Track ChatGPT referrals and AI-search landing pages
 
 ### Priority answer library
 
@@ -215,7 +215,7 @@ Each answer should be specific, safe, locally relevant and clear about when prof
 
 ### High-value features
 
-- [ ] ZIP-code service-area checker
+- [x] ZIP-code service-area checker
 - [ ] Service request with photo or short-video upload
 - [ ] Commercial equipment intake for make, model and serial number
 - [ ] Separate emergency and estimate request paths

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import ServiceAreaChecker from "../components/ServiceAreaChecker";
 import { SiteFooter, SiteHeader } from "../components/SiteChrome";
 import { allServiceAreas, extendedServiceAreas, priorityServiceAreas } from "../data/serviceAreas";
 
@@ -26,6 +27,7 @@ export default function AreasWeServePage() {
     <SiteHeader />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     <section className="area-hero"><div><p className="eyebrow"><i /> Service area</p><h1>Serving Greater Cleveland & Northeast Ohio</h1><p>Eternity Mechanical Services provides HVAC, commercial refrigeration and preventive-maintenance service across the approved cities and ZIP codes below.</p><div className="hero-actions"><a className="btn" href="/#schedule">Request service <span>↗</span></a><a className="btn-outline" href="tel:+12162536468">Call 216-253-6468 <span>→</span></a></div></div><div className="area-hero-card"><span>Primary coverage</span><strong>20 priority markets</strong><p>Cleveland, Cuyahoga County suburbs and surrounding Northeast Ohio communities.</p><small>15-minute response target during regular business hours.</small></div></section>
+    <section className="section checker-section"><ServiceAreaChecker /></section>
     <section className="section area-section"><div className="section-head"><div><p className="kicker">Primary coverage</p><h2>Core service cities and ZIP codes</h2></div><p>These priority markets receive the strongest service-area and search coverage.</p></div><div className="area-grid">{priorityServiceAreas.map((area) => {
       const card = <article><span>{area.region ?? "Core"}</span><h3>{area.city}</h3><p>{area.zips.join(" • ")}</p>{area.city === "Euclid" && <b>View real Euclid project work →</b>}</article>;
       return area.city === "Euclid" ? <a className="area-card-link" href="/areas-we-serve/euclid-oh" key={area.city} aria-label="View HVAC service and real project work in Euclid, Ohio">{card}</a> : <div key={area.city}>{card}</div>;
