@@ -31,7 +31,7 @@ const businessSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": ["HVACBusiness", "Organization"],
+      "@type": "Organization",
       "@id": "https://eternityhvacr.com/#business",
       name: "Eternity Mechanical Services LLC",
       url: "https://eternityhvacr.com",

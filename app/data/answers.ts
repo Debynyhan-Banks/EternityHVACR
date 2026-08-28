@@ -15,6 +15,7 @@ export type ExpertAnswer = {
   category: string;
   question: string;
   description: string;
+  image: string;
   directAnswer: string;
   localContext: string;
   sections: AnswerSection[];
@@ -36,6 +37,7 @@ export const expertAnswers: ExpertAnswer[] = [
     category: "Commercial refrigeration",
     question: "Why is my walk-in cooler icing up?",
     description: "Common causes of ice on a walk-in cooler evaporator, safe observations to make and when a Greater Cleveland refrigeration technician is needed.",
+    image: "/images/walk-in-cold-storage.jpg",
     directAnswer: "A walk-in cooler usually ices up because moisture is entering the box, airflow across the evaporator is restricted, or the defrost, drain, control or refrigeration system is not operating correctly. The ice pattern and operating measurements—not the ice alone—are what identify the cause.",
     localContext: "Greater Cleveland’s humid summers and frequent door traffic can increase the moisture load on a walk-in. Ice that returns after it melts is a symptom that should be diagnosed, not simply removed.",
     sections: [
@@ -91,6 +93,7 @@ export const expertAnswers: ExpertAnswer[] = [
     category: "Commercial HVAC",
     question: "What causes a rooftop HVAC unit to short-cycle?",
     description: "Why a commercial rooftop HVAC unit starts and stops too often, what a facility manager can document and how technicians diagnose the cause.",
+    image: "/images/euclid/cleveland-commercial-rooftop-hvac-service-1200.webp",
     directAnswer: "A rooftop HVAC unit short-cycles when it starts and stops more often than its control sequence intends. Common causes include thermostat or control problems, restricted airflow, incorrect sizing or staging, electrical faults, refrigerant-system problems and a safety control shutting the unit down.",
     localContext: "On Greater Cleveland commercial properties, changing outdoor conditions, heating and cooling changeovers and roof exposure can make the pattern intermittent. A timestamped operating history is more useful than replacing parts based on a single symptom.",
     sections: [
@@ -147,6 +150,7 @@ export const expertAnswers: ExpertAnswer[] = [
     category: "Heating",
     question: "When should a furnace be repaired versus replaced?",
     description: "A practical furnace repair-or-replace framework using safety, verified condition, repair history, cost, comfort and long-term plans—not age alone.",
+    image: "/images/euclid/euclid-oh-sinclair-furnace-installation-1200.webp",
     directAnswer: "Repair a furnace when the defect is isolated, safe to correct and the rest of the system is in sound condition. Consider replacement when a confirmed safety problem, recurring major repairs, unavailable parts, poor overall condition or the combined cost and performance tradeoffs make another repair a weak long-term choice. Age is a factor, not a verdict.",
     localContext: "Greater Cleveland heating systems operate through long cold seasons, so the decision should account for reliability as well as the immediate repair. The furnace, venting, controls, ducts and cooling-system match all affect the final recommendation.",
     sections: [
@@ -207,6 +211,7 @@ export const expertAnswers: ExpertAnswer[] = [
     category: "Preventive maintenance",
     question: "How often should commercial refrigeration be maintained?",
     description: "How to set a commercial refrigeration maintenance schedule based on equipment, operating load, environment, door traffic and manufacturer requirements.",
+    image: "/images/maintenance.jpg",
     directAnswer: "Commercial refrigeration should be inspected on a documented schedule tailored to the equipment and operation; there is no single interval that fits every cooler, freezer or condensing system. Manufacturer requirements, operating hours, door traffic, grease and dust exposure, outdoor conditions, temperature criticality and service history determine the right frequency.",
     localContext: "A Greater Cleveland restaurant kitchen, a low-traffic storage freezer and an outdoor condensing unit face different loads. A baseline inspection lets the maintenance frequency follow the equipment’s actual condition instead of an arbitrary calendar rule.",
     sections: [

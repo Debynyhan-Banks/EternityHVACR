@@ -19,6 +19,7 @@ export default function AnswerArticle({ answer }: { answer: ExpertAnswer }) {
         "@id": `${pageUrl}#article`,
         headline: answer.question,
         description: answer.description,
+        image: `https://eternityhvacr.com${answer.image}`,
         datePublished: answer.published,
         dateModified: answer.updated,
         inLanguage: "en-US",

@@ -64,10 +64,22 @@ test("includes indexable metadata and structured business data", async () => {
 
   assert.match(html, /<meta name="robots" content="index, follow"\s*\/>/i);
   assert.match(html, /<script type="application\/ld\+json">/i);
-  assert.match(html, /&quot;HVACBusiness&quot;|"HVACBusiness"/);
   assert.match(html, /&quot;Organization&quot;|"Organization"/);
+  assert.doesNotMatch(html, /&quot;HVACBusiness&quot;|"HVACBusiness"/);
   assert.match(html, /&quot;WebSite&quot;|"WebSite"/);
   assert.match(html, /https:\/\/share\.google\/1bUl6S4x9x90TJ7Mf/);
+});
+
+test("permanently redirects public alternate origins to the canonical HTTPS host", async () => {
+  for (const source of [
+    "http://eternityhvacr.com/services/boiler-service?source=audit",
+    "http://www.eternityhvacr.com/services/boiler-service?source=audit",
+    "https://www.eternityhvacr.com/services/boiler-service?source=audit",
+  ]) {
+    const response = await dispatch(new Request(source, { redirect: "manual" }));
+    assert.equal(response.status, 308);
+    assert.equal(response.headers.get("location"), "https://eternityhvacr.com/services/boiler-service?source=audit");
+  }
 });
 
 test("publishes crawler files with the canonical sitemap", async () => {
@@ -140,6 +152,7 @@ test("renders the first four evidence-backed expert answers", async () => {
     assert.match(html, /Reviewed and approved by (?:<[^>]+>)*Bernard Gray/);
     assert.match(html, /28 years of HVAC\/R industry experience/);
     assert.match(html, /&quot;Article&quot;|"Article"/);
+    assert.match(html, /&quot;image&quot;:&quot;https:\/\/eternityhvacr\.com\/images\/|"image":"https:\/\/eternityhvacr\.com\/images\//);
     assert.match(html, /&quot;FAQPage&quot;|"FAQPage"/);
     assert.match(html, /&quot;BreadcrumbList&quot;|"BreadcrumbList"/);
     assert.match(html, /&quot;datePublished&quot;:&quot;2026-08-28&quot;|"datePublished":"2026-08-28"/);

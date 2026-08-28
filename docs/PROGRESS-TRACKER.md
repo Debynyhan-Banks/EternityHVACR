@@ -48,7 +48,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 1 | Remove all public placeholder content | Complete | Core business facts confirmed | Verified on production August 22, 2026 |
 | 1 | Functional service-request delivery | Complete | Resend sender domain and destination confirmed as `ben@eternityhvacr.com` | Ben confirmed the production test email was received August 22, 2026 |
 | 1 | Robots and XML sitemap | Complete | None | Both production URLs returned HTTP 200 on August 22, 2026 |
-| 1 | Business structured data | In review | Core business facts confirmed | Production source verified; Rich Results Test has no critical errors |
+| 1 | Business structured data | Complete | Core business facts confirmed | Privacy-safe `Organization`/`WebSite` schema and image-complete expert `Article` schema verified by automated production-render checks August 28, 2026 |
 | 1 | Google Search Console | Complete | Account access | Domain property verified through GoDaddy DNS; sitemap accepted with Success status; furnace/heating, boiler and heat-pump URLs added to Google's priority crawl queue August 28, 2026 |
 | 1 | Bing Webmaster and IndexNow | Complete | Account access | Search Console property imported; sitemap accepted for processing without errors or warnings; homepage URL submitted successfully on August 23, 2026 |
 | 1 | Google Business Profile operations audit and correction | Complete | None | `216-703-3183` aligned; review response corrected; Google approved Saturday hours, 20-city service area and two secondary categories; Services expanded to 20 confirmed offerings with descriptions August 28, 2026 |
@@ -98,6 +98,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 | Date | Change | Outcome | Next step |
 |---|---|---|---|
+| 2026-08-28 | Corrected the structured-data and canonical-host audit findings | Removed the address-dependent `HVACBusiness` type while preserving privacy-safe `Organization`/`WebSite` data, added representative images to every expert `Article`, and added permanent 308 normalization from HTTP and `www` requests to the HTTPS apex while preserving paths and query strings; build, lint and 20 production-render tests pass | Publish, verify production redirects and request a fresh SEMrush crawl |
 | 2026-08-12 | Connected `eternityhvacr.com` and `www` | Domain and SSL active | Continue site enhancement |
 | 2026-08-13 | Added social preview, mobile hero and phone number | Public deployment complete | Improve discoverability |
 | 2026-08-17 | Published website source to GitHub | Repository established | Keep source synchronized |

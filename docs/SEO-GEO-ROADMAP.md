@@ -63,11 +63,10 @@ This plan treats SEO, local search, generative-engine visibility and conversion 
 
 - [ ] Add `robots.txt` with sitemap location and appropriate crawler access
 - [ ] Add an XML sitemap
-- [ ] Add `HVACBusiness`/`LocalBusiness` structured data
-- [ ] Add `Organization` and `WebSite` structured data
+- [x] Add privacy-safe `Organization` and `WebSite` structured data; do not publish an address-dependent `HVACBusiness` item while Eternity operates as a service-area business with a private address
 - [ ] Add breadcrumbs and breadcrumb structured data when multiple pages exist
-- [ ] Validate structured data and indexing eligibility
-- [ ] Verify both root and `www` domain behavior and canonicalization
+- [x] Validate structured data and indexing eligibility with automated production-render checks
+- [x] Permanently normalize HTTP and `www` requests to the canonical HTTPS apex while preserving paths and query strings
 - [ ] Connect Google Search Console and submit the sitemap
 - [ ] Connect Bing Webmaster Tools and IndexNow
 
