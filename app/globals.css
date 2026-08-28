@@ -479,9 +479,9 @@ footer .sms-disclosure a,.footer-bottom a{text-decoration:underline;text-underli
 }
 
 @media(max-width:700px){
-  .hero{min-height:0;display:grid;grid-template-columns:1fr;grid-template-rows:900px auto;background:#fff;color:var(--text)}
-  .hero-copy{grid-area:1/1;z-index:3;width:100%;min-height:900px;padding:38px 20px 300px;display:block;background:linear-gradient(180deg,rgba(255,255,255,.99) 0%,rgba(255,255,255,.97) 39%,rgba(255,255,255,.72) 55%,rgba(255,255,255,0) 72%);color:var(--text);pointer-events:none}
-  .hero-copy:before{display:block;mask-image:linear-gradient(90deg,#000,transparent)}
+  .hero{min-height:0;display:grid;grid-template-columns:1fr;grid-template-rows:820px auto;background:#fff;color:var(--text)}
+  .hero-copy{grid-area:1/1;z-index:3;width:100%;min-height:820px;padding:30px 20px 290px;display:block;background:linear-gradient(180deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.91) 36%,rgba(255,255,255,.32) 49%,rgba(255,255,255,0) 59%);color:var(--text);pointer-events:none}
+  .hero-copy:before{display:none}
   .hero-copy:after{display:none}
   .hero-brand{width:142px;margin-bottom:17px}
   .hero .eyebrow{color:var(--navy);text-shadow:none}
@@ -491,16 +491,15 @@ footer .sms-disclosure a,.footer-bottom a{text-decoration:underline;text-underli
   .hero-lede{max-width:360px;margin-bottom:16px;color:#3f4e61;font-size:13px;line-height:1.48}
   .hero-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;pointer-events:auto}
   .hero-actions>*{width:100%}
-  .hero-actions .btn,.hero-actions .btn-outline{min-height:46px;padding:0 11px;gap:8px;font-size:11px}
+  .hero-actions .btn,.hero-actions .btn-outline{min-height:46px;padding:0 7px;gap:5px;font-size:10px;white-space:nowrap}
   .hero .btn-outline{border-color:var(--navy);background:#fff;color:var(--navy)}
   .hero-assurance{margin-top:13px;display:flex;gap:10px;color:#485a70;font-size:9px}
+  .hero-assurance span{padding:4px 6px;border-radius:999px;background:rgba(255,255,255,.82);box-shadow:0 2px 9px rgba(7,26,49,.09);backdrop-filter:blur(5px)}
   .hero-assurance span:before{width:17px;height:17px;font-size:8px}
-  .hero-media{position:relative;inset:auto;grid-area:1/1;width:100%;height:900px;min-height:900px}
-  .hero-media>picture>img{object-position:center}
-  .hero-media:after{background:linear-gradient(180deg,rgba(255,255,255,.05) 0%,transparent 62%,rgba(7,26,49,.14) 100%)}
-  .hero-photo-mark{right:14px;bottom:14px;padding:9px 11px}
-  .hero-photo-mark img{width:105px}
-  .hero-photo-mark span{font-size:7px}
+  .hero-media{position:relative;inset:auto;grid-area:1/1;width:100%;height:820px;min-height:820px;background:#fff}
+  .hero-media>picture>img{object-fit:cover;object-position:center 48%}
+  .hero-media:after{background:linear-gradient(180deg,rgba(255,255,255,.05) 0%,transparent 70%,rgba(7,26,49,.12) 100%)}
+  .hero-photo-mark{display:none}
   .hero-service-rail{position:relative;left:auto;bottom:auto;grid-area:2/1;width:100%;min-height:0;transform:none;grid-template-columns:1fr 1fr;border-top-width:4px;box-shadow:none}
   .hero-service-rail a{min-height:72px;padding:12px;border-bottom:1px solid var(--line)}
   .hero-service-rail a:nth-child(2n){border-right:0}
@@ -508,9 +507,11 @@ footer .sms-disclosure a,.footer-bottom a{text-decoration:underline;text-underli
 }
 
 @media(max-width:390px){
+  .header{gap:10px}
+  .header-actions .btn-small{display:none}
   .hero-copy{padding-left:16px;padding-right:16px}
-  .hero{grid-template-rows:860px auto}
-  .hero-copy{min-height:860px;padding-bottom:280px}
+  .hero{grid-template-rows:800px auto}
+  .hero-copy{min-height:800px;padding-bottom:270px}
   .hero h1{font-size:40px}
-  .hero-media{height:860px;min-height:860px}
+  .hero-media{height:800px;min-height:800px}
 }
