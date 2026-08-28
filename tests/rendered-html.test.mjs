@@ -134,22 +134,28 @@ test("publishes clear privacy and website terms", async () => {
   assert.match(privacy, /<link rel="canonical" href="https:\/\/eternityhvacr\.com\/privacy"/);
   assert.match(terms, /does not create an appointment/);
   assert.match(terms, /The website is not an emergency-dispatch service/);
-  assert.match(privacy, /Signmons-powered service assistant/);
-  assert.match(privacy, /does not ask for or submit contact, payment or issue-description information/);
-  assert.match(terms, /provides automated routing guidance only/);
+  assert.match(privacy, /Signmons-powered assistant/);
+  assert.match(privacy, /optional AI-assisted conversation/);
+  assert.match(privacy, /Signmons uses OpenAI to generate a response/);
+  assert.match(privacy, /does not intentionally send the contents of chat messages to Google Analytics/);
+  assert.match(terms, /optional AI-assisted conversation/);
   assert.match(terms, /<link rel="canonical" href="https:\/\/eternityhvacr\.com\/terms"/);
 });
 
 test("publishes a disclosed Signmons service-routing assistant with safety and human handoff", async () => {
-  const [homeResponse, component] = await Promise.all([
+  const [homeResponse, component, proxyRoute] = await Promise.all([
     render("/"),
     readFile(new URL("../app/components/SignmonsAssistant.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/api/signmons/route.ts", import.meta.url), "utf8"),
   ]);
   assert.equal(homeResponse.status, 200);
   const home = await homeResponse.text();
   assert.match(home, /Ask Eternity/);
   assert.match(home, /Automated service assistant/);
-  assert.match(component, /It is not a technician, cannot diagnose equipment/);
+  assert.match(component, /Messages are processed by Signmons and OpenAI/);
+  assert.match(component, /cannot diagnose equipment or book an appointment/);
+  assert.match(component, /fetch\("\/api\/signmons"/);
+  assert.match(component, /I understand — start chat/);
   assert.match(component, /Do not rely on this website for emergency help/);
   assert.match(component, /href="tel:911"/);
   assert.match(component, /href="tel:\+12167033183"/);
@@ -158,7 +164,12 @@ test("publishes a disclosed Signmons service-routing assistant with safety and h
   assert.match(component, /"assistant_open"/);
   assert.match(component, /"assistant_path_selected"/);
   assert.match(component, /"assistant_handoff"/);
-  assert.doesNotMatch(component, /fetch\(/);
+  assert.match(component, /"assistant_message_sent"/);
+  assert.match(component, /"assistant_response_received"/);
+  assert.match(proxyRoute, /process\.env\.SIGNMONS_WEBCHAT_KEY/);
+  assert.match(proxyRoute, /authorization: `Bearer \$\{integrationKey\}`/);
+  assert.match(proxyRoute, /RATE_LIMIT_MAX = 12/);
+  assert.doesNotMatch(component, /SIGNMONS_WEBCHAT_KEY|Authorization: Bearer/);
 });
 
 test("publishes an indexable expert-answer library", async () => {

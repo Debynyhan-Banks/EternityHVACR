@@ -6,7 +6,14 @@ import { trackGoogleEvent } from "./Analytics";
 
 type RequestPath = "urgent" | "cooling" | "heating" | "commercial" | "estimate" | "maintenance";
 type PropertyType = "home" | "business" | "managed";
-type Screen = "start" | "property" | "handoff" | "safety";
+type Screen = "start" | "property" | "handoff" | "chat" | "safety";
+type ChatMessage = { id: string; role: "assistant" | "user"; text: string; safety?: boolean };
+
+const initialChatMessage: ChatMessage = {
+  id: "welcome",
+  role: "assistant",
+  text: "Tell me what is happening with your HVAC, boiler or refrigeration equipment. I can ask follow-up questions and help prepare the request for Eternity's team.",
+};
 
 const requestPaths: Array<{ id: RequestPath; title: string; detail: string }> = [
   { id: "urgent", title: "System down or urgent equipment", detail: "No heating, cooling or refrigeration operation" },
@@ -31,9 +38,15 @@ export default function SignmonsAssistant() {
   const [screen, setScreen] = useState<Screen>("start");
   const [requestPath, setRequestPath] = useState<RequestPath | null>(null);
   const [propertyType, setPropertyType] = useState<PropertyType | null>(null);
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>([initialChatMessage]);
+  const [chatInput, setChatInput] = useState("");
+  const [chatLoading, setChatLoading] = useState(false);
+  const [chatError, setChatError] = useState("");
   const launcherRef = useRef<HTMLButtonElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLElement>(null);
+  const sessionIdRef = useRef("");
+  const chatEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!open) return;
@@ -65,6 +78,10 @@ export default function SignmonsAssistant() {
     };
   }, [open]);
 
+  useEffect(() => {
+    if (screen === "chat") chatEndRef.current?.scrollIntoView({ block: "nearest" });
+  }, [screen, chatMessages, chatLoading]);
+
   function openAssistant() {
     setOpen(true);
     trackGoogleEvent("assistant_open", { assistant: "signmons_router" });
@@ -86,10 +103,58 @@ export default function SignmonsAssistant() {
     trackGoogleEvent("assistant_path_selected", { request_path: "life_safety" });
   }
 
+  function startChat() {
+    if (!sessionIdRef.current) sessionIdRef.current = crypto.randomUUID();
+    setScreen("chat");
+    setChatError("");
+    trackGoogleEvent("assistant_chat_started", { assistant: "signmons_calldesk" });
+  }
+
+  async function sendChatMessage(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const message = chatInput.trim();
+    if (!message || chatLoading) return;
+
+    if (!sessionIdRef.current) sessionIdRef.current = crypto.randomUUID();
+    const userMessage: ChatMessage = { id: crypto.randomUUID(), role: "user", text: message };
+    setChatMessages((messages) => [...messages, userMessage]);
+    setChatInput("");
+    setChatError("");
+    setChatLoading(true);
+    trackGoogleEvent("assistant_message_sent", { assistant: "signmons_calldesk" });
+
+    try {
+      const response = await fetch("/api/signmons", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ sessionId: sessionIdRef.current, message, website: "" }),
+      });
+      const result = await response.json() as { reply?: string; error?: string; requiresHumanHandoff?: boolean };
+      if (!response.ok || !result.reply) {
+        throw new Error(result.error || "The assistant could not respond.");
+      }
+
+      setChatMessages((messages) => [...messages, {
+        id: crypto.randomUUID(),
+        role: "assistant",
+        text: result.reply as string,
+        safety: result.requiresHumanHandoff === true,
+      }]);
+      trackGoogleEvent("assistant_response_received", {
+        assistant: "signmons_calldesk",
+        safety_handoff: result.requiresHumanHandoff === true,
+      });
+    } catch (error) {
+      setChatError(error instanceof Error ? error.message : "The assistant could not respond.");
+    } finally {
+      setChatLoading(false);
+    }
+  }
+
   function trackHandoff(method: "call" | "text" | "email" | "request_form") {
     trackGoogleEvent("assistant_handoff", {
       handoff_method: method,
-      request_path: requestPath ?? "life_safety",
+      request_path: requestPath ?? (screen === "chat" ? "chat" : "life_safety"),
       property_type: propertyType ?? "not_selected",
     });
     if (method === "request_form") setOpen(false);
@@ -99,6 +164,7 @@ export default function SignmonsAssistant() {
     setScreen("start");
     setRequestPath(null);
     setPropertyType(null);
+    setChatError("");
   }
 
   return <>
@@ -126,15 +192,21 @@ export default function SignmonsAssistant() {
 
         <div className="signmons-body">
           <p id="signmons-disclosure" className="signmons-disclosure">
-            This Signmons-powered assistant routes requests. It is not a technician, cannot diagnose equipment and does not create an appointment. Do not enter contact, payment or sensitive information here.
+            Messages are processed by Signmons and OpenAI, may be stored in service logs and may be reviewed by Eternity. This assistant is not a technician, cannot diagnose equipment or book an appointment. Do not enter payment-card, Social Security, medical or other sensitive information.
           </p>
 
           {screen === "start" && <>
-            <div className="signmons-progress"><span>Step 1 of 2</span><b>Choose the closest match</b></div>
+            <div className="signmons-chat-intro">
+              <span>AI-assisted service conversation</span>
+              <h2>Get a quick first response.</h2>
+              <p>Describe the equipment problem in your own words. The assistant can ask follow-up questions and prepare details for human review.</p>
+              <button type="button" onClick={startChat}>I understand — start chat</button>
+            </div>
             <button type="button" className="signmons-safety-choice" onClick={showSafety}>
               <strong>Gas, carbon monoxide, fire or electrical danger</strong>
               <span>Show immediate safety guidance</span>
             </button>
+            <div className="signmons-progress"><span>Prefer guided routing?</span><b>Choose the closest match</b></div>
             <div className="signmons-choices">
               {requestPaths.map((path) => <button type="button" key={path.id} onClick={() => choosePath(path)}>
                 <strong>{path.title}</strong>
@@ -173,6 +245,40 @@ export default function SignmonsAssistant() {
             <button type="button" className="signmons-back" onClick={reset}>← Start over</button>
           </>}
 
+          {screen === "chat" && <>
+            <div className="signmons-chat-heading">
+              <div><span>AI-assisted conversation</span><strong>Ask Eternity</strong></div>
+              <button type="button" onClick={reset}>Service menu</button>
+            </div>
+            <div className="signmons-messages" aria-live="polite" aria-busy={chatLoading}>
+              {chatMessages.map((message) => <div key={message.id} className={`signmons-message ${message.role}${message.safety ? " safety" : ""}`}>
+                <span>{message.role === "assistant" ? "Assistant" : "You"}</span>
+                <p>{message.text}</p>
+              </div>)}
+              {chatLoading && <div className="signmons-message assistant loading"><span>Assistant</span><p>Preparing a response…</p></div>}
+              <div ref={chatEndRef} />
+            </div>
+            {chatError && <div className="signmons-chat-error" role="alert">{chatError}</div>}
+            <form className="signmons-chat-form" onSubmit={sendChatMessage}>
+              <label htmlFor="signmons-message">Describe the equipment or service question</label>
+              <textarea
+                id="signmons-message"
+                value={chatInput}
+                maxLength={1000}
+                rows={3}
+                placeholder="Example: My furnace is running, but the air is not warm."
+                onChange={(event) => setChatInput(event.target.value)}
+              />
+              <div><span>{chatInput.length}/1,000</span><button type="submit" disabled={chatLoading || !chatInput.trim()}>{chatLoading ? "Sending…" : "Send message"}</button></div>
+            </form>
+            <p className="signmons-chat-limit">For immediate danger, leave the area when appropriate and call 911 or the utility emergency line. For urgent service, call <a href="tel:+12167033183">216-703-3183</a>.</p>
+            <div className="signmons-chat-handoff">
+              <a href="tel:+12167033183" onClick={() => trackHandoff("call")}>Call Eternity</a>
+              <a href="sms:+12167033183" onClick={() => trackHandoff("text")}>Text the team</a>
+              <Link href="/#schedule" onClick={() => trackHandoff("request_form")}>Request service</Link>
+            </div>
+          </>}
+
           {screen === "safety" && <>
             <div className="signmons-safety-panel" role="alert">
               <span>Immediate safety issue</span>
@@ -186,7 +292,7 @@ export default function SignmonsAssistant() {
         </div>
 
         <footer className="signmons-footer">
-          <span>Routing experience by <a href="https://signmons.com/" target="_blank" rel="noreferrer">Signmons</a></span>
+          <span>Assistant technology by <a href="https://signmons.com/" target="_blank" rel="noreferrer">Signmons</a></span>
           <span><Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link></span>
         </footer>
       </section>
