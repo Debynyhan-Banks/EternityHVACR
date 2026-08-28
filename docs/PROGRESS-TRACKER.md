@@ -18,9 +18,9 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current milestone:** Local profile and reputation operations
 
-**Current status:** Recurring workflow active; heating-season release published; all three new URLs submitted for Google indexing
+**Current status:** Recurring workflow active; Google profile remains aligned; heating URLs and one stale Euclid snippet are awaiting recrawl
 
-**Next action:** Monitor Google discovery and indexing for the three heating-service URLs, verify BuildZoom and Porch responses, then confirm SMS operating rules.
+**Next action:** Monitor Google discovery and indexing, follow up on unresolved BuildZoom and Porch corrections after support has had time to respond, then confirm SMS operating rules.
 
 ## Phase 1 information blockers
 
@@ -139,6 +139,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-28 | Completed the heating-season release and Google service descriptions | Added dedicated furnace/heating repair, boiler and heat-pump pages with unique local metadata, Service/FAQ/Breadcrumb schema, internal links and sitemap entries; added factual descriptions to all 20 primary-category Google services without prices or unsupported claims | Submit the three URLs for indexing, monitor profile edits and continue citation follow-up |
 | 2026-08-28 | Submitted the heating-service URLs for Google indexing | Search Console initially reported each new URL as unknown to Google, completed its live indexability check and confirmed that the furnace/heating, boiler and heat-pump URLs were added to the priority crawl queue | Monitor discovery and indexing; do not resubmit while the requests are queued |
 | 2026-08-28 | Cleared the legacy internal-navigation lint backlog | Replaced remaining internal page anchors with framework links across the service-area checker, service-area content and project case studies; repository lint now completes with zero errors, the production build succeeds and all 19 tests pass | Keep the remaining image advisories separate from navigation changes and monitor the submitted URLs |
+| 2026-08-28 | Completed the first live indexing and citation monitoring cycle | Confirmed the Google profile fields, 20 service descriptions and two review replies remain aligned; found all three heating URLs still awaiting indexing; resubmitted the updated sitemap; queued an indexed Euclid page for refresh because Google showed a stale retired-phone snippet; verified BuildZoom and Porch corrections remain pending | Wait for Google recrawl and directory support processing; do not repeatedly resubmit or create marketplace accounts |
 
 ## Decision log
 

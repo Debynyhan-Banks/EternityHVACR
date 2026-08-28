@@ -27,8 +27,8 @@ The approved Google service area contains Cleveland, Euclid, Cleveland Heights, 
 |---|---|---|---|
 | Website and structured data | Approved phone, website and service-area presentation | Production verified | Complete |
 | Google Business Profile | Approved phone, hours, categories, 20-city service area and 20 confirmed services | Manager and public profile verified; concise descriptions added to all 20 primary-category services without prices | Complete |
-| BuildZoom | Retired phone, public street/unit address and duplicated `Bernard Gray Gray` name | Submitted a support request asking for `216-703-3183`, address suppression, `Bernard Gray` and the official website | Submitted; no ticket number was issued; verify the public page and support reply |
-| Porch | Search index exposes an old contractor page with a street address and a service area far beyond the approved 20 Google markets; the live listing URL redirects to Porch's general site | Sent a correction-only request to `support@porch.com` asking for address suppression, approved public details, service-area correction and removal or correction without lead-service enrollment | Submitted August 28, 2026; verify Porch's reply and the indexed public page |
+| BuildZoom | Retired phone, public street/unit address and duplicated `Bernard Gray Gray` name | Submitted a support request asking for `216-703-3183`, address suppression, `Bernard Gray` and the official website | Still incorrect on the live page and in Google results during the August 28 follow-up; correction remains pending |
+| Porch | Search index exposes an old contractor page with a street address and a service area far beyond the approved 20 Google markets; the live listing URL redirects to Porch's general site | Sent a correction-only request to `support@porch.com` asking for address suppression, approved public details, service-area correction and removal or correction without lead-service enrollment | Legacy profile still redirects to Porch's general how-it-works page and remains indexed during the August 28 follow-up; correction remains pending |
 | Legal-record aggregators | May reproduce filing or license addresses from public records | Do not treat these as normal marketing citations or request changes unless the underlying legal record is inaccurate | Monitor only |
 
 BuildZoom's free-profile claim flow requires an email-based account and acceptance of its terms. The correction was sent through BuildZoom's general support form instead, so Eternity did not enroll in a lead marketplace or accept new commercial terms. Porch's indexed contractor URL did not expose a direct edit form, so Debynyhan sent the correction request from her established administrative email to Porch's published professional-support address. No Porch account was created and no marketplace terms were accepted.
@@ -81,6 +81,15 @@ A recurring check runs every Monday at 9:00 a.m. Eastern and reports findings in
 The check does not publish photos, prices, offers, booking links, SMS changes, street addresses or unapproved claims, and it does not change an external profile without current-task approval.
 
 On the first weekly check of each month, also record profile views, searches, calls, website clicks, new reviews and average rating in the progress tracker. Treat small numbers as a baseline, not a trend.
+
+## Monitoring result — August 28, 2026
+
+- Google Business Profile still shows the approved primary and secondary categories, phone, website, hidden-address service-area-business setup, 20 service areas, regular hours and all 20 described services.
+- The profile still has two five-star reviews; both have owner responses and no review is waiting for a reply.
+- Search Console still reports the new furnace/heating, boiler and heat-pump pages as not yet indexed. They were not resubmitted while their requests remain recent.
+- The updated XML sitemap was resubmitted successfully. At the time of the check, Google still showed an August 27 last-read date and 10 discovered pages, so the updated page count had not yet propagated.
+- The Euclid service page is indexed with valid HTTPS, breadcrumb and image-metadata enhancements. Because Google still displayed a stale snippet containing the retired phone, a refresh request was submitted and added to the priority crawl queue.
+- BuildZoom and Porch corrections remain unresolved as described in the citation log above. No marketplace account was created and no new terms were accepted.
 
 ## Open decisions
 
