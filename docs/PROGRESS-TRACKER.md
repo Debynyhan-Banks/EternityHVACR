@@ -18,9 +18,9 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current milestone:** Local profile and reputation operations
 
-**Current status:** Recurring workflow active; heating-season release prepared; all 20 Google service descriptions completed
+**Current status:** Recurring workflow active; heating-season release published; all three new URLs submitted for Google indexing
 
-**Next action:** Submit the three new heating-service URLs for indexing, verify BuildZoom and Porch responses, then confirm SMS operating rules.
+**Next action:** Monitor Google discovery and indexing for the three heating-service URLs, verify BuildZoom and Porch responses, then confirm SMS operating rules.
 
 ## Phase 1 information blockers
 
@@ -48,7 +48,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 1 | Functional service-request delivery | Complete | Resend sender domain and destination confirmed as `ben@eternityhvacr.com` | Ben confirmed the production test email was received August 22, 2026 |
 | 1 | Robots and XML sitemap | Complete | None | Both production URLs returned HTTP 200 on August 22, 2026 |
 | 1 | Business structured data | In review | Core business facts confirmed | Production source verified; Rich Results Test has no critical errors |
-| 1 | Google Search Console | Complete | Account access | Domain property verified through GoDaddy DNS; sitemap accepted with Success status and one discovered page on August 23, 2026 |
+| 1 | Google Search Console | Complete | Account access | Domain property verified through GoDaddy DNS; sitemap accepted with Success status; furnace/heating, boiler and heat-pump URLs added to Google's priority crawl queue August 28, 2026 |
 | 1 | Bing Webmaster and IndexNow | Complete | Account access | Search Console property imported; sitemap accepted for processing without errors or warnings; homepage URL submitted successfully on August 23, 2026 |
 | 1 | Google Business Profile operations audit and correction | Complete | None | `216-703-3183` aligned; review response corrected; Google approved Saturday hours, 20-city service area and two secondary categories; Services expanded to 20 confirmed offerings with descriptions August 28, 2026 |
 | 1 | Recurring review, profile and citation operations | In progress | External directory response | Debynyhan assigned as routine owner, Bernard as technical/high-risk escalation; manual review workflow documented; weekly Monday check active; BuildZoom and Porch correction requests submitted August 28, 2026 |
@@ -137,6 +137,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-28 | Completed the approved Google Business Profile correction set | Confirmed `216-703-3183` as the public phone; verified Charlotte's corrected response; Google approved Saturday 9 a.m.–5 p.m., the 20 approved priority cities, and Heating contractor plus Air conditioning contractor categories; expanded Services from one to 20 confirmed offerings; published and production-verified the matching website phone update | Establish the recurring review, profile-maintenance and citation workflow |
 | 2026-08-28 | Established local profile, review and citation operations | Assigned Debynyhan to routine review/profile work and Bernard to technical/high-risk escalation; documented a manual post-service email and two-business-day response standard; activated a weekly Monday 9 a.m. Eastern profile check; audited BuildZoom and Porch; submitted correction-only requests to both directories without creating marketplace accounts or accepting marketplace terms | Verify both directory responses and public corrections |
 | 2026-08-28 | Completed the heating-season release and Google service descriptions | Added dedicated furnace/heating repair, boiler and heat-pump pages with unique local metadata, Service/FAQ/Breadcrumb schema, internal links and sitemap entries; added factual descriptions to all 20 primary-category Google services without prices or unsupported claims | Submit the three URLs for indexing, monitor profile edits and continue citation follow-up |
+| 2026-08-28 | Submitted the heating-service URLs for Google indexing | Search Console initially reported each new URL as unknown to Google, completed its live indexability check and confirmed that the furnace/heating, boiler and heat-pump URLs were added to the priority crawl queue | Monitor discovery and indexing; do not resubmit while the requests are queued |
 
 ## Decision log
 
