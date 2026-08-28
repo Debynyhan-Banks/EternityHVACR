@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SiteFooter, SiteHeader } from "./SiteChrome";
 
 export type LocationService = {
@@ -63,7 +64,7 @@ export default function LocationLanding({ content, schema }: { content: Location
           <h1>{content.title}</h1>
           <p>{content.summary}</p>
           <div className="hero-actions">
-            <a className="btn" href="/#schedule">Request service <span>↗</span></a>
+            <Link className="btn" href="/#schedule">Request service <span>↗</span></Link>
             <a className="btn-outline" href="tel:+12167033183">Call Eternity <span>→</span></a>
           </div>
           <div className="location-hero-proof">
@@ -117,7 +118,7 @@ export default function LocationLanding({ content, schema }: { content: Location
             <div><strong>R-454B</strong><span>Refrigerant</span></div>
           </div>
           <p className="project-models">The matched cooling system includes a Payne PA4SAN53000N air conditioner and CVAVA3017XMA 17.5-inch vertical cased evaporator coil.</p>
-          <a className="inline-cta" href="/projects/euclid-payne-hvac-installation">Read the 44123 case study <span>→</span></a>
+          <Link className="inline-cta" href="/projects/euclid-payne-hvac-installation">Read the 44123 case study <span>→</span></Link>
         </div>
         <div className="project-feature-image">
           <ProjectImage
@@ -173,7 +174,7 @@ export default function LocationLanding({ content, schema }: { content: Location
             <div><strong>3 ton</strong><span>Cooling capacity</span></div>
             <div><strong>Full install</strong><span>Furnace, coil & condenser</span></div>
           </div>
-          <a className="inline-cta" href="/projects/euclid-central-air-installation">Read the full case study <span>→</span></a>
+          <Link className="inline-cta" href="/projects/euclid-central-air-installation">Read the full case study <span>→</span></Link>
         </div>
       </section>
 
@@ -193,7 +194,7 @@ export default function LocationLanding({ content, schema }: { content: Location
           <h2>Commercial HVAC diagnostics & service</h2>
           <p>During a rooftop packaged-unit service call in the 44119 Cleveland/Euclid-area market, Eternity encountered significant equipment contamination, dust accumulation on the blower motor, a missing filter and a frozen evaporator coil.</p>
           <p>Conditions like these require a careful inspection of the equipment and operating conditions. The photograph documents the equipment condition at the service visit.</p>
-          <a className="inline-cta light-link" href="/projects/euclid-rooftop-hvac-diagnostic">Read the rooftop diagnostic case study <span>→</span></a>
+          <Link className="inline-cta light-link" href="/projects/euclid-rooftop-hvac-diagnostic">Read the rooftop diagnostic case study <span>→</span></Link>
         </div>
       </section>
 
@@ -224,13 +225,13 @@ export default function LocationLanding({ content, schema }: { content: Location
           <p className="kicker light">Residential</p>
           <h2>Comfort systems for Euclid homes</h2>
           <p>Heating and cooling diagnostics, repair, maintenance, full-system installation and replacement.</p>
-          <a href="/#schedule">Request residential service →</a>
+          <Link href="/#schedule">Request residential service →</Link>
         </div>
         <div>
           <p className="kicker light">Commercial</p>
           <h2>HVAC/R support for local facilities</h2>
           <p>Rooftop HVAC, commercial heating and cooling, refrigeration diagnostics and preventive maintenance.</p>
-          <a href="/services/commercial-hvac">Explore commercial service →</a>
+          <Link href="/services/commercial-hvac">Explore commercial service →</Link>
         </div>
       </section>
 
@@ -239,7 +240,7 @@ export default function LocationLanding({ content, schema }: { content: Location
           <p className="kicker">Local coverage</p>
           <h2>Serving Euclid and nearby Northeast Ohio communities.</h2>
           <p>Euclid service coverage includes ZIP codes 44117, 44119, 44123, 44132 and 44143. Availability may also extend throughout Greater Cleveland based on the property, equipment and current schedule.</p>
-          <a className="inline-cta" href="/areas-we-serve">View all approved service areas <span>→</span></a>
+          <Link className="inline-cta" href="/areas-we-serve">View all approved service areas <span>→</span></Link>
         </div>
         <div className="nearby-areas" aria-label="Communities near Euclid">
           {['Cleveland', 'Richmond Heights', 'South Euclid', 'Cleveland Heights', 'Wickliffe', 'Willoughby', 'Mentor'].map((city) => <span key={city}>{city}</span>)}
@@ -253,7 +254,7 @@ export default function LocationLanding({ content, schema }: { content: Location
 
       <section className="emergency landing-cta">
         <div><p className="kicker light">Need HVAC service in Euclid?</p><h2>Tell Eternity what the equipment needs.</h2><p>Share the property, system and timing through the existing service-request workflow.</p></div>
-        <div><a className="btn btn-orange" href="/#schedule">Request service <span>↗</span></a><a className="btn-outline light-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a><small>Website requests are typically reviewed within 15 minutes during regular business hours. For urgent service, call directly.</small></div>
+        <div><Link className="btn btn-orange" href="/#schedule">Request service <span>↗</span></Link><a className="btn-outline light-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a><small>Website requests are typically reviewed within 15 minutes during regular business hours. For urgent service, call directly.</small></div>
       </section>
 
       <SiteFooter />

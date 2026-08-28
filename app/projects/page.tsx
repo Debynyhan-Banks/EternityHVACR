@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteFooter, SiteHeader } from "../components/SiteChrome";
 
 export const metadata: Metadata = {
@@ -56,16 +57,16 @@ export default function ProjectsPage() {
         <div className="section-head"><div><p className="kicker">Project library</p><h2>Residential and commercial HVAC work in Euclid</h2></div><p>Three field-documented projects covering installation, property preparation and measured diagnostics.</p></div>
         <div className="project-index-grid">
           {projects.map((project) => (
-            <a className="project-index-card" href={project.href} key={project.href}>
+            <Link className="project-index-card" href={project.href} key={project.href}>
               <picture><source media="(max-width: 700px)" srcSet={project.imageSmall} type="image/webp" /><img src={project.image} alt={project.alt} width="1200" height="2132" loading="lazy" decoding="async" /></picture>
               <div><span>{project.label}</span><h2>{project.title}</h2><p>{project.copy}</p><b>Read the case study →</b></div>
-            </a>
+            </Link>
           ))}
         </div>
       </section>
       <section className="emergency landing-cta">
         <div><p className="kicker light">Planning an HVAC project?</p><h2>Tell Eternity what the property needs.</h2><p>Request an installation estimate for a home, rental, managed property or commercial facility.</p></div>
-        <div><a className="btn btn-orange" href="/#schedule">Request an estimate <span>↗</span></a><a className="btn-outline light-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a></div>
+        <div><Link className="btn btn-orange" href="/#schedule">Request an estimate <span>↗</span></Link><a className="btn-outline light-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a></div>
       </section>
       <SiteFooter />
     </main>

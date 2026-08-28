@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteFooter, SiteHeader } from "../../components/SiteChrome";
 
 const pageUrl = "https://eternityhvacr.com/projects/euclid-payne-hvac-installation";
@@ -67,7 +68,7 @@ export default function EuclidPayneHvacCaseStudy() {
       <section className="case-study-hero">
         <div className="case-study-hero-copy">
           <nav className="case-study-breadcrumbs" aria-label="Breadcrumb">
-            <a href="/">Home</a><span aria-hidden="true">/</span><a href="/projects">Projects</a><span aria-hidden="true">/</span><span>Case study</span>
+            <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/projects">Projects</Link><span aria-hidden="true">/</span><span>Case study</span>
           </nav>
           <p className="eyebrow"><i /> Residential resale project • Euclid 44123</p>
           <h1>Matched Payne HVAC Replacement for a Euclid Home Sale</h1>
@@ -79,7 +80,7 @@ export default function EuclidPayneHvacCaseStudy() {
             <div><span>Project</span><strong>Matched system replacement</strong></div>
           </div>
           <div className="hero-actions">
-            <a className="btn btn-orange" href="/#schedule">Request an installation estimate <span>↗</span></a>
+            <Link className="btn btn-orange" href="/#schedule">Request an installation estimate <span>↗</span></Link>
             <a className="btn-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a>
           </div>
         </div>
@@ -180,7 +181,7 @@ export default function EuclidPayneHvacCaseStudy() {
 
       <section className="emergency landing-cta">
         <div><p className="kicker light">Preparing a property for sale?</p><h2>Plan the HVAC work before the listing.</h2><p>Share the property, current equipment and replacement goals through Eternity’s service-request form.</p></div>
-        <div><a className="btn btn-orange" href="/#schedule">Request an estimate <span>↗</span></a><a className="btn-outline light-outline" href="/projects">View more projects <span>→</span></a><small>Website requests are typically reviewed within 15 minutes during regular business hours.</small></div>
+        <div><Link className="btn btn-orange" href="/#schedule">Request an estimate <span>↗</span></Link><Link className="btn-outline light-outline" href="/projects">View more projects <span>→</span></Link><small>Website requests are typically reviewed within 15 minutes during regular business hours.</small></div>
       </section>
 
       <SiteFooter />

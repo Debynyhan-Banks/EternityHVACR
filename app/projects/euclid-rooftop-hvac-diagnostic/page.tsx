@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SiteFooter, SiteHeader } from "../../components/SiteChrome";
 
 const pageUrl = "https://eternityhvacr.com/projects/euclid-rooftop-hvac-diagnostic";
@@ -67,7 +68,7 @@ export default function EuclidRooftopDiagnosticCaseStudy() {
       <section className="case-study-hero">
         <div className="case-study-hero-copy">
           <nav className="case-study-breadcrumbs" aria-label="Breadcrumb">
-            <a href="/">Home</a><span aria-hidden="true">/</span><a href="/projects">Projects</a><span aria-hidden="true">/</span><span>Case study</span>
+            <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/projects">Projects</Link><span aria-hidden="true">/</span><span>Case study</span>
           </nav>
           <p className="eyebrow"><i /> Commercial diagnostic • Euclid 44119</p>
           <h1>Frozen Rooftop HVAC Unit: What the Diagnostic Actually Found</h1>
@@ -79,7 +80,7 @@ export default function EuclidRooftopDiagnosticCaseStudy() {
             <div><span>Confirmed by test</span><strong>No leak found</strong></div>
           </div>
           <div className="hero-actions">
-            <a className="btn btn-orange" href="/#schedule">Request commercial service <span>↗</span></a>
+            <Link className="btn btn-orange" href="/#schedule">Request commercial service <span>↗</span></Link>
             <a className="btn-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a>
           </div>
         </div>
@@ -159,7 +160,7 @@ export default function EuclidRooftopDiagnosticCaseStudy() {
 
       <section className="emergency landing-cta">
         <div><p className="kicker light">Rooftop unit frozen or not cooling?</p><h2>Start with a measured commercial HVAC diagnostic.</h2><p>Tell Eternity what the equipment is doing and what your team has already observed.</p></div>
-        <div><a className="btn btn-orange" href="/#schedule">Request commercial service <span>↗</span></a><a className="btn-outline light-outline" href="/services/commercial-hvac">Commercial HVAC services <span>→</span></a><small>For urgent system-down service, call 216-703-3183.</small></div>
+        <div><Link className="btn btn-orange" href="/#schedule">Request commercial service <span>↗</span></Link><Link className="btn-outline light-outline" href="/services/commercial-hvac">Commercial HVAC services <span>→</span></Link><small>For urgent system-down service, call 216-703-3183.</small></div>
       </section>
 
       <SiteFooter />
