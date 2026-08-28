@@ -98,7 +98,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 | Date | Change | Outcome | Next step |
 |---|---|---|---|
-| 2026-08-28 | Corrected the structured-data and canonical-host audit findings | Removed the address-dependent `HVACBusiness` type while preserving privacy-safe `Organization`/`WebSite` data, added representative images to every expert `Article`, and added permanent 308 normalization from HTTP and `www` requests to the HTTPS apex while preserving paths and query strings; build, lint and 20 production-render tests pass | Publish, verify production redirects and request a fresh SEMrush crawl |
+| 2026-08-28 | Corrected the structured-data and canonical-host audit findings | Removed the address-dependent `HVACBusiness` type while preserving privacy-safe `Organization`/`WebSite` data, added representative images to every expert `Article`, and added application-level 308 normalization to the HTTPS apex while preserving paths and query strings; the live HTTPS `www` route now returns 308, while the Sites edge still answers plain HTTP with its own 302 before application code runs; build, lint and 20 production-render tests pass | Request a fresh SEMrush crawl and pursue a Sites edge 301/308 option if one becomes available |
 | 2026-08-12 | Connected `eternityhvacr.com` and `www` | Domain and SSL active | Continue site enhancement |
 | 2026-08-13 | Added social preview, mobile hero and phone number | Public deployment complete | Improve discoverability |
 | 2026-08-17 | Published website source to GitHub | Repository established | Keep source synchronized |

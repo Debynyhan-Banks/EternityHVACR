@@ -70,7 +70,7 @@ test("includes indexable metadata and structured business data", async () => {
   assert.match(html, /https:\/\/share\.google\/1bUl6S4x9x90TJ7Mf/);
 });
 
-test("permanently redirects public alternate origins to the canonical HTTPS host", async () => {
+test("the application permanently redirects alternate origins to the canonical HTTPS host", async () => {
   for (const source of [
     "http://eternityhvacr.com/services/boiler-service?source=audit",
     "http://www.eternityhvacr.com/services/boiler-service?source=audit",

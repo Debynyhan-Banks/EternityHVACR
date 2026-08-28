@@ -66,7 +66,8 @@ This plan treats SEO, local search, generative-engine visibility and conversion 
 - [x] Add privacy-safe `Organization` and `WebSite` structured data; do not publish an address-dependent `HVACBusiness` item while Eternity operates as a service-area business with a private address
 - [ ] Add breadcrumbs and breadcrumb structured data when multiple pages exist
 - [x] Validate structured data and indexing eligibility with automated production-render checks
-- [x] Permanently normalize HTTP and `www` requests to the canonical HTTPS apex while preserving paths and query strings
+- [x] Permanently normalize HTTPS `www` requests to the canonical HTTPS apex while preserving paths and query strings
+- [ ] Upgrade the Sites-controlled HTTP-to-HTTPS edge response from 302 to 301/308 if the host exposes redirect configuration; application code cannot override the edge response that occurs before the Worker
 - [ ] Connect Google Search Console and submit the sitemap
 - [ ] Connect Bing Webmaster Tools and IndexNow
 
