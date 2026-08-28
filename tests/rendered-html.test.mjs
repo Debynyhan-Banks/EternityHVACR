@@ -86,7 +86,54 @@ test("publishes crawler files with the canonical sitemap", async () => {
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/projects\/euclid-rooftop-hvac-diagnostic<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/projects\/euclid-payne-hvac-installation<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/projects\/euclid-central-air-installation<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/resources<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/resources\/walk-in-cooler-icing-up<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/resources\/rooftop-hvac-short-cycling<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/resources\/furnace-repair-vs-replacement<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/resources\/commercial-refrigeration-maintenance-frequency<\/loc>/);
   assert.match(sitemap, /system-diagnostic-report\.jpg|hero-technician-black\.jpg/);
+});
+
+test("publishes an indexable expert-answer library", async () => {
+  const response = await render("/resources");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+
+  assert.match(html, /Clear HVAC\/R answers, grounded in evidence/);
+  assert.match(html, /Why is my walk-in cooler icing up\?/);
+  assert.match(html, /What causes a rooftop HVAC unit to short-cycle\?/);
+  assert.match(html, /When should a furnace be repaired versus replaced\?/);
+  assert.match(html, /How often should commercial refrigeration be maintained\?/);
+  assert.match(html, /&quot;CollectionPage&quot;|"CollectionPage"/);
+  assert.match(html, /&quot;ItemList&quot;|"ItemList"/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/eternityhvacr\.com\/resources"/);
+});
+
+test("renders the first four evidence-backed expert answers", async () => {
+  const pages = [
+    ["/resources/walk-in-cooler-icing-up", /moisture is entering the box/, /Danfoss/],
+    ["/resources/rooftop-hvac-short-cycling", /starts and stops more often than its control sequence intends/, /Trane/],
+    ["/resources/furnace-repair-vs-replacement", /Age is a factor, not a verdict/, /U\.S\. Department of Energy/],
+    ["/resources/commercial-refrigeration-maintenance-frequency", /there is no single interval that fits every cooler/, /U\.S\. Environmental Protection Agency/],
+  ];
+
+  for (const [pathname, directAnswer, source] of pages) {
+    const response = await render(pathname);
+    assert.equal(response.status, 200);
+    const html = await response.text();
+    assert.match(html, directAnswer);
+    assert.match(html, source);
+    assert.match(html, /Greater Cleveland context/);
+    assert.match(html, /Safety limit/);
+    assert.match(html, /Published (?:<!-- -->)?August 28, 2026/);
+    assert.match(html, /By Eternity Mechanical Services/);
+    assert.match(html, /&quot;Article&quot;|"Article"/);
+    assert.match(html, /&quot;FAQPage&quot;|"FAQPage"/);
+    assert.match(html, /&quot;BreadcrumbList&quot;|"BreadcrumbList"/);
+    assert.match(html, /&quot;datePublished&quot;:&quot;2026-08-28&quot;|"datePublished":"2026-08-28"/);
+    assert.match(html, new RegExp(`<link rel="canonical" href="https://eternityhvacr\\.com${pathname}"`));
+    assert.doesNotMatch(html, /Reviewed by Bernard|Bernard Gray reviewed/i);
+  }
 });
 
 test("renders the priority service pages with unique search content", async () => {

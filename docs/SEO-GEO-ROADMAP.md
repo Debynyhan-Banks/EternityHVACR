@@ -1,6 +1,6 @@
 # Eternity Mechanical Services SEO, GEO and Growth Roadmap
 
-Last updated: August 20, 2026
+Last updated: August 28, 2026
 
 ## Objective
 
@@ -186,28 +186,30 @@ Priority case-study subjects:
 
 **Goal:** make Eternity easy for Google AI features, ChatGPT search and other answer systems to discover, understand and cite.
 
-- [ ] Explicitly allow `OAI-SearchBot` in crawler policy
-- [ ] Keep important answers in visible page text
-- [ ] Give direct answers before longer explanations
-- [ ] Add author or reviewer information to technical content
-- [ ] Add published and updated dates to guides
+- [x] Explicitly allow `OAI-SearchBot` in crawler policy
+- [x] Keep important answers in visible page text
+- [x] Give direct answers before longer explanations
+- [x] Add author or reviewer information to technical content
+- [x] Add published and updated dates to guides
 - [ ] Support explanations with real equipment and project images
-- [ ] Use descriptive headings based on actual customer questions
-- [ ] Link claims to company proof or authoritative technical sources
+- [x] Use descriptive headings based on actual customer questions
+- [x] Link claims to company proof or authoritative technical sources
 - [x] Track ChatGPT referrals and AI-search landing pages
 
 ### Priority answer library
 
-- [ ] Why is a walk-in cooler icing up?
-- [ ] What causes a rooftop HVAC unit to short-cycle?
-- [ ] When should a furnace be repaired versus replaced?
-- [ ] How often should commercial refrigeration be maintained?
+- [x] Why is a walk-in cooler icing up?
+- [x] What causes a rooftop HVAC unit to short-cycle?
+- [x] When should a furnace be repaired versus replaced?
+- [x] How often should commercial refrigeration be maintained?
 - [ ] What should a property manager do when an apartment HVAC system fails?
 - [ ] What diagnostic information should an HVAC technician measure?
 - [ ] What causes uneven temperatures in an apartment building?
 - [ ] What should a restaurant do when a cooler temperature starts rising?
 
 Each answer should be specific, safe, locally relevant and clear about when professional service is needed.
+
+The first four answers use Eternity Mechanical Services as the organization author and government or manufacturer technical references. Bernard Gray’s reviewer attribution remains intentionally unpublished until he completes a technical review.
 
 ## Phase 5 — Differentiating features
 

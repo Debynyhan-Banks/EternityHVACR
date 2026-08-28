@@ -1,6 +1,6 @@
 # Eternity Mechanical Services Website Progress Tracker
 
-Last updated: August 27, 2026
+Last updated: August 28, 2026
 
 This file is the source of truth for the SEO, GEO, content and feature program. Update it whenever a task begins, finishes, becomes blocked or changes scope.
 
@@ -16,11 +16,11 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 ## Current position
 
-**Current milestone:** Phases 4–5 — AI referral measurement and service-area checker
+**Current milestone:** Phase 4 — GEO and expert answer library
 
-**Current status:** Complete
+**Current status:** In review
 
-**Next action:** Establish Bernard’s technical review process and draft the first four expert answers.
+**Next action:** Have Bernard review the four published technical answers; apply any equipment-specific refinements and then record his reviewer attribution only after approval.
 
 ## Phase 1 information blockers
 
@@ -58,7 +58,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 3 | Owner, team and credentials | Complete | Approved biographies | Text-only Bernard Gray and Debynyhan Banks team section published August 27, 2026; photographs intentionally deferred |
 | 3 | Verified review system | Complete | Review links and permission | Direct Google review CTA and Charlotte Mancini’s approved five-star review published August 27, 2026 |
 | 3 | First three case studies | Complete | Project information and photos | Two residential installations and one commercial rooftop diagnostic published with verified facts and field photography |
-| 4 | Answer library | Waiting on Eternity | Technical review process | First four expert answers live |
+| 4 | Answer library | In review | Bernard’s technical review | Four source-grounded expert answers, an indexable hub, Article/FAQ/Breadcrumb schema and internal links published and verified on production August 28, 2026 |
 | 4 | AI-crawler and referral measurement | Complete | Analytics in Phase 1 | OpenAI crawler access is explicit; ChatGPT, Perplexity, Gemini, Copilot, Claude and Meta AI referrals generate a privacy-conscious analytics event |
 | 5 | Service-area checker | Complete | Approved ZIP list | Homepage and service-area page check approved ZIPs, preserve uncertain leads and record privacy-conscious result events |
 | 5 | Photo/video request uploads | Waiting on Eternity | Storage and retention decisions | Secure upload test completed |
@@ -70,14 +70,10 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 ### Proposed scope
 
-- Replace placeholder contact, review, service-area and license language where verified information is available
-- Deliver service requests to the confirmed destination
-- Add request confirmation and error states
-- Add `/robots.txt`
-- Add `/sitemap.xml`
-- Add `HVACBusiness`, `Organization` and `WebSite` structured data
-- Add the initial analytics event plan
-- Optimize the largest above-the-fold images
+- Collect Bernard’s review of the four published expert answers
+- Apply any approved technical refinements and reviewer attribution
+- Define the commercial equipment intake fields for make, model and serial number
+- Continue collecting real refrigeration and multifamily project proof
 
 ### Definition of done
 
@@ -129,6 +125,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-27 | Published the verified customer-review pathway | Added Charlotte Mancini’s approved five-star review, a direct Google review link in the homepage and footer, and review-link analytics without inventing a city or service type | Collect approved owner/team information and photographs |
 | 2026-08-27 | Published the owner and team section | Added approved text-only profiles for owner Bernard Gray and technician Debynyhan Banks, including verified experience, boiler and refrigeration background, education, marketing and administrative responsibilities; omitted images as requested | Build AI-crawler and referral measurement, then the service-area checker |
 | 2026-08-28 | Published AI referral measurement and the ZIP-code checker | Added explicit OpenAI crawler access, privacy-conscious AI referral events, and a responsive service-area checker on the homepage and service-area page; approved ZIPs receive a clear confirmation and unlisted ZIPs are directed to confirm availability | Establish Bernard’s technical review process and draft the first four expert answers |
+| 2026-08-28 | Published the first expert answer library | Added and production-verified an indexable resource hub and four direct-answer guides covering walk-in icing, rooftop-unit short-cycling, furnace repair versus replacement and commercial refrigeration maintenance; included organization authorship, dates, local context, safety boundaries, Article/FAQ/Breadcrumb schema, authoritative sources and internal links without claiming an uncompleted Bernard review | Collect Bernard’s technical review |
 
 ## Decision log
 
