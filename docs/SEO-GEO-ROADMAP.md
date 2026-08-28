@@ -97,6 +97,18 @@ This plan treats SEO, local search, generative-engine visibility and conversion 
 - Structured data validates without critical errors.
 - Calls and form completions appear in analytics.
 
+### Google Business Profile and citation operations
+
+- [ ] Audit primary and secondary business categories
+- [ ] Complete the Services section with every confirmed offering
+- [ ] Add concise service descriptions and only approved, stable pricing or qualified ranges
+- [ ] Verify hours, service-area presentation, phone, website and business description
+- [ ] Establish a regular real-project photo and video publishing process
+- [ ] Assign ownership for review requests and public review responses
+- [ ] Audit authoritative profiles and citations for consistent name, phone, website and service-area presentation
+- [ ] Evaluate paid lead directories separately from citation accuracy and organic-search work
+- [ ] Keep an unapproved street address private across every profile because Eternity is a service-area business
+
 ## Phase 2 — Service and local-search architecture
 
 **Goal:** give each important service and customer type a strong page capable of ranking and converting independently.
@@ -160,6 +172,10 @@ Every page should include the customer problem, equipment served, warning signs,
 - [ ] Create a post-service review-request workflow
 - [ ] Respond to new Google reviews consistently
 - [ ] Never add invented or edited customer claims
+- [ ] Assign the person responsible for sending post-service review requests
+- [ ] Define the send timing and approved email/SMS copy
+- [ ] Define the public review-response owner and response standard
+- [ ] Evaluate a compliant Google Places API review module versus a manually approved review library
 
 ### Project case studies
 
@@ -211,6 +227,8 @@ Each answer should be specific, safe, locally relevant and clear about when prof
 
 The first four answers use Eternity Mechanical Services as the organization author and government or manufacturer technical references. Bernard Gray’s reviewer attribution remains intentionally unpublished until he completes a technical review.
 
+Google’s current guidance says there is no special schema or writing format required for AI features. Eternity’s GEO approach therefore remains people-first SEO: original field evidence, direct and safe answers, clear technical structure, crawlable pages and measured lead quality rather than AI-ranking promises.
+
 ## Phase 5 — Differentiating features
 
 **Goal:** provide useful tools and workflows beyond a standard contractor brochure.
@@ -234,6 +252,10 @@ The first four answers use Eternity Mechanical Services as the organization auth
 - [ ] Property-manager or commercial account portal
 - [ ] Quote or approval workflow
 - [ ] Financing application pathway, if the business offers financing
+- [ ] SMS or chat pathway, after monitored staffing, consent and retention rules are approved
+- [ ] Published warranty or guarantee, after written coverage and exclusions are approved
+- [ ] Seasonal promotion system, after margin, dates, terms and fulfillment capacity are approved
+- [ ] Google review module, after API/attribution or manual-approval workflow is selected
 
 Features should not be published until Eternity has a person and process responsible for fulfilling them.
 
@@ -262,6 +284,7 @@ Features should not be published until Eternity has a person and process respons
 - Core Web Vitals and mobile performance
 - New reviews and average rating
 - ChatGPT and other AI-referral sessions
+- Search Console Generative AI impressions and clicks, when the report is available to the property
 
 ## Recommended implementation order
 
@@ -276,3 +299,5 @@ Features should not be published until Eternity has a person and process respons
 9. Build the answer library and differentiating tools progressively.
 
 Use [PROGRESS-TRACKER.md](PROGRESS-TRACKER.md) as the source of truth for status, [BUSINESS-FACTS.md](BUSINESS-FACTS.md) for approved public information and [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md) for required input.
+
+External recommendations are evaluated in [GROWTH-AUDIT-CROSSWALK-2026-08-28.md](GROWTH-AUDIT-CROSSWALK-2026-08-28.md) before they become roadmap commitments.

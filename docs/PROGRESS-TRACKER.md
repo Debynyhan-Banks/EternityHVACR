@@ -20,7 +20,7 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current status:** In review
 
-**Next action:** Review the external growth audit, decide which vetted additions belong in the roadmap, then deploy the answer library and collect Bernard’s technical review.
+**Next action:** Collect Bernard’s technical review of the four live answers and begin the Google Business Profile operations audit.
 
 ## Phase 1 information blockers
 
@@ -58,7 +58,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 3 | Owner, team and credentials | Complete | Approved biographies | Text-only Bernard Gray and Debynyhan Banks team section published August 27, 2026; photographs intentionally deferred |
 | 3 | Verified review system | Complete | Review links and permission | Direct Google review CTA and Charlotte Mancini’s approved five-star review published August 27, 2026 |
 | 3 | First three case studies | Complete | Project information and photos | Two residential installations and one commercial rooftop diagnostic published with verified facts and field photography |
-| 4 | Answer library | In review | Production deployment and Bernard’s technical review | Four source-grounded expert answers, an indexable hub, Article/FAQ/Breadcrumb schema and internal links are built, tested, pushed to GitHub `main` and saved as Sites version 41; production deployment paused August 28, 2026 for the growth-audit review |
+| 4 | Answer library | In review | Bernard’s technical review | Four source-grounded expert answers, an indexable hub, Article/FAQ/Breadcrumb schema, authoritative sources and internal links published and production-verified August 28, 2026 as Sites version 42 |
 | 4 | AI-crawler and referral measurement | Complete | Analytics in Phase 1 | OpenAI crawler access is explicit; ChatGPT, Perplexity, Gemini, Copilot, Claude and Meta AI referrals generate a privacy-conscious analytics event |
 | 5 | Service-area checker | Complete | Approved ZIP list | Homepage and service-area page check approved ZIPs, preserve uncertain leads and record privacy-conscious result events |
 | 5 | Photo/video request uploads | Waiting on Eternity | Storage and retention decisions | Secure upload test completed |
@@ -70,7 +70,10 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 ### Proposed scope
 
-- Collect Bernard’s review of the four published expert answers
+- Complete the Google Business Profile category, service, description, hours, service-area, photo and review-response audit
+- Assign the post-service review-request and public-response workflow owner
+- Audit authoritative profiles and citations while preserving service-area-business address privacy
+- Collect Bernard’s review of the four expert answers
 - Apply any approved technical refinements and reviewer attribution
 - Define the commercial equipment intake fields for make, model and serial number
 - Continue collecting real refrigeration and multifamily project proof
@@ -126,6 +129,8 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-27 | Published the owner and team section | Added approved text-only profiles for owner Bernard Gray and technician Debynyhan Banks, including verified experience, boiler and refrigeration background, education, marketing and administrative responsibilities; omitted images as requested | Build AI-crawler and referral measurement, then the service-area checker |
 | 2026-08-28 | Published AI referral measurement and the ZIP-code checker | Added explicit OpenAI crawler access, privacy-conscious AI referral events, and a responsive service-area checker on the homepage and service-area page; approved ZIPs receive a clear confirmation and unlisted ZIPs are directed to confirm availability | Establish Bernard’s technical review process and draft the first four expert answers |
 | 2026-08-28 | Prepared the first expert answer library for publication | Added an indexable resource hub and four direct-answer guides covering walk-in icing, rooftop-unit short-cycling, furnace repair versus replacement and commercial refrigeration maintenance; included organization authorship, dates, local context, safety boundaries, Article/FAQ/Breadcrumb schema, authoritative sources and internal links without claiming an uncompleted Bernard review; 19 tests and responsive visual QA pass, GitHub `main` is current and Sites version 41 is saved but not deployed | Review the external growth audit, then deploy and verify production |
+| 2026-08-28 | Vetted the external HVAC/R growth audit | Compared every major recommendation with live repository evidence and current Google guidance; recorded completed work, accepted additions, operational decision gates and rejected or unverified claims in a dedicated crosswalk; added explicit GBP, reputation, citation and conversion-feature tasks to the roadmap and intake checklist | Publish the documented answer-library release, then begin the GBP operations audit |
+| 2026-08-28 | Published the documented answer-library release | Created Sites version 42 from the exact GitHub `main` source after the audit crosswalk and roadmap updates; deployed the public site and verified the resource hub, four answer routes, sitemap and crawler policy on production | Collect Bernard’s technical review and begin the GBP operations audit |
 
 ## Decision log
 
@@ -174,5 +179,6 @@ Complete after analytics and search platforms are connected.
 ## Related documents
 
 - [Full SEO, GEO and growth roadmap](SEO-GEO-ROADMAP.md)
+- [External growth audit crosswalk](GROWTH-AUDIT-CROSSWALK-2026-08-28.md)
 - [Confirmed business facts](BUSINESS-FACTS.md)
 - [Information and content checklist](CLIENT-CONTENT-CHECKLIST.md)

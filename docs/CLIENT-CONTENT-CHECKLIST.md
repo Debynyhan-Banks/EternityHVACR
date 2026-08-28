@@ -196,6 +196,28 @@ Complete this for every project selected for publication:
 - [ ] Is a property-manager portal needed later?
 - [ ] Who approves new reviews, projects and technical articles?
 
+## Google Business Profile operations
+
+- [ ] Confirm who owns day-to-day Business Profile updates
+- [ ] Confirm the current primary and secondary categories
+- [ ] Approve the exact list of services for the profile
+- [ ] Approve any stable prices, starting prices or ranges that may be public
+- [ ] Approve a concise description for each profile service
+- [ ] Confirm who uploads real project photos and how often
+- [ ] Confirm who sends the post-service review request and when
+- [ ] Approve the review-request email and, if applicable, SMS template
+- [ ] Confirm who responds publicly to reviews
+- [ ] Decide between a compliant Places API review module and manually approved website reviews
+
+## Conversion-feature approval gates
+
+- [ ] Financing provider, eligible services, disclosures, application path and fulfillment owner
+- [ ] Live-booking platform, real availability source, booking rules, cancellation process and owner
+- [ ] Monitored SMS/chat number, staffing hours, response expectation, consent copy and retention policy
+- [ ] Written warranty or guarantee coverage, duration, exclusions and responsible entity
+- [ ] Maintenance membership name, price, visits, benefits, exclusions, renewal and cancellation terms
+- [ ] Promotion offer, dates, exclusions, margin approval and fulfillment capacity
+
 ## Legal and policy content
 
 - [ ] Privacy-policy contact information
@@ -222,3 +244,7 @@ Create one shared folder with these subfolders:
 ```
 
 Add a short text file or document to each project folder containing the completed case-study worksheet. Keep sensitive customer data outside the public GitHub repository.
+
+## External audit review
+
+The August 28 external growth audit has been vetted in [GROWTH-AUDIT-CROSSWALK-2026-08-28.md](GROWTH-AUDIT-CROSSWALK-2026-08-28.md). Items mentioned only in that audit—including project/property names, street addresses, certifications, warranties, prices and response averages—are not approved public facts until they are confirmed through this checklist and recorded in `BUSINESS-FACTS.md`.
