@@ -3,11 +3,11 @@ import ServiceAreaChecker from "./components/ServiceAreaChecker";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 
 const services = [
-  { icon: "AC", title: "Air Conditioning", copy: "Diagnostics, repair, replacement, installation and seasonal service.", tone: "blue", href: "#schedule" },
+  { icon: "AC", title: "Air Conditioning", copy: "Diagnostics, repair, replacement, installation and seasonal service.", tone: "blue", href: "/services/air-conditioning-repair" },
   { icon: "HT", title: "Heating", copy: "Furnace diagnostics, repair, replacement, boiler service and heat-pump support.", tone: "orange", href: "/services/furnace-heating-repair" },
   { icon: "RTU", title: "Commercial HVAC", copy: "Rooftop units, packaged equipment, replacements, service and preventive maintenance.", tone: "navy", href: "/services/commercial-hvac" },
   { icon: "RF", title: "Commercial Refrigeration", copy: "Walk-ins, refrigeration equipment, controls, diagnostics, repair and maintenance.", tone: "cyan", href: "/services/commercial-refrigeration" },
-  { icon: "IN", title: "Installation & Replacement", copy: "Professional equipment replacement and new HVAC installations.", tone: "gray", href: "#schedule" },
+  { icon: "IN", title: "Installation & Replacement", copy: "Professional equipment replacement and new HVAC installations.", tone: "gray", href: "/services/air-conditioning-installation" },
   { icon: "PM", title: "Preventive Maintenance", copy: "Planned inspections designed to reduce failures and extend equipment life.", tone: "pale", href: "/services/preventive-maintenance" },
 ];
 
@@ -109,7 +109,7 @@ export default function Home() {
 
     <section className="section schedule" id="schedule"><div className="schedule-copy"><p className="kicker light">Ready to get started?</p><h2>Tell us what the equipment needs.</h2><p>Use the guided request to describe the system, property and timing. Website requests are typically reviewed within 15 minutes during regular business hours.</p><div className="schedule-points"><span>✓ Residential & commercial</span><span>✓ HVAC & refrigeration</span><span>✓ Repair, replacement & maintenance</span></div></div><ServiceRequest /></section>
 
-    <section className="emergency" id="contact"><div><p className="kicker light">Emergency service available</p><h2>HVAC or Refrigeration Problem?</h2><p>Call for urgent help or tell us what’s happening through the guided service request.</p></div><div><a className="btn btn-orange" href="tel:+12167033183">Call 216-703-3183 <span>↗</span></a><a className="btn-outline light-outline" href="#schedule">Request service <span>→</span></a><small>Regular hours: Monday–Friday 7 a.m.–7 p.m.; Saturday 9 a.m.–5 p.m.; Sunday closed. Emergency service is available outside normal hours.</small></div></section>
+    <section className="emergency" id="contact"><div><p className="kicker light">Emergency service available</p><h2>HVAC or Refrigeration Problem?</h2><p>Call for urgent help, text the monitored service number or tell us what’s happening through the guided service request.</p></div><div><a className="btn btn-orange" href="tel:+12167033183">Call 216-703-3183 <span>↗</span></a><a data-sms-link className="btn-outline light-outline" href="sms:+12167033183">Text Eternity <span>→</span></a><a className="contact-service-link" href="#schedule">Request service online →</a><small>Texts are monitored 24/7 with a 15-minute reply target. This is not an arrival-time promise. By texting, you agree to receive service-related replies at the number you use. Message and data rates may apply. Reply STOP to opt out. No marketing texts without separate consent.</small></div></section>
 
     <SiteFooter />
   </main>;

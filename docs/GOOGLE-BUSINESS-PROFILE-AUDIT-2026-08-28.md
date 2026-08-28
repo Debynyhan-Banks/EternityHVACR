@@ -13,6 +13,7 @@ Scope: The original audit was read-only. The approved correction set was subsequ
 - Google approved the replacement service area containing the 20 approved priority cities.
 - Google approved `Heating contractor` and `Air conditioning contractor` as secondary categories while `HVAC contractor` remains primary.
 - The Services section was expanded from one item to 20 confirmed offerings; all 20 are visible in the manager view and have concise, service-specific descriptions.
+- Debynyhan confirmed that `216-703-3183` is monitored for customer-initiated service texts 24/7 with a 15-minute reply target. The website now distinguishes that target from technician arrival and publishes service-reply consent and opt-out language.
 - No prices, unverified claims, new photos, opening date, booking action or business-identity attributes were added.
 
 ## Executive finding
@@ -28,7 +29,7 @@ The profile is claimed, public and connected to the correct website. The audit f
 | Additional categories | None observed during audit | Heating contractor and Air conditioning contractor approved and active |
 | Website | `https://eternityhvacr.com/` | Correct |
 | Public phone | `(216) 703-3183` | Confirmed as the approved public number August 28, 2026 |
-| Chat action | SMS to `216-703-3183` | Number matches the confirmed phone; operational texting workflow still needs confirmation |
+| Chat action | SMS to `216-703-3183` | Retained: Debynyhan monitors customer-initiated service texts 24/7 with a 15-minute reply target; this is not an arrival-time guarantee |
 | Weekday hours | Monday–Friday, 7:00 a.m.–7:00 p.m. | Correct |
 | Saturday hours | Originally 9:00 a.m.–5:00 a.m. | Correct 9:00 a.m.–5:00 p.m. hours approved and active |
 | Sunday hours | Closed | Correct |
@@ -130,7 +131,7 @@ Official references: [Tips to get more reviews](https://support.google.com/busin
 - Keep the current cover, logo and three business photos. New Google photo publishing is deferred until Eternity approves the image workflow.
 - Review the available business-identity and service attributes in Google's live editor and select only facts Eternity has approved.
 - Do not activate booking until a real availability source, scheduling rules and fulfillment owner exist.
-- Retain the SMS action only if `216-703-3183` is monitored for business texting with staffing, consent and retention rules. The number itself is now confirmed as the approved public call number.
+- Retain the SMS action for customer-initiated service conversations. Debynyhan monitors `216-703-3183` 24/7 with a 15-minute reply target; the website publishes service-reply consent and opt-out language and does not describe the target as technician arrival. Marketing and review-request texts require separate approval.
 - Add an opening date only after the founding year is confirmed.
 
 Google states that complete, accurate information, helpful review responses and photos can improve how a business is understood in local results. Official references: [Tips to improve local ranking](https://support.google.com/business/answer/7091?hl=en) and [Manage business attributes](https://support.google.com/business/answer/9049526?hl=en).
@@ -161,7 +162,7 @@ Follow-up on August 28 found that BuildZoom's live page and search cache did not
 
 1. Confirm `216-703-3183` across the website, structured data and citations — website and structured data complete; external citation follow-up in progress.
 2. Change Saturday closing time from 5:00 a.m. to 5:00 p.m. — completed and approved.
-3. Confirm whether SMS is operationally monitored — still required.
+3. Confirm whether SMS is operationally monitored — completed; customer-initiated service texts are monitored 24/7 by Debynyhan with a 15-minute reply target.
 4. Correct Charlotte Mancini's owner reply — completed by Eternity.
 5. Replace the incorrect/incomplete service-area list with the approved 20-city set — completed and approved.
 6. Add a few accurate secondary categories from Google's available list — Heating contractor and Air conditioning contractor completed and approved.
@@ -172,4 +173,4 @@ Follow-up on August 28 found that BuildZoom's live page and search cache did not
 
 ## Change-control requirement
 
-Eternity authorized the core correction set on August 28, 2026. Google may still request review or reverification for category and profile edits. Debynyhan Banks owns routine profile and review operations; Bernard Gray owns technical and high-risk escalation. The SMS operating workflow and final Porch marketplace decision remain open.
+Eternity authorized the core correction set on August 28, 2026. Google may still request review or reverification for category and profile edits. Debynyhan Banks owns routine profile, review and customer-initiated SMS operations; Bernard Gray owns technical and high-risk escalation. The internal SMS retention period and final Porch marketplace decision remain open.

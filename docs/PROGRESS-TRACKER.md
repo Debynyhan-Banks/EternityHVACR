@@ -18,9 +18,9 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current milestone:** Local profile and reputation operations
 
-**Current status:** Recurring workflow active; Google profile remains aligned; heating URLs and one stale Euclid snippet are awaiting recrawl
+**Current status:** Direct service texting and the remaining high-priority service pages are published; search discovery and citation follow-up continue
 
-**Next action:** Monitor Google discovery and indexing, follow up on unresolved BuildZoom and Porch corrections after support has had time to respond, then confirm SMS operating rules.
+**Next action:** Monitor discovery and indexing for the new service URLs, then follow up on unresolved BuildZoom and Porch corrections.
 
 ## Phase 1 information blockers
 
@@ -34,6 +34,7 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 - [x] License and insurance language — license #28303; insured
 - [x] Google Business Profile share URL — `https://share.google/1bUl6S4x9x90TJ7Mf`
 - [x] Expected response time for website requests — 15 minutes during regular business hours
+- [x] Customer-initiated service texting — `216-703-3183` monitored 24/7 by Debynyhan; 15-minute reply target, not an arrival-time promise
 
 Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md)
 
@@ -54,7 +55,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 1 | Recurring review, profile and citation operations | In progress | External directory response | Debynyhan assigned as routine owner, Bernard as technical/high-risk escalation; manual review workflow documented; weekly Monday check active; BuildZoom and Porch correction requests submitted August 28, 2026 |
 | 1 | Conversion analytics | Complete | Google Analytics property created | Corrected property ID published; Realtime showed the Eternity page view and active user on August 23, 2026 |
 | 1 | Responsive image optimization | Complete | None | Live mobile audit: Performance 86, Accessibility 100, SEO 100, LCP 2.7 seconds and CLS 0 on August 23, 2026 |
-| 2 | Priority service pages | Complete | Commercial refrigeration, commercial HVAC, preventive maintenance and heating-season services confirmed as priorities | Furnace/heating repair, boiler and heat-pump pages added to the three commercial service pages, internally linked and included in the sitemap August 28, 2026 |
+| 2 | Priority service pages | Complete | Approved service scope and operating facts | AC repair, AC installation/replacement and emergency HVAC/R pages added to the heating and commercial service library, internally linked and included in the sitemap August 28, 2026 |
 | 2 | Market pages | Waiting on Eternity | Confirmed customer segments | Approved pages published |
 | 2 | Service-area hub and city pages | In progress | Approved priority and extended city/ZIP list plus genuine local proof | Comprehensive service-area hub and first proof-backed Euclid page published August 24, 2026; future city pages remain gated by location-specific evidence |
 | 3 | Owner, team and credentials | Complete | Approved biographies | Text-only Bernard Gray and Debynyhan Banks team section published August 27, 2026; photographs intentionally deferred |
@@ -118,6 +119,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-23 | Completed the mobile performance and accessibility review | Added modern responsive images, fixed the favicon request, corrected progress semantics and color contrast, and deferred analytics until after first paint; live mobile scores reached Performance 86, Accessibility 100 and SEO 100 | Recheck webmaster indexing and begin Phase 2 service-area planning |
 | 2026-08-24 | Confirmed Phase 2 priorities and service coverage | Set a 15-minute website-response target, prioritized commercial refrigeration, commercial HVAC and preventive maintenance, and approved 20 priority markets plus extended Northeast Ohio communities | Build and publish the priority service pages and service-area hub |
 | 2026-08-24 | Published the Phase 2 service and service-area release | Added unique commercial refrigeration, commercial HVAC and preventive-maintenance pages; published the approved service-area hub; updated navigation, structured data, response messaging and sitemap; all production routes returned HTTP 200 | Monitor indexing and collect local proof for city pages and case studies |
+| 2026-08-28 | Published the direct-texting and cooling-service release | Added monitored text CTAs with a qualified 15-minute reply target, consent and opt-out copy, text-click analytics, AC repair, AC installation/replacement and emergency HVAC/R pages, internal links and sitemap coverage without claiming 24/7 technician arrival; build, 19 tests and responsive visual QA pass | Monitor search discovery and lead quality |
 | 2026-08-24 | Published the first proof-backed city page for Euclid | Added a production-quality Euclid service page using the verified 44123 residential installation and carefully bounded 44119 rooftop-service evidence; published eight optimized WebP derivatives, local metadata, Service/Breadcrumb/FAQ/ImageObject schema, internal links and sitemap images; 12 automated production-render checks pass and the live route returns HTTP 200 | Submit the Euclid URL for indexing and create the 44123 installation case study |
 | 2026-08-24 | Applied the approved Eternity logo and color system | Replaced the previous logo and favicon with tightly cropped transparent vector assets; introduced the approved navy `#0B2646` and coral `#FF4439` palette across the site and service-request emails; added a transparent reversed footer logo; 13 automated checks pass | Keep future website and marketing assets aligned with the approved identity |
 | 2026-08-24 | Restored Eternity's orange accent color | Retained the new transparent logo and navy foundation while replacing the coral-red accent with the original orange `#F47A38` across the website, logo, favicon and service-request emails | Use navy and orange for future website and marketing assets |

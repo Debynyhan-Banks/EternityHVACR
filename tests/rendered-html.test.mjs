@@ -48,6 +48,10 @@ test("renders the Eternity homepage with approved business information", async (
   assert.match(html, /I had an excellent experience with Eternity Mechanical Services/);
   assert.match(html, /https:\/\/g\.page\/r\/CYsWl6Bz9AJvEBM\/review/);
   assert.match(html, /data-review-link/);
+  assert.match(html, /href="sms:\+12167033183"/);
+  assert.match(html, /Texts are monitored 24\/7 with a 15-minute reply target/);
+  assert.match(html, /This is not an arrival-time promise/);
+  assert.match(html, /Reply STOP to opt out/);
   assert.match(html, /Check service availability/);
   assert.match(html, /name="service-zip"/);
   assert.match(html, /system-diagnostic-report\.jpg/);
@@ -83,6 +87,9 @@ test("publishes crawler files with the canonical sitemap", async () => {
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/services\/furnace-heating-repair<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/services\/boiler-service<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/services\/heat-pump-service<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/services\/air-conditioning-repair<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/services\/air-conditioning-installation<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/services\/emergency-hvac-r<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/areas-we-serve<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/areas-we-serve\/euclid-oh<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/projects<\/loc>/);
@@ -149,6 +156,9 @@ test("renders the priority service pages with unique search content", async () =
     ["/services/furnace-heating-repair", /Furnace and Heating Repair in Greater Cleveland/, /No-heat and intermittent-heating diagnostics/],
     ["/services/boiler-service", /Boiler Service and Repair in Greater Cleveland/, /Boiler operating diagnostics/],
     ["/services/heat-pump-service", /Heat Pump Service and Repair in Greater Cleveland/, /Heat-pump heating and cooling diagnostics/],
+    ["/services/air-conditioning-repair", /Air-Conditioning Repair in Greater Cleveland/, /No-cooling and intermittent-cooling diagnostics/],
+    ["/services/air-conditioning-installation", /Air-Conditioning Installation and Replacement in Greater Cleveland/, /Central-air installation and replacement/],
+    ["/services/emergency-hvac-r", /Emergency HVAC and Refrigeration Service in Greater Cleveland/, /No-heat and no-cooling diagnostics/],
   ];
 
   for (const [pathname, heading, capability] of pages) {

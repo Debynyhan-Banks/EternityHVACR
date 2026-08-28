@@ -192,7 +192,7 @@ Complete this for every project selected for publication:
 - [ ] Should customers receive an automatic confirmation?
 - [x] What response-time promise can be maintained? — website requests are typically reviewed within 15 minutes during regular business hours
 - [ ] Is live scheduling operationally possible?
-- [ ] Is SMS communication approved?
+- [x] Is SMS communication approved? — direct service texts to `216-703-3183`; monitored 24/7 by Debynyhan with a 15-minute reply target, not an arrival-time promise
 - [ ] Is a property-manager portal needed later?
 - [x] Who approves new reviews, projects and technical articles? — Debynyhan handles routine review operations; Bernard approves technical and high-risk responses and technical articles
 
@@ -213,7 +213,7 @@ Complete this for every project selected for publication:
 
 - [ ] Financing provider, eligible services, disclosures, application path and fulfillment owner
 - [ ] Live-booking platform, real availability source, booking rules, cancellation process and owner
-- [ ] Monitored SMS/chat number, staffing hours, response expectation, consent copy and retention policy
+- [x] Monitored SMS/chat number, staffing hours, response expectation and website consent copy — `216-703-3183`; monitored 24/7; 15-minute reply target; service-related replies only; message/data-rate and STOP disclosures published. Retention policy remains an internal follow-up.
 - [ ] Written warranty or guarantee coverage, duration, exclusions and responsible entity
 - [ ] Maintenance membership name, price, visits, benefits, exclusions, renewal and cancellation terms
 - [ ] Promotion offer, dates, exclusions, margin approval and fulfillment capacity
@@ -222,7 +222,7 @@ Complete this for every project selected for publication:
 
 - [ ] Privacy-policy contact information
 - [ ] Terms for estimate and appointment requests
-- [ ] Consent language for phone, email and SMS follow-up
+- [x] Website consent language for direct service SMS replies — service-related replies, message/data-rate notice, STOP opt-out and no marketing texts without separate consent
 - [ ] Photo and testimonial releases
 - [ ] Accessibility contact method
 - [ ] Data-retention preference for submitted leads and uploaded files

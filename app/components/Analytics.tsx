@@ -47,10 +47,16 @@ export default function AnalyticsEvents() {
         });
       }
 
-      const link = event.target.closest<HTMLAnchorElement>('a[href^="tel:"], a[href^="mailto:"]');
+      const link = event.target.closest<HTMLAnchorElement>('a[href^="tel:"], a[href^="mailto:"], a[href^="sms:"]');
       if (!link) return;
 
-      trackGoogleEvent(link.href.startsWith("tel:") ? "phone_click" : "email_click", {
+      const eventName = link.href.startsWith("tel:")
+        ? "phone_click"
+        : link.href.startsWith("sms:")
+          ? "text_click"
+          : "email_click";
+
+      trackGoogleEvent(eventName, {
         link_location: window.location.pathname,
       });
     }

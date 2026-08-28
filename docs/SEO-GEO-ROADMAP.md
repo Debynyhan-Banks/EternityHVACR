@@ -119,8 +119,8 @@ The continuing operating standard is documented in [LOCAL-PROFILE-OPERATIONS-202
 
 ### Priority service pages
 
-- [ ] Air-conditioning repair
-- [ ] Air-conditioning installation and replacement
+- [x] Air-conditioning repair
+- [x] Air-conditioning installation and replacement
 - [x] Furnace and heating service
 - [x] Boiler service
 - [x] Heat pumps
@@ -129,7 +129,7 @@ The continuing operating standard is documented in [LOCAL-PROFILE-OPERATIONS-202
 - [x] Walk-in cooler repair
 - [x] Commercial refrigeration
 - [x] Preventive-maintenance agreements
-- [ ] Emergency HVAC/R service
+- [x] Emergency HVAC/R service
 
 ### Priority market pages
 
@@ -257,7 +257,7 @@ Google’s current guidance says there is no special schema or writing format re
 - [ ] Property-manager or commercial account portal
 - [ ] Quote or approval workflow
 - [ ] Financing application pathway, if the business offers financing
-- [ ] SMS or chat pathway, after monitored staffing, consent and retention rules are approved
+- [x] Direct service SMS pathway with monitored-number disclosure, reply target, service-reply consent and opt-out language; automated marketing and review-request texts remain deferred
 - [ ] Published warranty or guarantee, after written coverage and exclusions are approved
 - [ ] Seasonal promotion system, after margin, dates, terms and fulfillment capacity are approved
 - [ ] Google review module, after API/attribution or manual-approval workflow is selected
@@ -268,12 +268,12 @@ Features should not be published until Eternity has a person and process respons
 
 ### Conversion events
 
-- [ ] Phone-number clicks
+- [x] Phone-number clicks
 - [ ] Service-form starts
 - [ ] Service-form completions
 - [ ] Emergency requests
 - [ ] Residential, commercial and refrigeration lead type
-- [ ] Review-link clicks
+- [x] Review-link clicks
 - [ ] Capability-document downloads
 - [ ] Booked and completed jobs by lead source
 

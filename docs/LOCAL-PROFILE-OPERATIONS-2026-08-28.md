@@ -37,7 +37,7 @@ BuildZoom's free-profile claim flow requires an email-based account and acceptan
 
 Debynyhan owns the routine request process. Send one request only after the work is complete and the customer has had a reasonable chance to confirm the service outcome, normally the same day or next business day. Do not request only positive reviews, offer incentives or ask an employee to write a customer review.
 
-Initial channel: email. SMS remains deferred until the business confirms that `216-703-3183` is monitored for texting and approves consent, staffing and retention rules.
+Initial review-request channel remains email. SMS review requests and marketing texts remain deferred; the approval below applies only to customer-initiated service conversations.
 
 Working email template:
 
@@ -52,6 +52,16 @@ Working email template:
 > 216-703-3183
 
 Log the request date and channel with the job record. Do not record or predict the customer's rating.
+
+## Direct service texting
+
+Debynyhan monitors customer-initiated texts to `216-703-3183` 24/7 with a 15-minute reply target. This is a target for the first reply, not a technician arrival-time or service-availability guarantee. For an immediate safety concern or system-down situation, direct the customer to call.
+
+Approved first response:
+
+> Thanks for contacting Eternity Mechanical Services. We received your message and will get back to you as soon as possible—typically within 15 minutes. For urgent HVAC/R assistance, call 216-703-3183.
+
+The website directs customers to their own messaging app and does not represent that it automatically sends this reply. The published disclosure permits service-related replies, states that message and data rates may apply, offers STOP as an opt-out and states that marketing texts require separate consent. Do not use a customer-initiated service text as consent for marketing or review-request texts. Avoid collecting payment-card, identity or other sensitive information by text, and keep any message retention aligned with the business phone provider and the job-record policy when that policy is finalized.
 
 ## Public review responses
 
@@ -93,7 +103,7 @@ On the first weekly check of each month, also record profile views, searches, ca
 
 ## Open decisions
 
-- Confirm whether business texting is monitored and governed well enough to retain the Google chat action.
+- Finalize the internal message-retention period and deletion workflow; the monitored number, owner, response target and public consent language are approved.
 - Review Porch's reply and create a marketplace account only if Eternity separately approves it; the current request is correction-only.
 - Approve any automated review-request sending; the current workflow is manual.
 - Defer new public photos until Eternity approves an image workflow.
