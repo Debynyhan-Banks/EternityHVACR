@@ -18,9 +18,9 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current milestone:** Google Business Profile operations
 
-**Current status:** Core corrections submitted; Google review pending
+**Current status:** Core audit corrections complete
 
-**Next action:** Verify Google's approval of the submitted hours, service-area and category edits, then establish the recurring review-request and profile-maintenance workflow.
+**Next action:** Establish the recurring review-request and profile-maintenance workflow, confirm SMS operating rules and begin authoritative citation cleanup.
 
 ## Phase 1 information blockers
 
@@ -50,7 +50,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 1 | Business structured data | In review | Core business facts confirmed | Production source verified; Rich Results Test has no critical errors |
 | 1 | Google Search Console | Complete | Account access | Domain property verified through GoDaddy DNS; sitemap accepted with Success status and one discovered page on August 23, 2026 |
 | 1 | Bing Webmaster and IndexNow | Complete | Account access | Search Console property imported; sitemap accepted for processing without errors or warnings; homepage URL submitted successfully on August 23, 2026 |
-| 1 | Google Business Profile operations audit and correction | In review | Google edit approval | Audit completed; `216-703-3183` confirmed; review response corrected; Saturday hours, 20-city service area and two secondary categories submitted; Services expanded to 20 confirmed offerings August 28, 2026 |
+| 1 | Google Business Profile operations audit and correction | Complete | None | `216-703-3183` aligned; review response corrected; Google approved Saturday hours, 20-city service area and two secondary categories; Services expanded to 20 confirmed offerings August 28, 2026 |
 | 1 | Conversion analytics | Complete | Google Analytics property created | Corrected property ID published; Realtime showed the Eternity page view and active user on August 23, 2026 |
 | 1 | Responsive image optimization | Complete | None | Live mobile audit: Performance 86, Accessibility 100, SEO 100, LCP 2.7 seconds and CLS 0 on August 23, 2026 |
 | 2 | Priority service pages | Complete | Commercial refrigeration, commercial HVAC and preventive maintenance confirmed as priorities | Three unique pages published, internally linked and verified on production August 24, 2026 |
@@ -133,7 +133,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 2026-08-28 | Published the documented answer-library release | Created Sites version 42 from the exact GitHub `main` source after the audit crosswalk and roadmap updates; deployed the public site and verified the resource hub, four answer routes, sitemap and crawler policy on production | Collect Bernard’s technical review and begin the GBP operations audit |
 | 2026-08-28 | Completed the Google Business Profile operations audit | Verified manager access and audited identity, contact actions, category, services, hours, service areas, reviews, photos and March–August performance without changing the profile; documented exact corrections and official Google policy references | Obtain approval before changing the Google profile |
 | 2026-08-28 | Published Bernard's technical approval | Added visible reviewer credit and `reviewedBy` Person schema to all four expert guides after Bernard reviewed and approved them; pushed the exact source to GitHub `main`, deployed it through Sites and verified all four production routes | Obtain approval before changing the Google profile |
-| 2026-08-28 | Applied the approved Google Business Profile correction set | Confirmed `216-703-3183` as the public phone; verified Charlotte's corrected response; submitted Saturday 9 a.m.–5 p.m., replaced the service area with the 20 approved priority cities, added Heating contractor and Air conditioning contractor categories, and expanded Services from one to 20 confirmed offerings; Google marked the hours, service area and category edits pending review | Publish the matching website phone update and recheck Google approval |
+| 2026-08-28 | Completed the approved Google Business Profile correction set | Confirmed `216-703-3183` as the public phone; verified Charlotte's corrected response; Google approved Saturday 9 a.m.–5 p.m., the 20 approved priority cities, and Heating contractor plus Air conditioning contractor categories; expanded Services from one to 20 confirmed offerings; published and production-verified the matching website phone update | Establish the recurring review, profile-maintenance and citation workflow |
 
 ## Decision log
 

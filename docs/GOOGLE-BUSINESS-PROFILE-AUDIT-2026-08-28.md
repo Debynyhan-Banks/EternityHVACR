@@ -9,15 +9,15 @@ Scope: Read-only review of the signed-in manager view and public Google Search p
 
 - Eternity confirmed that `216-703-3183` is the approved public phone. The original audit treated the Google number as a mismatch because the website still used `216-253-6468`; the website and structured data are being corrected to match Google.
 - Eternity corrected Charlotte Mancini's owner response. The manager view now shows a service-focused reply without the unsupported “new HVAC system” statement.
-- Saturday hours of 9:00 a.m.–5:00 p.m. were submitted. Google marked the edit pending review.
-- The service area was replaced with the 20 approved priority cities. Google marked the edit pending review.
-- `Heating contractor` and `Air conditioning contractor` were added as secondary categories while `HVAC contractor` remains primary. Google marked the category edit pending review.
-- The Services section was expanded from one item to 20 confirmed offerings. Google reported that the new services will be published shortly.
+- Google approved Saturday hours of 9:00 a.m.–5:00 p.m.
+- Google approved the replacement service area containing the 20 approved priority cities.
+- Google approved `Heating contractor` and `Air conditioning contractor` as secondary categories while `HVAC contractor` remains primary.
+- The Services section was expanded from one item to 20 confirmed offerings; all 20 are visible in the manager view.
 - No prices, unverified claims, new photos, opening date, booking action or business-identity attributes were added.
 
 ## Executive finding
 
-The profile is claimed, public and connected to the correct website. The audit found a Saturday-hours error, an incorrect Richmond service area, an almost empty Services section, incomplete category coverage and an inaccurate Charlotte Mancini response. Those core corrections were addressed or submitted on August 28, 2026; Google's review of the hours, service-area and category edits remains pending.
+The profile is claimed, public and connected to the correct website. The audit found a Saturday-hours error, an incorrect Richmond service area, an almost empty Services section, incomplete category coverage and an inaccurate Charlotte Mancini response. Those core corrections were completed and reverified in the manager view on August 28, 2026.
 
 ## Current profile snapshot
 
@@ -25,18 +25,18 @@ The profile is claimed, public and connected to the correct website. The audit f
 |---|---|---|
 | Business name | Eternity Mechanical Services LLC | Matches approved name |
 | Primary category | HVAC contractor | Appropriate as the primary category |
-| Additional categories | None observed during audit | Heating contractor and Air conditioning contractor submitted and pending |
+| Additional categories | None observed during audit | Heating contractor and Air conditioning contractor approved and active |
 | Website | `https://eternityhvacr.com/` | Correct |
 | Public phone | `(216) 703-3183` | Confirmed as the approved public number August 28, 2026 |
 | Chat action | SMS to `216-703-3183` | Number matches the confirmed phone; operational texting workflow still needs confirmation |
 | Weekday hours | Monday–Friday, 7:00 a.m.–7:00 p.m. | Correct |
-| Saturday hours | Originally 9:00 a.m.–5:00 a.m. | Correct 9:00 a.m.–5:00 p.m. edit submitted and pending |
+| Saturday hours | Originally 9:00 a.m.–5:00 a.m. | Correct 9:00 a.m.–5:00 p.m. hours approved and active |
 | Sunday hours | Closed | Correct |
 | Business model | Service-area business; public street address hidden | Correct |
 | Description | Residential and commercial HVAC, heating, cooling, refrigeration, maintenance, repair and replacement in Greater Cleveland | Accurate but can be strengthened after the critical corrections |
 | Opening date | Not set | Optional completeness gap; year founded is not yet approved |
 | Social profiles | Not set | Optional completeness gap |
-| Services | Only `HVAC system repair` during audit | Expanded to 20 confirmed services; Google says publication is pending |
+| Services | Only `HVAC system repair` during audit | Expanded to 20 confirmed services visible in the manager view |
 | Photos | Cover, logo and three additional business photos | Basic presence exists; no new image program approved yet |
 | Reviews | 5.0 from two Google reviews | Strong rating, very low volume |
 | Review replies | Both reviews have owner replies | Charlotte's reply was corrected by Eternity |
@@ -158,12 +158,12 @@ The Google results page showed a BuildZoom result publishing `27028 Chardon Rd, 
 ## Recommended correction order
 
 1. Confirm `216-703-3183` across the website, structured data and citations — confirmed; website update in progress.
-2. Change Saturday closing time from 5:00 a.m. to 5:00 p.m. — submitted; Google review pending.
+2. Change Saturday closing time from 5:00 a.m. to 5:00 p.m. — completed and approved.
 3. Confirm whether SMS is operationally monitored — still required.
 4. Correct Charlotte Mancini's owner reply — completed by Eternity.
-5. Replace the incorrect/incomplete service-area list with the approved 20-city set — submitted; Google review pending.
-6. Add a few accurate secondary categories from Google's available list — Heating contractor and Air conditioning contractor submitted; Google review pending.
-7. Populate the Services section with confirmed offerings — expanded from one to 20 services; publication pending.
+5. Replace the incorrect/incomplete service-area list with the approved 20-city set — completed and approved.
+6. Add a few accurate secondary categories from Google's available list — Heating contractor and Air conditioning contractor completed and approved.
+7. Populate the Services section with confirmed offerings — expanded from one to 20 services visible in the manager view.
 8. Review available identity/service attributes and add only approved facts.
 9. Begin a consistent, non-incentivized post-service review-request workflow.
 10. Monitor calls, website clicks, reviews and profile views monthly.

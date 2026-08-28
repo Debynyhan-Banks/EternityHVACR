@@ -58,7 +58,7 @@ This document is the source of truth for approved public business details used i
 - The Google share link was supplied by Eternity and redirects through Google's sharing service. Keep it as the approved profile link unless a permanent Maps or Business Profile URL is later supplied.
 - Bernard Gray reviewed and approved the first four expert answers on August 28, 2026. His reviewer attribution may be displayed on those guides.
 - Eternity confirmed on August 28, 2026 that `216-703-3183` is the approved public phone. The website, structured data and Google Business Profile should use that number consistently.
-- The August 28, 2026 Google Business Profile correction submitted Saturday hours of 9:00 a.m.–5:00 p.m.; Google marked the edit pending review.
+- Google approved the August 28, 2026 correction to Saturday hours of 9:00 a.m.–5:00 p.m.
 
 ## Still needed
 

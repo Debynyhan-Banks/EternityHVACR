@@ -109,7 +109,7 @@ This plan treats SEO, local search, generative-engine visibility and conversion 
 - [ ] Evaluate paid lead directories separately from citation accuracy and organic-search work
 - [ ] Keep an unapproved street address private across every profile because Eternity is a service-area business
 
-The August 28, 2026 audit and correction log is documented in [GOOGLE-BUSINESS-PROFILE-AUDIT-2026-08-28.md](GOOGLE-BUSINESS-PROFILE-AUDIT-2026-08-28.md). Eternity confirmed `216-703-3183` as the approved phone and corrected Charlotte Mancini's review response. Saturday hours, the approved 20-city service area and two accurate secondary categories were submitted to Google, and the Services section was expanded from one service to 20 confirmed offerings.
+The August 28, 2026 audit and correction log is documented in [GOOGLE-BUSINESS-PROFILE-AUDIT-2026-08-28.md](GOOGLE-BUSINESS-PROFILE-AUDIT-2026-08-28.md). Eternity confirmed `216-703-3183` as the approved phone and corrected Charlotte Mancini's review response. Google approved Saturday hours, the 20-city service area and the Heating contractor and Air conditioning contractor secondary categories. The Services section was expanded from one service to 20 confirmed offerings.
 
 ## Phase 2 — Service and local-search architecture
 
