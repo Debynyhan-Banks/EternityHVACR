@@ -3,7 +3,7 @@
 Audit date: August 28, 2026  
 Profile: Eternity Mechanical Services LLC  
 Approved share link: `https://share.google/1bUl6S4x9x90TJ7Mf`  
-Scope: Read-only review of the signed-in manager view and public Google Search profile. No profile information, services, categories, photos, reviews or settings were changed.
+Scope: The original audit was read-only. The approved correction set was subsequently applied and verified on August 28, 2026.
 
 ## Resolution update — August 28, 2026
 
@@ -43,7 +43,7 @@ The profile is claimed, public and connected to the correct website. The audit f
 
 ## Service-area audit
 
-Google currently lists 13 service areas:
+The original audit found these 13 service areas:
 
 - Akron
 - Parma
@@ -59,9 +59,9 @@ Google currently lists 13 service areas:
 - Parma Heights
 - Warrensville Heights
 
-`Richmond, OH 43944` does not match the approved `Richmond Heights, OH 44143` market and should be removed. `Mayfield` should be checked against the approved `Mayfield Heights` market. Akron is not in the approved website city list. The profile omits many of the 20 approved priority markets.
+`Richmond, OH 43944` did not match the approved market, `Mayfield` required clarification and Akron was not in the approved website city list. The list was replaced with the following approved 20-city set, which Google approved on August 28, 2026:
 
-Google permits up to 20 city, postal-code or area entries and recommends a total coverage area within roughly two hours' driving time. The cleanest correction is to replace the current list with the 20 approved priority cities already used by the website, after one final operational confirmation:
+Google permits up to 20 city, postal-code or area entries and recommends a total coverage area within roughly two hours' driving time:
 
 1. Cleveland
 2. Euclid
@@ -90,7 +90,7 @@ Official reference: [Manage your service areas for service-area and hybrid busin
 
 Keep `HVAC contractor` as the primary category. In Google's live category picker, evaluate only a small number of additional categories that accurately complete the sentence “this business is a,” such as the available heating, air-conditioning and commercial-refrigeration contractor categories. Do not add categories merely as keywords; changing categories can trigger reverification.
 
-The Services section should be expanded from the single current item to the confirmed services already published on the website:
+The Services section had one item during the audit. It was expanded to 20 confirmed offerings on August 28, 2026, covering the following service groups:
 
 - Air-conditioning diagnostics and repair
 - Air-conditioning installation and replacement
@@ -115,7 +115,7 @@ Official references: [Manage services](https://support.google.com/business/answe
 The profile has two five-star Google reviews and both have owner replies:
 
 - Edwina Ramos: new HVAC installation; reply is relevant but could be more personalized.
-- Charlotte Mancini: describes punctual inspection, explanation, honest repair options and pricing, correct work and improved system operation. The published owner reply says she received a “new HVAC system,” which is not supported by her review and should be corrected.
+- Charlotte Mancini: describes punctual inspection, explanation, honest repair options and pricing, correct work and improved system operation. The original owner reply said she received a “new HVAC system,” which was not supported by her review; Eternity corrected it on August 28, 2026.
 
 Recommended Charlotte reply:
 
@@ -155,9 +155,11 @@ The platform breakdown was five mobile Maps viewers, three desktop Maps viewers 
 
 The Google results page showed a BuildZoom result publishing `27028 Chardon Rd, Cleveland, OH` and the now-outdated phone `216-253-6468`. Eternity's approved policy is to operate as a service-area business without publishing a customer-facing street address. The BuildZoom record should be reviewed separately for phone accuracy, ownership and privacy. Do not copy that address into Google or the website without explicit approval.
 
+Follow-up on August 28 found that BuildZoom's live page and search cache did not consistently show the same street address, while both still exposed the retired phone. A support correction request was submitted for the approved phone, address suppression, Bernard's correctly formatted name and the official website. Porch also has an indexed legacy contractor page with a public street address and an overbroad service-area list, but its live profile URL redirects and does not offer a direct correction form. The full audit, response workflow and follow-up status are recorded in [LOCAL-PROFILE-OPERATIONS-2026-08-28.md](LOCAL-PROFILE-OPERATIONS-2026-08-28.md).
+
 ## Recommended correction order
 
-1. Confirm `216-703-3183` across the website, structured data and citations — confirmed; website update in progress.
+1. Confirm `216-703-3183` across the website, structured data and citations — website and structured data complete; external citation follow-up in progress.
 2. Change Saturday closing time from 5:00 a.m. to 5:00 p.m. — completed and approved.
 3. Confirm whether SMS is operationally monitored — still required.
 4. Correct Charlotte Mancini's owner reply — completed by Eternity.
@@ -165,9 +167,9 @@ The Google results page showed a BuildZoom result publishing `27028 Chardon Rd, 
 6. Add a few accurate secondary categories from Google's available list — Heating contractor and Air conditioning contractor completed and approved.
 7. Populate the Services section with confirmed offerings — expanded from one to 20 services visible in the manager view.
 8. Review available identity/service attributes and add only approved facts.
-9. Begin a consistent, non-incentivized post-service review-request workflow.
-10. Monitor calls, website clicks, reviews and profile views monthly.
+9. Begin a consistent, non-incentivized post-service review-request workflow — owner, timing, template and escalation rules established.
+10. Monitor calls, website clicks, reviews and profile views monthly — weekly Monday operations check scheduled; monthly scorecard remains due after sufficient data accumulates.
 
 ## Change-control requirement
 
-Eternity authorized the core correction set on August 28, 2026. Google may still request review or reverification for category and profile edits. The SMS operating workflow, service descriptions, profile-maintenance owner and citation cleanup remain open operational decisions.
+Eternity authorized the core correction set on August 28, 2026. Google may still request review or reverification for category and profile edits. Debynyhan Banks owns routine profile and review operations; Bernard Gray owns technical and high-risk escalation. The SMS operating workflow and final Porch marketplace decision remain open.

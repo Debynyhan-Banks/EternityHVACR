@@ -100,16 +100,18 @@ This plan treats SEO, local search, generative-engine visibility and conversion 
 ### Google Business Profile and citation operations
 
 - [x] Audit primary and secondary business categories
-- [ ] Complete the Services section with every confirmed offering
+- [x] Complete the Services section with every confirmed offering
 - [ ] Add concise service descriptions and only approved, stable pricing or qualified ranges
 - [x] Verify hours, service-area presentation, phone, website and business description
 - [ ] Establish a regular real-project photo and video publishing process
-- [ ] Assign ownership for review requests and public review responses
-- [ ] Audit authoritative profiles and citations for consistent name, phone, website and service-area presentation
+- [x] Assign ownership for review requests and public review responses
+- [x] Audit authoritative profiles and citations for consistent name, phone, website and service-area presentation
 - [ ] Evaluate paid lead directories separately from citation accuracy and organic-search work
 - [ ] Keep an unapproved street address private across every profile because Eternity is a service-area business
 
 The August 28, 2026 audit and correction log is documented in [GOOGLE-BUSINESS-PROFILE-AUDIT-2026-08-28.md](GOOGLE-BUSINESS-PROFILE-AUDIT-2026-08-28.md). Eternity confirmed `216-703-3183` as the approved phone and corrected Charlotte Mancini's review response. Google approved Saturday hours, the 20-city service area and the Heating contractor and Air conditioning contractor secondary categories. The Services section was expanded from one service to 20 confirmed offerings.
+
+The continuing operating standard is documented in [LOCAL-PROFILE-OPERATIONS-2026-08-28.md](LOCAL-PROFILE-OPERATIONS-2026-08-28.md). Debynyhan Banks owns routine review requests and responses; Bernard Gray owns technical and high-risk escalations. A weekly Monday check now covers profile drift, new reviews and citation follow-up. BuildZoom correction was submitted; Porch remains a support/account decision.
 
 ## Phase 2 — Service and local-search architecture
 
@@ -169,14 +171,14 @@ Every page should include the customer problem, equipment served, warning signs,
 
 ### Review system
 
-- [ ] Add approved Google reviews with attribution and permission
-- [ ] Link directly to the Google review profile
-- [ ] Create a post-service review-request workflow
-- [ ] Respond to new Google reviews consistently
+- [x] Add approved Google reviews with attribution and permission
+- [x] Link directly to the Google review profile
+- [x] Create a post-service review-request workflow
+- [x] Respond to new Google reviews consistently
 - [ ] Never add invented or edited customer claims
-- [ ] Assign the person responsible for sending post-service review requests
-- [ ] Define the send timing and approved email/SMS copy
-- [ ] Define the public review-response owner and response standard
+- [x] Assign the person responsible for sending post-service review requests
+- [x] Define the send timing and approved email copy; SMS remains deferred
+- [x] Define the public review-response owner and response standard
 - [ ] Evaluate a compliant Google Places API review module versus a manually approved review library
 
 ### Project case studies

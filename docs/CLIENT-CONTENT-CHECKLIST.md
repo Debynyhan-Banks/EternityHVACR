@@ -194,19 +194,19 @@ Complete this for every project selected for publication:
 - [ ] Is live scheduling operationally possible?
 - [ ] Is SMS communication approved?
 - [ ] Is a property-manager portal needed later?
-- [ ] Who approves new reviews, projects and technical articles?
+- [x] Who approves new reviews, projects and technical articles? — Debynyhan handles routine review operations; Bernard approves technical and high-risk responses and technical articles
 
 ## Google Business Profile operations
 
-- [ ] Confirm who owns day-to-day Business Profile updates
-- [ ] Confirm the current primary and secondary categories
-- [ ] Approve the exact list of services for the profile
+- [x] Confirm who owns day-to-day Business Profile updates — Debynyhan Banks
+- [x] Confirm the current primary and secondary categories — HVAC contractor; Heating contractor; Air conditioning contractor
+- [x] Approve the exact list of services for the profile — 20 confirmed services active August 28, 2026
 - [ ] Approve any stable prices, starting prices or ranges that may be public
 - [ ] Approve a concise description for each profile service
 - [ ] Confirm who uploads real project photos and how often
-- [ ] Confirm who sends the post-service review request and when
-- [ ] Approve the review-request email and, if applicable, SMS template
-- [ ] Confirm who responds publicly to reviews
+- [x] Confirm who sends the post-service review request and when — Debynyhan, normally same day or next business day after completed service
+- [x] Approve the manual review-request email template; SMS remains deferred pending operational rules
+- [x] Confirm who responds publicly to reviews — Debynyhan for routine responses; Bernard for technical or high-risk escalation
 - [ ] Decide between a compliant Places API review module and manually approved website reviews
 
 ## Conversion-feature approval gates
