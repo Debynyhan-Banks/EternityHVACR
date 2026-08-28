@@ -101,7 +101,7 @@ This plan treats SEO, local search, generative-engine visibility and conversion 
 
 - [x] Audit primary and secondary business categories
 - [x] Complete the Services section with every confirmed offering
-- [ ] Add concise service descriptions and only approved, stable pricing or qualified ranges
+- [x] Add concise service descriptions; no prices were added because stable pricing or qualified ranges are not approved
 - [x] Verify hours, service-area presentation, phone, website and business description
 - [ ] Establish a regular real-project photo and video publishing process
 - [x] Assign ownership for review requests and public review responses
@@ -121,13 +121,14 @@ The continuing operating standard is documented in [LOCAL-PROFILE-OPERATIONS-202
 
 - [ ] Air-conditioning repair
 - [ ] Air-conditioning installation and replacement
-- [ ] Furnace and heating service
-- [ ] Heat pumps
-- [ ] Commercial rooftop units
-- [ ] Commercial HVAC service
-- [ ] Walk-in cooler repair
-- [ ] Commercial refrigeration
-- [ ] Preventive-maintenance agreements
+- [x] Furnace and heating service
+- [x] Boiler service
+- [x] Heat pumps
+- [x] Commercial rooftop units
+- [x] Commercial HVAC service
+- [x] Walk-in cooler repair
+- [x] Commercial refrigeration
+- [x] Preventive-maintenance agreements
 - [ ] Emergency HVAC/R service
 
 ### Priority market pages

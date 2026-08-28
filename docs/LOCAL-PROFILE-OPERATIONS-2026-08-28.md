@@ -26,7 +26,7 @@ The approved Google service area contains Cleveland, Euclid, Cleveland Heights, 
 | Source | August 28 observation | Action | Status |
 |---|---|---|---|
 | Website and structured data | Approved phone, website and service-area presentation | Production verified | Complete |
-| Google Business Profile | Approved phone, hours, categories, 20-city service area and 20 confirmed services | Manager and public profile verified | Complete |
+| Google Business Profile | Approved phone, hours, categories, 20-city service area and 20 confirmed services | Manager and public profile verified; concise descriptions added to all 20 primary-category services without prices | Complete |
 | BuildZoom | Retired phone, public street/unit address and duplicated `Bernard Gray Gray` name | Submitted a support request asking for `216-703-3183`, address suppression, `Bernard Gray` and the official website | Submitted; no ticket number was issued; verify the public page and support reply |
 | Porch | Search index exposes an old contractor page with a street address and a service area far beyond the approved 20 Google markets; the live listing URL redirects to Porch's general site | Sent a correction-only request to `support@porch.com` asking for address suppression, approved public details, service-area correction and removal or correction without lead-service enrollment | Submitted August 28, 2026; verify Porch's reply and the indexed public page |
 | Legal-record aggregators | May reproduce filing or license addresses from public records | Do not treat these as normal marketing citations or request changes unless the underlying legal record is inaccurate | Monitor only |
@@ -88,3 +88,7 @@ On the first weekly check of each month, also record profile views, searches, ca
 - Review Porch's reply and create a marketplace account only if Eternity separately approves it; the current request is correction-only.
 - Approve any automated review-request sending; the current workflow is manual.
 - Defer new public photos until Eternity approves an image workflow.
+
+## Service-description control
+
+All 20 services in the primary `HVAC contractor` category received concise descriptions on August 28, 2026. Keep these descriptions aligned with the corresponding website service pages and approved operating scope. Do not add public prices, guaranteed response times, guaranteed results or 24/7 language without separate approval and operational support.

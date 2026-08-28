@@ -202,7 +202,7 @@ Complete this for every project selected for publication:
 - [x] Confirm the current primary and secondary categories — HVAC contractor; Heating contractor; Air conditioning contractor
 - [x] Approve the exact list of services for the profile — 20 confirmed services active August 28, 2026
 - [ ] Approve any stable prices, starting prices or ranges that may be public
-- [ ] Approve a concise description for each profile service
+- [x] Approve a concise description for each profile service — all 20 primary-category descriptions added August 28, 2026
 - [ ] Confirm who uploads real project photos and how often
 - [x] Confirm who sends the post-service review request and when — Debynyhan, normally same day or next business day after completed service
 - [x] Approve the manual review-request email template; SMS remains deferred pending operational rules

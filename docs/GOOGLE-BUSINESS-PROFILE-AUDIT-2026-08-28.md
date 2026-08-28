@@ -12,7 +12,7 @@ Scope: The original audit was read-only. The approved correction set was subsequ
 - Google approved Saturday hours of 9:00 a.m.–5:00 p.m.
 - Google approved the replacement service area containing the 20 approved priority cities.
 - Google approved `Heating contractor` and `Air conditioning contractor` as secondary categories while `HVAC contractor` remains primary.
-- The Services section was expanded from one item to 20 confirmed offerings; all 20 are visible in the manager view.
+- The Services section was expanded from one item to 20 confirmed offerings; all 20 are visible in the manager view and have concise, service-specific descriptions.
 - No prices, unverified claims, new photos, opening date, booking action or business-identity attributes were added.
 
 ## Executive finding
@@ -36,7 +36,7 @@ The profile is claimed, public and connected to the correct website. The audit f
 | Description | Residential and commercial HVAC, heating, cooling, refrigeration, maintenance, repair and replacement in Greater Cleveland | Accurate but can be strengthened after the critical corrections |
 | Opening date | Not set | Optional completeness gap; year founded is not yet approved |
 | Social profiles | Not set | Optional completeness gap |
-| Services | Only `HVAC system repair` during audit | Expanded to 20 confirmed services visible in the manager view |
+| Services | Only `HVAC system repair` during audit | Expanded to 20 confirmed services with descriptions visible in the manager view |
 | Photos | Cover, logo and three additional business photos | Basic presence exists; no new image program approved yet |
 | Reviews | 5.0 from two Google reviews | Strong rating, very low volume |
 | Review replies | Both reviews have owner replies | Charlotte's reply was corrected by Eternity |
@@ -106,7 +106,7 @@ The Services section had one item during the audit. It was expanded to 20 confir
 - Residential and commercial preventive maintenance
 - Emergency HVAC/R repair, described as available without claiming guaranteed 24/7 response
 
-Add concise descriptions only after the exact Google service/category organization is visible. Do not add public prices until stable prices or qualified ranges are approved.
+The exact primary-category service organization was verified in the live editor, and concise descriptions were added to all 20 services on August 28, 2026. The descriptions use approved service scope, measured-diagnostics language and Greater Cleveland context without adding public prices, unsupported outcomes or a guaranteed 24/7 response. Do not add public prices until stable prices or qualified ranges are approved.
 
 Official references: [Manage services](https://support.google.com/business/answer/9455399?hl=en), [Manage business categories](https://support.google.com/business/answer/7249669?hl=en) and [Google's representation guidelines](https://support.google.com/business/answer/3038177?hl=en).
 

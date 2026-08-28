@@ -39,7 +39,7 @@ const content: LocationLandingContent = {
   heroAlt: "Payne residential HVAC system installed by Eternity Mechanical in Euclid, Ohio",
   services: [
     { label: "Cooling", title: "Air conditioning", copy: "AC diagnostics, repair, installation, replacement and preventive maintenance for Euclid homes.", href: "/#schedule" },
-    { label: "Heating", title: "Furnace service", copy: "Furnace diagnostics, repair, installation, replacement and planned maintenance.", href: "/#schedule" },
+    { label: "Heating", title: "Furnace service", copy: "Furnace diagnostics, repair, installation, replacement and planned maintenance.", href: "/services/furnace-heating-repair" },
     { label: "Facilities", title: "Commercial HVAC", copy: "Rooftop-unit, packaged-system and commercial heating and cooling service.", href: "/services/commercial-hvac" },
     { label: "Cold systems", title: "Commercial refrigeration", copy: "Walk-in, cold-storage, refrigeration-control and temperature-dependent equipment service.", href: "/services/commercial-refrigeration" },
   ],

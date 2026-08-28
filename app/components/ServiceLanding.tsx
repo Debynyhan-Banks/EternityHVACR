@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { SiteFooter, SiteHeader } from "./SiteChrome";
 
 export type ServiceLandingContent = {
@@ -11,6 +12,11 @@ export type ServiceLandingContent = {
   customers: string[];
   process: Array<[string, string]>;
   faqs: Array<[string, string]>;
+  guidance?: {
+    eyebrow: string;
+    title: string;
+    items: Array<[string, string]>;
+  };
   caseStudy?: {
     href: string;
     image: string;
@@ -59,7 +65,7 @@ export default function ServiceLanding({ content }: { content: ServiceLandingCon
     <SiteHeader />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     <section className="landing-hero">
-      <div className="landing-hero-copy"><p className="eyebrow"><i /> {content.eyebrow}</p><h1>{content.title}</h1><p>{content.summary}</p><div className="hero-actions"><a className="btn" href="/#schedule">Request service <span>↗</span></a><a className="btn-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a></div><div className="landing-trust"><span>✓ Licensed & insured</span><span>✓ License #28303</span><span>✓ Residential & commercial expertise</span></div></div>
+      <div className="landing-hero-copy"><p className="eyebrow"><i /> {content.eyebrow}</p><h1>{content.title}</h1><p>{content.summary}</p><div className="hero-actions"><Link className="btn" href="/#schedule">Request service <span>↗</span></Link><a className="btn-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a></div><div className="landing-trust"><span>✓ Licensed & insured</span><span>✓ License #28303</span><span>✓ Residential & commercial expertise</span></div></div>
       <div className="landing-hero-image"><img src={content.image} alt={content.imageAlt} width="1800" height="1200" fetchPriority="high" decoding="async" /><span>Greater Cleveland & Northeast Ohio</span></div>
     </section>
     <section className="response-band"><strong>15-minute response target</strong><span>Website requests are typically reviewed within 15 minutes during regular business hours. For urgent service, call directly.</span><a href="tel:+12167033183">Call now →</a></section>
@@ -68,10 +74,14 @@ export default function ServiceLanding({ content }: { content: ServiceLandingCon
     <section className="section landing-process"><div className="center-head"><p className="kicker">How service works</p><h2>Measured before recommended.</h2></div><div>{content.process.map(([title, copy], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></section>
     {content.caseStudy && <section className="commercial-proof">
       <figure><img src={content.caseStudy.image} alt={content.caseStudy.imageAlt} width="1200" height="900" loading="lazy" decoding="async" /><figcaption>{content.caseStudy.label}</figcaption></figure>
-      <div><p className="kicker light">Verified field work</p><h2>{content.caseStudy.title}</h2><p>{content.caseStudy.copy}</p><a className="inline-cta light-link" href={content.caseStudy.href}>Read the case study <span>→</span></a></div>
+      <div><p className="kicker light">Verified field work</p><h2>{content.caseStudy.title}</h2><p>{content.caseStudy.copy}</p><Link className="inline-cta light-link" href={content.caseStudy.href}>Read the case study <span>→</span></Link></div>
+    </section>}
+    {content.guidance && <section className="section landing-process">
+      <div className="center-head"><p className="kicker">{content.guidance.eyebrow}</p><h2>{content.guidance.title}</h2></div>
+      <div>{content.guidance.items.map(([title, copy], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{copy}</p></article>)}</div>
     </section>}
     <section className="section landing-faq"><div><p className="kicker">Common questions</p><h2>Before you request service</h2></div><div>{content.faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
-    <section className="emergency landing-cta"><div><p className="kicker light">Ready to get started?</p><h2>Tell Eternity what the equipment needs.</h2><p>Use the guided request form for service details, timing and contact information.</p></div><div><a className="btn btn-orange" href="/#schedule">Request service <span>↗</span></a><a className="btn-outline light-outline" href="/areas-we-serve">View service areas <span>→</span></a><small>Emergency service is available outside normal hours. Call 216-703-3183 for urgent help.</small></div></section>
+    <section className="emergency landing-cta"><div><p className="kicker light">Ready to get started?</p><h2>Tell Eternity what the equipment needs.</h2><p>Use the guided request form for service details, timing and contact information.</p></div><div><Link className="btn btn-orange" href="/#schedule">Request service <span>↗</span></Link><Link className="btn-outline light-outline" href="/areas-we-serve">View service areas <span>→</span></Link><small>Emergency service is available outside normal hours. Call 216-703-3183 for urgent help.</small></div></section>
     <SiteFooter />
   </main>;
 }
