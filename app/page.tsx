@@ -38,14 +38,17 @@ export default function Home() {
         <div className="hero-assurance"><span>Licensed & insured • #28303</span><span>Emergency service available</span></div>
       </div>
       <div className="hero-media">
-        <img
-          src="/images/eternity-van-hero.jpg"
-          alt="Bernard Gray standing beside an Eternity Mechanical Services work van"
-          width="1672"
-          height="941"
-          fetchPriority="high"
-          decoding="async"
-        />
+        <picture>
+          <source media="(max-width: 700px)" srcSet="/images/eternity-van-hero-mobile.jpg" />
+          <img
+            src="/images/eternity-van-hero.jpg"
+            alt="Bernard Gray standing beside an Eternity Mechanical Services work van"
+            width="1672"
+            height="941"
+            fetchPriority="high"
+            decoding="async"
+          />
+        </picture>
         <div className="hero-photo-mark"><img src="/images/eternity-logo-reverse.svg" alt="" width="210" height="94" /><span>Serving Greater Cleveland</span></div>
       </div>
       <nav className="hero-service-rail" aria-label="Featured services">
