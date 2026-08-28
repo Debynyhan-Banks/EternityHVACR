@@ -36,7 +36,7 @@ test("renders the Eternity homepage with approved business information", async (
   assert.match(html, /<title>Eternity Mechanical Services \| HVAC &amp; Mechanical Contractor<\/title>/i);
   assert.match(html, /<link rel="canonical" href="https:\/\/eternityhvacr\.com"\s*\/>/i);
   assert.match(html, /Built for Comfort\./);
-  assert.match(html, /216-253-6468/);
+  assert.match(html, /216-703-3183/);
   assert.match(html, /ben@eternityhvacr\.com/);
   assert.match(html, /License #28303/);
   assert.match(html, /Cuyahoga County/);

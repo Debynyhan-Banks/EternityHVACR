@@ -3,7 +3,7 @@
 Official website repository for Eternity Mechanical Services, a Black-owned HVAC/R and mechanical contractor serving Greater Cleveland and Northeast Ohio.
 
 - Live website: [eternityhvacr.com](https://eternityhvacr.com)
-- Phone: [216-253-6468](tel:+12162536468)
+- Phone: [216-703-3183](tel:+12167033183)
 - Technology: Next.js-compatible Vinext application hosted on Cloudflare through OpenAI Sites
 
 ## Project roadmap

@@ -11,7 +11,7 @@ This document is the source of truth for approved public business details used i
 | Public business name | Eternity Mechanical Services LLC |
 | Legal business name | Eternity Mechanical Services LLC |
 | Website | `https://eternityhvacr.com` |
-| Public phone | 216-253-6468 |
+| Public phone | 216-703-3183 |
 | Public email | `ben@eternityhvacr.com` |
 | Service-request destination | `ben@eternityhvacr.com` |
 | Service-request manager | Ben |
@@ -57,7 +57,8 @@ This document is the source of truth for approved public business details used i
 - Being a service-area business means the website can describe the service region without publishing a customer-facing street address.
 - The Google share link was supplied by Eternity and redirects through Google's sharing service. Keep it as the approved profile link unless a permanent Maps or Business Profile URL is later supplied.
 - Bernard Gray reviewed and approved the first four expert answers on August 28, 2026. His reviewer attribution may be displayed on those guides.
-- The August 28, 2026 read-only Google Business Profile audit found that Google currently displays `(216) 703-3183`, while the approved public phone is `216-253-6468`. The profile is also showing Saturday as 9:00 a.m.–5:00 a.m. These are audit findings, not approved fact changes.
+- Eternity confirmed on August 28, 2026 that `216-703-3183` is the approved public phone. The website, structured data and Google Business Profile should use that number consistently.
+- The August 28, 2026 Google Business Profile correction submitted Saturday hours of 9:00 a.m.–5:00 p.m.; Google marked the edit pending review.
 
 ## Still needed
 

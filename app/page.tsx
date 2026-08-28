@@ -33,7 +33,7 @@ export default function Home() {
         <h1>Built for Comfort.<br /><em>Engineered for Reliability.</em></h1>
         <p className="hero-lede">Professional heating, cooling, refrigeration, installation, repair and preventive maintenance for homes and businesses throughout Northeast Ohio.</p>
         <div className="hero-actions"><a className="btn" href="#schedule">Schedule service <span>↗</span></a><a className="btn-outline" href="#schedule">Request an estimate <span>→</span></a></div>
-        <a className="emergency-link" href="tel:+12162536468"><span>HELP</span><p><small>Emergency service available</small><b>Call 216-253-6468</b></p><i>→</i></a>
+        <a className="emergency-link" href="tel:+12167033183"><span>HELP</span><p><small>Emergency service available</small><b>Call 216-703-3183</b></p><i>→</i></a>
         <div className="hero-trust"><span>✓ Licensed & insured • #28303</span><span>✓ Residential & commercial</span><span>✓ Professional diagnostics</span><span>✓ Preventive maintenance</span></div>
       </div>
       <div className="hero-media">
@@ -109,7 +109,7 @@ export default function Home() {
 
     <section className="section schedule" id="schedule"><div className="schedule-copy"><p className="kicker light">Ready to get started?</p><h2>Tell us what the equipment needs.</h2><p>Use the guided request to describe the system, property and timing. Website requests are typically reviewed within 15 minutes during regular business hours.</p><div className="schedule-points"><span>✓ Residential & commercial</span><span>✓ HVAC & refrigeration</span><span>✓ Repair, replacement & maintenance</span></div></div><ServiceRequest /></section>
 
-    <section className="emergency" id="contact"><div><p className="kicker light">Emergency service available</p><h2>HVAC or Refrigeration Problem?</h2><p>Call for urgent help or tell us what’s happening through the guided service request.</p></div><div><a className="btn btn-orange" href="tel:+12162536468">Call 216-253-6468 <span>↗</span></a><a className="btn-outline light-outline" href="#schedule">Request service <span>→</span></a><small>Regular hours: Monday–Friday 7 a.m.–7 p.m.; Saturday 9 a.m.–5 p.m.; Sunday closed. Emergency service is available outside normal hours.</small></div></section>
+    <section className="emergency" id="contact"><div><p className="kicker light">Emergency service available</p><h2>HVAC or Refrigeration Problem?</h2><p>Call for urgent help or tell us what’s happening through the guided service request.</p></div><div><a className="btn btn-orange" href="tel:+12167033183">Call 216-703-3183 <span>↗</span></a><a className="btn-outline light-outline" href="#schedule">Request service <span>→</span></a><small>Regular hours: Monday–Friday 7 a.m.–7 p.m.; Saturday 9 a.m.–5 p.m.; Sunday closed. Emergency service is available outside normal hours.</small></div></section>
 
     <SiteFooter />
   </main>;

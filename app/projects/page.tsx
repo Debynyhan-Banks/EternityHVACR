@@ -65,7 +65,7 @@ export default function ProjectsPage() {
       </section>
       <section className="emergency landing-cta">
         <div><p className="kicker light">Planning an HVAC project?</p><h2>Tell Eternity what the property needs.</h2><p>Request an installation estimate for a home, rental, managed property or commercial facility.</p></div>
-        <div><a className="btn btn-orange" href="/#schedule">Request an estimate <span>↗</span></a><a className="btn-outline light-outline" href="tel:+12162536468">Call 216-253-6468 <span>→</span></a></div>
+        <div><a className="btn btn-orange" href="/#schedule">Request an estimate <span>↗</span></a><a className="btn-outline light-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a></div>
       </section>
       <SiteFooter />
     </main>

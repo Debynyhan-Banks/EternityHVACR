@@ -58,8 +58,8 @@ export default function ServiceAreaChecker({ compact = false }: { compact?: bool
     </form>
     <div className={`checker-result ${result.status}`} id={compact ? "home-zip-result" : "area-zip-result"} role="status" aria-live="polite">
       {result.status === "invalid" && <p><strong>Enter a five-digit ZIP code.</strong><span>Use the ZIP code where service is needed.</span></p>}
-      {result.status === "covered" && <><p><strong>Yes—we serve this area.</strong><span>ZIP {result.zip} is listed for {formatCities(result.cities)}. Appointment timing is confirmed directly.</span></p><div><a href="/#schedule">Request service</a><a href="tel:+12162536468">Call 216-253-6468</a></div></>}
-      {result.status === "confirm" && <><p><strong>Let’s confirm availability.</strong><span>ZIP {result.zip} is not on the current published list, but service may still be available based on the job and schedule.</span></p><div><a href="tel:+12162536468">Call to confirm</a><a href="/#schedule">Send service details</a></div></>}
+      {result.status === "covered" && <><p><strong>Yes—we serve this area.</strong><span>ZIP {result.zip} is listed for {formatCities(result.cities)}. Appointment timing is confirmed directly.</span></p><div><a href="/#schedule">Request service</a><a href="tel:+12167033183">Call 216-703-3183</a></div></>}
+      {result.status === "confirm" && <><p><strong>Let’s confirm availability.</strong><span>ZIP {result.zip} is not on the current published list, but service may still be available based on the job and schedule.</span></p><div><a href="tel:+12167033183">Call to confirm</a><a href="/#schedule">Send service details</a></div></>}
     </div>
   </div>;
 }

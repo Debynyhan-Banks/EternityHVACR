@@ -5,9 +5,19 @@ Profile: Eternity Mechanical Services LLC
 Approved share link: `https://share.google/1bUl6S4x9x90TJ7Mf`  
 Scope: Read-only review of the signed-in manager view and public Google Search profile. No profile information, services, categories, photos, reviews or settings were changed.
 
+## Resolution update — August 28, 2026
+
+- Eternity confirmed that `216-703-3183` is the approved public phone. The original audit treated the Google number as a mismatch because the website still used `216-253-6468`; the website and structured data are being corrected to match Google.
+- Eternity corrected Charlotte Mancini's owner response. The manager view now shows a service-focused reply without the unsupported “new HVAC system” statement.
+- Saturday hours of 9:00 a.m.–5:00 p.m. were submitted. Google marked the edit pending review.
+- The service area was replaced with the 20 approved priority cities. Google marked the edit pending review.
+- `Heating contractor` and `Air conditioning contractor` were added as secondary categories while `HVAC contractor` remains primary. Google marked the category edit pending review.
+- The Services section was expanded from one item to 20 confirmed offerings. Google reported that the new services will be published shortly.
+- No prices, unverified claims, new photos, opening date, booking action or business-identity attributes were added.
+
 ## Executive finding
 
-The profile is claimed, public and connected to the correct website, but it is not operationally complete. The two most urgent issues are a phone mismatch and a Saturday-hours error. The service-area list also contains an apparently incorrect Richmond, Ohio entry, the Services section contains only one service, and the reply to Charlotte Mancini's review describes a new HVAC system even though her review describes a repair experience.
+The profile is claimed, public and connected to the correct website. The audit found a Saturday-hours error, an incorrect Richmond service area, an almost empty Services section, incomplete category coverage and an inaccurate Charlotte Mancini response. Those core corrections were addressed or submitted on August 28, 2026; Google's review of the hours, service-area and category edits remains pending.
 
 ## Current profile snapshot
 
@@ -15,21 +25,21 @@ The profile is claimed, public and connected to the correct website, but it is n
 |---|---|---|
 | Business name | Eternity Mechanical Services LLC | Matches approved name |
 | Primary category | HVAC contractor | Appropriate as the primary category |
-| Additional categories | None observed | Incomplete; evaluate a few accurate categories from Google's available list |
+| Additional categories | None observed during audit | Heating contractor and Air conditioning contractor submitted and pending |
 | Website | `https://eternityhvacr.com/` | Correct |
-| Public phone | `(216) 703-3183` | Critical mismatch; approved website phone is `216-253-6468` |
-| Chat action | SMS to `216-703-3183` | Not approved as an operational SMS channel; remove or replace only after monitoring and consent workflow are confirmed |
+| Public phone | `(216) 703-3183` | Confirmed as the approved public number August 28, 2026 |
+| Chat action | SMS to `216-703-3183` | Number matches the confirmed phone; operational texting workflow still needs confirmation |
 | Weekday hours | Monday–Friday, 7:00 a.m.–7:00 p.m. | Correct |
-| Saturday hours | 9:00 a.m.–5:00 a.m. | Critical error; approved hours are 9:00 a.m.–5:00 p.m. |
+| Saturday hours | Originally 9:00 a.m.–5:00 a.m. | Correct 9:00 a.m.–5:00 p.m. edit submitted and pending |
 | Sunday hours | Closed | Correct |
 | Business model | Service-area business; public street address hidden | Correct |
 | Description | Residential and commercial HVAC, heating, cooling, refrigeration, maintenance, repair and replacement in Greater Cleveland | Accurate but can be strengthened after the critical corrections |
 | Opening date | Not set | Optional completeness gap; year founded is not yet approved |
 | Social profiles | Not set | Optional completeness gap |
-| Services | Only `HVAC system repair` | Major relevance and conversion gap |
+| Services | Only `HVAC system repair` during audit | Expanded to 20 confirmed services; Google says publication is pending |
 | Photos | Cover, logo and three additional business photos | Basic presence exists; no new image program approved yet |
 | Reviews | 5.0 from two Google reviews | Strong rating, very low volume |
-| Review replies | Both reviews have owner replies | Good response coverage; Charlotte's reply is inaccurate |
+| Review replies | Both reviews have owner replies | Charlotte's reply was corrected by Eternity |
 
 ## Service-area audit
 
@@ -120,7 +130,7 @@ Official references: [Tips to get more reviews](https://support.google.com/busin
 - Keep the current cover, logo and three business photos. New Google photo publishing is deferred until Eternity approves the image workflow.
 - Review the available business-identity and service attributes in Google's live editor and select only facts Eternity has approved.
 - Do not activate booking until a real availability source, scheduling rules and fulfillment owner exist.
-- Do not retain the current SMS action unless `216-703-3183` is a monitored, approved business texting number with staffing, consent and retention rules. The approved public call number remains `216-253-6468`.
+- Retain the SMS action only if `216-703-3183` is monitored for business texting with staffing, consent and retention rules. The number itself is now confirmed as the approved public call number.
 - Add an opening date only after the founding year is confirmed.
 
 Google states that complete, accurate information, helpful review responses and photos can improve how a business is understood in local results. Official references: [Tips to improve local ranking](https://support.google.com/business/answer/7091?hl=en) and [Manage business attributes](https://support.google.com/business/answer/9049526?hl=en).
@@ -143,21 +153,21 @@ The platform breakdown was five mobile Maps viewers, three desktop Maps viewers 
 
 ## Citation and privacy observation
 
-The Google results page showed a BuildZoom result publishing `27028 Chardon Rd, Cleveland, OH` and the approved phone `216-253-6468`. Eternity's approved policy is to operate as a service-area business without publishing a customer-facing street address. The BuildZoom record should be reviewed separately for accuracy, ownership and privacy. Do not copy that address into Google or the website without explicit approval.
+The Google results page showed a BuildZoom result publishing `27028 Chardon Rd, Cleveland, OH` and the now-outdated phone `216-253-6468`. Eternity's approved policy is to operate as a service-area business without publishing a customer-facing street address. The BuildZoom record should be reviewed separately for phone accuracy, ownership and privacy. Do not copy that address into Google or the website without explicit approval.
 
 ## Recommended correction order
 
-1. Replace the Google public phone with the approved `216-253-6468`.
-2. Change Saturday closing time from 5:00 a.m. to 5:00 p.m.
-3. Remove or resolve the unapproved SMS action.
-4. Correct Charlotte Mancini's owner reply.
-5. Replace the incorrect/incomplete service-area list with the approved 20-city set.
-6. Add a few accurate secondary categories from Google's available list.
-7. Populate the Services section with confirmed offerings and concise descriptions.
+1. Confirm `216-703-3183` across the website, structured data and citations — confirmed; website update in progress.
+2. Change Saturday closing time from 5:00 a.m. to 5:00 p.m. — submitted; Google review pending.
+3. Confirm whether SMS is operationally monitored — still required.
+4. Correct Charlotte Mancini's owner reply — completed by Eternity.
+5. Replace the incorrect/incomplete service-area list with the approved 20-city set — submitted; Google review pending.
+6. Add a few accurate secondary categories from Google's available list — Heating contractor and Air conditioning contractor submitted; Google review pending.
+7. Populate the Services section with confirmed offerings — expanded from one to 20 services; publication pending.
 8. Review available identity/service attributes and add only approved facts.
 9. Begin a consistent, non-incentivized post-service review-request workflow.
 10. Monitor calls, website clicks, reviews and profile views monthly.
 
 ## Change-control requirement
 
-This audit authorizes no Google profile edits. Before making changes, confirm the public phone correction, SMS disposition, 20-city service-area set, category choices and exact service list. Category changes should be made carefully because Google may require reverification.
+Eternity authorized the core correction set on August 28, 2026. Google may still request review or reverification for category and profile edits. The SMS operating workflow, service descriptions, profile-maintenance owner and citation cleanup remain open operational decisions.

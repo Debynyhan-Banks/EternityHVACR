@@ -26,7 +26,7 @@ This plan treats SEO, local search, generative-engine visibility and conversion 
 - [x] Public mobile-responsive website
 - [x] Branded social-sharing image and Open Graph metadata
 - [x] Canonical homepage URL
-- [x] Tap-to-call phone number: 216-253-6468
+- [x] Tap-to-call phone number: 216-703-3183
 - [x] Mobile hero photography
 - [x] Larger readable type scale
 - [x] GitHub repository and deployment workflow
@@ -109,7 +109,7 @@ This plan treats SEO, local search, generative-engine visibility and conversion 
 - [ ] Evaluate paid lead directories separately from citation accuracy and organic-search work
 - [ ] Keep an unapproved street address private across every profile because Eternity is a service-area business
 
-The read-only August 28, 2026 audit is documented in [GOOGLE-BUSINESS-PROFILE-AUDIT-2026-08-28.md](GOOGLE-BUSINESS-PROFILE-AUDIT-2026-08-28.md). It found critical phone and Saturday-hours inconsistencies, an incorrect Richmond service area, an almost empty Services section, incomplete category coverage and a Charlotte Mancini review response that describes an installation not mentioned in her review. No Google profile edits were made during the audit.
+The August 28, 2026 audit and correction log is documented in [GOOGLE-BUSINESS-PROFILE-AUDIT-2026-08-28.md](GOOGLE-BUSINESS-PROFILE-AUDIT-2026-08-28.md). Eternity confirmed `216-703-3183` as the approved phone and corrected Charlotte Mancini's review response. Saturday hours, the approved 20-city service area and two accurate secondary categories were submitted to Google, and the Services section was expanded from one service to 20 confirmed offerings.
 
 ## Phase 2 — Service and local-search architecture
 

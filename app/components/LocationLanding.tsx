@@ -64,7 +64,7 @@ export default function LocationLanding({ content, schema }: { content: Location
           <p>{content.summary}</p>
           <div className="hero-actions">
             <a className="btn" href="/#schedule">Request service <span>↗</span></a>
-            <a className="btn-outline" href="tel:+12162536468">Call Eternity <span>→</span></a>
+            <a className="btn-outline" href="tel:+12167033183">Call Eternity <span>→</span></a>
           </div>
           <div className="location-hero-proof">
             <span>Real project proof</span>
@@ -253,7 +253,7 @@ export default function LocationLanding({ content, schema }: { content: Location
 
       <section className="emergency landing-cta">
         <div><p className="kicker light">Need HVAC service in Euclid?</p><h2>Tell Eternity what the equipment needs.</h2><p>Share the property, system and timing through the existing service-request workflow.</p></div>
-        <div><a className="btn btn-orange" href="/#schedule">Request service <span>↗</span></a><a className="btn-outline light-outline" href="tel:+12162536468">Call 216-253-6468 <span>→</span></a><small>Website requests are typically reviewed within 15 minutes during regular business hours. For urgent service, call directly.</small></div>
+        <div><a className="btn btn-orange" href="/#schedule">Request service <span>↗</span></a><a className="btn-outline light-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a><small>Website requests are typically reviewed within 15 minutes during regular business hours. For urgent service, call directly.</small></div>
       </section>
 
       <SiteFooter />

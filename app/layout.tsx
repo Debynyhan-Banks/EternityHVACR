@@ -37,7 +37,7 @@ const businessSchema = {
       url: "https://eternityhvacr.com",
       logo: "https://eternityhvacr.com/images/eternity-logo.svg",
       image: "https://eternityhvacr.com/og-eternity-hvacr.png",
-      telephone: "+1-216-253-6468",
+      telephone: "+1-216-703-3183",
       email: "ben@eternityhvacr.com",
       description: "Licensed and insured HVAC/R and mechanical contractor serving residential, commercial and multifamily customers throughout Greater Cleveland.",
       identifier: {
@@ -66,7 +66,7 @@ const businessSchema = {
       ],
       contactPoint: {
         "@type": "ContactPoint",
-        telephone: "+1-216-253-6468",
+        telephone: "+1-216-703-3183",
         email: "ben@eternityhvacr.com",
         contactType: "customer service",
         areaServed: "Greater Cleveland, Ohio",

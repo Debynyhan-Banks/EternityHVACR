@@ -234,10 +234,10 @@ function buildCustomerHtmlEmail({
                 </div>
               </td>
             </tr>
-            ${isUrgent ? `<tr><td style="padding:14px 32px 0;"><div style="padding:16px;background:#fff1e8;border-left:4px solid #F47A38;color:#7c2d12;font-size:13px;line-height:1.6;"><strong>System down or urgent situation?</strong> Please call <a href="tel:+12162536468" style="color:#7c2d12;font-weight:700;">216-253-6468</a> for immediate assistance.</div></td></tr>` : ""}
+            ${isUrgent ? `<tr><td style="padding:14px 32px 0;"><div style="padding:16px;background:#fff1e8;border-left:4px solid #F47A38;color:#7c2d12;font-size:13px;line-height:1.6;"><strong>System down or urgent situation?</strong> Please call <a href="tel:+12167033183" style="color:#7c2d12;font-weight:700;">216-703-3183</a> for immediate assistance.</div></td></tr>` : ""}
             <tr>
               <td style="padding:26px 32px 34px;">
-                <a href="tel:+12162536468" style="display:inline-block;padding:14px 18px;background:#0B2646;color:#ffffff;font-size:13px;font-weight:700;text-decoration:none;">Call 216-253-6468 &rarr;</a>
+                <a href="tel:+12167033183" style="display:inline-block;padding:14px 18px;background:#0B2646;color:#ffffff;font-size:13px;font-weight:700;text-decoration:none;">Call 216-703-3183 &rarr;</a>
                 <p style="margin:15px 0 0;color:#667085;font-size:12px;line-height:1.6;">You can also reply directly to this email if you need to add information.</p>
               </td>
             </tr>
@@ -392,7 +392,7 @@ export async function POST(request: Request) {
     details,
     "",
     "Appointment availability and service details are confirmed directly by Eternity Mechanical Services.",
-    "For urgent service, call 216-253-6468.",
+    "For urgent service, call 216-703-3183.",
     "",
     "Eternity Mechanical Services LLC",
     "https://eternityhvacr.com",

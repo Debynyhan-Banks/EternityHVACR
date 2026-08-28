@@ -80,7 +80,7 @@ export default function EuclidPayneHvacCaseStudy() {
           </div>
           <div className="hero-actions">
             <a className="btn btn-orange" href="/#schedule">Request an installation estimate <span>↗</span></a>
-            <a className="btn-outline" href="tel:+12162536468">Call 216-253-6468 <span>→</span></a>
+            <a className="btn-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a>
           </div>
         </div>
         <figure className="case-study-hero-image">

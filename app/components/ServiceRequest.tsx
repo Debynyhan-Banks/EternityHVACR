@@ -62,7 +62,7 @@ export default function ServiceRequest() {
       setComplete(true);
     } catch (reason) {
       const message = reason instanceof Error ? reason.message : "We couldn’t send your request. Please try again.";
-      setError(`${message} You can also call 216-253-6468 or email Ben directly.`);
+      setError(`${message} You can also call 216-703-3183 or email Ben directly.`);
     } finally {
       setSubmitting(false);
     }
@@ -78,7 +78,7 @@ export default function ServiceRequest() {
         {confirmationSent
           ? <p>A confirmation email has been sent to {data.email}.</p>
           : <p>Your request was delivered, but we could not send the confirmation email. Please save this page or contact Eternity directly if needed.</p>}
-        <a href="tel:+12162536468">For urgent service, call 216-253-6468</a>
+        <a href="tel:+12167033183">For urgent service, call 216-703-3183</a>
         <a href="mailto:ben@eternityhvacr.com">Email ben@eternityhvacr.com directly</a>
         <button type="button" onClick={() => { setComplete(false); setStep(0); setData(initial); setConfirmationSent(true); setStartedAt(Date.now()); }}>Start another request</button>
       </div>
@@ -122,7 +122,7 @@ export default function ServiceRequest() {
         <p>Share enough detail for the team to understand the equipment and urgency.</p>
         <label className="field-label">When do you need service?<select value={data.timing} onChange={(event) => update("timing", event.target.value)} required><option value="" disabled>Select timing</option><option>Emergency / system down</option><option>As soon as available</option><option>This week</option><option>Planning an estimate</option><option>Routine maintenance</option></select></label>
         <label className="field-label">Equipment or issue<textarea value={data.details} minLength={10} onChange={(event) => update("details", event.target.value)} placeholder="Tell us what equipment is affected, what you are noticing, and any access details." required /><small className="field-hint">Please enter at least 10 characters.</small></label>
-        {data.timing === "Emergency / system down" && <div className="urgent-note"><b>Emergency request:</b> call <a href="tel:+12162536468">216-253-6468</a> for immediate assistance.</div>}
+        {data.timing === "Emergency / system down" && <div className="urgent-note"><b>Emergency request:</b> call <a href="tel:+12167033183">216-703-3183</a> for immediate assistance.</div>}
       </fieldset>}
 
       {step === 2 && <fieldset>

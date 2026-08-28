@@ -80,7 +80,7 @@ export default function EuclidRooftopDiagnosticCaseStudy() {
           </div>
           <div className="hero-actions">
             <a className="btn btn-orange" href="/#schedule">Request commercial service <span>↗</span></a>
-            <a className="btn-outline" href="tel:+12162536468">Call 216-253-6468 <span>→</span></a>
+            <a className="btn-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a>
           </div>
         </div>
         <figure className="case-study-hero-image rooftop-case-image">
@@ -159,7 +159,7 @@ export default function EuclidRooftopDiagnosticCaseStudy() {
 
       <section className="emergency landing-cta">
         <div><p className="kicker light">Rooftop unit frozen or not cooling?</p><h2>Start with a measured commercial HVAC diagnostic.</h2><p>Tell Eternity what the equipment is doing and what your team has already observed.</p></div>
-        <div><a className="btn btn-orange" href="/#schedule">Request commercial service <span>↗</span></a><a className="btn-outline light-outline" href="/services/commercial-hvac">Commercial HVAC services <span>→</span></a><small>For urgent system-down service, call 216-253-6468.</small></div>
+        <div><a className="btn btn-orange" href="/#schedule">Request commercial service <span>↗</span></a><a className="btn-outline light-outline" href="/services/commercial-hvac">Commercial HVAC services <span>→</span></a><small>For urgent system-down service, call 216-703-3183.</small></div>
       </section>
 
       <SiteFooter />

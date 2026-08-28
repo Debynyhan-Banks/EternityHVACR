@@ -97,7 +97,7 @@ export default function AnswerArticle({ answer }: { answer: ExpertAnswer }) {
         </div>
 
         <aside className="answer-sidebar">
-          <div><span>Need an on-site diagnosis?</span><h2>Get measured findings before approving work.</h2><p>Describe the equipment, symptoms, timing and property location. Eternity serves approved Greater Cleveland and Northeast Ohio communities.</p><a className="btn" href="https://eternityhvacr.com/#schedule">Request service <span>↗</span></a><a className="sidebar-link" href="tel:+12162536468">Call 216-253-6468 →</a></div>
+          <div><span>Need an on-site diagnosis?</span><h2>Get measured findings before approving work.</h2><p>Describe the equipment, symptoms, timing and property location. Eternity serves approved Greater Cleveland and Northeast Ohio communities.</p><a className="btn" href="https://eternityhvacr.com/#schedule">Request service <span>↗</span></a><a className="sidebar-link" href="tel:+12167033183">Call 216-703-3183 →</a></div>
           <nav aria-label="Related pages"><strong>Related pages</strong><a href={answer.serviceHref}>{answer.serviceLabel} →</a>{answer.proofHref && <a href={answer.proofHref}>{answer.proofLabel} →</a>}<a href="/areas-we-serve">Check the service area →</a><a href="/resources">Browse all expert answers →</a></nav>
         </aside>
       </div>
