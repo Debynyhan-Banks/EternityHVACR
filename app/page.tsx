@@ -29,30 +29,31 @@ export default function Home() {
 
     <section className="hero" id="top">
       <div className="hero-copy">
-        <p className="eyebrow"><i /> HVAC <span>•</span> Refrigeration <span>•</span> Mechanical</p>
-        <h1>Built for Comfort.<br /><em>Engineered for Reliability.</em></h1>
-        <p className="hero-lede">Professional heating, cooling, refrigeration, installation, repair and preventive maintenance for homes and businesses throughout Northeast Ohio.</p>
-        <div className="hero-actions"><a className="btn" href="#schedule">Schedule service <span>↗</span></a><a className="btn-outline" href="#schedule">Request an estimate <span>→</span></a></div>
-        <a className="emergency-link" href="tel:+12167033183"><span>HELP</span><p><small>Emergency service available</small><b>Call 216-703-3183</b></p><i>→</i></a>
-        <div className="hero-trust"><span>✓ Licensed & insured • #28303</span><span>✓ Residential & commercial</span><span>✓ Professional diagnostics</span><span>✓ Preventive maintenance</span></div>
+        <img className="hero-brand" src="/images/eternity-logo.svg" alt="Eternity Mechanical Services" width="360" height="160" />
+        <p className="eyebrow"><i /> Cleveland HVAC/R specialists</p>
+        <h1>Comfort.<br /><em>Performance.</em><br />Peace of mind.</h1>
+        <p className="hero-brand-line">Built for Comfort. Engineered for Reliability.</p>
+        <p className="hero-lede">Professional heating, cooling and refrigeration service for homes and businesses throughout Greater Cleveland and Northeast Ohio.</p>
+        <div className="hero-actions"><a className="btn" href="#schedule">Schedule service <span>↗</span></a><a className="btn-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a></div>
+        <div className="hero-assurance"><span>Licensed & insured • #28303</span><span>Emergency service available</span></div>
       </div>
       <div className="hero-media">
-        <picture>
-          <source media="(max-width: 700px)" srcSet="/images/hero-eternity-technician-mobile.webp" type="image/webp" />
-          <source media="(max-width: 700px)" srcSet="/images/hero-eternity-technician-mobile.jpg" />
-          <img
-            src="/images/hero-eternity-technician.jpg"
-            alt="Eternity Mechanical Services technician servicing an indoor HVAC air handler"
-            width="1440"
-            height="1440"
-            fetchPriority="high"
-            decoding="async"
-          />
-        </picture>
-        <div className="media-label"><span><i /> Technical service</span><b>Measured before recommended.</b></div>
-        <div className="metric-card"><p>System evaluation</p><div><span>Electrical</span><i>Verified</i></div><div><span>Temperature</span><i>Measured</i></div><div><span>Operation</span><i>Documented</i></div></div>
-        <i className="hero-line line-one" /><i className="hero-line line-two" />
+        <img
+          src="/images/eternity-van-hero.jpg"
+          alt="Bernard Gray standing beside an Eternity Mechanical Services work van"
+          width="1672"
+          height="941"
+          fetchPriority="high"
+          decoding="async"
+        />
+        <div className="hero-photo-mark"><img src="/images/eternity-logo-reverse.svg" alt="" width="210" height="94" /><span>Serving Greater Cleveland</span></div>
       </div>
+      <nav className="hero-service-rail" aria-label="Featured services">
+        <a href="/services/air-conditioning-repair"><b>AC</b><span>HVAC</span></a>
+        <a href="/services/commercial-hvac"><b>RTU</b><span>Commercial</span></a>
+        <a href="/areas-we-serve"><b>MF</b><span>Multifamily</span></a>
+        <a href="/services/commercial-refrigeration"><b>RF</b><span>Refrigeration</span></a>
+      </nav>
     </section>
 
     <section className="credential-strip" aria-label="Eternity Mechanical capabilities"><div><span>✓</span><b>Licensed & insured • #28303</b></div><div><span>⌂</span><b>Residential</b></div><div><span>▦</span><b>Commercial</b></div><div><span>◇</span><b>Refrigeration</b></div><div><span>↻</span><b>Preventive maintenance</b></div><div><span>＋</span><b>Professional installation</b></div></section>
