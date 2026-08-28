@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import AnalyticsEvents from "./components/Analytics";
+import SignmonsAssistant from "./components/SignmonsAssistant";
 import "./globals.css";
 
 const GOOGLE_ANALYTICS_ID = "G-32W3PBPD8Y";
@@ -121,6 +122,7 @@ gtag('config', '${GOOGLE_ANALYTICS_ID}');
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} />
         <AnalyticsEvents />
         {children}
+        <SignmonsAssistant />
       </body>
     </html>
   );

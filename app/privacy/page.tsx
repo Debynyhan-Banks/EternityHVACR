@@ -21,6 +21,9 @@ export default function PrivacyPage() {
       <p>When you send a service request, we collect the information you enter, such as your name, phone number, email address, property type, requested service, timing and equipment or issue details. If you call, text or email Eternity directly, we receive the information included in that communication.</p>
       <p>The website also receives limited technical information needed to operate securely, such as request timing and network information used for abuse prevention. Google Analytics collects website usage information such as page visits, referral source and contact-button events. Eternity does not intentionally send service-request names, phone numbers, email addresses or issue descriptions to Google Analytics.</p>
 
+      <h2>Automated service assistant</h2>
+      <p>The Signmons-powered service assistant helps visitors choose a request category and reach Eternity by form, phone, text or email. The assistant does not ask for or submit contact, payment or issue-description information. Its selections remain in the current page session. Eternity may measure non-personal interaction categories—such as opening the assistant, selecting a service path or choosing a contact method—to improve the experience. Do not enter sensitive information into the assistant.</p>
+
       <h2>How we use information</h2>
       <ul><li>Respond to the service or estimate request you initiated.</li><li>Confirm that a website request was received.</li><li>Prepare for a call, visit, estimate or follow-up.</li><li>Protect the website from spam, fraud and misuse.</li><li>Measure website performance and improve the customer experience.</li><li>Maintain records reasonably needed for business, safety or legal purposes.</li></ul>
 

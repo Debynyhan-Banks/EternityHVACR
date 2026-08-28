@@ -20,6 +20,9 @@ export default function TermsPage() {
       <h2>Website information</h2>
       <p>The website provides general information about Eternity Mechanical Services, service categories, service areas and previously completed work. Equipment conditions vary. Educational content is not a remote diagnosis and is not a substitute for inspection, measurements or manufacturer-specific procedures.</p>
 
+      <h2>Automated service assistant</h2>
+      <p>The Signmons-powered service assistant provides automated routing guidance only. It is not a technician, does not inspect or diagnose equipment, does not provide a price or estimate and does not create an appointment, service contract or emergency dispatch. A visitor must still contact Eternity or submit the service-request form for human follow-up.</p>
+
       <h2>Requests, estimates and appointments</h2>
       <p>A website, phone, email or text request is an invitation for Eternity to follow up. Appointment timing, technician availability, scope, pricing, payment terms, parts, warranty coverage and any other job-specific conditions are confirmed separately by Eternity. The stated 15-minute target refers to review or reply during regular business hours and is not a technician-arrival promise.</p>
 

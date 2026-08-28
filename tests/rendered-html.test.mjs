@@ -134,7 +134,31 @@ test("publishes clear privacy and website terms", async () => {
   assert.match(privacy, /<link rel="canonical" href="https:\/\/eternityhvacr\.com\/privacy"/);
   assert.match(terms, /does not create an appointment/);
   assert.match(terms, /The website is not an emergency-dispatch service/);
+  assert.match(privacy, /Signmons-powered service assistant/);
+  assert.match(privacy, /does not ask for or submit contact, payment or issue-description information/);
+  assert.match(terms, /provides automated routing guidance only/);
   assert.match(terms, /<link rel="canonical" href="https:\/\/eternityhvacr\.com\/terms"/);
+});
+
+test("publishes a disclosed Signmons service-routing assistant with safety and human handoff", async () => {
+  const [homeResponse, component] = await Promise.all([
+    render("/"),
+    readFile(new URL("../app/components/SignmonsAssistant.tsx", import.meta.url), "utf8"),
+  ]);
+  assert.equal(homeResponse.status, 200);
+  const home = await homeResponse.text();
+  assert.match(home, /Ask Eternity/);
+  assert.match(home, /Automated service assistant/);
+  assert.match(component, /It is not a technician, cannot diagnose equipment/);
+  assert.match(component, /Do not rely on this website for emergency help/);
+  assert.match(component, /href="tel:911"/);
+  assert.match(component, /href="tel:\+12167033183"/);
+  assert.match(component, /href="sms:\+12167033183"/);
+  assert.match(component, /href="\/#schedule"/);
+  assert.match(component, /"assistant_open"/);
+  assert.match(component, /"assistant_path_selected"/);
+  assert.match(component, /"assistant_handoff"/);
+  assert.doesNotMatch(component, /fetch\(/);
 });
 
 test("publishes an indexable expert-answer library", async () => {

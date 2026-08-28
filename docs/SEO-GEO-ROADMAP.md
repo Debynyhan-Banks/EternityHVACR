@@ -246,6 +246,7 @@ Google’s current guidance says there is no special schema or writing format re
 - [ ] Service request with photo or short-video upload
 - [ ] Commercial equipment intake for make, model and serial number
 - [x] Separate emergency and estimate request paths
+- [x] Disclosed Signmons service-routing assistant with structured HVAC/R qualification, life-safety limits, privacy-conscious interaction events and direct human handoff; live AI diagnosis remains disabled until an approved API, authentication and response-safety contract exists
 - [ ] Preventive-maintenance plan comparison
 - [ ] Downloadable example diagnostic report
 - [ ] “Save Eternity to Contacts” mobile action
