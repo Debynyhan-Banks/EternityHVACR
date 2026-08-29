@@ -172,12 +172,15 @@ export default function SignmonsAssistant() {
       ref={launcherRef}
       type="button"
       className="signmons-launcher"
+      aria-label="Open Ask Eternity service chatbot"
       aria-haspopup="dialog"
       aria-expanded={open}
       onClick={openAssistant}
     >
-      <span>Ask Eternity</span>
-      <small>Automated service assistant</small>
+      <span className="signmons-launcher-icon" aria-hidden="true">✦</span>
+      <span className="signmons-launcher-copy"><b>Ask Eternity</b><small>Service chatbot</small></span>
+      <span className="signmons-launcher-actions" aria-hidden="true"><i>Ask</i><i>Service</i><i>Safety</i></span>
+      <span className="signmons-visually-hidden">Automated service assistant</span>
     </button>
 
     {open && <div className="signmons-overlay">
