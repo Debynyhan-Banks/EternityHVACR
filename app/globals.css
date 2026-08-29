@@ -495,7 +495,7 @@ footer .sms-disclosure a,.footer-bottom a{text-decoration:underline;text-underli
   .hero h1 em{color:var(--navy)}
   .hero-brand-line{margin-bottom:16px;font-size:11px;line-height:1.4}
   .hero-lede{max-width:390px;margin-bottom:0;color:#3f4e61;font-size:14px;line-height:1.58}
-  .hero-actions{position:absolute;left:20px;right:20px;bottom:74px;display:grid;grid-template-columns:1fr;align-items:stretch;gap:18px;pointer-events:auto}
+  .hero-actions{position:absolute;left:20px;right:20px;bottom:84px;display:grid;grid-template-columns:1fr;align-items:stretch;gap:18px;pointer-events:auto}
   .hero-actions>*{width:100%}
   .hero-actions .btn{min-height:52px;padding:0 18px;gap:9px;font-size:13px;white-space:nowrap}
   .hero-assistant-cta{order:-1;width:auto!important;min-width:156px;min-height:44px;padding:5px 13px 5px 6px;justify-self:end;display:flex;align-items:center;gap:8px;border:2px solid var(--orange);border-radius:999px;background:#fff;color:var(--navy);box-shadow:0 8px 22px rgba(7,26,49,.18);text-align:left;cursor:pointer}
@@ -525,7 +525,7 @@ footer .sms-disclosure a,.footer-bottom a{text-decoration:underline;text-underli
   .header{gap:10px}
   .header-actions .btn-small{display:none}
   .hero-copy{padding-left:16px;padding-right:16px}
-  .hero-actions{left:16px;right:16px;bottom:72px;grid-template-columns:1fr}
+  .hero-actions{left:16px;right:16px;bottom:82px;grid-template-columns:1fr}
   .hero-assurance{left:16px;right:16px;bottom:222px}
   .hero{grid-template-rows:660px auto}
   .hero-copy{min-height:660px;padding:34px 16px 158px}
