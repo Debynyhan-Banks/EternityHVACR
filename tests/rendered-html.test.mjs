@@ -37,7 +37,9 @@ test("renders the Eternity homepage with approved business information", async (
   assert.match(html, /<title>Eternity Mechanical Services \| HVAC &amp; Mechanical Contractor<\/title>/i);
   assert.match(html, /<link rel="canonical" href="https:\/\/eternityhvacr\.com"\s*\/>/i);
   assert.match(html, /Built for Comfort\./);
-  assert.match(html, /Comfort\.<br\s*\/>.*Performance\..*Peace of mind\./s);
+  assert.match(html, /Cleveland HVAC,<br\s*\/>.*refrigeration.*boiler service\./s);
+  assert.match(html, /Comfort\. Performance\. Peace of mind\./);
+  assert.match(html, /28 years of owner experience/);
   assert.match(html, /eternity-van-hero\.jpg/);
   assert.match(html, /eternity-van-hero-mobile-b\.jpg/);
   assert.match(html, /Bernard Gray standing beside an Eternity Mechanical Services work van/);
@@ -160,7 +162,10 @@ test("publishes a disclosed Signmons service-routing assistant with safety and h
   assert.match(component, /Messages are processed by Signmons and OpenAI/);
   assert.match(component, /cannot diagnose equipment or book an appointment/);
   assert.match(component, /fetch\("\/api\/signmons"/);
-  assert.match(component, /I understand — start chat/);
+  assert.match(component, /Describe a problem/);
+  assert.match(component, /Request service/);
+  assert.match(component, /Emergency safety/);
+  assert.match(component, /Check service area/);
   assert.match(component, /Do not rely on this website for emergency help/);
   assert.match(component, /href="tel:911"/);
   assert.match(component, /href="tel:\+12167033183"/);

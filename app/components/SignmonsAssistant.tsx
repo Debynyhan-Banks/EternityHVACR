@@ -43,6 +43,7 @@ export default function SignmonsAssistant() {
   const [chatLoading, setChatLoading] = useState(false);
   const [chatError, setChatError] = useState("");
   const launcherRef = useRef<HTMLButtonElement>(null);
+  const openerRef = useRef<HTMLElement | null>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLElement>(null);
   const sessionIdRef = useRef("");
@@ -51,7 +52,7 @@ export default function SignmonsAssistant() {
   useEffect(() => {
     if (!open) return;
 
-    const launcher = launcherRef.current;
+    const defaultLauncher = launcherRef.current;
     closeRef.current?.focus();
     const manageDialogKeys = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
@@ -74,15 +75,29 @@ export default function SignmonsAssistant() {
     document.addEventListener("keydown", manageDialogKeys);
     return () => {
       document.removeEventListener("keydown", manageDialogKeys);
-      launcher?.focus();
+      (openerRef.current ?? defaultLauncher)?.focus();
     };
   }, [open]);
+
+  useEffect(() => {
+    const openFromPageControl = (event: MouseEvent) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      const control = target.closest<HTMLElement>("[data-open-assistant]");
+      if (!control) return;
+      openerRef.current = control;
+      openAssistant();
+    };
+    document.addEventListener("click", openFromPageControl);
+    return () => document.removeEventListener("click", openFromPageControl);
+  }, []);
 
   useEffect(() => {
     if (screen === "chat") chatEndRef.current?.scrollIntoView({ block: "nearest" });
   }, [screen, chatMessages, chatLoading]);
 
-  function openAssistant() {
+  function openAssistant(opener?: HTMLElement) {
+    if (opener) openerRef.current = opener;
     setOpen(true);
     trackGoogleEvent("assistant_open", { assistant: "signmons_router" });
   }
@@ -175,11 +190,10 @@ export default function SignmonsAssistant() {
       aria-label="Open Ask Eternity service chatbot"
       aria-haspopup="dialog"
       aria-expanded={open}
-      onClick={openAssistant}
+      onClick={(event) => openAssistant(event.currentTarget)}
     >
       <span className="signmons-launcher-icon" aria-hidden="true">✦</span>
-      <span className="signmons-launcher-copy"><b>Ask Eternity</b><small>Service chatbot</small></span>
-      <span className="signmons-launcher-actions" aria-hidden="true"><i>Ask</i><i>Service</i><i>Safety</i></span>
+      <span className="signmons-launcher-copy"><b>Ask Eternity</b><small>AI help now</small></span>
       <span className="signmons-visually-hidden">Automated service assistant</span>
     </button>
 
@@ -202,14 +216,15 @@ export default function SignmonsAssistant() {
             <div className="signmons-chat-intro">
               <span>AI-assisted service conversation</span>
               <h2>Get a quick first response.</h2>
-              <p>Describe the equipment problem in your own words. The assistant can ask follow-up questions and prepare details for human review.</p>
-              <button type="button" onClick={startChat}>I understand — start chat</button>
+              <p>Describe the equipment problem, request service or find the right next step. Human follow-up is available when needed.</p>
             </div>
-            <button type="button" className="signmons-safety-choice" onClick={showSafety}>
-              <strong>Gas, carbon monoxide, fire or electrical danger</strong>
-              <span>Show immediate safety guidance</span>
-            </button>
-            <div className="signmons-progress"><span>Prefer guided routing?</span><b>Choose the closest match</b></div>
+            <div className="signmons-quick-actions" aria-label="Popular assistant actions">
+              <button type="button" onClick={startChat}><strong>Describe a problem</strong><span>Chat about the equipment symptoms</span></button>
+              <Link href="/#schedule" onClick={() => trackHandoff("request_form")}><strong>Request service</strong><span>Send details to Eternity</span></Link>
+              <button type="button" onClick={showSafety}><strong>Emergency safety</strong><span>Gas, CO, fire or electrical danger</span></button>
+              <Link href="/areas-we-serve" onClick={() => setOpen(false)}><strong>Check service area</strong><span>Greater Cleveland coverage</span></Link>
+            </div>
+            <div className="signmons-progress"><span>Choose a service type</span><b>Guided routing</b></div>
             <div className="signmons-choices">
               {requestPaths.map((path) => <button type="button" key={path.id} onClick={() => choosePath(path)}>
                 <strong>{path.title}</strong>

@@ -29,13 +29,12 @@ export default function Home() {
 
     <section className="hero" id="top">
       <div className="hero-copy">
-        <img className="hero-brand" src="/images/eternity-logo.svg" alt="Eternity Mechanical Services" width="360" height="160" />
-        <p className="eyebrow"><i /> Cleveland HVAC/R specialists</p>
-        <h1>Comfort.<br /><em>Performance.</em><br />Peace of mind.</h1>
-        <p className="hero-brand-line">Built for Comfort. Engineered for Reliability.</p>
-        <p className="hero-lede">Professional heating, cooling and refrigeration service for homes and businesses throughout Greater Cleveland and Northeast Ohio.</p>
-        <div className="hero-actions"><a className="btn" href="#schedule">Schedule service <span>↗</span></a><a className="btn-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a></div>
-        <div className="hero-assurance"><span>Licensed & insured • #28303</span><span>Emergency service available</span></div>
+        <p className="eyebrow"><i /> Greater Cleveland mechanical service</p>
+        <h1>Cleveland HVAC,<br /><em>refrigeration</em><br />&amp; boiler service.</h1>
+        <p className="hero-brand-line">Comfort. Performance. Peace of mind.</p>
+        <p className="hero-lede">Residential and commercial repair, installation and preventive maintenance throughout Greater Cleveland and Northeast Ohio.</p>
+        <div className="hero-actions"><a className="btn btn-orange" href="#schedule">Request service <span>↗</span></a></div>
+        <div className="hero-assurance"><span>28 years of owner experience</span><span>Licensed &amp; insured • #28303</span><span>Emergency service available</span></div>
       </div>
       <div className="hero-media">
         <picture>
