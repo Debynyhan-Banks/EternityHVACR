@@ -176,9 +176,15 @@ test("publishes a disclosed Signmons service-routing assistant with safety and h
   assert.match(component, /"assistant_handoff"/);
   assert.match(component, /"assistant_message_sent"/);
   assert.match(component, /"assistant_response_received"/);
+  assert.match(component, /Reviewing the request details/);
+  assert.match(component, /Finishing securely/);
+  assert.match(component, /Try again/);
+  assert.match(component, /Your previous details are still in this chat/);
+  assert.match(component, /result\.status === "job_created"/);
   assert.match(proxyRoute, /process\.env\.SIGNMONS_WEBCHAT_KEY/);
   assert.match(proxyRoute, /authorization: `Bearer \$\{integrationKey\}`/);
   assert.match(proxyRoute, /RATE_LIMIT_MAX = 12/);
+  assert.match(proxyRoute, /reference \$\{reference\}/);
   assert.doesNotMatch(component, /SIGNMONS_WEBCHAT_KEY|Authorization: Bearer/);
 });
 

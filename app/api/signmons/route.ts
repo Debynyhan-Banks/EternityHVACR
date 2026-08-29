@@ -14,7 +14,13 @@ type SignmonsResponse = {
   message?: unknown;
   requiresHumanHandoff?: unknown;
   emergencyServicesRecommended?: unknown;
+  job?: { id?: unknown };
 };
+
+function getJobReference(payload: SignmonsResponse) {
+  const id = payload.job?.id;
+  return typeof id === "string" ? id.replace(/-/g, "").slice(0, 8).toUpperCase() : "";
+}
 
 function isAllowedOrigin(request: Request) {
   const origin = request.headers.get("origin");
@@ -50,7 +56,8 @@ function isRateLimited(request: Request) {
 
 function getReply(payload: SignmonsResponse) {
   if (payload.status === "job_created") {
-    return "Your request details were recorded for Eternity Mechanical Services. A team member will follow up using the contact information you provided. This is not an appointment confirmation.";
+    const reference = getJobReference(payload);
+    return `Your request was recorded successfully${reference ? ` — reference ${reference}` : ""}. Eternity will follow up using the contact information you provided. This is not an appointment confirmation.`;
   }
 
   if (typeof payload.reply === "string" && payload.reply.trim()) {
@@ -133,6 +140,7 @@ export async function POST(request: Request) {
       reply: getReply(result),
       requiresHumanHandoff: result.requiresHumanHandoff === true,
       emergencyServicesRecommended: result.emergencyServicesRecommended === true,
+      jobReference: getJobReference(result) || undefined,
     });
   } catch {
     return Response.json(

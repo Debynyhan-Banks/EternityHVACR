@@ -7,7 +7,14 @@ import { trackGoogleEvent } from "./Analytics";
 type RequestPath = "urgent" | "cooling" | "heating" | "commercial" | "estimate" | "maintenance";
 type PropertyType = "home" | "business" | "managed";
 type Screen = "start" | "property" | "handoff" | "chat" | "safety";
-type ChatMessage = { id: string; role: "assistant" | "user"; text: string; safety?: boolean };
+type ChatMessage = { id: string; role: "assistant" | "user"; text: string; safety?: boolean; success?: boolean };
+type SignmonsApiResult = {
+  status?: "reply" | "needs_correction" | "job_created";
+  reply?: string;
+  error?: string;
+  requiresHumanHandoff?: boolean;
+  jobReference?: string;
+};
 
 const initialChatMessage: ChatMessage = {
   id: "welcome",
@@ -41,7 +48,9 @@ export default function SignmonsAssistant() {
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([initialChatMessage]);
   const [chatInput, setChatInput] = useState("");
   const [chatLoading, setChatLoading] = useState(false);
+  const [chatLoadingStage, setChatLoadingStage] = useState(0);
   const [chatError, setChatError] = useState("");
+  const [lastFailedMessage, setLastFailedMessage] = useState("");
   const launcherRef = useRef<HTMLButtonElement>(null);
   const openerRef = useRef<HTMLElement | null>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -96,6 +105,16 @@ export default function SignmonsAssistant() {
     if (screen === "chat") chatEndRef.current?.scrollIntoView({ block: "nearest" });
   }, [screen, chatMessages, chatLoading]);
 
+  useEffect(() => {
+    if (!chatLoading) return;
+    const reviewingTimer = window.setTimeout(() => setChatLoadingStage(1), 2500);
+    const savingTimer = window.setTimeout(() => setChatLoadingStage(2), 6500);
+    return () => {
+      window.clearTimeout(reviewingTimer);
+      window.clearTimeout(savingTimer);
+    };
+  }, [chatLoading]);
+
   function openAssistant(opener?: HTMLElement) {
     if (opener) openerRef.current = opener;
     setOpen(true);
@@ -130,11 +149,20 @@ export default function SignmonsAssistant() {
     const message = chatInput.trim();
     if (!message || chatLoading) return;
 
-    if (!sessionIdRef.current) sessionIdRef.current = crypto.randomUUID();
-    const userMessage: ChatMessage = { id: crypto.randomUUID(), role: "user", text: message };
-    setChatMessages((messages) => [...messages, userMessage]);
     setChatInput("");
+    await submitChatMessage(message);
+  }
+
+  async function submitChatMessage(message: string, retry = false) {
+    if (!message || chatLoading) return;
+
+    if (!sessionIdRef.current) sessionIdRef.current = crypto.randomUUID();
+    if (!retry) {
+      const userMessage: ChatMessage = { id: crypto.randomUUID(), role: "user", text: message };
+      setChatMessages((messages) => [...messages, userMessage]);
+    }
     setChatError("");
+    setChatLoadingStage(0);
     setChatLoading(true);
     trackGoogleEvent("assistant_message_sent", { assistant: "signmons_calldesk" });
 
@@ -144,7 +172,7 @@ export default function SignmonsAssistant() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ sessionId: sessionIdRef.current, message, website: "" }),
       });
-      const result = await response.json() as { reply?: string; error?: string; requiresHumanHandoff?: boolean };
+      const result = await response.json() as SignmonsApiResult;
       if (!response.ok || !result.reply) {
         throw new Error(result.error || "The assistant could not respond.");
       }
@@ -154,16 +182,26 @@ export default function SignmonsAssistant() {
         role: "assistant",
         text: result.reply as string,
         safety: result.requiresHumanHandoff === true,
+        success: result.status === "job_created",
       }]);
+      setLastFailedMessage("");
       trackGoogleEvent("assistant_response_received", {
         assistant: "signmons_calldesk",
         safety_handoff: result.requiresHumanHandoff === true,
+        response_status: result.status ?? "reply",
       });
     } catch (error) {
+      setLastFailedMessage(message);
       setChatError(error instanceof Error ? error.message : "The assistant could not respond.");
     } finally {
       setChatLoading(false);
+      setChatLoadingStage(0);
     }
+  }
+
+  function retryLastMessage() {
+    if (!lastFailedMessage || chatLoading) return;
+    void submitChatMessage(lastFailedMessage, true);
   }
 
   function trackHandoff(method: "call" | "text" | "email" | "request_form") {
@@ -269,14 +307,26 @@ export default function SignmonsAssistant() {
               <button type="button" onClick={reset}>Service menu</button>
             </div>
             <div className="signmons-messages" aria-live="polite" aria-busy={chatLoading}>
-              {chatMessages.map((message) => <div key={message.id} className={`signmons-message ${message.role}${message.safety ? " safety" : ""}`}>
+              {chatMessages.map((message) => <div key={message.id} className={`signmons-message ${message.role}${message.safety ? " safety" : ""}${message.success ? " success" : ""}`}>
                 <span>{message.role === "assistant" ? "Assistant" : "You"}</span>
                 <p>{message.text}</p>
               </div>)}
-              {chatLoading && <div className="signmons-message assistant loading"><span>Assistant</span><p>Preparing a response…</p></div>}
+              {chatLoading && <div className="signmons-message assistant loading"><span>Assistant</span><p>{[
+                "Preparing a response…",
+                "Reviewing the request details…",
+                "Finishing securely—please keep this window open…",
+              ][chatLoadingStage]}</p></div>}
               <div ref={chatEndRef} />
             </div>
-            {chatError && <div className="signmons-chat-error" role="alert">{chatError}</div>}
+            {chatError && <div className="signmons-chat-error" role="alert">
+              <strong>We couldn’t finish that step.</strong>
+              <span>{chatError} Your previous details are still in this chat.</span>
+              <div>
+                <button type="button" onClick={retryLastMessage} disabled={chatLoading}>Try again</button>
+                <a href="tel:+12167033183">Call</a>
+                <a href="sms:+12167033183">Text</a>
+              </div>
+            </div>}
             <form className="signmons-chat-form" onSubmit={sendChatMessage}>
               <label htmlFor="signmons-message">Describe the equipment or service question</label>
               <textarea
