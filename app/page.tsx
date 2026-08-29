@@ -33,7 +33,12 @@ export default function Home() {
         <h1>Cleveland HVAC,<br /><em>refrigeration</em><br />&amp; boiler service.</h1>
         <p className="hero-brand-line">Comfort. Performance. Peace of mind.</p>
         <p className="hero-lede">Residential and commercial repair, installation and preventive maintenance throughout Greater Cleveland and Northeast Ohio.</p>
-        <div className="hero-actions"><a className="btn btn-orange" href="#schedule">Request service <span>↗</span></a></div>
+        <div className="hero-actions">
+          <a className="btn btn-orange" href="#schedule">Request service <span>↗</span></a>
+          <button type="button" className="hero-assistant-cta" data-open-assistant aria-haspopup="dialog">
+            <span aria-hidden="true">✦</span><span><b>Ask Eternity</b><small>AI help now</small></span>
+          </button>
+        </div>
         <div className="hero-assurance"><span>28 years of owner experience</span><span>Licensed &amp; insured • #28303</span><span>Emergency service available</span></div>
       </div>
       <div className="hero-media">

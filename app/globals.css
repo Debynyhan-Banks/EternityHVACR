@@ -449,6 +449,7 @@ footer .sms-disclosure a,.footer-bottom a{text-decoration:underline;text-underli
 .hero-brand-line{margin:0 0 18px;color:var(--navy);font-family:var(--font-manrope),Arial,sans-serif;font-size:14px;font-weight:900;letter-spacing:.035em;text-transform:uppercase}
 .hero-lede{max-width:600px;margin-bottom:32px;font-size:16px;line-height:1.65}
 .hero-actions{gap:13px}
+.hero-assistant-cta{display:none}
 .hero-assurance{margin-top:28px;display:flex;gap:14px 18px;flex-wrap:wrap;color:#485a70;font-size:11px;font-weight:850}
 .hero-assurance span{display:flex;align-items:center;gap:8px}
 .hero-assurance span:before{content:"✓";width:21px;height:21px;display:grid;place-items:center;border-radius:50%;background:var(--navy);color:#fff;font-size:10px}
@@ -497,6 +498,11 @@ footer .sms-disclosure a,.footer-bottom a{text-decoration:underline;text-underli
   .hero-actions{position:absolute;left:20px;right:20px;bottom:106px;display:grid;grid-template-columns:1fr;gap:10px;pointer-events:auto}
   .hero-actions>*{width:100%}
   .hero-actions .btn{min-height:52px;padding:0 18px;gap:9px;font-size:13px;white-space:nowrap}
+  .hero-assistant-cta{order:-1;width:auto!important;min-height:44px;padding:6px 13px 6px 7px;justify-self:end;display:flex;align-items:center;gap:8px;border:2px solid var(--orange);border-radius:999px;background:#fff;color:var(--navy);box-shadow:0 8px 22px rgba(7,26,49,.18);text-align:left;cursor:pointer}
+  .hero-assistant-cta>span:first-child{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:var(--orange);font-size:13px}
+  .hero-assistant-cta b,.hero-assistant-cta small{display:block;white-space:nowrap}
+  .hero-assistant-cta b{font-family:var(--font-manrope),Arial,sans-serif;font-size:11px;font-weight:900}
+  .hero-assistant-cta small{margin-top:1px;color:#526174;font-size:7px;font-weight:800}
   .hero-assurance{position:absolute;left:20px;right:20px;bottom:18px;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:7px;color:#485a70;font-size:9px}
   .hero-assurance span{min-height:28px;padding:4px 7px;border-radius:999px;background:rgba(255,255,255,.9);box-shadow:0 2px 9px rgba(7,26,49,.09);backdrop-filter:blur(5px)}
   .hero-assurance span:last-child{grid-column:1/-1;justify-self:start}

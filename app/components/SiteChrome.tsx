@@ -18,7 +18,7 @@ export function SiteFooter() {
     <nav className="mobile-bar" aria-label="Quick contact actions">
       <a href="tel:+12167033183"><span aria-hidden="true">☎</span>Call</a>
       <Link href="/#schedule"><span aria-hidden="true">＋</span>Request</Link>
-      <button type="button" data-open-assistant aria-haspopup="dialog"><span aria-hidden="true">✦</span>Ask Eternity</button>
+      <a data-sms-link href="sms:+12167033183"><span aria-hidden="true">✉</span>Text</a>
     </nav>
   </>;
 }
