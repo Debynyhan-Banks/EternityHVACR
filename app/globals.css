@@ -479,8 +479,8 @@ footer .sms-disclosure a,.footer-bottom a{text-decoration:underline;text-underli
 }
 
 @media(max-width:700px){
-  .hero{min-height:0;display:grid;grid-template-columns:1fr;grid-template-rows:820px auto;background:#fff;color:var(--text)}
-  .hero-copy{grid-area:1/1;z-index:3;width:100%;min-height:820px;padding:30px 20px 290px;display:block;background:linear-gradient(180deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.91) 36%,rgba(255,255,255,.32) 49%,rgba(255,255,255,0) 59%);color:var(--text);pointer-events:none}
+  .hero{min-height:0;display:grid;grid-template-columns:1fr;grid-template-rows:680px auto;background:#fff;color:var(--text)}
+  .hero-copy{grid-area:1/1;z-index:3;width:100%;min-height:680px;padding:30px 20px 110px;display:block;background:linear-gradient(180deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.91) 42%,rgba(255,255,255,.6) 62%,rgba(255,255,255,.18) 75%,rgba(255,255,255,0) 84%);color:var(--text);pointer-events:none}
   .hero-copy:before{display:none}
   .hero-copy:after{display:none}
   .hero-brand{width:142px;margin-bottom:17px}
@@ -496,7 +496,7 @@ footer .sms-disclosure a,.footer-bottom a{text-decoration:underline;text-underli
   .hero-assurance{margin-top:13px;display:flex;gap:10px;color:#485a70;font-size:9px}
   .hero-assurance span{padding:4px 6px;border-radius:999px;background:rgba(255,255,255,.82);box-shadow:0 2px 9px rgba(7,26,49,.09);backdrop-filter:blur(5px)}
   .hero-assurance span:before{width:17px;height:17px;font-size:8px}
-  .hero-media{position:relative;inset:auto;grid-area:1/1;width:100%;height:820px;min-height:820px;background:#fff}
+  .hero-media{position:relative;inset:auto;grid-area:1/1;width:100%;height:680px;min-height:680px;background:#fff}
   .hero-media>picture>img{height:calc(100% + 220px);object-fit:cover;object-position:center 52%;transform:translateY(-220px)}
   .hero-media:after{background:linear-gradient(180deg,rgba(255,255,255,.05) 0%,transparent 70%,rgba(7,26,49,.12) 100%)}
   .hero-photo-mark{display:none}
@@ -510,8 +510,8 @@ footer .sms-disclosure a,.footer-bottom a{text-decoration:underline;text-underli
   .header{gap:10px}
   .header-actions .btn-small{display:none}
   .hero-copy{padding-left:16px;padding-right:16px}
-  .hero{grid-template-rows:800px auto}
-  .hero-copy{min-height:800px;padding-bottom:270px}
+  .hero{grid-template-rows:660px auto}
+  .hero-copy{min-height:660px;padding-bottom:90px}
   .hero h1{font-size:40px}
-  .hero-media{height:800px;min-height:800px}
+  .hero-media{height:660px;min-height:660px}
 }
