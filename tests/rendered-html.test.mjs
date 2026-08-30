@@ -255,7 +255,19 @@ test("verifies the Signmons booking contract before reporting success", async (t
   const availability = await dispatch(new Request("https://eternityhvacr.com/api/signmons", {
     method: "POST",
     headers: { origin: "https://eternityhvacr.com", "content-type": "application/json" },
-    body: JSON.stringify({ sessionId: "session-1234", message: "My AC is blowing hot air", website: "" }),
+    body: JSON.stringify({
+      sessionId: "session-1234",
+      message: "My AC is blowing hot air",
+      website: "",
+      attribution: {
+        channel: "website_chat",
+        landingPage: "/resources/furnace-repair-vs-replacement",
+        sourcePage: "/services/furnace-heating-repair",
+        referrerHost: "www.google.com",
+        utmSource: "google",
+        utmMedium: "organic",
+      },
+    }),
   }));
   assert.equal(availability.status, 200);
   assert.equal(availability.headers.get("cache-control"), "no-store");
@@ -266,6 +278,14 @@ test("verifies the Signmons booking contract before reporting success", async (t
   assert.equal(availabilityBody.slots[0].label, "Tuesday, 9–11 AM");
   assert.equal(outbound[0].url, "https://signmons.example/api/integrations/webchat/triage");
   assert.equal(outbound[0].init.headers.authorization, "Bearer test-integration-key");
+  assert.deepEqual(JSON.parse(outbound[0].init.body).attribution, {
+    channel: "website_chat",
+    landingPage: "/resources/furnace-repair-vs-replacement",
+    sourcePage: "/services/furnace-heating-repair",
+    referrerHost: "www.google.com",
+    utmSource: "google",
+    utmMedium: "organic",
+  });
 
   upstream = {
     status: 200,
@@ -277,7 +297,12 @@ test("verifies the Signmons booking contract before reporting success", async (t
   const unverified = await dispatch(new Request("https://eternityhvacr.com/api/signmons", {
     method: "POST",
     headers: { origin: "https://eternityhvacr.com", "content-type": "application/json" },
-    body: JSON.stringify({ sessionId: "session-5678", message: "Please submit this", website: "" }),
+    body: JSON.stringify({
+      sessionId: "session-5678",
+      message: "Please submit this",
+      website: "",
+      attribution: { channel: "website_chat", landingPage: "/", sourcePage: "/" },
+    }),
   }));
   assert.equal(unverified.status, 502);
   assert.match((await unverified.json()).error, /could not verify that the request was saved/i);

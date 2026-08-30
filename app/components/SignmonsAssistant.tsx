@@ -9,6 +9,15 @@ type PropertyType = "home" | "business" | "managed";
 type Screen = "start" | "property" | "handoff" | "chat" | "safety";
 type ChatMessage = { id: string; role: "assistant" | "user"; text: string; safety?: boolean; success?: boolean; manageHref?: string };
 type AppointmentSlot = { token: string; start: string; end: string; label: string };
+type LeadAttribution = {
+  channel: "website_chat";
+  landingPage: string;
+  sourcePage: string;
+  referrerHost?: string;
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
+};
 type SignmonsApiResult = {
   status?: "reply" | "needs_correction" | "job_created" | "availability" | "appointment_confirmed";
   reply?: string;
@@ -42,6 +51,43 @@ const propertyTypes: Array<{ id: PropertyType; title: string }> = [
 
 const pathLabels = Object.fromEntries(requestPaths.map((path) => [path.id, path.title])) as Record<RequestPath, string>;
 const propertyLabels = Object.fromEntries(propertyTypes.map((property) => [property.id, property.title])) as Record<PropertyType, string>;
+const ATTRIBUTION_STORAGE_KEY = "eternity_lead_attribution";
+
+function getReferrerHost() {
+  if (!document.referrer) return undefined;
+  try {
+    return new URL(document.referrer).hostname.toLowerCase().slice(0, 253) || undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+function captureLeadAttribution(): LeadAttribution {
+  const currentPage = window.location.pathname.slice(0, 200) || "/";
+  let stored: Partial<LeadAttribution> = {};
+  try {
+    stored = JSON.parse(sessionStorage.getItem(ATTRIBUTION_STORAGE_KEY) ?? "{}") as Partial<LeadAttribution>;
+  } catch {
+    stored = {};
+  }
+  const campaign = new URLSearchParams(window.location.search);
+  const value = (name: string, limit: number) => campaign.get(name)?.trim().slice(0, limit) || undefined;
+  const attribution: LeadAttribution = {
+    channel: "website_chat",
+    landingPage: stored.landingPage ?? currentPage,
+    sourcePage: currentPage,
+    referrerHost: stored.referrerHost ?? getReferrerHost(),
+    utmSource: stored.utmSource ?? value("utm_source", 100),
+    utmMedium: stored.utmMedium ?? value("utm_medium", 100),
+    utmCampaign: stored.utmCampaign ?? value("utm_campaign", 160),
+  };
+  try {
+    sessionStorage.setItem(ATTRIBUTION_STORAGE_KEY, JSON.stringify(attribution));
+  } catch {
+    // Attribution is an enhancement; chat remains available if storage is blocked.
+  }
+  return attribution;
+}
 
 export default function SignmonsAssistant() {
   const [open, setOpen] = useState(false);
@@ -62,6 +108,7 @@ export default function SignmonsAssistant() {
   const closeRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLElement>(null);
   const sessionIdRef = useRef("");
+  const leadAttributionRef = useRef<LeadAttribution | null>(null);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -123,6 +170,7 @@ export default function SignmonsAssistant() {
 
   function openAssistant(opener?: HTMLElement) {
     if (opener) openerRef.current = opener;
+    if (!leadAttributionRef.current) leadAttributionRef.current = captureLeadAttribution();
     setOpen(true);
     trackGoogleEvent("assistant_open", { assistant: "signmons_router" });
   }
@@ -176,7 +224,12 @@ export default function SignmonsAssistant() {
       const response = await fetch("/api/signmons", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ sessionId: sessionIdRef.current, message, website: "" }),
+        body: JSON.stringify({
+          sessionId: sessionIdRef.current,
+          message,
+          website: "",
+          attribution: leadAttributionRef.current ?? captureLeadAttribution(),
+        }),
       });
       const result = await response.json() as SignmonsApiResult;
       if (!response.ok || !result.reply) {

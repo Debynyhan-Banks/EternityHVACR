@@ -6,6 +6,17 @@ type SignmonsRequest = {
   sessionId?: unknown;
   message?: unknown;
   website?: unknown;
+  attribution?: unknown;
+};
+
+type LeadAttribution = {
+  channel: "website_chat";
+  landingPage?: string;
+  sourcePage?: string;
+  referrerHost?: string;
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
 };
 
 type SignmonsResponse = {
@@ -154,6 +165,36 @@ function looksLikeUnverifiedSubmissionClaim(reply: string) {
   ].some((pattern) => pattern.test(reply));
 }
 
+function getLeadAttribution(value: unknown): LeadAttribution | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  const input = value as Record<string, unknown>;
+  if (input.channel !== "website_chat") return null;
+  const path = (candidate: unknown) =>
+    typeof candidate === "string" &&
+    candidate.length <= 200 &&
+    /^\/[A-Za-z0-9/_-]*$/.test(candidate)
+      ? candidate
+      : undefined;
+  const text = (candidate: unknown, limit: number) =>
+    typeof candidate === "string" &&
+    candidate.trim().length > 0 &&
+    candidate.trim().length <= limit
+      ? candidate.trim()
+      : undefined;
+  const referrerHost = text(input.referrerHost, 253);
+  if (referrerHost && !/^[A-Za-z0-9.-]+$/.test(referrerHost)) return null;
+
+  return {
+    channel: "website_chat",
+    landingPage: path(input.landingPage),
+    sourcePage: path(input.sourcePage),
+    referrerHost: referrerHost?.toLowerCase(),
+    utmSource: text(input.utmSource, 100),
+    utmMedium: text(input.utmMedium, 100),
+    utmCampaign: text(input.utmCampaign, 160),
+  };
+}
+
 export async function POST(request: Request) {
   if (!isAllowedOrigin(request)) {
     return jsonResponse({ error: "Request origin is not allowed." }, 403);
@@ -176,9 +217,11 @@ export async function POST(request: Request) {
     typeof payload.message === "string" ? payload.message.trim() : "";
   const website =
     typeof payload.website === "string" ? payload.website.trim() : "";
+  const attribution = getLeadAttribution(payload.attribution);
 
   if (
     website ||
+    !attribution ||
     !/^[A-Za-z0-9_-]{4,64}$/.test(sessionId) ||
     message.length < 1 ||
     message.length > 1000
@@ -208,7 +251,7 @@ export async function POST(request: Request) {
         authorization: `Bearer ${integrationKey}`,
         "content-type": "application/json",
       },
-      body: JSON.stringify({ sessionId, message }),
+      body: JSON.stringify({ sessionId, message, attribution }),
       signal: controller.signal,
     });
 

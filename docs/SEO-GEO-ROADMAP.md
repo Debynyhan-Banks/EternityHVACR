@@ -285,7 +285,8 @@ Features should not be published until Eternity has a person and process respons
 - [x] Appointment reschedule starts and completions
 - [x] Appointment cancellations
 - [ ] Capability-document downloads
-- [ ] Booked and completed jobs by lead source
+- [x] Persist website page and privacy-safe lead source on booked and completed Signmons jobs
+- [ ] Add booked/completed lead-source totals to the monthly scorecard after production attribution acceptance
 
 ### Monthly scorecard
 

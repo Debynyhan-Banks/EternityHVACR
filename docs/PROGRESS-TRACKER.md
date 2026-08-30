@@ -16,11 +16,11 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 ## Current position
 
-**Current milestone:** Booking reliability and appointment operations
+**Current milestone:** Lead-source attribution and appointment operations
 
-**Current status:** The production assistant can create an idempotent service request, instantly confirm eligible residential diagnostics from live Eternity Dispatch availability, and give the customer a private 90-day link to view, reschedule or cancel the confirmed appointment. Live cancellation and rescheduling acceptance both passed on August 30. The `Test Banks` reschedule left exactly one Eternity Dispatch event at the replacement time, and the same job produced two email lifecycle-send records in booking-then-reschedule sequence.
+**Current status:** The production assistant can create an idempotent service request, instantly confirm eligible residential diagnostics from live Eternity Dispatch availability, and give the customer a private 90-day link to view, reschedule or cancel the confirmed appointment. Live cancellation and rescheduling acceptance both passed on August 30. The next release adds privacy-safe website attribution to the persistent job record and internal job email so booked and later-completed work retains its landing page, originating page, referral host and approved UTM campaign fields.
 
-**Next action:** Connect booked and completed jobs to their originating Eternity website page and lead source. Keep customer appointment-email delivery and broader notification-product work in the separate Signmons implementation plan.
+**Next action:** Publish the attribution release and run one labeled campaign-source acceptance booking; then use accumulated job status and attribution data in Eternity's monthly marketing scorecard. Keep customer appointment-email delivery and broader notification-product work in the separate Signmons implementation plan.
 
 ## Phase 1 information blockers
 
@@ -78,7 +78,8 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 - [x] Verify rescheduling updates the existing Eternity Dispatch event rather than creating a duplicate
 - [x] Verify cancellation releases the Google Calendar event and records the lifecycle change
 - [x] Verify one internal email send is recorded for each completed lifecycle change
-- Connect booked and completed jobs back to the originating website page and lead source
+- [x] Persist the originating website page and lead source with booked and completed jobs
+- [ ] Run one labeled production attribution acceptance booking
 
 ### Definition of done
 
@@ -98,6 +99,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 | Date | Change | Outcome | Next step |
 |---|---|---|---|
+| 2026-08-30 | Built privacy-safe job attribution for the Eternity booking funnel | Ask Eternity now carries the session landing page, chat-origin page, referral hostname and bounded UTM source/medium/campaign fields into the persistent job record; internal job emails display the useful source and origin page, while customer message contents remain excluded from Google Analytics | Publish both sides of the booking contract and run one labeled campaign-source acceptance booking |
 | 2026-08-30 | Completed the live reschedule acceptance test with `Test Banks` | Calendar search found exactly one `Test Banks` event on Eternity Dispatch at the replacement window, Wednesday, September 2 from 8:00–11:00 a.m. Eastern; Cloud Run recorded two email lifecycle sends for the same job in booking-then-reschedule sequence, with no duplicate calendar event | Add booked/completed-job attribution to the Eternity website funnel; keep customer appointment-email implementation in the separate Signmons plan |
 | 2026-08-30 | Completed the live cancellation acceptance test | The secure management page reported the appointment cancelled, Calendar search found no remaining Eternity Dispatch event and Cloud Run recorded exactly one cancellation email notification for the job; `debynyhan@gmail.com` did not receive it, so recipient routing remains Bernard's configured operations mailbox unless expanded | Create a fresh labeled `TEST` booking and complete the reschedule acceptance test before cancellation |
 | 2026-08-30 | Repaired the confirmation-to-management handoff | Replaced soft client-side routing inside the chatbot dialog with a normal full-page secure link so the appointment token fragment is preserved reliably; added a regression check and all 27 website checks pass | Publish and have the latest confirmed customer open the management link again |
