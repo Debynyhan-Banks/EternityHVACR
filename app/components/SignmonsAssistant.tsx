@@ -8,12 +8,15 @@ type RequestPath = "urgent" | "cooling" | "heating" | "commercial" | "estimate" 
 type PropertyType = "home" | "business" | "managed";
 type Screen = "start" | "property" | "handoff" | "chat" | "safety";
 type ChatMessage = { id: string; role: "assistant" | "user"; text: string; safety?: boolean; success?: boolean };
+type AppointmentSlot = { token: string; start: string; end: string; label: string };
 type SignmonsApiResult = {
-  status?: "reply" | "needs_correction" | "job_created";
+  status?: "reply" | "needs_correction" | "job_created" | "availability" | "appointment_confirmed";
   reply?: string;
   error?: string;
   requiresHumanHandoff?: boolean;
   jobReference?: string;
+  jobId?: string;
+  slots?: AppointmentSlot[];
 };
 
 const initialChatMessage: ChatMessage = {
@@ -51,6 +54,9 @@ export default function SignmonsAssistant() {
   const [chatLoadingStage, setChatLoadingStage] = useState(0);
   const [chatError, setChatError] = useState("");
   const [lastFailedMessage, setLastFailedMessage] = useState("");
+  const [appointmentSlots, setAppointmentSlots] = useState<AppointmentSlot[]>([]);
+  const [appointmentJobId, setAppointmentJobId] = useState("");
+  const [bookingSlotToken, setBookingSlotToken] = useState("");
   const launcherRef = useRef<HTMLButtonElement>(null);
   const openerRef = useRef<HTMLElement | null>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -182,8 +188,12 @@ export default function SignmonsAssistant() {
         role: "assistant",
         text: result.reply as string,
         safety: result.requiresHumanHandoff === true,
-        success: result.status === "job_created",
+        success: result.status === "job_created" || result.status === "availability",
       }]);
+      if (result.status === "availability" && result.jobId && result.slots?.length) {
+        setAppointmentJobId(result.jobId);
+        setAppointmentSlots(result.slots);
+      }
       setLastFailedMessage("");
       trackGoogleEvent("assistant_response_received", {
         assistant: "signmons_calldesk",
@@ -196,6 +206,43 @@ export default function SignmonsAssistant() {
     } finally {
       setChatLoading(false);
       setChatLoadingStage(0);
+    }
+  }
+
+  async function confirmAppointment(slot: AppointmentSlot) {
+    if (!appointmentJobId || bookingSlotToken) return;
+    setBookingSlotToken(slot.token);
+    setChatError("");
+    try {
+      const response = await fetch("/api/signmons/appointments/confirm", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          sessionId: sessionIdRef.current,
+          jobId: appointmentJobId,
+          slotToken: slot.token,
+        }),
+      });
+      const result = await response.json() as { status?: string; appointmentLabel?: string; error?: string };
+      if (!response.ok || result.status !== "appointment_confirmed") {
+        throw new Error(result.error || "We could not confirm that appointment.");
+      }
+      setAppointmentSlots([]);
+      setAppointmentJobId("");
+      setChatMessages((messages) => [...messages, {
+        id: crypto.randomUUID(),
+        role: "assistant",
+        text: `Your residential diagnostic appointment is confirmed for ${result.appointmentLabel ?? slot.label}. Eternity will use the contact information you provided if anything changes.`,
+        success: true,
+      }]);
+      trackGoogleEvent("assistant_appointment_confirmed", {
+        assistant: "signmons_calldesk",
+        appointment_start: slot.start,
+      });
+    } catch (error) {
+      setChatError(error instanceof Error ? error.message : "We could not confirm that appointment.");
+    } finally {
+      setBookingSlotToken("");
     }
   }
 
@@ -218,6 +265,8 @@ export default function SignmonsAssistant() {
     setRequestPath(null);
     setPropertyType(null);
     setChatError("");
+    setAppointmentSlots([]);
+    setAppointmentJobId("");
   }
 
   return <>
@@ -247,7 +296,7 @@ export default function SignmonsAssistant() {
 
         <div className="signmons-body">
           <p id="signmons-disclosure" className="signmons-disclosure">
-            Messages are processed by Signmons and OpenAI, may be stored in service logs and may be reviewed by Eternity. This assistant is not a technician, cannot diagnose equipment or book an appointment. Do not enter payment-card, Social Security, medical or other sensitive information.
+            Messages are processed by Signmons and OpenAI, may be stored in service logs and may be reviewed by Eternity. This assistant is not a technician and cannot diagnose equipment. Eligible residential diagnostic visits can be confirmed only from the live appointment choices shown here. Do not enter payment-card, Social Security, medical or other sensitive information.
           </p>
 
           {screen === "start" && <>
@@ -318,6 +367,22 @@ export default function SignmonsAssistant() {
               ][chatLoadingStage]}</p></div>}
               <div ref={chatEndRef} />
             </div>
+            {appointmentSlots.length > 0 && <section className="signmons-slots" aria-labelledby="signmons-slots-title">
+              <span>Live availability</span>
+              <h3 id="signmons-slots-title">Choose an arrival window</h3>
+              <p>Selecting a time confirms this residential diagnostic appointment.</p>
+              <div>
+                {appointmentSlots.map((slot) => <button
+                  type="button"
+                  key={slot.token}
+                  disabled={Boolean(bookingSlotToken)}
+                  onClick={() => void confirmAppointment(slot)}
+                >
+                  {bookingSlotToken === slot.token ? "Confirming…" : slot.label}
+                </button>)}
+              </div>
+              <small>Times are shown in Eastern Time and are rechecked when selected.</small>
+            </section>}
             {chatError && <div className="signmons-chat-error" role="alert">
               <strong>We couldn’t finish that step.</strong>
               <span>{chatError} Your previous details are still in this chat.</span>

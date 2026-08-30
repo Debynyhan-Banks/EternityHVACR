@@ -139,7 +139,7 @@ test("publishes clear privacy and website terms", async () => {
   assert.match(privacy, /We do not sell personal information/);
   assert.match(privacy, /Eternity does not intentionally send service-request names/);
   assert.match(privacy, /<link rel="canonical" href="https:\/\/eternityhvacr\.com\/privacy"/);
-  assert.match(terms, /does not create an appointment/);
+  assert.match(terms, /live assistant availability/);
   assert.match(terms, /The website is not an emergency-dispatch service/);
   assert.match(privacy, /Signmons-powered assistant/);
   assert.match(privacy, /optional AI-assisted conversation/);
@@ -160,7 +160,9 @@ test("publishes a disclosed Signmons service-routing assistant with safety and h
   assert.match(home, /Ask Eternity/);
   assert.match(home, /Automated service assistant/);
   assert.match(component, /Messages are processed by Signmons and OpenAI/);
-  assert.match(component, /cannot diagnose equipment or book an appointment/);
+  assert.match(component, /cannot diagnose equipment/);
+  assert.match(component, /Choose an arrival window/);
+  assert.match(component, /assistant_appointment_confirmed/);
   assert.match(component, /fetch\("\/api\/signmons"/);
   assert.match(component, /Describe a problem/);
   assert.match(component, /Request service/);

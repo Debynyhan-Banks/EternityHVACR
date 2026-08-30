@@ -15,7 +15,29 @@ type SignmonsResponse = {
   requiresHumanHandoff?: unknown;
   emergencyServicesRecommended?: unknown;
   job?: { id?: unknown };
+  slots?: unknown;
 };
+
+type AppointmentSlot = {
+  token: string;
+  start: string;
+  end: string;
+  label: string;
+};
+
+function getSlots(payload: SignmonsResponse): AppointmentSlot[] {
+  if (!Array.isArray(payload.slots)) return [];
+  return payload.slots.flatMap((slot) => {
+    if (!slot || typeof slot !== "object") return [];
+    const value = slot as Record<string, unknown>;
+    return typeof value.token === "string" &&
+      typeof value.start === "string" &&
+      typeof value.end === "string" &&
+      typeof value.label === "string"
+      ? [{ token: value.token, start: value.start, end: value.end, label: value.label }]
+      : [];
+  }).slice(0, 8);
+}
 
 function getJobReference(payload: SignmonsResponse) {
   const id = payload.job?.id;
@@ -141,6 +163,8 @@ export async function POST(request: Request) {
       requiresHumanHandoff: result.requiresHumanHandoff === true,
       emergencyServicesRecommended: result.emergencyServicesRecommended === true,
       jobReference: getJobReference(result) || undefined,
+      jobId: typeof result.job?.id === "string" ? result.job.id : undefined,
+      slots: getSlots(result),
     });
   } catch {
     return Response.json(

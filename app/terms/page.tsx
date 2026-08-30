@@ -15,16 +15,16 @@ export default function TermsPage() {
     <SiteHeader />
     <section className="legal-hero"><p className="eyebrow"><i /> Website terms</p><h1>What the website can—and cannot—confirm.</h1><p>Effective August 28, 2026. These terms apply to your use of eternityhvacr.com.</p></section>
     <article className="legal-content">
-      <div className="legal-summary"><strong>Important</strong><p>Submitting a form requests contact from Eternity. It does not create an appointment, approve an estimate, guarantee availability or form a service contract.</p></div>
+      <div className="legal-summary"><strong>Important</strong><p>Submitting a form requests contact from Eternity. Eligible residential diagnostic visits are appointments only when the assistant displays live availability and confirms the selected window.</p></div>
 
       <h2>Website information</h2>
       <p>The website provides general information about Eternity Mechanical Services, service categories, service areas and previously completed work. Equipment conditions vary. Educational content is not a remote diagnosis and is not a substitute for inspection, measurements or manufacturer-specific procedures.</p>
 
       <h2>Automated service assistant</h2>
-      <p>The Signmons-powered service assistant provides guided routing and optional AI-assisted conversation. Its responses are generated from the information you enter and may be incomplete or incorrect. The assistant is not a technician, does not inspect or diagnose equipment, does not provide a binding price or estimate and does not create an appointment, service contract or emergency dispatch. A visitor must still contact Eternity or submit the service-request form for human follow-up.</p>
+      <p>The Signmons-powered service assistant provides guided routing and optional AI-assisted conversation. Its responses are generated from the information you enter and may be incomplete or incorrect. The assistant is not a technician, does not inspect or diagnose equipment, does not provide a binding price or estimate and does not dispatch emergency help. It may confirm an eligible residential heating or cooling diagnostic appointment only when it displays live availability and then confirms the window you select.</p>
 
       <h2>Requests, estimates and appointments</h2>
-      <p>A website, phone, email or text request is an invitation for Eternity to follow up. Appointment timing, technician availability, scope, pricing, payment terms, parts, warranty coverage and any other job-specific conditions are confirmed separately by Eternity. The stated 15-minute target refers to review or reply during regular business hours and is not a technician-arrival promise.</p>
+      <p>Except for an eligible residential diagnostic appointment explicitly confirmed from live assistant availability, a website, phone, email or text request is an invitation for Eternity to follow up. Appointment timing, technician availability, scope, pricing, payment terms, parts, warranty coverage and other job-specific conditions are confirmed separately by Eternity. The stated 15-minute target refers to review or reply during regular business hours and is not a technician-arrival promise.</p>
 
       <h2>Emergency and safety limits</h2>
       <p>The website is not an emergency-dispatch service. If you suspect fire, carbon monoxide, a gas leak, electrical danger or another immediate threat, leave the affected area when appropriate and contact 911, the fire department or the utility emergency line. Do not rely on a website submission for an immediate safety response.</p>
