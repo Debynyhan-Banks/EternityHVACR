@@ -18,9 +18,9 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current milestone:** Lead-source attribution and appointment operations
 
-**Current status:** The production assistant can create an idempotent service request, instantly confirm eligible residential diagnostics from live Eternity Dispatch availability, and give the customer a private 90-day link to view, reschedule or cancel the confirmed appointment. Live cancellation and rescheduling acceptance both passed on August 30. Privacy-safe website attribution is now live: booked and later-completed work retains its landing page, originating page, referral host and approved UTM campaign fields in the persistent job record, and internal job emails display the useful source details. A production contract smoke test passed without creating a customer job.
+**Current status:** The production assistant can create an idempotent service request, instantly confirm eligible residential diagnostics from live Eternity Dispatch availability, and give the customer a private 90-day link to view, reschedule or cancel the confirmed appointment. Live cancellation and rescheduling acceptance both passed on August 30. Privacy-safe website attribution is live and production-verified: the labeled `Test Banks` acceptance booking stored the expected `acceptance_test / website / job_attribution` campaign values and homepage origin, linked to one Eternity Dispatch event, and generated one internal email notification.
 
-**Next action:** Run one labeled campaign-source acceptance booking and verify its internal email displays the expected source and origin page; then use accumulated job status and attribution data in Eternity's monthly marketing scorecard. Keep customer appointment-email delivery and broader notification-product work in the separate Signmons implementation plan.
+**Next action:** Add booked and completed lead-source totals to Eternity's monthly marketing scorecard, then establish the first reporting baseline from accumulated job status and attribution data. Keep customer appointment-email delivery and broader notification-product work in the separate Signmons implementation plan.
 
 ## Phase 1 information blockers
 
@@ -79,7 +79,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 - [x] Verify cancellation releases the Google Calendar event and records the lifecycle change
 - [x] Verify one internal email send is recorded for each completed lifecycle change
 - [x] Persist the originating website page and lead source with booked and completed jobs
-- [ ] Run one labeled production attribution acceptance booking
+- [x] Run one labeled production attribution acceptance booking
 
 ### Definition of done
 
@@ -99,6 +99,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 | Date | Change | Outcome | Next step |
 |---|---|---|---|
+| 2026-08-30 | Completed the labeled production attribution acceptance booking with `Test Banks` | Booking `435A8BF6` was accepted for the selected Eastern-time window, stored `acceptance_test / website / job_attribution` plus homepage landing and source paths, linked to one Eternity Dispatch event and recorded exactly one internal email notification; no customer address, phone or chat contents were used in the verification output | Add booked and completed lead-source totals to Eternity's monthly marketing scorecard |
 | 2026-08-30 | Published privacy-safe job attribution for the Eternity booking funnel | Ask Eternity now carries the session landing page, chat-origin page, referral hostname and bounded UTM source/medium/campaign fields into the persistent job record; internal job emails display the useful source and origin page, while customer message contents remain excluded from Google Analytics. The matching website and backend releases passed a production contract smoke test without creating a customer job | Run one labeled campaign-source acceptance booking and verify its internal email source fields |
 | 2026-08-30 | Completed the live reschedule acceptance test with `Test Banks` | Calendar search found exactly one `Test Banks` event on Eternity Dispatch at the replacement window, Wednesday, September 2 from 8:00–11:00 a.m. Eastern; Cloud Run recorded two email lifecycle sends for the same job in booking-then-reschedule sequence, with no duplicate calendar event | Add booked/completed-job attribution to the Eternity website funnel; keep customer appointment-email implementation in the separate Signmons plan |
 | 2026-08-30 | Completed the live cancellation acceptance test | The secure management page reported the appointment cancelled, Calendar search found no remaining Eternity Dispatch event and Cloud Run recorded exactly one cancellation email notification for the job; `debynyhan@gmail.com` did not receive it, so recipient routing remains Bernard's configured operations mailbox unless expanded | Create a fresh labeled `TEST` booking and complete the reschedule acceptance test before cancellation |
