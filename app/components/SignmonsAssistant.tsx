@@ -367,7 +367,11 @@ export default function SignmonsAssistant() {
               {chatMessages.map((message) => <div key={message.id} className={`signmons-message ${message.role}${message.safety ? " safety" : ""}${message.success ? " success" : ""}`}>
                 <span>{message.role === "assistant" ? "Assistant" : "You"}</span>
                 <p>{message.text}</p>
-                {message.manageHref && <Link className="signmons-manage-link" href={message.manageHref}>Manage appointment →</Link>}
+                {message.manageHref && <a
+                  className="signmons-manage-link"
+                  href={message.manageHref}
+                  onClick={() => trackGoogleEvent("appointment_manage_opened", { source: "assistant_confirmation" })}
+                >Manage appointment →</a>}
               </div>)}
               {chatLoading && <div className="signmons-message assistant loading"><span>Assistant</span><p>{[
                 "Preparing a response…",

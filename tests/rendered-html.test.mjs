@@ -163,6 +163,9 @@ test("publishes a disclosed Signmons service-routing assistant with safety and h
   assert.match(component, /cannot diagnose equipment/);
   assert.match(component, /Choose an arrival window/);
   assert.match(component, /assistant_appointment_confirmed/);
+  assert.match(component, /<a[\s\S]*className="signmons-manage-link"[\s\S]*href=\{message\.manageHref\}/);
+  assert.match(component, /appointment_manage_opened/);
+  assert.doesNotMatch(component, /<Link className="signmons-manage-link"/);
   assert.match(component, /fetch\("\/api\/signmons"/);
   assert.match(component, /Describe a problem/);
   assert.match(component, /Request service/);
