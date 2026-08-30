@@ -190,6 +190,17 @@ test("publishes a disclosed Signmons service-routing assistant with safety and h
   assert.doesNotMatch(component, /SIGNMONS_WEBCHAT_KEY|Authorization: Bearer/);
 });
 
+test("does not display an unverified chatbot submission claim", async () => {
+  const route = await readFile(
+    new URL("../app/api/signmons/route.ts", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(route, /looksLikeUnverifiedSubmissionClaim/);
+  assert.match(route, /has not been submitted yet/);
+  assert.match(route, /receive a reference number/);
+});
+
 test("publishes an indexable expert-answer library", async () => {
   const response = await render("/resources");
   assert.equal(response.status, 200);
