@@ -18,9 +18,9 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current milestone:** Booking reliability and appointment operations
 
-**Current status:** The production assistant can create an idempotent service request, instantly confirm eligible residential diagnostics from live Eternity Dispatch availability, and give the customer a private 90-day link to view, reschedule or cancel the confirmed appointment. Live cancellation acceptance passed on August 30: the customer page showed cancelled, the Eternity Dispatch event was absent and one cancellation email notification was recorded. Rescheduling updates the existing calendar event in automated tests but still needs one labeled production acceptance run.
+**Current status:** The production assistant can create an idempotent service request, instantly confirm eligible residential diagnostics from live Eternity Dispatch availability, and give the customer a private 90-day link to view, reschedule or cancel the confirmed appointment. Live cancellation and rescheduling acceptance both passed on August 30. The `Test Banks` reschedule left exactly one Eternity Dispatch event at the replacement time, and the same job produced two email lifecycle-send records in booking-then-reschedule sequence.
 
-**Next action:** Create one fresh labeled `TEST` residential appointment, reschedule it once and verify the existing Eternity Dispatch event changes without duplication; then connect booked and completed jobs to their originating website page and lead source.
+**Next action:** Connect booked and completed jobs to their originating Eternity website page and lead source. Keep customer appointment-email delivery and broader notification-product work in the separate Signmons implementation plan.
 
 ## Phase 1 information blockers
 
@@ -64,7 +64,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 4 | Answer library | Complete | None | Bernard reviewed and approved the four live guides August 28, 2026; visible reviewer attribution and `reviewedBy` Person schema were added after approval |
 | 4 | AI-crawler and referral measurement | Complete | Analytics in Phase 1 | OpenAI crawler access is explicit; ChatGPT, Perplexity, Gemini, Copilot, Claude and Meta AI referrals generate a privacy-conscious analytics event |
 | 5 | Service-area checker | Complete | Approved ZIP list | Homepage and service-area page check approved ZIPs, preserve uncertain leads and record privacy-conscious result events |
-| 5 | Signmons AI intake, instant residential diagnostic booking and appointment management | Complete | Signmons backend, Eternity Dispatch calendar, Resend and approved booking rules | Production acceptance booking `D51AF0C6` created exactly one job, calendar event and internal email; secure 90-day management links now support verified view, live rescheduling and cancellation; website and paired-backend suites passed 71 checks on August 30, 2026 |
+| 5 | Signmons AI intake, instant residential diagnostic booking and appointment management | Complete | Signmons backend, Eternity Dispatch calendar, Resend and approved booking rules | Production acceptance created exactly one job, calendar event and internal email; the `Test Banks` reschedule preserved one event at the replacement time and produced the expected same-job email sequence; secure 90-day management links now have verified live view, rescheduling and cancellation; website and paired-backend suites passed 71 checks on August 30, 2026 |
 | 5 | Photo/video request uploads | Waiting on Eternity | Storage and retention decisions | Secure upload test completed |
 | 5 | Commercial equipment intake | Waiting on Eternity | Field requirements | Make/model/serial request path live |
 | 5 | Maintenance-plan comparison | Waiting on Eternity | Plan details | Approved comparison published |
@@ -74,10 +74,10 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 ### Proposed scope
 
-- Run a labeled production reschedule and cancellation through the private customer-management link
-- Verify rescheduling updates the existing Eternity Dispatch event rather than creating a duplicate
-- Verify cancellation releases both the database reservation and Google Calendar event
-- Verify exactly one internal notification is sent for each completed lifecycle change
+- [x] Run labeled production rescheduling and cancellation through the private customer-management link
+- [x] Verify rescheduling updates the existing Eternity Dispatch event rather than creating a duplicate
+- [x] Verify cancellation releases the Google Calendar event and records the lifecycle change
+- [x] Verify one internal email send is recorded for each completed lifecycle change
 - Connect booked and completed jobs back to the originating website page and lead source
 
 ### Definition of done
@@ -98,6 +98,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 | Date | Change | Outcome | Next step |
 |---|---|---|---|
+| 2026-08-30 | Completed the live reschedule acceptance test with `Test Banks` | Calendar search found exactly one `Test Banks` event on Eternity Dispatch at the replacement window, Wednesday, September 2 from 8:00–11:00 a.m. Eastern; Cloud Run recorded two email lifecycle sends for the same job in booking-then-reschedule sequence, with no duplicate calendar event | Add booked/completed-job attribution to the Eternity website funnel; keep customer appointment-email implementation in the separate Signmons plan |
 | 2026-08-30 | Completed the live cancellation acceptance test | The secure management page reported the appointment cancelled, Calendar search found no remaining Eternity Dispatch event and Cloud Run recorded exactly one cancellation email notification for the job; `debynyhan@gmail.com` did not receive it, so recipient routing remains Bernard's configured operations mailbox unless expanded | Create a fresh labeled `TEST` booking and complete the reschedule acceptance test before cancellation |
 | 2026-08-30 | Repaired the confirmation-to-management handoff | Replaced soft client-side routing inside the chatbot dialog with a normal full-page secure link so the appointment token fragment is preserved reliably; added a regression check and all 27 website checks pass | Publish and have the latest confirmed customer open the management link again |
 | 2026-08-30 | Added secure self-service appointment management | Confirmed residential appointments now receive a private 90-day fragment-based link; customers can view details, choose a live replacement slot or cancel, while Signmons updates the existing Eternity Dispatch event, releases cancelled reservations and sends one lifecycle notification; 27 website checks and 44 targeted backend checks pass | Run one labeled live reschedule/cancel acceptance test, then add booked/completed-job attribution |
