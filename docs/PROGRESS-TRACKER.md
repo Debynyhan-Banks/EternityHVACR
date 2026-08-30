@@ -18,9 +18,9 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current milestone:** Booking reliability and appointment operations
 
-**Current status:** The production assistant can create an idempotent service request, instantly confirm eligible residential diagnostics from live Eternity Dispatch availability, and give the customer a private 90-day link to view, reschedule or cancel the confirmed appointment. Rescheduling updates the existing calendar event; cancellation releases the calendar and database reservation; each completed change creates exactly one internal operations notification.
+**Current status:** The production assistant can create an idempotent service request, instantly confirm eligible residential diagnostics from live Eternity Dispatch availability, and give the customer a private 90-day link to view, reschedule or cancel the confirmed appointment. Live cancellation acceptance passed on August 30: the customer page showed cancelled, the Eternity Dispatch event was absent and one cancellation email notification was recorded. Rescheduling updates the existing calendar event in automated tests but still needs one labeled production acceptance run.
 
-**Next action:** Run one labeled production acceptance test through both reschedule and cancellation, then connect booked and completed jobs to their originating website page and lead source.
+**Next action:** Create one fresh labeled `TEST` residential appointment, reschedule it once and verify the existing Eternity Dispatch event changes without duplication; then connect booked and completed jobs to their originating website page and lead source.
 
 ## Phase 1 information blockers
 
@@ -98,6 +98,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 | Date | Change | Outcome | Next step |
 |---|---|---|---|
+| 2026-08-30 | Completed the live cancellation acceptance test | The secure management page reported the appointment cancelled, Calendar search found no remaining Eternity Dispatch event and Cloud Run recorded exactly one cancellation email notification for the job; `debynyhan@gmail.com` did not receive it, so recipient routing remains Bernard's configured operations mailbox unless expanded | Create a fresh labeled `TEST` booking and complete the reschedule acceptance test before cancellation |
 | 2026-08-30 | Repaired the confirmation-to-management handoff | Replaced soft client-side routing inside the chatbot dialog with a normal full-page secure link so the appointment token fragment is preserved reliably; added a regression check and all 27 website checks pass | Publish and have the latest confirmed customer open the management link again |
 | 2026-08-30 | Added secure self-service appointment management | Confirmed residential appointments now receive a private 90-day fragment-based link; customers can view details, choose a live replacement slot or cancel, while Signmons updates the existing Eternity Dispatch event, releases cancelled reservations and sends one lifecycle notification; 27 website checks and 44 targeted backend checks pass | Run one labeled live reschedule/cancel acceptance test, then add booked/completed-job attribution |
 | 2026-08-30 | Completed the production booking acceptance test | Booking `D51AF0C6` produced exactly one Signmons job, one Eternity Dispatch event and one internal appointment email; the repeat-question safeguard fired and the calendar timezone was corrected to Eastern | Verify the new private reschedule/cancel path in production |
