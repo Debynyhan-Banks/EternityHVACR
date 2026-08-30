@@ -223,8 +223,15 @@ export default function SignmonsAssistant() {
           slotToken: slot.token,
         }),
       });
-      const result = await response.json() as { status?: string; appointmentLabel?: string; error?: string };
+      const result = await response.json() as { status?: string; appointmentLabel?: string; jobReference?: string; error?: string };
       if (!response.ok || result.status !== "appointment_confirmed") {
+        if (response.status === 409) {
+          setAppointmentSlots((slots) => slots.filter((choice) => choice.token !== slot.token));
+        }
+        trackGoogleEvent("assistant_appointment_failed", {
+          assistant: "signmons_calldesk",
+          failure_status: response.status,
+        });
         throw new Error(result.error || "We could not confirm that appointment.");
       }
       setAppointmentSlots([]);
@@ -232,7 +239,7 @@ export default function SignmonsAssistant() {
       setChatMessages((messages) => [...messages, {
         id: crypto.randomUUID(),
         role: "assistant",
-        text: `Your residential diagnostic appointment is confirmed for ${result.appointmentLabel ?? slot.label}. Eternity will use the contact information you provided if anything changes.`,
+        text: `Your residential diagnostic appointment is confirmed for ${result.appointmentLabel ?? slot.label}${result.jobReference ? ` — reference ${result.jobReference}` : ""}. Eternity will use the contact information you provided if anything changes.`,
         success: true,
       }]);
       trackGoogleEvent("assistant_appointment_confirmed", {
@@ -400,9 +407,10 @@ export default function SignmonsAssistant() {
                 maxLength={1000}
                 rows={3}
                 placeholder="Example: My furnace is running, but the air is not warm."
+                disabled={Boolean(bookingSlotToken)}
                 onChange={(event) => setChatInput(event.target.value)}
               />
-              <div><span>{chatInput.length}/1,000</span><button type="submit" disabled={chatLoading || !chatInput.trim()}>{chatLoading ? "Sending…" : "Send message"}</button></div>
+              <div><span>{chatInput.length}/1,000</span><button type="submit" disabled={chatLoading || Boolean(bookingSlotToken) || !chatInput.trim()}>{chatLoading ? "Sending…" : "Send message"}</button></div>
             </form>
             <p className="signmons-chat-limit">For immediate danger, leave the area when appropriate and call 911 or the utility emergency line. For urgent service, call <a href="tel:+12167033183">216-703-3183</a>.</p>
             <div className="signmons-chat-handoff">

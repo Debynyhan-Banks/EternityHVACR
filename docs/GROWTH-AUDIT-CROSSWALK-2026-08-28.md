@@ -34,7 +34,7 @@ This document records how the external audit was evaluated against the live webs
 | Publish certification badges | No technician certifications or issuing bodies are currently approved | Hold | Collect certificate name, issuer, credential status and display permission |
 | Publish a warranty or guarantee | Warranty terms are unconfirmed | Hold | Obtain written coverage, duration, exclusions and responsible entity |
 | Add financing prequalification | Financing availability and provider are unconfirmed | Hold | Confirm provider, terms, fulfillment owner, disclosures and privacy flow |
-| Add real-time booking | The current request form intentionally confirms availability through Eternity | Hold | Confirm real dispatch availability, booking rules, capacity and cancellation process |
+| Add real-time booking | Eligible standard residential heating and cooling diagnostic visits now use live Eternity Dispatch availability and are confirmed only after the selected slot is rechecked; other requests still require direct follow-up | Complete for approved residential scope | Run a labeled production acceptance booking, then define secure reschedule/cancellation operations before expanding eligibility |
 | Add SMS or chat | SMS approval, consent language, staffing and retention are unconfirmed | Hold | Approve a monitored number, response hours, consent language and data policy |
 | Publish a maintenance membership | Maintenance-plan name, price, visits and benefits are unconfirmed | Hold | Complete the maintenance-plan intake before comparison or sales pages are built |
 | Run seasonal promotions | No approved offer, dates or terms were provided | Backlog | Require margin review, fulfillment capacity, dates, exclusions and approved copy |

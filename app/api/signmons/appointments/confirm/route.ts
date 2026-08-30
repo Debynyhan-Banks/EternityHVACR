@@ -4,6 +4,12 @@ type ConfirmationRequest = {
   slotToken?: unknown;
 };
 
+const NO_STORE_HEADERS = { "cache-control": "no-store" };
+
+function jsonResponse(body: unknown, status = 200) {
+  return Response.json(body, { status, headers: NO_STORE_HEADERS });
+}
+
 function isAllowedOrigin(request: Request) {
   const origin = request.headers.get("origin");
   if (!origin) return true;
@@ -18,14 +24,14 @@ function isAllowedOrigin(request: Request) {
 
 export async function POST(request: Request) {
   if (!isAllowedOrigin(request)) {
-    return Response.json({ error: "Request origin is not allowed." }, { status: 403 });
+    return jsonResponse({ error: "Request origin is not allowed." }, 403);
   }
 
   let payload: ConfirmationRequest;
   try {
     payload = await request.json() as ConfirmationRequest;
   } catch {
-    return Response.json({ error: "Invalid request." }, { status: 400 });
+    return jsonResponse({ error: "Invalid request." }, 400);
   }
 
   const sessionId = typeof payload.sessionId === "string" ? payload.sessionId.trim() : "";
@@ -37,13 +43,13 @@ export async function POST(request: Request) {
     slotToken.length < 20 ||
     slotToken.length > 2048
   ) {
-    return Response.json({ error: "That appointment choice is invalid." }, { status: 400 });
+    return jsonResponse({ error: "That appointment choice is invalid." }, 400);
   }
 
   const apiUrl = process.env.SIGNMONS_API_URL?.replace(/\/$/, "");
   const integrationKey = process.env.SIGNMONS_WEBCHAT_KEY;
   if (!apiUrl || !integrationKey) {
-    return Response.json({ error: "Instant booking is temporarily unavailable." }, { status: 503 });
+    return jsonResponse({ error: "Instant booking is temporarily unavailable." }, 503);
   }
 
   const controller = new AbortController();
@@ -64,24 +70,34 @@ export async function POST(request: Request) {
       message?: unknown;
     };
     if (!response.ok) {
-      const message = typeof result.message === "string"
-        ? result.message
-        : response.status === 409
-          ? "That appointment was just taken. Please choose another time."
-          : "We could not confirm that appointment. Please try again or call Eternity.";
-      return Response.json({ error: message }, { status: response.status === 409 ? 409 : 502 });
+      const status = response.status === 409 ? 409 : 502;
+      const message = status === 409
+        ? "That appointment was just taken. Please choose another time."
+        : "We could not confirm that appointment. Please try again or call Eternity.";
+      return jsonResponse({ error: message }, status);
     }
 
-    return Response.json({
-      status: result.status,
-      appointmentLabel: typeof result.appointment?.label === "string"
-        ? result.appointment.label
-        : "Your selected arrival window",
+    if (result.status !== "appointment_confirmed") {
+      return jsonResponse(
+        { error: "We could not verify that appointment. Please try again or call Eternity." },
+        502,
+      );
+    }
+
+    const appointmentLabel = typeof result.appointment?.label === "string"
+      ? result.appointment.label.trim().slice(0, 160)
+      : "";
+    const jobReference = jobId.replace(/-/g, "").slice(0, 8).toUpperCase();
+
+    return jsonResponse({
+      status: "appointment_confirmed",
+      appointmentLabel: appointmentLabel || "Your selected arrival window",
+      jobReference,
     });
   } catch {
-    return Response.json(
+    return jsonResponse(
       { error: "We could not confirm that appointment. Please try again or call 216-703-3183." },
-      { status: 502 },
+      502,
     );
   } finally {
     clearTimeout(timeout);

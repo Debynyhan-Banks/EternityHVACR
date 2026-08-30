@@ -25,22 +25,48 @@ type AppointmentSlot = {
   label: string;
 };
 
+const NO_STORE_HEADERS = { "cache-control": "no-store" };
+const UUID_PATTERN = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+
+function jsonResponse(body: unknown, status = 200) {
+  return Response.json(body, { status, headers: NO_STORE_HEADERS });
+}
+
+function getJobId(payload: SignmonsResponse) {
+  const id = payload.job?.id;
+  return typeof id === "string" && UUID_PATTERN.test(id) ? id : "";
+}
+
 function getSlots(payload: SignmonsResponse): AppointmentSlot[] {
   if (!Array.isArray(payload.slots)) return [];
+  const seenTokens = new Set<string>();
   return payload.slots
     .flatMap((slot) => {
       if (!slot || typeof slot !== "object") return [];
       const value = slot as Record<string, unknown>;
-      return typeof value.token === "string" &&
-        typeof value.start === "string" &&
-        typeof value.end === "string" &&
-        typeof value.label === "string"
+      const start = typeof value.start === "string" ? new Date(value.start) : null;
+      const end = typeof value.end === "string" ? new Date(value.end) : null;
+      const token = typeof value.token === "string" ? value.token : "";
+      const label = typeof value.label === "string" ? value.label.trim() : "";
+      const isValid =
+        token.length >= 20 &&
+        token.length <= 2048 &&
+        !seenTokens.has(token) &&
+        start !== null &&
+        end !== null &&
+        Number.isFinite(start.getTime()) &&
+        Number.isFinite(end.getTime()) &&
+        start < end &&
+        label.length > 0 &&
+        label.length <= 120;
+      if (isValid) seenTokens.add(token);
+      return isValid
         ? [
             {
-              token: value.token,
-              start: value.start,
-              end: value.end,
-              label: value.label,
+              token,
+              start: start.toISOString(),
+              end: end.toISOString(),
+              label,
             },
           ]
         : [];
@@ -49,8 +75,8 @@ function getSlots(payload: SignmonsResponse): AppointmentSlot[] {
 }
 
 function getJobReference(payload: SignmonsResponse) {
-  const id = payload.job?.id;
-  return typeof id === "string"
+  const id = getJobId(payload);
+  return id
     ? id.replace(/-/g, "").slice(0, 8).toUpperCase()
     : "";
 }
@@ -93,25 +119,30 @@ function isRateLimited(request: Request) {
 function getReply(payload: SignmonsResponse) {
   if (payload.status === "job_created") {
     const reference = getJobReference(payload);
-    return `Your request was recorded successfully${reference ? ` — reference ${reference}` : ""}. Eternity will follow up using the contact information you provided. This is not an appointment confirmation.`;
+    if (!reference) return unverifiedSubmissionMessage();
+    return `Your request was recorded successfully — reference ${reference}. Eternity will follow up using the contact information you provided. This is not an appointment confirmation.`;
   }
 
   if (typeof payload.reply === "string" && payload.reply.trim()) {
-    const reply = payload.reply.trim().slice(0, 4000);
-    if (
-      looksLikeUnverifiedSubmissionClaim(reply) &&
-      !getJobReference(payload)
-    ) {
-      return "Your request has not been submitted yet. Please continue until you receive a reference number, or call or text 216-703-3183 for help.";
-    }
-    return reply;
+    return verifiedReply(payload.reply, payload);
   }
 
   if (typeof payload.message === "string" && payload.message.trim()) {
-    return payload.message.trim().slice(0, 4000);
+    return verifiedReply(payload.message, payload);
   }
 
   return "I could not complete that response. Please call or text Eternity Mechanical Services at 216-703-3183.";
+}
+
+function verifiedReply(value: string, payload: SignmonsResponse) {
+  const reply = value.trim().slice(0, 4000);
+  return looksLikeUnverifiedSubmissionClaim(reply) && !getJobReference(payload)
+    ? unverifiedSubmissionMessage()
+    : reply;
+}
+
+function unverifiedSubmissionMessage() {
+  return "Your request has not been submitted yet. Please continue until you receive a reference number, or call or text 216-703-3183 for help.";
 }
 
 function looksLikeUnverifiedSubmissionClaim(reply: string) {
@@ -125,24 +156,18 @@ function looksLikeUnverifiedSubmissionClaim(reply: string) {
 
 export async function POST(request: Request) {
   if (!isAllowedOrigin(request)) {
-    return Response.json(
-      { error: "Request origin is not allowed." },
-      { status: 403 },
-    );
+    return jsonResponse({ error: "Request origin is not allowed." }, 403);
   }
 
   if (isRateLimited(request)) {
-    return Response.json(
-      { error: "Please wait a moment before sending another message." },
-      { status: 429 },
-    );
+    return jsonResponse({ error: "Please wait a moment before sending another message." }, 429);
   }
 
   let payload: SignmonsRequest;
   try {
     payload = (await request.json()) as SignmonsRequest;
   } catch {
-    return Response.json({ error: "Invalid request." }, { status: 400 });
+    return jsonResponse({ error: "Invalid request." }, 400);
   }
 
   const sessionId =
@@ -158,21 +183,18 @@ export async function POST(request: Request) {
     message.length < 1 ||
     message.length > 1000
   ) {
-    return Response.json(
-      { error: "Please enter a message of 1,000 characters or fewer." },
-      { status: 400 },
-    );
+    return jsonResponse({ error: "Please enter a message of 1,000 characters or fewer." }, 400);
   }
 
   const apiUrl = process.env.SIGNMONS_API_URL?.replace(/\/$/, "");
   const integrationKey = process.env.SIGNMONS_WEBCHAT_KEY;
   if (!apiUrl || !integrationKey) {
-    return Response.json(
+    return jsonResponse(
       {
         error:
           "The automated assistant is temporarily unavailable. Please call or text 216-703-3183.",
       },
-      { status: 503 },
+      503,
     );
   }
 
@@ -199,26 +221,41 @@ export async function POST(request: Request) {
         response.status === 429
           ? "The assistant is receiving many requests. Please wait a moment or call 216-703-3183."
           : "The assistant could not respond. Please call or text Eternity Mechanical Services at 216-703-3183.";
-      return Response.json({ error }, { status });
+      return jsonResponse({ error }, status);
     }
 
-    return Response.json({
+    const jobId = getJobId(result);
+    const slots = getSlots(result);
+    if (
+      (result.status === "job_created" && !jobId) ||
+      (result.status === "availability" && (!jobId || slots.length === 0))
+    ) {
+      return jsonResponse(
+        {
+          error:
+            "The assistant could not verify that the request was saved. Please try again or call or text 216-703-3183.",
+        },
+        502,
+      );
+    }
+
+    return jsonResponse({
       status: typeof result.status === "string" ? result.status : "reply",
       reply: getReply(result),
       requiresHumanHandoff: result.requiresHumanHandoff === true,
       emergencyServicesRecommended:
         result.emergencyServicesRecommended === true,
       jobReference: getJobReference(result) || undefined,
-      jobId: typeof result.job?.id === "string" ? result.job.id : undefined,
-      slots: getSlots(result),
+      jobId: jobId || undefined,
+      slots,
     });
   } catch {
-    return Response.json(
+    return jsonResponse(
       {
         error:
           "The assistant could not respond. Please call or text Eternity Mechanical Services at 216-703-3183.",
       },
-      { status: 502 },
+      502,
     );
   } finally {
     clearTimeout(timeout);

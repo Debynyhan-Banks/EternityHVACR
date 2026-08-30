@@ -201,6 +201,141 @@ test("does not display an unverified chatbot submission claim", async () => {
   assert.match(route, /receive a reference number/);
 });
 
+test("verifies the Signmons booking contract before reporting success", async (t) => {
+  const originalFetch = globalThis.fetch;
+  const originalApiUrl = process.env.SIGNMONS_API_URL;
+  const originalKey = process.env.SIGNMONS_WEBCHAT_KEY;
+  process.env.SIGNMONS_API_URL = "https://signmons.example";
+  process.env.SIGNMONS_WEBCHAT_KEY = "test-integration-key";
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+    if (originalApiUrl === undefined) delete process.env.SIGNMONS_API_URL;
+    else process.env.SIGNMONS_API_URL = originalApiUrl;
+    if (originalKey === undefined) delete process.env.SIGNMONS_WEBCHAT_KEY;
+    else process.env.SIGNMONS_WEBCHAT_KEY = originalKey;
+  });
+
+  const outbound = [];
+  let upstream = {
+    status: 200,
+    body: {
+      status: "availability",
+      message: "Service request was saved. Choose a time.",
+      job: { id: "11111111-1111-4111-8111-111111111111" },
+      slots: [
+        {
+          token: "valid-slot-token-1234567890",
+          start: "2026-09-01T13:00:00.000Z",
+          end: "2026-09-01T15:00:00.000Z",
+          label: "Tuesday, 9–11 AM",
+        },
+        {
+          token: "valid-slot-token-1234567890",
+          start: "2026-09-01T13:00:00.000Z",
+          end: "2026-09-01T15:00:00.000Z",
+          label: "Duplicate",
+        },
+        {
+          token: "invalid-window-token-1234567890",
+          start: "2026-09-01T15:00:00.000Z",
+          end: "2026-09-01T13:00:00.000Z",
+          label: "Invalid window",
+        },
+      ],
+    },
+  };
+  globalThis.fetch = async (input, init) => {
+    outbound.push({ url: String(input), init });
+    return Response.json(upstream.body, { status: upstream.status });
+  };
+
+  const availability = await dispatch(new Request("https://eternityhvacr.com/api/signmons", {
+    method: "POST",
+    headers: { origin: "https://eternityhvacr.com", "content-type": "application/json" },
+    body: JSON.stringify({ sessionId: "session-1234", message: "My AC is blowing hot air", website: "" }),
+  }));
+  assert.equal(availability.status, 200);
+  assert.equal(availability.headers.get("cache-control"), "no-store");
+  const availabilityBody = await availability.json();
+  assert.equal(availabilityBody.status, "availability");
+  assert.equal(availabilityBody.jobReference, "11111111");
+  assert.equal(availabilityBody.slots.length, 1);
+  assert.equal(availabilityBody.slots[0].label, "Tuesday, 9–11 AM");
+  assert.equal(outbound[0].url, "https://signmons.example/api/integrations/webchat/triage");
+  assert.equal(outbound[0].init.headers.authorization, "Bearer test-integration-key");
+
+  upstream = {
+    status: 200,
+    body: {
+      status: "job_created",
+      message: "Your request was recorded successfully.",
+    },
+  };
+  const unverified = await dispatch(new Request("https://eternityhvacr.com/api/signmons", {
+    method: "POST",
+    headers: { origin: "https://eternityhvacr.com", "content-type": "application/json" },
+    body: JSON.stringify({ sessionId: "session-5678", message: "Please submit this", website: "" }),
+  }));
+  assert.equal(unverified.status, 502);
+  assert.match((await unverified.json()).error, /could not verify that the request was saved/i);
+});
+
+test("proxies appointment confirmation with conflict and idempotency safeguards", async (t) => {
+  const originalFetch = globalThis.fetch;
+  const originalApiUrl = process.env.SIGNMONS_API_URL;
+  const originalKey = process.env.SIGNMONS_WEBCHAT_KEY;
+  process.env.SIGNMONS_API_URL = "https://signmons.example";
+  process.env.SIGNMONS_WEBCHAT_KEY = "test-integration-key";
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+    if (originalApiUrl === undefined) delete process.env.SIGNMONS_API_URL;
+    else process.env.SIGNMONS_API_URL = originalApiUrl;
+    if (originalKey === undefined) delete process.env.SIGNMONS_WEBCHAT_KEY;
+    else process.env.SIGNMONS_WEBCHAT_KEY = originalKey;
+  });
+
+  const requestBody = {
+    sessionId: "session-1234",
+    jobId: "11111111-1111-4111-8111-111111111111",
+    slotToken: "valid-slot-token-1234567890",
+  };
+  let upstream = {
+    status: 200,
+    body: {
+      status: "appointment_confirmed",
+      appointment: { label: "Tuesday, September 1, 9–11 AM" },
+    },
+  };
+  globalThis.fetch = async () => Response.json(upstream.body, { status: upstream.status });
+
+  const confirmed = await dispatch(new Request("https://eternityhvacr.com/api/signmons/appointments/confirm", {
+    method: "POST",
+    headers: { origin: "https://eternityhvacr.com", "content-type": "application/json" },
+    body: JSON.stringify(requestBody),
+  }));
+  assert.equal(confirmed.status, 200);
+  assert.equal(confirmed.headers.get("cache-control"), "no-store");
+  assert.deepEqual(await confirmed.json(), {
+    status: "appointment_confirmed",
+    appointmentLabel: "Tuesday, September 1, 9–11 AM",
+    jobReference: "11111111",
+  });
+
+  upstream = {
+    status: 409,
+    body: { message: "Internal upstream conflict details should not be exposed." },
+  };
+  const conflict = await dispatch(new Request("https://eternityhvacr.com/api/signmons/appointments/confirm", {
+    method: "POST",
+    headers: { origin: "https://eternityhvacr.com", "content-type": "application/json" },
+    body: JSON.stringify(requestBody),
+  }));
+  assert.equal(conflict.status, 409);
+  assert.deepEqual(await conflict.json(), {
+    error: "That appointment was just taken. Please choose another time.",
+  });
+});
+
 test("publishes an indexable expert-answer library", async () => {
   const response = await render("/resources");
   assert.equal(response.status, 200);

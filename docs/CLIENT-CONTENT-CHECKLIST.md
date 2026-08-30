@@ -212,7 +212,8 @@ Complete this for every project selected for publication:
 ## Conversion-feature approval gates
 
 - [ ] Financing provider, eligible services, disclosures, application path and fulfillment owner
-- [ ] Live-booking platform, real availability source, booking rules, cancellation process and owner
+- [x] Live-booking platform, real availability source and initial booking rules — Signmons with Eternity Dispatch Google Calendar; eligible standard residential heating/cooling diagnostic visits; Eastern Time; calendar conflicts rechecked at selection
+- [ ] Reschedule/cancellation process, secure customer link behavior and operational owner
 - [x] Monitored SMS/chat number, staffing hours, response expectation and website consent copy — `216-703-3183`; monitored 24/7; 15-minute reply target; service-related replies only; message/data-rate and STOP disclosures published. Retention policy remains an internal follow-up.
 - [ ] Written warranty or guarantee coverage, duration, exclusions and responsible entity
 - [ ] Maintenance membership name, price, visits, benefits, exclusions, renewal and cancellation terms
@@ -221,7 +222,7 @@ Complete this for every project selected for publication:
 ## Legal and policy content
 
 - [ ] Privacy-policy contact information
-- [ ] Terms for estimate and appointment requests
+- [x] Terms for estimate and appointment requests
 - [x] Website consent language for direct service SMS replies — service-related replies, message/data-rate notice, STOP opt-out and no marketing texts without separate consent
 - [ ] Photo and testimonial releases
 - [ ] Accessibility contact method

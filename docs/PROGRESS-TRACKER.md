@@ -1,6 +1,6 @@
 # Eternity Mechanical Services Website Progress Tracker
 
-Last updated: August 28, 2026
+Last updated: August 30, 2026
 
 This file is the source of truth for the SEO, GEO, content and feature program. Update it whenever a task begins, finishes, becomes blocked or changes scope.
 
@@ -16,11 +16,11 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 ## Current position
 
-**Current milestone:** Local profile and reputation operations
+**Current milestone:** Booking reliability and appointment operations
 
-**Current status:** Direct service texting and the remaining high-priority service pages are published; search discovery and citation follow-up continue
+**Current status:** The Signmons assistant can create an idempotent service request and instantly confirm eligible residential diagnostic appointments from live Eternity Dispatch availability; the website rejects unverified success responses, reports conflicts safely and records confirmation outcomes
 
-**Next action:** Monitor discovery and indexing for the new service URLs, then follow up on unresolved BuildZoom and Porch corrections.
+**Next action:** Complete one labeled production acceptance booking, verify exactly one job, calendar event and internal appointment email, then define the customer reschedule/cancellation workflow.
 
 ## Phase 1 information blockers
 
@@ -64,6 +64,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 4 | Answer library | Complete | None | Bernard reviewed and approved the four live guides August 28, 2026; visible reviewer attribution and `reviewedBy` Person schema were added after approval |
 | 4 | AI-crawler and referral measurement | Complete | Analytics in Phase 1 | OpenAI crawler access is explicit; ChatGPT, Perplexity, Gemini, Copilot, Claude and Meta AI referrals generate a privacy-conscious analytics event |
 | 5 | Service-area checker | Complete | Approved ZIP list | Homepage and service-area page check approved ZIPs, preserve uncertain leads and record privacy-conscious result events |
+| 5 | Signmons AI intake and instant residential diagnostic booking | Complete | Signmons backend, Eternity Dispatch calendar, Resend and approved booking rules | Website and paired-backend reliability suites passed 59 checks on August 30, 2026; requests are idempotent, initial email is deferred when live slots are offered, conflicts are rechecked and a confirmed appointment returns a customer-visible reference |
 | 5 | Photo/video request uploads | Waiting on Eternity | Storage and retention decisions | Secure upload test completed |
 | 5 | Commercial equipment intake | Waiting on Eternity | Field requirements | Make/model/serial request path live |
 | 5 | Maintenance-plan comparison | Waiting on Eternity | Plan details | Approved comparison published |
@@ -73,12 +74,12 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 ### Proposed scope
 
-- Verify the approved Google Business Profile phone, hours, service-area, category, service and review-response corrections during the weekly control cycle
-- Operate the documented post-service review-request and public-response workflow
-- Verify BuildZoom and Porch citation corrections while preserving service-area-business address privacy
-- Maintain Bernard’s reviewer attribution on the four approved expert answers
-- Define the commercial equipment intake fields for make, model and serial number
-- Continue collecting real refrigeration and multifamily project proof
+- Run a labeled production booking through the live assistant
+- Verify exactly one Signmons job, one Eternity Dispatch calendar event and one internal appointment-confirmation email
+- Verify the assistant does not repeat already captured name, phone or issue details
+- Verify a stale slot is removed after a conflict and a malformed upstream response is never presented as success
+- Define the owner, rules and secure link behavior for appointment rescheduling and cancellation
+- Connect booked and completed jobs back to the originating website page and lead source
 
 ### Definition of done
 
@@ -98,6 +99,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 | Date | Change | Outcome | Next step |
 |---|---|---|---|
+| 2026-08-30 | Hardened the instant-booking website boundary | Added strict job/slot validation, no-store responses, safe conflict handling, a visible confirmation reference, failed-booking analytics and automated success/conflict/malformed-response tests; the 25-check website suite and 34 targeted Signmons idempotency, notification and scheduling checks pass | Publish the verified release, run one labeled production booking and then build the secure reschedule/cancel workflow |
 | 2026-08-28 | Built Signmons Phase 1 service routing | Added a site-wide, clearly disclosed automated assistant for HVAC/R request qualification, immediate life-safety guidance, call/text/email/form handoff, accessible keyboard behavior, privacy-conscious category events and matching privacy/terms disclosures; no live AI or diagnosis is claimed because an approved Signmons API and response-safety contract are not yet in the project | Publish and verify the routing release, then define the approved Signmons API, authentication, retention, human-review and response-safety contract before enabling generative responses |
 | 2026-08-28 | Submitted the corrected furnace repair-versus-replacement guide for fresh indexing | Bing URL Submission confirmed success and Google Search Console added `https://eternityhvacr.com/resources/furnace-repair-vs-replacement` to its priority crawl queue using the verified Eternity properties | Allow processing time, then confirm index status and rerun the free Bing sitemap scan |
 | 2026-08-28 | Built the privacy, consent and request-path foundation release | Added plain-language privacy/data-use and website-terms pages; required service-contact authorization; separated emergency, repair, installation-estimate, commercial/refrigeration and maintenance request paths; and added privacy-conscious form-start, step, completion, emergency and error events without sending customer-entered contact or issue details to analytics | Publish, verify the live request form and have counsel review policy wording before enabling live Signmons AI, uploads, scheduling or payments |

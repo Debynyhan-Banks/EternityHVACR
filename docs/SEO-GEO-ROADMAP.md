@@ -246,7 +246,7 @@ Google’s current guidance says there is no special schema or writing format re
 - [ ] Service request with photo or short-video upload
 - [ ] Commercial equipment intake for make, model and serial number
 - [x] Separate emergency and estimate request paths
-- [x] Disclosed Signmons service-routing assistant with structured HVAC/R qualification, life-safety limits, privacy-conscious interaction events and direct human handoff; live AI diagnosis remains disabled until an approved API, authentication and response-safety contract exists
+- [x] Disclosed live Signmons assistant with HVAC/R qualification, life-safety limits, server-side authentication, privacy-conscious interaction events, direct human handoff, idempotent job creation and verified residential diagnostic scheduling; it does not claim to diagnose equipment
 - [ ] Preventive-maintenance plan comparison
 - [ ] Downloadable example diagnostic report
 - [ ] “Save Eternity to Contacts” mobile action
@@ -254,7 +254,8 @@ Google’s current guidance says there is no special schema or writing format re
 
 ### Later features, subject to operational readiness
 
-- [ ] Appointment request calendar or live scheduling
+- [x] Live Eternity Dispatch availability and instant confirmation for eligible residential heating and cooling diagnostic appointments
+- [ ] Secure customer reschedule and cancellation workflow
 - [ ] Maintenance reminders
 - [ ] Customer equipment history
 - [ ] Property-manager or commercial account portal
@@ -277,6 +278,9 @@ Features should not be published until Eternity has a person and process respons
 - [x] Emergency requests
 - [x] Residential, commercial and refrigeration lead type
 - [x] Review-link clicks
+- [x] Live appointment availability responses
+- [x] Confirmed appointment selections
+- [x] Appointment confirmation failures
 - [ ] Capability-document downloads
 - [ ] Booked and completed jobs by lead source
 
