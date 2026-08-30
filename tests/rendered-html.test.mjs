@@ -304,6 +304,7 @@ test("proxies appointment confirmation with conflict and idempotency safeguards"
     body: {
       status: "appointment_confirmed",
       appointment: { label: "Tuesday, September 1, 9–11 AM" },
+      managementToken: "secure-management-token-1234567890",
     },
   };
   globalThis.fetch = async () => Response.json(upstream.body, { status: upstream.status });
@@ -319,6 +320,7 @@ test("proxies appointment confirmation with conflict and idempotency safeguards"
     status: "appointment_confirmed",
     appointmentLabel: "Tuesday, September 1, 9–11 AM",
     jobReference: "11111111",
+    managementPath: "/appointment/manage#secure-management-token-1234567890",
   });
 
   upstream = {
@@ -334,6 +336,86 @@ test("proxies appointment confirmation with conflict and idempotency safeguards"
   assert.deepEqual(await conflict.json(), {
     error: "That appointment was just taken. Please choose another time.",
   });
+});
+
+test("publishes a noindex secure appointment-management page", async () => {
+  const response = await render("/appointment/manage");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Manage your residential diagnostic appointment/);
+  assert.match(html, /<meta name="robots" content="noindex, nofollow"/i);
+  assert.match(html, /<meta name="referrer" content="no-referrer"/i);
+  assert.match(html, /Loading your appointment/);
+});
+
+test("proxies verified appointment view, availability, reschedule and cancellation responses", async (t) => {
+  const originalFetch = globalThis.fetch;
+  const originalApiUrl = process.env.SIGNMONS_API_URL;
+  const originalKey = process.env.SIGNMONS_WEBCHAT_KEY;
+  process.env.SIGNMONS_API_URL = "https://signmons.example";
+  process.env.SIGNMONS_WEBCHAT_KEY = "test-integration-key";
+  t.after(() => {
+    globalThis.fetch = originalFetch;
+    if (originalApiUrl === undefined) delete process.env.SIGNMONS_API_URL;
+    else process.env.SIGNMONS_API_URL = originalApiUrl;
+    if (originalKey === undefined) delete process.env.SIGNMONS_WEBCHAT_KEY;
+    else process.env.SIGNMONS_WEBCHAT_KEY = originalKey;
+  });
+
+  const appointment = {
+    label: "Monday, August 31, 11:00 AM–2:00 PM",
+    start: "2026-08-31T15:00:00.000Z",
+    end: "2026-08-31T18:00:00.000Z",
+  };
+  let upstream = {
+    status: 200,
+    body: { status: "appointment_details", state: "confirmed", reference: "D51AF0C6", appointment },
+  };
+  globalThis.fetch = async () => Response.json(upstream.body, { status: upstream.status });
+  const managementToken = "secure-management-token-1234567890";
+  const call = (action, slotToken) => dispatch(new Request("https://eternityhvacr.com/api/signmons/appointments/manage", {
+    method: "POST",
+    headers: { origin: "https://eternityhvacr.com", "content-type": "application/json" },
+    body: JSON.stringify({ managementToken, action, ...(slotToken ? { slotToken } : {}) }),
+  }));
+
+  const viewed = await call("view");
+  assert.equal(viewed.status, 200);
+  assert.equal(viewed.headers.get("referrer-policy"), "no-referrer");
+  assert.equal((await viewed.json()).reference, "D51AF0C6");
+
+  upstream = {
+    status: 200,
+    body: {
+      status: "appointment_availability",
+      appointment,
+      slots: [{
+        token: "valid-alternate-slot-token-1234567890",
+        label: "Tuesday, September 1, 8–11 AM",
+        start: "2026-09-01T12:00:00.000Z",
+        end: "2026-09-01T15:00:00.000Z",
+      }],
+    },
+  };
+  const availability = await call("availability");
+  assert.equal(availability.status, 200);
+  assert.equal((await availability.json()).slots.length, 1);
+
+  upstream = {
+    status: 200,
+    body: { status: "appointment_rescheduled", reference: "D51AF0C6", appointment },
+  };
+  const rescheduled = await call("reschedule", "valid-alternate-slot-token-1234567890");
+  assert.equal(rescheduled.status, 200);
+  assert.equal((await rescheduled.json()).status, "appointment_rescheduled");
+
+  upstream = {
+    status: 200,
+    body: { status: "appointment_cancelled", reference: "D51AF0C6" },
+  };
+  const cancelled = await call("cancel");
+  assert.equal(cancelled.status, 200);
+  assert.equal((await cancelled.json()).status, "appointment_cancelled");
 });
 
 test("publishes an indexable expert-answer library", async () => {

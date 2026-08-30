@@ -25,6 +25,7 @@ export default function TermsPage() {
 
       <h2>Requests, estimates and appointments</h2>
       <p>Except for an eligible residential diagnostic appointment explicitly confirmed from live assistant availability, a website, phone, email or text request is an invitation for Eternity to follow up. Appointment timing, technician availability, scope, pricing, payment terms, parts, warranty coverage and other job-specific conditions are confirmed separately by Eternity. The stated 15-minute target refers to review or reply during regular business hours and is not a technician-arrival promise.</p>
+      <p>A confirmed residential diagnostic appointment may include a private management link. Anyone with that link may be able to view, reschedule or cancel the appointment, so keep it private. Online rescheduling is limited to live windows that meet Eternity&apos;s minimum-notice rules and is not complete until the replacement time is confirmed. Online cancellation releases the reserved time only after the website displays a cancellation confirmation. Call 216-703-3183 if the link is unavailable or the appointment is too close to change online.</p>
 
       <h2>Emergency and safety limits</h2>
       <p>The website is not an emergency-dispatch service. If you suspect fire, carbon monoxide, a gas leak, electrical danger or another immediate threat, leave the affected area when appropriate and contact 911, the fire department or the utility emergency line. Do not rely on a website submission for an immediate safety response.</p>

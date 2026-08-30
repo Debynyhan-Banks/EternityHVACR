@@ -67,6 +67,7 @@ export async function POST(request: Request) {
     const result = await response.json().catch(() => ({})) as {
       status?: unknown;
       appointment?: { label?: unknown };
+      managementToken?: unknown;
       message?: unknown;
     };
     if (!response.ok) {
@@ -88,11 +89,21 @@ export async function POST(request: Request) {
       ? result.appointment.label.trim().slice(0, 160)
       : "";
     const jobReference = jobId.replace(/-/g, "").slice(0, 8).toUpperCase();
+    const managementToken = typeof result.managementToken === "string"
+      ? result.managementToken.trim()
+      : "";
+    if (managementToken.length < 20 || managementToken.length > 2048) {
+      return jsonResponse(
+        { error: "The appointment was confirmed, but its management link could not be verified. Please call Eternity." },
+        502,
+      );
+    }
 
     return jsonResponse({
       status: "appointment_confirmed",
       appointmentLabel: appointmentLabel || "Your selected arrival window",
       jobReference,
+      managementPath: `/appointment/manage#${managementToken}`,
     });
   } catch {
     return jsonResponse(

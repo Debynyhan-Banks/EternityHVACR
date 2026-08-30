@@ -7,7 +7,7 @@ import { trackGoogleEvent } from "./Analytics";
 type RequestPath = "urgent" | "cooling" | "heating" | "commercial" | "estimate" | "maintenance";
 type PropertyType = "home" | "business" | "managed";
 type Screen = "start" | "property" | "handoff" | "chat" | "safety";
-type ChatMessage = { id: string; role: "assistant" | "user"; text: string; safety?: boolean; success?: boolean };
+type ChatMessage = { id: string; role: "assistant" | "user"; text: string; safety?: boolean; success?: boolean; manageHref?: string };
 type AppointmentSlot = { token: string; start: string; end: string; label: string };
 type SignmonsApiResult = {
   status?: "reply" | "needs_correction" | "job_created" | "availability" | "appointment_confirmed";
@@ -223,7 +223,7 @@ export default function SignmonsAssistant() {
           slotToken: slot.token,
         }),
       });
-      const result = await response.json() as { status?: string; appointmentLabel?: string; jobReference?: string; error?: string };
+      const result = await response.json() as { status?: string; appointmentLabel?: string; jobReference?: string; managementPath?: string; error?: string };
       if (!response.ok || result.status !== "appointment_confirmed") {
         if (response.status === 409) {
           setAppointmentSlots((slots) => slots.filter((choice) => choice.token !== slot.token));
@@ -239,8 +239,9 @@ export default function SignmonsAssistant() {
       setChatMessages((messages) => [...messages, {
         id: crypto.randomUUID(),
         role: "assistant",
-        text: `Your residential diagnostic appointment is confirmed for ${result.appointmentLabel ?? slot.label}${result.jobReference ? ` — reference ${result.jobReference}` : ""}. Eternity will use the contact information you provided if anything changes.`,
+        text: `Your residential diagnostic appointment is confirmed for ${result.appointmentLabel ?? slot.label}${result.jobReference ? ` — reference ${result.jobReference}` : ""}. Use the secure link below to reschedule or cancel. Keep the link private.`,
         success: true,
+        manageHref: result.managementPath,
       }]);
       trackGoogleEvent("assistant_appointment_confirmed", {
         assistant: "signmons_calldesk",
@@ -366,6 +367,7 @@ export default function SignmonsAssistant() {
               {chatMessages.map((message) => <div key={message.id} className={`signmons-message ${message.role}${message.safety ? " safety" : ""}${message.success ? " success" : ""}`}>
                 <span>{message.role === "assistant" ? "Assistant" : "You"}</span>
                 <p>{message.text}</p>
+                {message.manageHref && <Link className="signmons-manage-link" href={message.manageHref}>Manage appointment →</Link>}
               </div>)}
               {chatLoading && <div className="signmons-message assistant loading"><span>Assistant</span><p>{[
                 "Preparing a response…",

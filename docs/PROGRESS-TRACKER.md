@@ -18,9 +18,9 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current milestone:** Booking reliability and appointment operations
 
-**Current status:** The Signmons assistant can create an idempotent service request and instantly confirm eligible residential diagnostic appointments from live Eternity Dispatch availability; the website rejects unverified success responses, reports conflicts safely and records confirmation outcomes
+**Current status:** The production assistant can create an idempotent service request, instantly confirm eligible residential diagnostics from live Eternity Dispatch availability, and give the customer a private 90-day link to view, reschedule or cancel the confirmed appointment. Rescheduling updates the existing calendar event; cancellation releases the calendar and database reservation; each completed change creates exactly one internal operations notification.
 
-**Next action:** Complete one labeled production acceptance booking, verify exactly one job, calendar event and internal appointment email, then define the customer reschedule/cancellation workflow.
+**Next action:** Run one labeled production acceptance test through both reschedule and cancellation, then connect booked and completed jobs to their originating website page and lead source.
 
 ## Phase 1 information blockers
 
@@ -64,7 +64,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 4 | Answer library | Complete | None | Bernard reviewed and approved the four live guides August 28, 2026; visible reviewer attribution and `reviewedBy` Person schema were added after approval |
 | 4 | AI-crawler and referral measurement | Complete | Analytics in Phase 1 | OpenAI crawler access is explicit; ChatGPT, Perplexity, Gemini, Copilot, Claude and Meta AI referrals generate a privacy-conscious analytics event |
 | 5 | Service-area checker | Complete | Approved ZIP list | Homepage and service-area page check approved ZIPs, preserve uncertain leads and record privacy-conscious result events |
-| 5 | Signmons AI intake and instant residential diagnostic booking | Complete | Signmons backend, Eternity Dispatch calendar, Resend and approved booking rules | Website and paired-backend reliability suites passed 59 checks on August 30, 2026; requests are idempotent, initial email is deferred when live slots are offered, conflicts are rechecked and a confirmed appointment returns a customer-visible reference |
+| 5 | Signmons AI intake, instant residential diagnostic booking and appointment management | Complete | Signmons backend, Eternity Dispatch calendar, Resend and approved booking rules | Production acceptance booking `D51AF0C6` created exactly one job, calendar event and internal email; secure 90-day management links now support verified view, live rescheduling and cancellation; website and paired-backend suites passed 71 checks on August 30, 2026 |
 | 5 | Photo/video request uploads | Waiting on Eternity | Storage and retention decisions | Secure upload test completed |
 | 5 | Commercial equipment intake | Waiting on Eternity | Field requirements | Make/model/serial request path live |
 | 5 | Maintenance-plan comparison | Waiting on Eternity | Plan details | Approved comparison published |
@@ -74,11 +74,10 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 ### Proposed scope
 
-- Run a labeled production booking through the live assistant
-- Verify exactly one Signmons job, one Eternity Dispatch calendar event and one internal appointment-confirmation email
-- Verify the assistant does not repeat already captured name, phone or issue details
-- Verify a stale slot is removed after a conflict and a malformed upstream response is never presented as success
-- Define the owner, rules and secure link behavior for appointment rescheduling and cancellation
+- Run a labeled production reschedule and cancellation through the private customer-management link
+- Verify rescheduling updates the existing Eternity Dispatch event rather than creating a duplicate
+- Verify cancellation releases both the database reservation and Google Calendar event
+- Verify exactly one internal notification is sent for each completed lifecycle change
 - Connect booked and completed jobs back to the originating website page and lead source
 
 ### Definition of done
@@ -99,6 +98,8 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 | Date | Change | Outcome | Next step |
 |---|---|---|---|
+| 2026-08-30 | Added secure self-service appointment management | Confirmed residential appointments now receive a private 90-day fragment-based link; customers can view details, choose a live replacement slot or cancel, while Signmons updates the existing Eternity Dispatch event, releases cancelled reservations and sends one lifecycle notification; 27 website checks and 44 targeted backend checks pass | Run one labeled live reschedule/cancel acceptance test, then add booked/completed-job attribution |
+| 2026-08-30 | Completed the production booking acceptance test | Booking `D51AF0C6` produced exactly one Signmons job, one Eternity Dispatch event and one internal appointment email; the repeat-question safeguard fired and the calendar timezone was corrected to Eastern | Verify the new private reschedule/cancel path in production |
 | 2026-08-30 | Hardened the instant-booking website boundary | Added strict job/slot validation, no-store responses, safe conflict handling, a visible confirmation reference, failed-booking analytics and automated success/conflict/malformed-response tests; the 25-check website suite and 34 targeted Signmons idempotency, notification and scheduling checks pass | Publish the verified release, run one labeled production booking and then build the secure reschedule/cancel workflow |
 | 2026-08-28 | Built Signmons Phase 1 service routing | Added a site-wide, clearly disclosed automated assistant for HVAC/R request qualification, immediate life-safety guidance, call/text/email/form handoff, accessible keyboard behavior, privacy-conscious category events and matching privacy/terms disclosures; no live AI or diagnosis is claimed because an approved Signmons API and response-safety contract are not yet in the project | Publish and verify the routing release, then define the approved Signmons API, authentication, retention, human-review and response-safety contract before enabling generative responses |
 | 2026-08-28 | Submitted the corrected furnace repair-versus-replacement guide for fresh indexing | Bing URL Submission confirmed success and Google Search Console added `https://eternityhvacr.com/resources/furnace-repair-vs-replacement` to its priority crawl queue using the verified Eternity properties | Allow processing time, then confirm index status and rerun the free Bing sitemap scan |

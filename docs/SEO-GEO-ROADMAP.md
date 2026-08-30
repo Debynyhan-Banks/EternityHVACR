@@ -255,7 +255,7 @@ Google’s current guidance says there is no special schema or writing format re
 ### Later features, subject to operational readiness
 
 - [x] Live Eternity Dispatch availability and instant confirmation for eligible residential heating and cooling diagnostic appointments
-- [ ] Secure customer reschedule and cancellation workflow
+- [x] Secure customer reschedule and cancellation workflow using a private 90-day link, live replacement availability, existing-event updates, released cancelled slots and one internal lifecycle notification
 - [ ] Maintenance reminders
 - [ ] Customer equipment history
 - [ ] Property-manager or commercial account portal
@@ -281,6 +281,9 @@ Features should not be published until Eternity has a person and process respons
 - [x] Live appointment availability responses
 - [x] Confirmed appointment selections
 - [x] Appointment confirmation failures
+- [x] Appointment-management views
+- [x] Appointment reschedule starts and completions
+- [x] Appointment cancellations
 - [ ] Capability-document downloads
 - [ ] Booked and completed jobs by lead source
 

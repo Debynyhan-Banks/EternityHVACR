@@ -213,7 +213,7 @@ Complete this for every project selected for publication:
 
 - [ ] Financing provider, eligible services, disclosures, application path and fulfillment owner
 - [x] Live-booking platform, real availability source and initial booking rules — Signmons with Eternity Dispatch Google Calendar; eligible standard residential heating/cooling diagnostic visits; Eastern Time; calendar conflicts rechecked at selection
-- [ ] Reschedule/cancellation process, secure customer link behavior and operational owner
+- [x] Reschedule/cancellation process, secure customer link behavior and operational owner — private 90-day fragment-based link; confirmed residential diagnostics only; live replacement slots obey Eastern Time and minimum notice; Signmons updates the existing Eternity Dispatch event or releases a cancelled reservation; Bernard/Debynyhan receive one internal lifecycle notification
 - [x] Monitored SMS/chat number, staffing hours, response expectation and website consent copy — `216-703-3183`; monitored 24/7; 15-minute reply target; service-related replies only; message/data-rate and STOP disclosures published. Retention policy remains an internal follow-up.
 - [ ] Written warranty or guarantee coverage, duration, exclusions and responsible entity
 - [ ] Maintenance membership name, price, visits, benefits, exclusions, renewal and cancellation terms
