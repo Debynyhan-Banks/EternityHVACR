@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { trackGoogleEvent } from "./Analytics";
 
 type RequestPath = "urgent" | "cooling" | "heating" | "commercial" | "estimate" | "maintenance";
@@ -111,6 +111,13 @@ export default function SignmonsAssistant() {
   const leadAttributionRef = useRef<LeadAttribution | null>(null);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
+  const openAssistant = useCallback((opener?: HTMLElement) => {
+    if (opener) openerRef.current = opener;
+    if (!leadAttributionRef.current) leadAttributionRef.current = captureLeadAttribution();
+    setOpen(true);
+    trackGoogleEvent("assistant_open", { assistant: "signmons_router" });
+  }, []);
+
   useEffect(() => {
     if (!open) return;
 
@@ -152,7 +159,7 @@ export default function SignmonsAssistant() {
     };
     document.addEventListener("click", openFromPageControl);
     return () => document.removeEventListener("click", openFromPageControl);
-  }, []);
+  }, [openAssistant]);
 
   useEffect(() => {
     if (screen === "chat") chatEndRef.current?.scrollIntoView({ block: "nearest" });
@@ -167,13 +174,6 @@ export default function SignmonsAssistant() {
       window.clearTimeout(savingTimer);
     };
   }, [chatLoading]);
-
-  function openAssistant(opener?: HTMLElement) {
-    if (opener) openerRef.current = opener;
-    if (!leadAttributionRef.current) leadAttributionRef.current = captureLeadAttribution();
-    setOpen(true);
-    trackGoogleEvent("assistant_open", { assistant: "signmons_router" });
-  }
 
   function choosePath(path: RequestPath) {
     setRequestPath(path);

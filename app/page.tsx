@@ -43,6 +43,7 @@ export default function Home() {
       </div>
       <div className="hero-media">
         <picture>
+          <source media="(max-width: 700px)" srcSet="/images/eternity-van-hero-mobile-b.webp" type="image/webp" />
           <source media="(max-width: 700px)" srcSet="/images/eternity-van-hero-mobile-b.jpg" />
           <img
             src="/images/eternity-van-hero.jpg"

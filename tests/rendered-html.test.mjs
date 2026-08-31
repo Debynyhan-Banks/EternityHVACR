@@ -41,6 +41,7 @@ test("renders the Eternity homepage with approved business information", async (
   assert.match(html, /Comfort\. Performance\. Peace of mind\./);
   assert.match(html, /28 years of owner experience/);
   assert.match(html, /eternity-van-hero\.jpg/);
+  assert.match(html, /eternity-van-hero-mobile-b\.webp/);
   assert.match(html, /eternity-van-hero-mobile-b\.jpg/);
   assert.match(html, /Bernard Gray standing beside an Eternity Mechanical Services work van/);
   assert.match(html, /aria-label="Featured services"/);

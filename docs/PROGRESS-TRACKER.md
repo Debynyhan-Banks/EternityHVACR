@@ -18,9 +18,9 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current milestone:** Monthly lead-source scorecard foundation
 
-**Current status:** The production assistant can create an idempotent service request, instantly confirm eligible residential diagnostics from live Eternity Dispatch availability, and give the customer a private 90-day link to view, reschedule or cancel the confirmed appointment. Privacy-safe website attribution is production-verified. Signmons now has a live tenant-scoped, owner/admin/manager lead-source report that returns created, booked, completed, cancelled, attributed and unattributed totals without selecting customer PII. Eternity's first technical baseline was generated as a local private report and is excluded from GitHub and the public website.
+**Current status:** The production assistant can create an idempotent service request, instantly confirm eligible residential diagnostics from live Eternity Dispatch availability, and give the customer a private 90-day link to view, reschedule or cancel the confirmed appointment. Privacy-safe website attribution is production-verified. Signmons now has a live tenant-scoped lead-source report and an owner/admin job-completion endpoint, but its authenticated operator UI remains planned in Signmons rather than on Eternity's public website. Eternity's first technical baseline was generated as a local private report and is excluded from GitHub and the public website.
 
-**Next action:** Use the next full operating month as the first decision-quality scorecard after technicians consistently mark completed work in Signmons. Build the reusable authenticated dashboard under the separate Signmons APP-014 plan; do not expose business metrics or reporting credentials on Eternity's public website.
+**Next action:** Publish the validated mobile performance maintenance release, verify that modern phones receive the smaller hero asset, and rerun the live mobile audit. Then use the next full operating month as the first decision-quality scorecard after technicians consistently mark completed work in Signmons. Build the reusable authenticated dashboard under the separate Signmons APP-014 plan; do not expose business metrics or reporting credentials on Eternity's public website.
 
 ## Phase 1 information blockers
 
@@ -54,7 +54,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 1 | Google Business Profile operations audit and correction | Complete | None | `216-703-3183` aligned; review response corrected; Google approved Saturday hours, 20-city service area and two secondary categories; Services expanded to 20 confirmed offerings with descriptions August 28, 2026 |
 | 1 | Recurring review, profile and citation operations | In progress | External directory response | Debynyhan assigned as routine owner, Bernard as technical/high-risk escalation; manual review workflow documented; weekly Monday check active; BuildZoom and Porch correction requests submitted August 28, 2026 |
 | 1 | Conversion analytics | Complete | Google Analytics property created | Corrected property ID published; Realtime showed the Eternity page view and active user on August 23, 2026 |
-| 1 | Responsive image optimization | Complete | None | Live mobile audit: Performance 86, Accessibility 100, SEO 100, LCP 2.7 seconds and CLS 0 on August 23, 2026 |
+| 1 | Responsive image optimization | In progress | Production publish and re-audit | August 30 live Lighthouse samples scored Performance 79–83, Accessibility 100 and SEO 100 with 4.1-second LCP; a WebP version of the current mobile hero reduces that asset from 306,620 to 80,338 bytes without changing its crop, with the JPEG retained as fallback |
 | 2 | Priority service pages | Complete | Approved service scope and operating facts | AC repair, AC installation/replacement and emergency HVAC/R pages added to the heating and commercial service library, internally linked and included in the sitemap August 28, 2026 |
 | 2 | Market pages | Waiting on Eternity | Confirmed customer segments | Approved pages published |
 | 2 | Service-area hub and city pages | In progress | Approved priority and extended city/ZIP list plus genuine local proof | Comprehensive service-area hub and first proof-backed Euclid page published August 24, 2026; future city pages remain gated by location-specific evidence |
@@ -74,6 +74,9 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 ### Proposed scope
 
+- [x] Repair the chatbot page-control lint failure without changing assistant behavior
+- [x] Add a modern mobile-hero source while retaining the approved JPEG fallback
+- [x] Verify the modern asset preserves the approved 941-by-1672 crop and reduces transfer size
 - [x] Run labeled production rescheduling and cancellation through the private customer-management link
 - [x] Verify rescheduling updates the existing Eternity Dispatch event rather than creating a duplicate
 - [x] Verify cancellation releases the Google Calendar event and records the lifecycle change
@@ -99,6 +102,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 | Date | Change | Outcome | Next step |
 |---|---|---|---|
+| 2026-08-30 | Prepared the mobile performance maintenance release | A fresh live Lighthouse audit scored Performance 79–83, Accessibility 100 and SEO 100 with a 4.1-second LCP. The approved mobile hero was converted to an 80,338-byte WebP source from the 306,620-byte JPEG while retaining the original fallback, and the chatbot opener lint failure was repaired. Build, lint with no errors and all 27 rendered-page tests pass | Publish the prepared Sites version, confirm the live page serves WebP on supported phones and rerun Lighthouse |
 | 2026-08-30 | Established the private lead-source scorecard foundation | Signmons deployed an authenticated tenant-scoped report for created, booked, completed, cancelled, attributed and unattributed jobs; the first Eternity technical baseline was generated locally without customer PII and excluded from GitHub/public deployment | Use the next full attributed operating month after completed-job status is consistently maintained; build the reusable authenticated UI in Signmons rather than on the public Eternity site |
 | 2026-08-30 | Completed the labeled production attribution acceptance booking with `Test Banks` | Booking `435A8BF6` was accepted for the selected Eastern-time window, stored `acceptance_test / website / job_attribution` plus homepage landing and source paths, linked to one Eternity Dispatch event and recorded exactly one internal email notification; no customer address, phone or chat contents were used in the verification output | Add booked and completed lead-source totals to Eternity's monthly marketing scorecard |
 | 2026-08-30 | Published privacy-safe job attribution for the Eternity booking funnel | Ask Eternity now carries the session landing page, chat-origin page, referral hostname and bounded UTM source/medium/campaign fields into the persistent job record; internal job emails display the useful source and origin page, while customer message contents remain excluded from Google Analytics. The matching website and backend releases passed a production contract smoke test without creating a customer job | Run one labeled campaign-source acceptance booking and verify its internal email source fields |
