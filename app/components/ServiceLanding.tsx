@@ -8,6 +8,8 @@ export type ServiceLandingContent = {
   summary: string;
   image: string;
   imageAlt: string;
+  capabilitiesTitle?: string;
+  capabilitiesCopy?: string;
   services: string[];
   customers: string[];
   process: Array<[string, string]>;
@@ -74,7 +76,7 @@ export default function ServiceLanding({ content }: { content: ServiceLandingCon
       <div className="landing-hero-image"><img src={content.image} alt={content.imageAlt} width="1800" height="1200" fetchPriority="high" decoding="async" /><span>Greater Cleveland & Northeast Ohio</span></div>
     </section>
     <section className="response-band"><strong>15-minute response target</strong><span>Website requests are typically reviewed within 15 minutes during regular business hours. For urgent service, call directly.</span><a href="tel:+12167033183">Call now →</a></section>
-    <section className="section landing-overview"><div><p className="kicker">Service capabilities</p><h2>Professional service built around the equipment.</h2><p>Eternity begins with the operating condition, symptoms and property needs, then evaluates the system before recommending approved work.</p></div><div className="landing-list">{content.services.map((service) => <span key={service}>✓ {service}</span>)}</div></section>
+    <section className="section landing-overview"><div><p className="kicker">Service capabilities</p><h2>{content.capabilitiesTitle ?? "Professional service built around the equipment."}</h2><p>{content.capabilitiesCopy ?? "Eternity begins with the operating condition, symptoms and property needs, then evaluates the system before recommending approved work."}</p></div><div className="landing-list">{content.services.map((service) => <span key={service}>✓ {service}</span>)}</div></section>
     <section className="landing-customers"><div><p className="kicker light">Who we help</p><h2>Service for the properties that depend on reliable operation.</h2></div><div>{content.customers.map((customer) => <article key={customer}><span>✓</span><h3>{customer}</h3></article>)}</div></section>
     <section className="section landing-process"><div className="center-head"><p className="kicker">How service works</p><h2>Measured before recommended.</h2></div><div>{content.process.map(([title, copy], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></section>
     {content.caseStudy && <section className="commercial-proof">

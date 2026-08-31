@@ -501,8 +501,8 @@ test("renders the first four evidence-backed expert answers", async () => {
 test("renders the priority service pages with unique search content", async () => {
   const pages = [
     ["/services/commercial-refrigeration", /Commercial Refrigeration Service in Greater Cleveland/, /Walk-in cooler and freezer service/, /href="\/resources\/walk-in-cooler-icing-up"/],
-    ["/services/commercial-hvac", /Commercial HVAC Service for Greater Cleveland Facilities/, /Rooftop-unit diagnostics and repair/, /href="\/resources\/rooftop-hvac-short-cycling"/],
-    ["/services/preventive-maintenance", /HVAC and Refrigeration Maintenance Before Problems Become Emergencies/, /System and equipment inspection/],
+    ["/services/commercial-hvac", /Commercial HVAC Repair &amp; Maintenance in Greater Cleveland/, /Commercial rooftop-unit diagnostics and repair/, /href="\/resources\/rooftop-hvac-short-cycling"/],
+    ["/services/preventive-maintenance", /HVAC Preventive Maintenance in Greater Cleveland/, /Heating and cooling equipment inspection/, /href="\/resources\/commercial-refrigeration-maintenance-frequency"/],
     ["/services/furnace-heating-repair", /Furnace and Heating Repair in Greater Cleveland/, /No-heat and intermittent-heating diagnostics/, /href="\/resources\/furnace-repair-vs-replacement"/],
     ["/services/boiler-service", /Boiler Service and Repair in Greater Cleveland/, /Boiler operating diagnostics/],
     ["/services/heat-pump-service", /Heat Pump Service and Repair in Greater Cleveland/, /Heat-pump heating and cooling diagnostics/],
@@ -525,6 +525,14 @@ test("renders the priority service pages with unique search content", async () =
     if (pathname === "/services/commercial-refrigeration") {
       assert.match(html, /href="\/resources\/commercial-refrigeration-maintenance-frequency"/);
     }
+    if (pathname === "/services/commercial-hvac") {
+      assert.match(html, /<title>Commercial HVAC Repair \| Cleveland, OH \| Eternity<\/title>/);
+      assert.match(html, /Facility symptoms worth investigating early/);
+    }
+    if (pathname === "/services/preventive-maintenance") {
+      assert.match(html, /<title>HVAC Maintenance \| Cleveland, OH \| Eternity<\/title>/);
+      assert.match(html, /Choose timing based on the equipment and property/);
+    }
   }
 });
 
@@ -533,7 +541,8 @@ test("publishes the approved Greater Cleveland service areas", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
 
-  assert.match(html, /Serving Greater Cleveland &amp; Northeast Ohio/);
+  assert.match(html, /HVAC, Refrigeration &amp; Boiler Service Across Greater Cleveland/);
+  assert.match(html, /<title>HVAC Service Areas Near Cleveland, OH \| Eternity<\/title>/);
   assert.match(html, /Cleveland Heights/);
   assert.match(html, /44106/);
   assert.match(html, /North Ridgeville/);
@@ -542,6 +551,8 @@ test("publishes the approved Greater Cleveland service areas", async () => {
   assert.match(html, /44221/);
   assert.match(html, /&quot;ItemList&quot;|"ItemList"/);
   assert.match(html, /href="\/areas-we-serve\/euclid-oh"/);
+  assert.match(html, /href="\/services\/commercial-hvac"/);
+  assert.match(html, /href="\/services\/preventive-maintenance"/);
   assert.match(html, /ZIP-code checker/);
   assert.match(html, /Property ZIP code/);
 });
