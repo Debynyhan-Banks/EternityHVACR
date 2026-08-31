@@ -64,7 +64,7 @@ export default function LocationLanding({ content, schema }: { content: Location
           <h1>{content.title}</h1>
           <p>{content.summary}</p>
           <div className="hero-actions">
-            <Link className="btn" href="/#schedule">Request service <span>↗</span></Link>
+            <a className="btn" href="https://eternityhvacr.com/#schedule">Request service <span>↗</span></a>
             <a className="btn-outline" href="tel:+12167033183">Call Eternity <span>→</span></a>
           </div>
           <div className="location-hero-proof">
@@ -225,7 +225,7 @@ export default function LocationLanding({ content, schema }: { content: Location
           <p className="kicker light">Residential</p>
           <h2>Comfort systems for Euclid homes</h2>
           <p>Heating and cooling diagnostics, repair, maintenance, full-system installation and replacement.</p>
-          <Link href="/#schedule">Request residential service →</Link>
+          <a href="https://eternityhvacr.com/#schedule">Request residential service →</a>
         </div>
         <div>
           <p className="kicker light">Commercial</p>
@@ -254,7 +254,7 @@ export default function LocationLanding({ content, schema }: { content: Location
 
       <section className="emergency landing-cta">
         <div><p className="kicker light">Need HVAC service in Euclid?</p><h2>Tell Eternity what the equipment needs.</h2><p>Share the property, system and timing through the existing service-request workflow.</p></div>
-        <div><Link className="btn btn-orange" href="/#schedule">Request service <span>↗</span></Link><a className="btn-outline light-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a><small>Website requests are typically reviewed within 15 minutes during regular business hours. For urgent service, call directly.</small></div>
+        <div><a className="btn btn-orange" href="https://eternityhvacr.com/#schedule">Request service <span>↗</span></a><a className="btn-outline light-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a><small>Website requests are typically reviewed within 15 minutes during regular business hours. For urgent service, call directly.</small></div>
       </section>
 
       <SiteFooter />

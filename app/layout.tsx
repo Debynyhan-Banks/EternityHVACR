@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import AnalyticsEvents from "./components/Analytics";
+import AttributionCapture from "./components/AttributionCapture";
 import SignmonsAssistant from "./components/SignmonsAssistant";
 import "./globals.css";
 
@@ -120,6 +121,7 @@ gtag('config', '${GOOGLE_ANALYTICS_ID}');
       </head>
       <body className={`${manrope.variable} ${inter.variable}`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} />
+        <AttributionCapture />
         <AnalyticsEvents />
         {children}
         <SignmonsAssistant />

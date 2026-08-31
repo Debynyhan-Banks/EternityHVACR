@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FormEvent, useRef, useState } from "react";
 import { trackGoogleEvent } from "./Analytics";
+import { captureLeadAttribution } from "./LeadAttribution";
 
 type RequestData = {
   requestType: string;
@@ -89,10 +90,11 @@ export default function ServiceRequest() {
     setError("");
 
     try {
+      const attribution = captureLeadAttribution("website_service_request");
       const response = await fetch("/api/service-request", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, startedAt }),
+        body: JSON.stringify({ ...data, startedAt, attribution }),
       });
 
       const result = await response.json() as { error?: string; confirmationSent?: boolean };
@@ -104,6 +106,11 @@ export default function ServiceRequest() {
         service_type: data.service,
         customer_type: data.customer,
         requested_timing: data.timing,
+        landing_page: attribution.landingPage,
+        source_page: attribution.sourcePage,
+        campaign_source: attribution.utmSource ?? "direct",
+        campaign_medium: attribution.utmMedium ?? "none",
+        campaign_name: attribution.utmCampaign ?? "none",
       };
       trackGoogleEvent("generate_lead", eventParameters);
       trackGoogleEvent("service_form_complete", eventParameters);

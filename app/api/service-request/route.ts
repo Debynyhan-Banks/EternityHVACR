@@ -43,10 +43,46 @@ type ServiceRequestPayload = {
   serviceConsent?: unknown;
   website?: unknown;
   startedAt?: unknown;
+  attribution?: unknown;
+};
+
+type LeadAttribution = {
+  channel: "website_service_request";
+  landingPage: string;
+  sourcePage: string;
+  referrerHost?: string;
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
 };
 
 function text(value: unknown, maximum: number) {
   return typeof value === "string" ? value.trim().slice(0, maximum) : "";
+}
+
+function getLeadAttribution(value: unknown): LeadAttribution {
+  const record = value && typeof value === "object" ? value as Record<string, unknown> : {};
+  const safePath = (path: unknown) => {
+    const candidate = text(path, 200);
+    return /^\/[A-Za-z0-9/_-]*$/.test(candidate) ? candidate : "/";
+  };
+  const safeHost = (host: unknown) => {
+    const candidate = text(host, 253).toLowerCase();
+    return /^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)*[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?$/.test(candidate)
+      ? candidate
+      : undefined;
+  };
+  const optionalText = (campaignValue: unknown, maximum: number) => text(campaignValue, maximum) || undefined;
+
+  return {
+    channel: "website_service_request",
+    landingPage: safePath(record.landingPage),
+    sourcePage: safePath(record.sourcePage),
+    referrerHost: safeHost(record.referrerHost),
+    utmSource: optionalText(record.utmSource, 100),
+    utmMedium: optionalText(record.utmMedium, 100),
+    utmCampaign: optionalText(record.utmCampaign, 160),
+  };
 }
 
 function escapeHtml(value: string) {
@@ -68,6 +104,7 @@ function buildInternalHtmlEmail({
   name,
   phone,
   email,
+  attribution,
 }: {
   requestType: string;
   service: string;
@@ -77,6 +114,7 @@ function buildInternalHtmlEmail({
   name: string;
   phone: string;
   email: string;
+  attribution: LeadAttribution;
 }) {
   const isUrgent = requestType === "Emergency / system down" || timing === "Emergency / system down";
   const safeDetails = escapeHtml(details).replace(/\r?\n/g, "<br>");
@@ -153,6 +191,17 @@ function buildInternalHtmlEmail({
                   <tr><td style="padding:5px 0;color:#667085;font-size:13px;">Name</td><td align="right" style="padding:5px 0;color:#101828;font-size:14px;font-weight:700;">${escapeHtml(name)}</td></tr>
                   <tr><td style="padding:5px 0;color:#667085;font-size:13px;">Phone</td><td align="right" style="padding:5px 0;font-size:14px;font-weight:700;"><a href="tel:${phoneHref}" style="color:#0B2646;text-decoration:none;">${escapeHtml(phone)}</a></td></tr>
                   <tr><td style="padding:5px 0;color:#667085;font-size:13px;">Email</td><td align="right" style="padding:5px 0;font-size:14px;font-weight:700;"><a href="mailto:${escapeHtml(email)}" style="color:#0B2646;text-decoration:none;">${escapeHtml(email)}</a></td></tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:22px 32px 8px;">
+                <h2 style="margin:0 0 10px;color:#0B2646;font-size:16px;line-height:1.3;">Website source</h2>
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;border-collapse:collapse;">
+                  <tr><td style="padding:5px 0;color:#667085;font-size:13px;">First page</td><td align="right" style="padding:5px 0;color:#101828;font-size:14px;font-weight:700;">${escapeHtml(attribution.landingPage)}</td></tr>
+                  <tr><td style="padding:5px 0;color:#667085;font-size:13px;">Form opened from</td><td align="right" style="padding:5px 0;color:#101828;font-size:14px;font-weight:700;">${escapeHtml(attribution.sourcePage)}</td></tr>
+                  <tr><td style="padding:5px 0;color:#667085;font-size:13px;">Referrer</td><td align="right" style="padding:5px 0;color:#101828;font-size:14px;font-weight:700;">${escapeHtml(attribution.referrerHost ?? "Direct / unavailable")}</td></tr>
+                  <tr><td style="padding:5px 0;color:#667085;font-size:13px;">Campaign</td><td align="right" style="padding:5px 0;color:#101828;font-size:14px;font-weight:700;">${escapeHtml([attribution.utmSource, attribution.utmMedium, attribution.utmCampaign].filter(Boolean).join(" / ") || "None")}</td></tr>
                 </table>
               </td>
             </tr>
@@ -348,6 +397,7 @@ export async function POST(request: Request) {
   const website = text(payload.website, 200);
   const startedAt = typeof payload.startedAt === "number" ? payload.startedAt : 0;
   const elapsed = Date.now() - startedAt;
+  const attribution = getLeadAttribution(payload.attribution);
 
   if (website || !startedAt || elapsed < 1500) {
     return Response.json({ error: "Unable to validate this request." }, { status: 400 });
@@ -389,6 +439,14 @@ export async function POST(request: Request) {
     `Phone: ${phone}`,
     `Email: ${email}`,
     "Service-contact authorization: Confirmed on website",
+    "",
+    "Website source:",
+    `First page: ${attribution.landingPage}`,
+    `Form opened from: ${attribution.sourcePage}`,
+    `Referrer: ${attribution.referrerHost ?? "Direct / unavailable"}`,
+    `Campaign source: ${attribution.utmSource ?? "None"}`,
+    `Campaign medium: ${attribution.utmMedium ?? "None"}`,
+    `Campaign name: ${attribution.utmCampaign ?? "None"}`,
   ].join("\n");
   const requestId = crypto.randomUUID();
 
@@ -398,7 +456,7 @@ export async function POST(request: Request) {
     reply_to: email,
     subject,
     text: plainText,
-    html: buildInternalHtmlEmail({ requestType, service, customer, timing, details, name, phone, email }),
+    html: buildInternalHtmlEmail({ requestType, service, customer, timing, details, name, phone, email, attribution }),
     tags: [{ name: "source", value: "website_service_request" }],
   });
 

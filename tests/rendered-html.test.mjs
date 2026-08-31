@@ -176,7 +176,7 @@ test("publishes a disclosed Signmons service-routing assistant with safety and h
   assert.match(component, /href="tel:911"/);
   assert.match(component, /href="tel:\+12167033183"/);
   assert.match(component, /href="sms:\+12167033183"/);
-  assert.match(component, /href="\/#schedule"/);
+  assert.match(component, /href="https:\/\/eternityhvacr\.com\/#schedule"/);
   assert.match(component, /"assistant_open"/);
   assert.match(component, /"assistant_path_selected"/);
   assert.match(component, /"assistant_handoff"/);
@@ -710,6 +710,41 @@ test("uses a branded and actionable service-request email", async () => {
   assert.match(source, /Reply to customer/);
   assert.match(source, /Call customer/);
   assert.match(source, /role="presentation"/);
+  assert.match(source, /Website source/);
+  assert.match(source, /First page/);
+  assert.match(source, /Form opened from/);
+  assert.match(source, /Campaign source/);
+
+  const customerEmail = source.slice(source.indexOf("function buildCustomerHtmlEmail"), source.indexOf("function sendEmail"));
+  assert.doesNotMatch(customerEmail, /Website source|utmSource|referrerHost/);
+});
+
+test("captures first-touch attribution and uses reliable request-service navigation", async () => {
+  const [layout, attribution, form, assistant, ...conversionFiles] = await Promise.all([
+    readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/LeadAttribution.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/ServiceRequest.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/SignmonsAssistant.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/SiteChrome.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/ServiceLanding.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/LocationLanding.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/ServiceAreaChecker.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/areas-we-serve/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/projects/page.tsx", import.meta.url), "utf8"),
+  ]);
+
+  assert.match(layout, /<AttributionCapture \/>/);
+  assert.match(attribution, /sessionStorage\.setItem\(ATTRIBUTION_STORAGE_KEY/);
+  assert.match(attribution, /landingPage: stored\.landingPage \?\? currentPath\(\)/);
+  assert.match(form, /captureLeadAttribution\("website_service_request"\)/);
+  assert.match(form, /JSON\.stringify\(\{ \.\.\.data, startedAt, attribution \}\)/);
+  assert.match(form, /landing_page: attribution\.landingPage/);
+  assert.match(assistant, /captureLeadAttribution\("website_chat"\)/);
+
+  for (const source of [assistant, ...conversionFiles]) {
+    assert.doesNotMatch(source, /<Link[^>]*href="(?:\/|https:\/\/eternityhvacr\.com\/)#schedule"/);
+  }
+  assert.match(conversionFiles.join("\n"), /<a[^>]*href="https:\/\/eternityhvacr\.com\/#schedule"/);
 });
 
 test("sends a branded confirmation to the customer after internal delivery", async () => {

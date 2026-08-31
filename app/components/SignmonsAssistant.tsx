@@ -1,23 +1,14 @@
 "use client";
 
-import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { trackGoogleEvent } from "./Analytics";
+import { captureLeadAttribution, type LeadAttribution } from "./LeadAttribution";
 
 type RequestPath = "urgent" | "cooling" | "heating" | "commercial" | "estimate" | "maintenance";
 type PropertyType = "home" | "business" | "managed";
 type Screen = "start" | "property" | "handoff" | "chat" | "safety";
 type ChatMessage = { id: string; role: "assistant" | "user"; text: string; safety?: boolean; success?: boolean; manageHref?: string };
 type AppointmentSlot = { token: string; start: string; end: string; label: string };
-type LeadAttribution = {
-  channel: "website_chat";
-  landingPage: string;
-  sourcePage: string;
-  referrerHost?: string;
-  utmSource?: string;
-  utmMedium?: string;
-  utmCampaign?: string;
-};
 type SignmonsApiResult = {
   status?: "reply" | "needs_correction" | "job_created" | "availability" | "appointment_confirmed";
   reply?: string;
@@ -51,44 +42,6 @@ const propertyTypes: Array<{ id: PropertyType; title: string }> = [
 
 const pathLabels = Object.fromEntries(requestPaths.map((path) => [path.id, path.title])) as Record<RequestPath, string>;
 const propertyLabels = Object.fromEntries(propertyTypes.map((property) => [property.id, property.title])) as Record<PropertyType, string>;
-const ATTRIBUTION_STORAGE_KEY = "eternity_lead_attribution";
-
-function getReferrerHost() {
-  if (!document.referrer) return undefined;
-  try {
-    return new URL(document.referrer).hostname.toLowerCase().slice(0, 253) || undefined;
-  } catch {
-    return undefined;
-  }
-}
-
-function captureLeadAttribution(): LeadAttribution {
-  const currentPage = window.location.pathname.slice(0, 200) || "/";
-  let stored: Partial<LeadAttribution> = {};
-  try {
-    stored = JSON.parse(sessionStorage.getItem(ATTRIBUTION_STORAGE_KEY) ?? "{}") as Partial<LeadAttribution>;
-  } catch {
-    stored = {};
-  }
-  const campaign = new URLSearchParams(window.location.search);
-  const value = (name: string, limit: number) => campaign.get(name)?.trim().slice(0, limit) || undefined;
-  const attribution: LeadAttribution = {
-    channel: "website_chat",
-    landingPage: stored.landingPage ?? currentPage,
-    sourcePage: currentPage,
-    referrerHost: stored.referrerHost ?? getReferrerHost(),
-    utmSource: stored.utmSource ?? value("utm_source", 100),
-    utmMedium: stored.utmMedium ?? value("utm_medium", 100),
-    utmCampaign: stored.utmCampaign ?? value("utm_campaign", 160),
-  };
-  try {
-    sessionStorage.setItem(ATTRIBUTION_STORAGE_KEY, JSON.stringify(attribution));
-  } catch {
-    // Attribution is an enhancement; chat remains available if storage is blocked.
-  }
-  return attribution;
-}
-
 export default function SignmonsAssistant() {
   const [open, setOpen] = useState(false);
   const [screen, setScreen] = useState<Screen>("start");
@@ -113,7 +66,7 @@ export default function SignmonsAssistant() {
 
   const openAssistant = useCallback((opener?: HTMLElement) => {
     if (opener) openerRef.current = opener;
-    if (!leadAttributionRef.current) leadAttributionRef.current = captureLeadAttribution();
+    if (!leadAttributionRef.current) leadAttributionRef.current = captureLeadAttribution("website_chat");
     setOpen(true);
     trackGoogleEvent("assistant_open", { assistant: "signmons_router" });
   }, []);
@@ -228,7 +181,7 @@ export default function SignmonsAssistant() {
           sessionId: sessionIdRef.current,
           message,
           website: "",
-          attribution: leadAttributionRef.current ?? captureLeadAttribution(),
+          attribution: leadAttributionRef.current ?? captureLeadAttribution("website_chat"),
         }),
       });
       const result = await response.json() as SignmonsApiResult;
@@ -368,9 +321,9 @@ export default function SignmonsAssistant() {
             </div>
             <div className="signmons-quick-actions" aria-label="Popular assistant actions">
               <button type="button" onClick={startChat}><strong>Describe a problem</strong><span>Chat about the equipment symptoms</span></button>
-              <Link href="/#schedule" onClick={() => trackHandoff("request_form")}><strong>Request service</strong><span>Send details to Eternity</span></Link>
+              <a href="https://eternityhvacr.com/#schedule" onClick={() => trackHandoff("request_form")}><strong>Request service</strong><span>Send details to Eternity</span></a>
               <button type="button" onClick={showSafety}><strong>Emergency safety</strong><span>Gas, CO, fire or electrical danger</span></button>
-              <Link href="/areas-we-serve" onClick={() => setOpen(false)}><strong>Check service area</strong><span>Greater Cleveland coverage</span></Link>
+              <a href="/areas-we-serve" onClick={() => setOpen(false)}><strong>Check service area</strong><span>Greater Cleveland coverage</span></a>
             </div>
             <div className="signmons-progress"><span>Choose a service type</span><b>Guided routing</b></div>
             <div className="signmons-choices">
@@ -405,7 +358,7 @@ export default function SignmonsAssistant() {
             <div className="signmons-actions">
               <a href="tel:+12167033183" onClick={() => trackHandoff("call")}>Call 216-703-3183</a>
               <a href="sms:+12167033183" onClick={() => trackHandoff("text")}>Text the team</a>
-              <Link href="/#schedule" onClick={() => trackHandoff("request_form")}>Continue to request form</Link>
+              <a href="https://eternityhvacr.com/#schedule" onClick={() => trackHandoff("request_form")}>Continue to request form</a>
               <a href="mailto:ben@eternityhvacr.com" onClick={() => trackHandoff("email")}>Email Eternity</a>
             </div>
             <button type="button" className="signmons-back" onClick={reset}>← Start over</button>
@@ -475,7 +428,7 @@ export default function SignmonsAssistant() {
             <div className="signmons-chat-handoff">
               <a href="tel:+12167033183" onClick={() => trackHandoff("call")}>Call Eternity</a>
               <a href="sms:+12167033183" onClick={() => trackHandoff("text")}>Text the team</a>
-              <Link href="/#schedule" onClick={() => trackHandoff("request_form")}>Request service</Link>
+              <a href="https://eternityhvacr.com/#schedule" onClick={() => trackHandoff("request_form")}>Request service</a>
             </div>
           </>}
 
@@ -493,7 +446,7 @@ export default function SignmonsAssistant() {
 
         <footer className="signmons-footer">
           <span>Assistant technology by <a href="https://signmons.com/" target="_blank" rel="noreferrer">Signmons</a></span>
-          <span><Link href="/privacy">Privacy</Link> · <Link href="/terms">Terms</Link></span>
+          <span><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></span>
         </footer>
       </section>
     </div>}

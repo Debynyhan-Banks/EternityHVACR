@@ -80,7 +80,7 @@ export default function EuclidPayneHvacCaseStudy() {
             <div><span>Project</span><strong>Matched system replacement</strong></div>
           </div>
           <div className="hero-actions">
-            <Link className="btn btn-orange" href="/#schedule">Request an installation estimate <span>↗</span></Link>
+            <a className="btn btn-orange" href="https://eternityhvacr.com/#schedule">Request an installation estimate <span>↗</span></a>
             <a className="btn-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a>
           </div>
         </div>
@@ -181,7 +181,7 @@ export default function EuclidPayneHvacCaseStudy() {
 
       <section className="emergency landing-cta">
         <div><p className="kicker light">Preparing a property for sale?</p><h2>Plan the HVAC work before the listing.</h2><p>Share the property, current equipment and replacement goals through Eternity’s service-request form.</p></div>
-        <div><Link className="btn btn-orange" href="/#schedule">Request an estimate <span>↗</span></Link><Link className="btn-outline light-outline" href="/projects">View more projects <span>→</span></Link><small>Website requests are typically reviewed within 15 minutes during regular business hours.</small></div>
+        <div><a className="btn btn-orange" href="https://eternityhvacr.com/#schedule">Request an estimate <span>↗</span></a><Link className="btn-outline light-outline" href="/projects">View more projects <span>→</span></Link><small>Website requests are typically reviewed within 15 minutes during regular business hours.</small></div>
       </section>
 
       <SiteFooter />
