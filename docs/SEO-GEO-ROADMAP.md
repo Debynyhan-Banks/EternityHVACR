@@ -286,7 +286,8 @@ Features should not be published until Eternity has a person and process respons
 - [x] Appointment cancellations
 - [ ] Capability-document downloads
 - [x] Persist website page and privacy-safe lead source on booked and completed Signmons jobs
-- [ ] Add booked/completed lead-source totals to the monthly scorecard
+- [x] Add booked/completed lead-source totals to a private monthly scorecard baseline
+- [ ] Replace the local baseline with an authenticated Signmons owner dashboard when APP-014 is active; never expose reporting credentials or private business metrics in the public Eternity client
 
 ### Monthly scorecard
 

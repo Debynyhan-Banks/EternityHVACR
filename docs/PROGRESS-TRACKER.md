@@ -16,11 +16,11 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 ## Current position
 
-**Current milestone:** Lead-source attribution and appointment operations
+**Current milestone:** Monthly lead-source scorecard foundation
 
-**Current status:** The production assistant can create an idempotent service request, instantly confirm eligible residential diagnostics from live Eternity Dispatch availability, and give the customer a private 90-day link to view, reschedule or cancel the confirmed appointment. Live cancellation and rescheduling acceptance both passed on August 30. Privacy-safe website attribution is live and production-verified: the labeled `Test Banks` acceptance booking stored the expected `acceptance_test / website / job_attribution` campaign values and homepage origin, linked to one Eternity Dispatch event, and generated one internal email notification.
+**Current status:** The production assistant can create an idempotent service request, instantly confirm eligible residential diagnostics from live Eternity Dispatch availability, and give the customer a private 90-day link to view, reschedule or cancel the confirmed appointment. Privacy-safe website attribution is production-verified. Signmons now has a live tenant-scoped, owner/admin/manager lead-source report that returns created, booked, completed, cancelled, attributed and unattributed totals without selecting customer PII. Eternity's first technical baseline was generated as a local private report and is excluded from GitHub and the public website.
 
-**Next action:** Add booked and completed lead-source totals to Eternity's monthly marketing scorecard, then establish the first reporting baseline from accumulated job status and attribution data. Keep customer appointment-email delivery and broader notification-product work in the separate Signmons implementation plan.
+**Next action:** Use the next full operating month as the first decision-quality scorecard after technicians consistently mark completed work in Signmons. Build the reusable authenticated dashboard under the separate Signmons APP-014 plan; do not expose business metrics or reporting credentials on Eternity's public website.
 
 ## Phase 1 information blockers
 
@@ -68,7 +68,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 5 | Photo/video request uploads | Waiting on Eternity | Storage and retention decisions | Secure upload test completed |
 | 5 | Commercial equipment intake | Waiting on Eternity | Field requirements | Make/model/serial request path live |
 | 5 | Maintenance-plan comparison | Waiting on Eternity | Plan details | Approved comparison published |
-| 6 | Monthly performance scorecard | Not started | Search and analytics data | First monthly report completed |
+| 6 | Monthly performance scorecard | In progress | Consistent job completion status and one full attributed operating month | Private technical baseline created; first decision-quality monthly report pending |
 
 ## Next implementation release
 
@@ -99,6 +99,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 | Date | Change | Outcome | Next step |
 |---|---|---|---|
+| 2026-08-30 | Established the private lead-source scorecard foundation | Signmons deployed an authenticated tenant-scoped report for created, booked, completed, cancelled, attributed and unattributed jobs; the first Eternity technical baseline was generated locally without customer PII and excluded from GitHub/public deployment | Use the next full attributed operating month after completed-job status is consistently maintained; build the reusable authenticated UI in Signmons rather than on the public Eternity site |
 | 2026-08-30 | Completed the labeled production attribution acceptance booking with `Test Banks` | Booking `435A8BF6` was accepted for the selected Eastern-time window, stored `acceptance_test / website / job_attribution` plus homepage landing and source paths, linked to one Eternity Dispatch event and recorded exactly one internal email notification; no customer address, phone or chat contents were used in the verification output | Add booked and completed lead-source totals to Eternity's monthly marketing scorecard |
 | 2026-08-30 | Published privacy-safe job attribution for the Eternity booking funnel | Ask Eternity now carries the session landing page, chat-origin page, referral hostname and bounded UTM source/medium/campaign fields into the persistent job record; internal job emails display the useful source and origin page, while customer message contents remain excluded from Google Analytics. The matching website and backend releases passed a production contract smoke test without creating a customer job | Run one labeled campaign-source acceptance booking and verify its internal email source fields |
 | 2026-08-30 | Completed the live reschedule acceptance test with `Test Banks` | Calendar search found exactly one `Test Banks` event on Eternity Dispatch at the replacement window, Wednesday, September 2 from 8:00–11:00 a.m. Eastern; Cloud Run recorded two email lifecycle sends for the same job in booking-then-reschedule sequence, with no duplicate calendar event | Add booked/completed-job attribution to the Eternity website funnel; keep customer appointment-email implementation in the separate Signmons plan |
