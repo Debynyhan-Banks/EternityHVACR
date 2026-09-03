@@ -562,3 +562,58 @@ footer .sms-disclosure a,.footer-bottom a{text-decoration:underline;text-underli
 .appointment-error{border-top-color:#b42318}.appointment-cancelled{border-top-color:#2e7d57}
 @media(max-width:900px){.appointment-manage-shell{grid-template-columns:1fr;gap:40px;padding:72px 32px}.appointment-manage-card{max-width:none}}
 @media(max-width:700px){.appointment-manage-shell{padding:54px 16px 95px}.appointment-manage-intro h1{font-size:44px}.appointment-manage-card{padding:25px 18px;box-shadow:7px 8px 0 var(--navy)}.appointment-actions{align-items:stretch;flex-direction:column}.appointment-actions>*{width:100%}.appointment-slots{grid-template-columns:1fr}}
+
+/* Premium mechanical service cards */
+.services{max-width:1370px}
+.services .section-head{margin-bottom:50px}
+.service-grid{gap:18px;grid-auto-rows:1fr}
+.service-card{--circuit-delay:0ms;position:relative;isolation:isolate;min-height:330px;padding:38px 32px 62px;overflow:hidden;display:flex;flex-direction:column;border:1px solid #cdd8e4;border-top:4px solid var(--orange);border-radius:4px;background:linear-gradient(145deg,#fff 0%,#fbfcfd 62%,#f3f6f9 100%);box-shadow:0 7px 18px rgba(7,26,49,.07);transition:transform .28s cubic-bezier(.22,1,.36,1),box-shadow .28s cubic-bezier(.22,1,.36,1),border-color .28s ease}
+.service-card:hover,.service-card:focus-visible{transform:translateY(-4px);border-color:#aebed0;box-shadow:0 18px 35px rgba(7,26,49,.13)}
+.service-card:focus-visible{outline:3px solid #6bb0ff;outline-offset:4px}
+.service-card__schematic{position:absolute;z-index:-1;inset:0 0 42%;pointer-events:none;opacity:.48;background-image:linear-gradient(rgba(11,38,70,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(11,38,70,.035) 1px,transparent 1px);background-size:26px 26px;mask-image:linear-gradient(110deg,transparent 22%,#000 100%)}
+.service-card__schematic:before,.service-card__schematic:after{content:"";position:absolute;right:-30px;top:8px;width:150px;height:150px;border:1px solid rgba(11,38,70,.08);border-radius:50%}
+.service-card__schematic:after{right:18px;top:54px;width:55px;height:55px;border-color:rgba(244,122,56,.12)}
+.service-card[data-schematic="1"] .service-card__schematic:before{right:34px;top:-58px;width:128px;height:215px;border-radius:0;transform:rotate(12deg)}
+.service-card[data-schematic="1"] .service-card__schematic:after{right:62px;top:18px;width:75px;height:75px;border-radius:8px;transform:rotate(12deg)}
+.service-card[data-schematic="2"] .service-card__schematic:before{right:-7px;top:20px;width:138px;height:110px;border-radius:3px}
+.service-card[data-schematic="2"] .service-card__schematic:after{right:26px;top:45px;width:70px;height:70px;border-radius:50%}
+.service-card__top{position:relative;z-index:2;display:flex;align-items:center;gap:18px}
+.service-card__icon{width:68px;height:68px;flex:0 0 68px;display:grid;place-items:center;border:1.5px solid #9eafc2;border-radius:9px;background:rgba(255,255,255,.94);color:var(--navy);box-shadow:0 4px 12px rgba(7,26,49,.06);transition:color .25s ease,border-color .25s ease,background .25s ease}
+.service-card__icon svg{width:43px;height:43px}
+.service-card:hover .service-card__icon,.service-card:focus-visible .service-card__icon,.service-card.is-circuit-active .service-card__icon{border-color:var(--orange);color:#c34e13;background:#fffaf7}
+.service-card__category{padding:7px 12px;border:1px solid #d1dae5;border-radius:999px;background:rgba(255,255,255,.86);color:var(--navy);font-size:10px;font-weight:900;letter-spacing:.06em;text-transform:uppercase}
+.service-card__body{position:relative;z-index:2;margin-top:24px;display:grid;gap:8px}
+.service-card__title{color:var(--navy);font-family:var(--font-manrope),Arial,sans-serif;font-size:23px;font-weight:850;line-height:1.08;letter-spacing:-.035em}
+.service-card__copy{max-width:330px;color:#4b5a6e;font-size:15px;line-height:1.55}
+.service-card__cta{position:relative;z-index:2;margin-top:auto;padding-top:25px;display:flex;align-items:center;gap:18px;color:var(--navy);font-size:12px;font-weight:900;letter-spacing:.01em}
+.service-card__cta>span{color:#c34e13;font-size:20px;line-height:.8;transition:transform .25s cubic-bezier(.22,1,.36,1)}
+.service-card:hover .service-card__cta>span,.service-card:focus-visible .service-card__cta>span{transform:translateX(5px)}
+.service-circuit{position:absolute;z-index:3;left:0;right:0;bottom:-1px;width:100%;height:46px;overflow:visible;pointer-events:none}
+.service-circuit__base,.service-circuit__signal{fill:none;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
+.service-circuit__base{stroke:var(--navy);stroke-width:1.55}
+.service-circuit__signal{opacity:0;stroke:var(--orange);stroke-width:3.25;stroke-dasharray:.16 1;stroke-dashoffset:1}
+.service-circuit__node{vector-effect:non-scaling-stroke;stroke:#fff;stroke-width:1}
+.service-circuit__node--navy{fill:var(--navy)}
+.service-circuit__node--orange{fill:var(--orange)}
+.service-card:hover .service-circuit__signal,.service-card:focus-visible .service-circuit__signal,.service-card.is-circuit-active .service-circuit__signal{animation:service-circuit-pulse 880ms var(--circuit-delay) cubic-bezier(.22,1,.36,1) both}
+@keyframes service-circuit-pulse{0%{opacity:0;stroke-dashoffset:1}12%{opacity:1}82%{opacity:1}100%{opacity:0;stroke-dashoffset:-.2}}
+
+@media(max-width:1200px){
+  .service-card{min-height:310px}
+}
+@media(max-width:700px){
+  .services .section-head{margin-bottom:34px}
+  .service-grid{gap:15px}
+  .service-card{min-height:292px;padding:30px 24px 56px}
+  .service-card__icon{width:60px;height:60px;flex-basis:60px}
+  .service-card__icon svg{width:38px;height:38px}
+  .service-card__category{padding:6px 10px;font-size:9px}
+  .service-card__title{font-size:22px}
+  .service-card__copy{font-size:15px}
+  .service-card__cta{padding-top:22px;font-size:12px}
+}
+@media(prefers-reduced-motion:reduce){
+  .service-card,.service-card__icon,.service-card__cta>span{transition:none}
+  .service-card:hover,.service-card:focus-visible{transform:none}
+  .service-card:hover .service-circuit__signal,.service-card:focus-visible .service-circuit__signal,.service-card.is-circuit-active .service-circuit__signal{opacity:1;animation:none;stroke-dasharray:none;stroke-dashoffset:0}
+}

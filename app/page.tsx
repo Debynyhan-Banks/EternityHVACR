@@ -1,14 +1,15 @@
 import ServiceRequest from "./components/ServiceRequest";
 import ServiceAreaChecker from "./components/ServiceAreaChecker";
+import ServiceCards, { type ServiceCardItem } from "./components/ServiceCards";
 import { SiteFooter, SiteHeader } from "./components/SiteChrome";
 
-const services = [
-  { icon: "AC", title: "Air Conditioning", copy: "Diagnostics, repair, replacement, installation and seasonal service.", tone: "blue", href: "/services/air-conditioning-repair" },
-  { icon: "HT", title: "Heating", copy: "Furnace diagnostics, repair, replacement, boiler service and heat-pump support.", tone: "orange", href: "/services/furnace-heating-repair" },
-  { icon: "RTU", title: "Commercial HVAC", copy: "Rooftop units, packaged equipment, replacements, service and preventive maintenance.", tone: "navy", href: "/services/commercial-hvac" },
-  { icon: "RF", title: "Commercial Refrigeration", copy: "Walk-ins, refrigeration equipment, controls, diagnostics, repair and maintenance.", tone: "cyan", href: "/services/commercial-refrigeration" },
-  { icon: "IN", title: "Installation & Replacement", copy: "Professional equipment replacement and new HVAC installations.", tone: "gray", href: "/services/air-conditioning-installation" },
-  { icon: "PM", title: "Preventive Maintenance", copy: "Planned inspections designed to reduce failures and extend equipment life.", tone: "pale", href: "/services/preventive-maintenance" },
+const services: readonly ServiceCardItem[] = [
+  { icon: "cooling", title: "Air Conditioning", copy: "Diagnostics, repair, replacement, installation and seasonal service.", category: "Residential", cta: "View cooling services", href: "/services/air-conditioning-repair" },
+  { icon: "heating", title: "Heating", copy: "Furnace diagnostics, repair, replacement, boiler service and heat-pump support.", category: "Residential", cta: "View heating services", href: "/services/furnace-heating-repair" },
+  { icon: "commercial", title: "Commercial HVAC", copy: "Rooftop units, packaged equipment, replacements, service and preventive maintenance.", category: "Commercial", cta: "View HVAC services", href: "/services/commercial-hvac" },
+  { icon: "refrigeration", title: "Commercial Refrigeration", copy: "Walk-ins, refrigeration equipment, controls, diagnostics, repair and maintenance.", category: "HVAC/R", cta: "View refrigeration services", href: "/services/commercial-refrigeration" },
+  { icon: "installation", title: "Installation & Replacement", copy: "Professional equipment replacement and new HVAC installations.", category: "Commercial", cta: "View installation services", href: "/services/air-conditioning-installation" },
+  { icon: "maintenance", title: "Preventive Maintenance", copy: "Planned inspections designed to reduce failures and extend equipment life.", category: "HVAC/R", cta: "View maintenance services", href: "/services/preventive-maintenance" },
 ];
 
 const process = [
@@ -68,7 +69,7 @@ export default function Home() {
 
     <section className="section services" id="services">
       <div className="section-head"><div><p className="kicker">Capabilities</p><h2>Complete Mechanical Services</h2></div><p>From residential comfort systems to commercial HVAC and refrigeration, Eternity Mechanical Services provides professional installation, diagnostics, repair and maintenance.</p></div>
-      <div className="service-grid">{services.map((service) => <a href={service.href} className={`service-card ${service.tone}`} key={service.title}><span>{service.icon}</span><i>↗</i><h3>{service.title}</h3><p>{service.copy}</p><b>Explore service</b></a>)}</div>
+      <ServiceCards items={services} />
     </section>
 
     <div className="infinity-divider" aria-hidden="true"><span /><div><img src="/images/eternity-mark.svg" alt="" /></div><span /></div>

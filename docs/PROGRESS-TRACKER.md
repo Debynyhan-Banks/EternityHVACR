@@ -1,6 +1,6 @@
 # Eternity Mechanical Services Website Progress Tracker
 
-Last updated: August 30, 2026
+Last updated: September 3, 2026
 
 This file is the source of truth for the SEO, GEO, content and feature program. Update it whenever a task begins, finishes, becomes blocked or changes scope.
 
@@ -102,6 +102,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 | Date | Change | Outcome | Next step |
 |---|---|---|---|
+| 2026-09-03 | Prepared the Complete Mechanical Services card redesign for review | Rebuilt the existing six service links as balanced responsive cards with Eternity line icons, category labels, subtle blueprint detail and reusable navy/orange circuit artwork; added one-shot hover, keyboard-focus and touch/scroll motion with reduced-motion support; lint has no errors, all 28 tests pass and desktop/tablet/mobile Chrome review is clean | Obtain visual approval before publishing; no production deployment was performed |
 | 2026-08-31 | Repaired conversion attribution and request-button navigation | Replaced the unreliable soft handoff to the homepage request form with dependable full-page navigation; added shared first-touch landing, source-page, referrer and bounded UTM capture for Ask Eternity and the standard service form; included privacy-safe source details in internal request emails and analytics while keeping customer-entered details out of Google Analytics. The production build, lint with no errors and all 28 automated checks pass | Monitor attributed service requests and connect call/text outcome reporting after Twilio is available |
 | 2026-08-30 | Prepared the mobile performance maintenance release | A fresh live Lighthouse audit scored Performance 79–83, Accessibility 100 and SEO 100 with a 4.1-second LCP. The approved mobile hero was converted to an 80,338-byte WebP source from the 306,620-byte JPEG while retaining the original fallback, and the chatbot opener lint failure was repaired. Build, lint with no errors and all 27 rendered-page tests pass | Publish the prepared Sites version, confirm the live page serves WebP on supported phones and rerun Lighthouse |
 | 2026-08-30 | Established the private lead-source scorecard foundation | Signmons deployed an authenticated tenant-scoped report for created, booked, completed, cancelled, attributed and unattributed jobs; the first Eternity technical baseline was generated locally without customer PII and excluded from GitHub/public deployment | Use the next full attributed operating month after completed-job status is consistently maintained; build the reusable authenticated UI in Signmons rather than on the public Eternity site |
