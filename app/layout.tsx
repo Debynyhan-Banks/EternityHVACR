@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "Eternity Mechanical Services",
     locale: "en_US",
-    images: [{ url: "/og-eternity-hvacr.png", width: 1200, height: 630, alt: "Eternity Mechanical Services — Built for Comfort. Engineered for Reliability." }],
+    images: [{ url: "/og-eternity-uniform-v2.png", width: 1200, height: 630, alt: "Eternity Mechanical Services — Built for Comfort. Engineered for Reliability." }],
   },
-  twitter: { card: "summary_large_image", title: "Eternity Mechanical Services | HVAC/R in Northeast Ohio", description: "Built for Comfort. Engineered for Reliability.", images: ["/og-eternity-hvacr.png"] },
+  twitter: { card: "summary_large_image", title: "Eternity Mechanical Services | HVAC/R in Northeast Ohio", description: "Built for Comfort. Engineered for Reliability.", images: ["/og-eternity-uniform-v2.png"] },
 };
 
 const businessSchema = {
@@ -38,7 +38,7 @@ const businessSchema = {
       name: "Eternity Mechanical Services LLC",
       url: "https://eternityhvacr.com",
       logo: "https://eternityhvacr.com/images/eternity-logo.svg",
-      image: "https://eternityhvacr.com/og-eternity-hvacr.png",
+      image: "https://eternityhvacr.com/og-eternity-uniform-v2.png",
       telephone: "+1-216-703-3183",
       email: "ben@eternityhvacr.com",
       description: "Licensed and insured HVAC/R and mechanical contractor serving residential, commercial and multifamily customers throughout Greater Cleveland.",
