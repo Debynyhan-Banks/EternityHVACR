@@ -44,6 +44,11 @@ test("renders the Eternity homepage with approved business information", async (
   assert.match(html, /eternity-van-hero-mobile-b\.webp/);
   assert.match(html, /eternity-van-hero-mobile-b\.jpg/);
   assert.match(html, /Bernard Gray standing beside an Eternity Mechanical Services work van/);
+  assert.match(html, /eternity-preventive-maintenance-937\.jpg/);
+  assert.match(html, /eternity-preventive-maintenance-480\.jpg 480w/);
+  assert.match(html, /eternity-preventive-maintenance-720\.jpg 720w/);
+  assert.match(html, /sizes="\(max-width: 700px\) calc\(100vw - 40px\), \(max-width: 1200px\) min\(760px, calc\(100vw - 64px\)\), 43vw"/);
+  assert.match(html, /Eternity technician servicing a furnace during preventive maintenance/);
   assert.match(html, /aria-label="Featured services"/);
   assert.match(html, /216-703-3183/);
   assert.match(html, /ben@eternityhvacr\.com/);

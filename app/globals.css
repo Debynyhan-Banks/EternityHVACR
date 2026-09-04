@@ -617,3 +617,15 @@ footer .sms-disclosure a,.footer-bottom a{text-decoration:underline;text-underli
   .service-card:hover,.service-card:focus-visible{transform:none}
   .service-card:hover .service-circuit__signal,.service-card:focus-visible .service-circuit__signal,.service-card.is-circuit-active .service-circuit__signal{opacity:1;animation:none;stroke-dasharray:none;stroke-dashoffset:0}
 }
+
+/* Responsive preventive-maintenance photography */
+.maintenance-image{overflow:hidden;border-radius:8px;background:var(--navy)}
+.maintenance-image>img{object-position:center 43%;border-radius:inherit}
+@media(max-width:1200px){
+  .maintenance-image{width:min(100%,760px);height:auto;aspect-ratio:4/5;justify-self:center}
+}
+@media(max-width:700px){
+  .maintenance-image{width:100%;height:auto;aspect-ratio:3/4}
+  .maintenance-image>img{object-position:center 40%}
+  .maintenance-image>div{left:14px;right:14px;bottom:14px}
+}

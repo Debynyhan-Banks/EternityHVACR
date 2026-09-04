@@ -103,7 +103,7 @@ export default function Home() {
     </section>
 
     <section className="section maintenance" id="maintenance">
-      <div className="maintenance-image"><img src="/images/black-technician-equipment.jpg" alt="Black technician performing precision equipment maintenance" width="1800" height="1200" loading="lazy" decoding="async" /><div><b>Preventive maintenance</b><span>Inspection • Measurement • Documentation</span></div></div>
+      <div className="maintenance-image"><img src="/images/eternity-preventive-maintenance-937.jpg" srcSet="/images/eternity-preventive-maintenance-480.jpg 480w, /images/eternity-preventive-maintenance-720.jpg 720w, /images/eternity-preventive-maintenance-937.jpg 937w" sizes="(max-width: 700px) calc(100vw - 40px), (max-width: 1200px) min(760px, calc(100vw - 64px)), 43vw" alt="Eternity technician servicing a furnace during preventive maintenance" width="937" height="1678" loading="lazy" decoding="async" /><div><b>Preventive maintenance</b><span>Inspection • Measurement • Documentation</span></div></div>
       <div className="maintenance-copy"><p className="kicker">Planned performance</p><h2>Maintain Equipment Before It Becomes an Emergency.</h2><p>Planned maintenance helps identify developing problems, protect equipment life and create better decisions around repair and replacement.</p><div className="maintenance-grid">{maintenance.map(([number,title]) => <span key={number}><i>{number}</i>{title}</span>)}</div><div className="maintenance-actions"><a className="btn" href="#schedule">Request maintenance pricing <span>→</span></a><span>Residential and commercial pathways available.</span></div></div>
     </section>
 
