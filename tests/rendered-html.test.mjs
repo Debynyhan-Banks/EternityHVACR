@@ -76,6 +76,31 @@ test("renders the Eternity homepage with approved business information", async (
   assert.doesNotMatch(html, /Your site is taking shape|Building your site|Lorem ipsum/i);
 });
 
+test("uses the supplied responsive artwork across all six service cards", async () => {
+  const [response, styles] = await Promise.all([
+    render("/"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+  ]);
+  assert.equal(response.status, 200);
+  const html = await response.text();
+
+  for (const asset of [
+    "air-conditioning.png",
+    "heating.png",
+    "commercial-hvac.png",
+    "commercial-refrigeration.png",
+    "installation-replacement.png",
+    "preventive-maintenance.png",
+  ]) {
+    assert.match(html, new RegExp(`/images/service-cards/${asset.replace(".", "\\.")}`));
+  }
+
+  assert.equal((html.match(/service-card--dark/g) ?? []).length, 2);
+  assert.match(styles, /\.service-card__art img\{width:100%;height:100%;object-fit:contain\}/);
+  assert.match(styles, /@media\(max-width:700px\)[\s\S]*\.service-card\{min-height:440px;padding:28px 24px 52%/);
+  assert.match(styles, /@media\(prefers-reduced-motion:reduce\)[\s\S]*\.service-card__art/);
+});
+
 test("includes indexable metadata and structured business data", async () => {
   const response = await render();
   const html = await response.text();
