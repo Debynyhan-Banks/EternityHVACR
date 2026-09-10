@@ -18,7 +18,7 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 **Current milestone:** Customer planning tools, private second opinions and Cleveland Heights market coverage
 
-**Current status:** A scope-based project estimator, private second-opinion upload workflow, reusable structured-data system and evidence-bounded Cleveland Heights service-area page are built and verified locally. Second-opinion objects use private R2 storage, searchable metadata uses D1, owner/admin downloads require an explicit email allowlist, and both access and cleanup use a 30-day expiration boundary. Production publication is in progress.
+**Current status:** A scope-based project estimator, private second-opinion upload workflow, reusable structured-data system and evidence-bounded Cleveland Heights service-area page are published. Second-opinion objects use private R2 storage, searchable metadata uses D1, owner/admin downloads require an explicit email allowlist, and both access and cleanup use a 30-day expiration boundary. Production routes, the unauthenticated admin redirect and the invalid-upload boundary are verified.
 
 **Next action:** Publish the validated release, verify the three new public routes, complete one labeled test upload, confirm the owner can download it from the private review workspace, and verify the item becomes inaccessible at its 30-day expiration boundary.
 
@@ -57,7 +57,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 1 | Responsive image optimization | In progress | Production publish and re-audit | August 30 live Lighthouse samples scored Performance 79–83, Accessibility 100 and SEO 100 with 4.1-second LCP; a WebP version of the current mobile hero reduces that asset from 306,620 to 80,338 bytes without changing its crop, with the JPEG retained as fallback |
 | 2 | Priority service pages | Complete | Approved service scope and operating facts | AC repair, AC installation/replacement and emergency HVAC/R pages added to the heating and commercial service library, internally linked and included in the sitemap August 28, 2026 |
 | 2 | Market pages | Waiting on Eternity | Confirmed customer segments | Approved pages published |
-| 2 | Service-area hub and city pages | In progress | Approved priority and extended city/ZIP list plus genuine local proof | Comprehensive service-area hub and proof-backed Euclid page published; Cleveland Heights page built from approved service-area evidence without inventing local project claims |
+| 2 | Service-area hub and city pages | In progress | Approved priority and extended city/ZIP list plus genuine local proof | Comprehensive service-area hub, proof-backed Euclid page and evidence-bounded Cleveland Heights page published without inventing local project claims |
 | 3 | Owner, team and credentials | Complete | Approved biographies | Text-only Bernard Gray and Debynyhan Banks team section published August 27, 2026; photographs intentionally deferred |
 | 3 | Verified review system | Complete | Review links and permission | Direct Google review CTA and Charlotte Mancini’s approved five-star review published August 27, 2026 |
 | 3 | First three case studies | Complete | Project information and photos | Two residential installations and one commercial rooftop diagnostic published with verified facts and field photography |
@@ -65,9 +65,9 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 4 | AI-crawler and referral measurement | Complete | Analytics in Phase 1 | OpenAI crawler access is explicit; ChatGPT, Perplexity, Gemini, Copilot, Claude and Meta AI referrals generate a privacy-conscious analytics event |
 | 5 | Service-area checker | Complete | Approved ZIP list | Homepage and service-area page check approved ZIPs, preserve uncertain leads and record privacy-conscious result events |
 | 5 | Signmons AI intake, instant residential diagnostic booking and appointment management | Complete | Signmons backend, Eternity Dispatch calendar, Resend and approved booking rules | Production acceptance created exactly one job, calendar event and internal email; the `Test Banks` reschedule preserved one event at the replacement time and produced the expected same-job email sequence; secure 90-day management links now have verified live view, rescheduling and cancellation; website and paired-backend suites passed 71 checks on August 30, 2026 |
-| 5 | Second-opinion document/photo uploads | In review | Production D1/R2 provisioning and owner acceptance | Private owner/admin-only workflow built with PDF/image validation, no public object URLs and a 30-day access and cleanup boundary; 32 automated checks pass |
-| 5 | Scope-based project estimator | In review | Production publication | Planning estimator identifies the right service path without inventing a remote diagnosis, final price or binding quote |
-| 5 | Reusable structured-data system | In review | Production publication | Shared Breadcrumb, FAQ, Service and WebApplication builders cover the estimator, upload and Cleveland Heights pages |
+| 5 | Second-opinion document/photo uploads | In review | Labeled owner acceptance upload | Private D1/R2 workflow is published with PDF/image validation, no public object URLs, explicit owner/admin allowlisting and a 30-day access and cleanup boundary; unauthenticated admin access redirects to sign-in |
+| 5 | Scope-based project estimator | Complete | None | Published planning estimator identifies the right service path without inventing a remote diagnosis, final price or binding quote |
+| 5 | Reusable structured-data system | Complete | None | Published shared Breadcrumb, FAQ, Service and WebApplication builders cover the estimator, upload and Cleveland Heights pages |
 | 5 | Commercial equipment intake | Waiting on Eternity | Field requirements | Make/model/serial request path live |
 | 5 | Maintenance-plan comparison | Waiting on Eternity | Plan details | Approved comparison published |
 | 6 | Monthly performance scorecard | In progress | Consistent job completion status and one full attributed operating month | Private technical baseline created; first decision-quality monthly report pending |
@@ -76,34 +76,33 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 ### Proposed scope
 
-- [x] Repair the chatbot page-control lint failure without changing assistant behavior
-- [x] Add a modern mobile-hero source while retaining the approved JPEG fallback
-- [x] Verify the modern asset preserves the approved 941-by-1672 crop and reduces transfer size
-- [x] Run labeled production rescheduling and cancellation through the private customer-management link
-- [x] Verify rescheduling updates the existing Eternity Dispatch event rather than creating a duplicate
-- [x] Verify cancellation releases the Google Calendar event and records the lifecycle change
-- [x] Verify one internal email send is recorded for each completed lifecycle change
-- [x] Persist the originating website page and lead source with booked and completed jobs
-- [x] Run one labeled production attribution acceptance booking
+- [x] Publish a scope-based estimator without invented pricing or remote-diagnosis claims
+- [x] Publish a private second-opinion document/photo upload backed by D1 and R2
+- [x] Restrict upload listing and downloads to an explicit owner/admin email allowlist
+- [x] Enforce a 30-day access boundary and cleanup workflow
+- [x] Publish reusable Breadcrumb, FAQ, Service and WebApplication structured-data builders
+- [x] Publish an evidence-bounded Cleveland Heights page for ZIP codes 44106, 44112, 44118 and 44121
+- [ ] Complete one labeled production upload and owner download acceptance test
 
 ### Definition of done
 
-- [ ] Production build succeeds
-- [ ] No unapproved claims are published
-- [ ] Test form reaches the intended recipient
-- [ ] Phone links still call 216-703-3183
-- [ ] Sitemap and robots URLs return HTTP 200
-- [ ] Homepage remains indexable and canonical
-- [ ] Structured data validates
-- [ ] Mobile layout remains readable
-- [ ] Production deployment succeeds
-- [ ] GitHub repository contains the exact deployed source
-- [ ] This tracker is updated with results and date
+- [x] Production build succeeds
+- [x] No unapproved claims are published
+- [ ] Labeled second-opinion upload reaches the intended recipient and owner workspace
+- [x] Phone links still call 216-703-3183
+- [x] Sitemap and new public routes return HTTP 200
+- [x] Homepage remains indexable and canonical
+- [x] Structured-data output is covered by automated checks
+- [x] Desktop and phone layouts remain readable in Chrome
+- [x] Production deployment succeeds
+- [x] GitHub repository contains the exact deployed source
+- [x] This tracker is updated with results and date
 
 ## Work log
 
 | Date | Change | Outcome | Next step |
 |---|---|---|---|
+| 2026-09-09 | Published the estimator, private second-opinion workflow, shared schema system and Cleveland Heights page | Added D1 metadata and private R2 objects, content-signature and size validation, explicit owner/admin authentication, 30-day access/cleanup, internal email notification, evidence-bounded city copy, sitemap/internal links and privacy/terms updates; build, zero-error lint, 32 automated checks, Chrome desktop/mobile review and production HTTP checks pass | Complete one labeled upload, verify the owner download and confirm retention cleanup evidence |
 | 2026-09-03 | Published the Complete Mechanical Services card redesign | Rebuilt the existing six service links as balanced responsive cards with Eternity line icons, category labels, subtle blueprint detail and reusable navy/orange circuit artwork; added one-shot hover, keyboard-focus and touch/scroll motion with reduced-motion support; lint has no errors, all 28 tests pass and desktop/tablet/mobile Chrome review is clean; the public homepage and all six destinations return HTTP 200 | Monitor mobile engagement and service-card clicks in analytics |
 | 2026-08-31 | Repaired conversion attribution and request-button navigation | Replaced the unreliable soft handoff to the homepage request form with dependable full-page navigation; added shared first-touch landing, source-page, referrer and bounded UTM capture for Ask Eternity and the standard service form; included privacy-safe source details in internal request emails and analytics while keeping customer-entered details out of Google Analytics. The production build, lint with no errors and all 28 automated checks pass | Monitor attributed service requests and connect call/text outcome reporting after Twilio is available |
 | 2026-08-30 | Prepared the mobile performance maintenance release | A fresh live Lighthouse audit scored Performance 79–83, Accessibility 100 and SEO 100 with a 4.1-second LCP. The approved mobile hero was converted to an 80,338-byte WebP source from the 306,620-byte JPEG while retaining the original fallback, and the chatbot opener lint failure was repaired. Build, lint with no errors and all 27 rendered-page tests pass | Publish the prepared Sites version, confirm the live page serves WebP on supported phones and rerun Lighthouse |
