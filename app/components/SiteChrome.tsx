@@ -1,11 +1,28 @@
-
+"use client";
 
 export function SiteHeader() {
   return <>
     <div className="topbar"><span>Black-owned • Licensed & insured • 15-minute response target</span><a href="tel:+12167033183">Emergency service available: 216-703-3183 <b>→</b></a></div>
-    <header className="header">
+    <header className="header" onKeyDown={(event) => {
+      if (event.key !== "Escape") return;
+      const expanded = event.currentTarget.querySelector<HTMLDetailsElement>("details[open]");
+      if (expanded) {
+        expanded.open = false;
+        expanded.querySelector<HTMLElement>("summary")?.focus();
+        event.preventDefault();
+      }
+    }} onClick={(event) => {
+      if (!(event.target instanceof Element) || !event.target.closest("a")) return;
+      event.currentTarget.querySelectorAll<HTMLDetailsElement>("details[open]").forEach((menu) => { menu.open = false; });
+    }}>
       <a className="logo-crop" href="/" aria-label="Eternity Mechanical Services home"><img src="/images/eternity-logo.svg" alt="Eternity Mechanical Services" /></a>
-      <nav aria-label="Primary navigation"><a href="/services/air-conditioning-repair">Cooling</a><a href="/services/furnace-heating-repair">Heating</a><a href="/services/commercial-hvac">Commercial HVAC</a><a href="/services/commercial-refrigeration">Refrigeration</a><a href="/services/preventive-maintenance">Maintenance</a><a href="/estimate">Estimator</a><a href="/second-opinion">Second opinion</a><a href="/projects">Projects</a><a href="/resources">Expert answers</a><a href="/areas-we-serve">Areas served</a><a href="/#about">About</a><a href="/#contact">Contact</a></nav>
+      <nav aria-label="Primary navigation" className="grouped-navigation">
+        <details name="desktop-navigation"><summary>Services</summary><div className="navigation-panel">
+          <a href="/services/air-conditioning-repair">AC repair</a><a href="/services/air-conditioning-installation">AC installation</a><a href="/services/furnace-heating-repair">Furnace &amp; heating</a><a href="/services/boiler-service">Boilers</a><a href="/services/heat-pump-service">Heat pumps</a><a href="/services/commercial-hvac">Commercial HVAC</a><a href="/services/commercial-refrigeration">Refrigeration</a><a href="/services/preventive-maintenance">Maintenance</a><a href="/services/emergency-hvac-r">Emergency HVAC/R</a>
+        </div></details>
+        <details name="desktop-navigation"><summary>Pricing &amp; tools</summary><div className="navigation-panel"><a href="/estimate">Cost estimator</a><a href="/second-opinion">Second opinion</a><a href="/resources">Expert answers</a></div></details>
+        <details name="desktop-navigation"><summary>Our company</summary><div className="navigation-panel"><a href="/#about">About Eternity</a><a href="/projects">Project case studies</a><a href="/areas-we-serve">Areas served</a><a href="/#contact">Contact</a></div></details>
+      </nav>
       <div className="header-actions"><a className="btn btn-small" href="https://eternityhvacr.com/#schedule">Request service</a></div>
       <details className="mobile-menu"><summary aria-label="Open navigation"><span /><span /><span /></summary><div><a href="/services/air-conditioning-repair">AC repair</a><a href="/services/air-conditioning-installation">AC installation</a><a href="/services/furnace-heating-repair">Heating</a><a href="/services/boiler-service">Boilers</a><a href="/services/heat-pump-service">Heat pumps</a><a href="/services/emergency-hvac-r">Emergency HVAC/R</a><a href="/services/commercial-hvac">Commercial HVAC</a><a href="/services/commercial-refrigeration">Refrigeration</a><a href="/services/preventive-maintenance">Maintenance</a><a href="/estimate">Project estimator</a><a href="/second-opinion">Second opinion</a><a href="/projects">Projects</a><a href="/resources">Expert answers</a><a href="/areas-we-serve">Areas served</a><a href="/#contact">Contact</a></div></details>
     </header>

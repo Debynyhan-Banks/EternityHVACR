@@ -729,3 +729,20 @@ footer .sms-disclosure a,.footer-bottom a{text-decoration:underline;text-underli
 .signmons-privacy-details p{margin:8px 0;padding:12px;background:#f5f7fa;border-radius:8px}
 .signmons-privacy-details summary:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
 @media(max-width:700px){.signmons-launcher{display:grid;right:14px;bottom:calc(100px + env(safe-area-inset-bottom));width:174px;min-height:52px}}
+
+/* Compact, keyboard-operable navigation and readable secondary content. */
+.grouped-navigation details{position:relative}
+.grouped-navigation summary{cursor:pointer;min-height:44px;display:flex;align-items:center;gap:8px;color:var(--navy);font-size:14px}
+.grouped-navigation summary:after{content:"⌄"}
+.navigation-panel{position:absolute;top:100%;right:0;width:270px;max-height:70vh;overflow:auto;padding:12px;background:white;border:1px solid #65788b;border-radius:12px;box-shadow:0 12px 28px #0b264626}
+.header .navigation-panel a{display:block;white-space:normal;padding:12px;color:#0b2646;font-size:14px;line-height:1.4}
+.header .navigation-panel a:hover{background:#edf4ff}
+.header .navigation-panel a:after{display:none}
+.header :is(a,summary):focus-visible{outline:3px solid #0b2646;outline-offset:3px}
+footer :is(a,summary):focus-visible{outline:3px solid white;outline-offset:3px}
+footer .sms-disclosure,.footer-bottom{font-size:14px;line-height:1.65;color:#d7e5fa}
+.footer-grid a,.footer-grid p,.footer-grid span{font-size:14px;line-height:1.65;color:#d7e5fa}
+.topbar{height:auto;min-height:36px;font-size:12px;padding-block:8px}
+.mobile-menu>div{max-height:calc(100dvh - 150px);overflow:auto}
+.mobile-menu>div a{min-height:44px;display:flex;align-items:center;font-size:14px}
+@media(min-width:1100px){.header .grouped-navigation{display:flex;gap:24px}.header .mobile-menu{display:none}}
