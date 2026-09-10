@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { trackGoogleEvent } from "./Analytics";
+import ServiceIcon from "./ServiceIcon";
 
 const projectOptions = [
   {
@@ -96,9 +97,9 @@ export default function ProjectEstimator() {
                   sendEstimateEvent("project_estimator_scope_selected", option.id);
                 }}
               />
-              <span className="estimator-option-icon" aria-hidden="true">{option.icon}</span>
+              <span className="estimator-option-icon"><ServiceIcon name={option.icon} /></span>
               <span><strong>{option.shortLabel}</strong><small>{option.label}</small></span>
-              <i aria-hidden="true">✓</i>
+              <i aria-hidden="true"><ServiceIcon name="CHECK" /></i>
             </label>
           ))}
         </div>
@@ -116,8 +117,8 @@ export default function ProjectEstimator() {
 
         <div className="estimator-result-details">
           <div>
-            <h3>What the baseline includes</h3>
-            <ul>{result.details.map((detail) => <li key={detail}>✓ {detail}</li>)}</ul>
+            <h3>{projectId === "commercial-rtu" ? "What the review covers" : "What the baseline includes"}</h3>
+            <ul className="estimator-inclusions">{result.details.map((detail) => <li key={detail}><ServiceIcon name="CHECK" /> <span>{detail}</span></li>)}</ul>
           </div>
           <div className="estimator-price-factors">
             <h3>What can change the final price</h3>

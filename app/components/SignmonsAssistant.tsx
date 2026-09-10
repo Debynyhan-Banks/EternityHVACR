@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { trackGoogleEvent } from "./Analytics";
+import ServiceIcon from "./ServiceIcon";
 import { captureLeadAttribution, type LeadAttribution } from "./LeadAttribution";
 
 type RequestPath = "urgent" | "cooling" | "heating" | "commercial" | "estimate" | "maintenance";
@@ -44,7 +45,7 @@ const pathLabels = Object.fromEntries(requestPaths.map((path) => [path.id, path.
 const propertyLabels = Object.fromEntries(propertyTypes.map((property) => [property.id, property.title])) as Record<PropertyType, string>;
 export default function SignmonsAssistant() {
   const [open, setOpen] = useState(false);
-  const [screen, setScreen] = useState<Screen>("start");
+  const [screen, setScreen] = useState<Screen>("chat");
   const [requestPath, setRequestPath] = useState<RequestPath | null>(null);
   const [propertyType, setPropertyType] = useState<PropertyType | null>(null);
   const [estimatorContext, setEstimatorContext] = useState("");
@@ -68,6 +69,8 @@ export default function SignmonsAssistant() {
   const openAssistant = useCallback((opener?: HTMLElement) => {
     if (opener) openerRef.current = opener;
     if (!leadAttributionRef.current) leadAttributionRef.current = captureLeadAttribution("website_chat");
+    if (!sessionIdRef.current) sessionIdRef.current = crypto.randomUUID();
+    setScreen("chat");
     setOpen(true);
     trackGoogleEvent("assistant_open", { assistant: "signmons_router" });
   }, []);
@@ -83,7 +86,7 @@ export default function SignmonsAssistant() {
         return;
       }
       if (event.key !== "Tab" || !dialogRef.current) return;
-      const focusable = Array.from(dialogRef.current.querySelectorAll<HTMLElement>('a[href], button:not([disabled])'));
+      const focusable = Array.from(dialogRef.current.querySelectorAll<HTMLElement>('a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled])'));
       if (focusable.length === 0) return;
       const first = focusable[0];
       const last = focusable[focusable.length - 1];
@@ -114,7 +117,7 @@ export default function SignmonsAssistant() {
         setRequestPath("estimate");
         setPropertyType(null);
         setEstimatorContext(estimateScope);
-        setScreen("property");
+        setScreen("chat");
         trackGoogleEvent("assistant_estimator_context_received", { estimate_scope: estimateScope });
       }
       openAssistant();
@@ -316,7 +319,7 @@ export default function SignmonsAssistant() {
       aria-expanded={open}
       onClick={(event) => openAssistant(event.currentTarget)}
     >
-      <span className="signmons-launcher-icon" aria-hidden="true">✦</span>
+      <span className="signmons-launcher-icon"><ServiceIcon name="CHAT" /></span>
       <span className="signmons-launcher-copy"><b>Ask Eternity</b><small>AI help now</small></span>
       <span className="signmons-visually-hidden">Automated service assistant</span>
     </button>
@@ -328,13 +331,14 @@ export default function SignmonsAssistant() {
             <span>Automated service assistant</span>
             <strong id="signmons-title">Ask Eternity</strong>
           </div>
-          <button ref={closeRef} type="button" aria-label="Close service assistant" onClick={() => setOpen(false)}>×</button>
+          <button ref={closeRef} type="button" aria-label="Close service assistant" onClick={() => setOpen(false)}><ServiceIcon name="CLOSE" /></button>
         </header>
 
         <div className="signmons-body">
-          <p id="signmons-disclosure" className="signmons-disclosure">
+          <p id="signmons-disclosure" className="signmons-disclosure">AI assistance. Avoid sharing sensitive information.</p>
+          <details className="signmons-privacy-details"><summary>Privacy &amp; limits</summary><p>
             Messages are processed by Signmons and OpenAI, may be stored in service logs and may be reviewed by Eternity. This assistant is not a technician and cannot diagnose equipment. Eligible residential diagnostic visits can be confirmed only from the live appointment choices shown here. Do not enter payment-card, Social Security, medical or other sensitive information.
-          </p>
+          </p></details>
 
           {screen === "start" && <>
             <div className="signmons-chat-intro">
@@ -389,13 +393,14 @@ export default function SignmonsAssistant() {
           </>}
 
           {screen === "chat" && <>
+            {estimatorContext && <p className="signmons-estimator-context"><strong>Planning scope:</strong> {estimatorContext}</p>}
             <div className="signmons-chat-heading">
               <div><span>AI-assisted conversation</span><strong>Ask Eternity</strong></div>
               <button type="button" onClick={reset}>Service menu</button>
             </div>
             <div className="signmons-messages" aria-live="polite" aria-busy={chatLoading}>
               {chatMessages.map((message) => <div key={message.id} className={`signmons-message ${message.role}${message.safety ? " safety" : ""}${message.success ? " success" : ""}`}>
-                <span>{message.role === "assistant" ? "Assistant" : "You"}</span>
+                <span>{message.role === "assistant" ? "Ask Eternity · AI assistant" : "You"}</span>
                 <p>{message.text}</p>
                 {message.manageHref && <a
                   className="signmons-manage-link"
@@ -436,7 +441,7 @@ export default function SignmonsAssistant() {
               </div>
             </div>}
             <form className="signmons-chat-form" onSubmit={sendChatMessage}>
-              <label htmlFor="signmons-message">Describe the equipment or service question</label>
+              <label htmlFor="signmons-message">Your message</label>
               <textarea
                 id="signmons-message"
                 value={chatInput}
@@ -449,11 +454,6 @@ export default function SignmonsAssistant() {
               <div><span>{chatInput.length}/1,000</span><button type="submit" disabled={chatLoading || Boolean(bookingSlotToken) || !chatInput.trim()}>{chatLoading ? "Sending…" : "Send message"}</button></div>
             </form>
             <p className="signmons-chat-limit">For immediate danger, leave the area when appropriate and call 911 or the utility emergency line. For urgent service, call <a href="tel:+12167033183">216-703-3183</a>.</p>
-            <div className="signmons-chat-handoff">
-              <a href="tel:+12167033183" onClick={() => trackHandoff("call")}>Call Eternity</a>
-              <a href="sms:+12167033183" onClick={() => trackHandoff("text")}>Text the team</a>
-              <a href="https://eternityhvacr.com/#schedule" onClick={() => trackHandoff("request_form")}>Request service</a>
-            </div>
           </>}
 
           {screen === "safety" && <>
