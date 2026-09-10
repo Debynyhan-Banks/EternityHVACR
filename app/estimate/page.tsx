@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import "./estimate.css";
 import Link from "next/link";
 import ProjectEstimator from "../components/ProjectEstimator";
 import { SiteFooter, SiteHeader } from "../components/SiteChrome";
 import { breadcrumbSchema, faqSchema, servicePriceCatalogSchema, StructuredData, webApplicationSchema } from "../lib/structuredData";
 
 const faqs = [
+  ["Why can two furnace installation quotes differ by thousands of dollars?", "Check whether both proposals include the same equipment efficiency, capacity, removal, sheet-metal transitions, venting, electrical work and permits. A like-for-like swap and a project needing duct or utility alterations are different scopes. Ask each contractor to identify inclusions and exclusions in writing rather than comparing only the total."],
+  ["Does the $2,800–$3,400 range include a 96% AFUE furnace?", "No. That planning range is for the specified standard 80% AFUE swap. A higher-efficiency installation needs a separate equipment and site review, including venting and condensate provisions where applicable. Eternity has not published a separate 96% AFUE baseline on this page."],
   ["How much does a direct furnace swap cost in Greater Cleveland?", "Eternity's estimated baseline range is $2,800–$3,400 for a standard 80% AFUE direct furnace swap. It covers complete unit removal, licensed installation, transition sheet metal and a safety test."],
   ["How much does a boiler conversion to attic forced air cost?", "The estimated baseline range is $6,800–$8,200 for complete rough-in, a horizontal attic furnace, R-8 flex ductwork, a B-vent roof penetration and utility extensions. This configuration can help duplex investors separate tenant utilities."],
   ["What does a furnace, condenser and coil package start at?", "A furnace, condenser and matching evaporator coil package can start as low as $7,500. The final proposal depends on equipment selection, installation conditions and any additional work identified during the site review."],
@@ -60,7 +63,7 @@ export const metadata: Metadata = {
 
 export default function EstimatePage() {
   return (
-    <main>
+    <main className="estimate-page">
       <SiteHeader />
       <StructuredData data={[
         webApplicationSchema({ name: "Eternity Greater Cleveland HVAC Cost Estimator", description: metadata.description as string, path: "/estimate" }),
@@ -87,6 +90,11 @@ export default function EstimatePage() {
         </div>
       </section>
       <section className="tool-section estimator-tool-section"><ProjectEstimator /></section>
+      <section className="section estimate-evidence" aria-labelledby="estimate-evidence-title">
+        <div><p className="kicker">Equipment behind the numbers</p><h2 id="estimate-evidence-title">Compare the whole installation.</h2><p>A furnace, outdoor unit and indoor coil are only part of the scope. The connections and existing conditions matter, too.</p><p>These are actual Euclid project photographs—not illustrations of what every price includes.</p><Link href="/projects">Explore documented projects →</Link></div>
+        <figure><img src="/images/euclid/euclid-oh-sinclair-furnace-installation-720.webp" alt="Technician beside a Sinclair furnace installation in Euclid" width="720" height="1279" loading="lazy"/><figcaption>Indoor equipment and installation work</figcaption></figure>
+        <figure><img src="/images/euclid/euclid-oh-residential-condenser-installation-720.webp" alt="Outdoor condenser and connections at a Euclid home" width="720" height="1279" loading="lazy"/><figcaption>Outdoor equipment and connections</figcaption></figure>
+      </section>
       <section className="section estimator-pricing" aria-labelledby="pricing-heading">
         <div className="section-head">
           <div><p className="kicker">Greater Cleveland planning ranges</p><h2 id="pricing-heading">What common HVAC projects may cost</h2></div>
@@ -108,6 +116,14 @@ export default function EstimatePage() {
         <p className="estimator-disclaimer">Baseline estimates are not binding quotes. Equipment selection, permits, access, electrical work, existing conditions and added scope can change the final written proposal.</p>
       </section>
       <section className="section estimator-methodology">
+        <div className="estimate-cost-drivers"><p className="kicker">What changes the price?</p><h2>Same category. Different scope.</h2><p>Use these questions to compare written proposals. None of these items has an automatic surcharge in this estimator; the site review determines what is needed and whether it is included.</p>
+          <details open><summary>Equipment and efficiency</summary><p>The furnace baseline applies to 80% AFUE. A different efficiency, capacity or equipment package is a different comparison. Ask for model numbers, rated efficiency and how the equipment was sized. A higher-efficiency option may require different venting and condensate arrangements; no 96% price is implied by the standard-swap range.</p></details>
+          <details><summary>Ductwork and airflow</summary><p>A transition between the furnace and existing ductwork is not the same as replacing distribution ducts. Ask whether supply and return alterations are included and whether existing airflow will be evaluated. For the attic conversion, confirm the rooms served and the planned supply and return routes.</p></details>
+          <details><summary>Venting, electrical and utilities</summary><p>Compare the stated scope for venting, gas connections, electrical circuits and condensate disposal. Utility extensions are listed in the attic-conversion baseline, but their route and extent still need verification. Ask what work by other trades, utility providers or permitting authorities is included or excluded.</p></details>
+          <details><summary>Cooling compatibility</summary><p>The cooling-only starting price describes an outdoor condenser and matching indoor coil—not an automatic replacement of the furnace. Confirm compatibility with the retained indoor equipment, refrigerant piping and controls. Ask whether line-set work or electrical changes are required.</p></details>
+          <details><summary>Duplex boiler-to-forced-air conversion</summary><p>The $6,800–$8,200 baseline describes the specified attic forced-air rough-in, not every possible boiler conversion. Confirm attic access, equipment location, duct routes, roof penetration and how the remaining boiler system will be handled. Separate tenant utility metering or utility-company charges must be addressed explicitly; do not assume they are included.</p></details>
+          <details><summary>Access, permits and removal</summary><p>Ask how equipment will enter and leave the property, what removal is covered, who handles permits and inspections, and what is excluded. Tight access or work beyond the listed baseline can change the proposal. Commercial roof access and lifting requirements need project-specific review.</p></details>
+        </div>
         <div className="section-head">
           <div><p className="kicker">How the range is built</p><h2>Real scope first. Final price after site review.</h2></div>
           <p>These planning prices reflect defined installation scopes—not a remote diagnosis or a one-size-fits-all quote.</p>
