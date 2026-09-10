@@ -72,7 +72,7 @@ export default function ServiceLanding({ content }: { content: ServiceLandingCon
     <SiteHeader />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     <section className="landing-hero">
-      <div className="landing-hero-copy"><p className="eyebrow"><i /> {content.eyebrow}</p><h1>{content.title}</h1><p>{content.summary}</p><div className="hero-actions"><a className="btn" href="https://eternityhvacr.com/#schedule">Request service <span>↗</span></a><a className="btn-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a></div><div className="landing-trust"><span>✓ Licensed & insured</span><span>✓ License #28303</span><span>✓ Residential & commercial expertise</span></div></div>
+      <div className="landing-hero-copy"><p className="eyebrow"><i /> {content.eyebrow}</p><h1>{content.title}</h1><p>{content.summary}</p><div className="landing-trust"><span>✓ Licensed & insured</span><span>✓ License #28303</span><span>✓ Residential & commercial expertise</span></div></div>
       <div className="landing-hero-image"><img src={content.image} alt={content.imageAlt} width="1800" height="1200" fetchPriority="high" decoding="async" /><span>Greater Cleveland & Northeast Ohio</span></div>
     </section>
     <section className="response-band"><strong>15-minute response target</strong><span>Website requests are typically reviewed within 15 minutes during regular business hours. For urgent service, call directly.</span><a href="tel:+12167033183">Call now →</a></section>

@@ -79,10 +79,6 @@ export default function EuclidCentralAirCaseStudy() {
             <div><span>Completed</span><strong>August 2026</strong></div>
             <div><span>Project</span><strong>Full HVAC installation</strong></div>
           </div>
-          <div className="hero-actions">
-            <a className="btn btn-orange" href="https://eternityhvacr.com/#schedule">Request an installation estimate <span>↗</span></a>
-            <a className="btn-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a>
-          </div>
         </div>
         <figure className="case-study-hero-image">
           <picture>

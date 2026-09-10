@@ -63,10 +63,6 @@ export default function LocationLanding({ content, schema }: { content: Location
           <p className="eyebrow"><i /> {content.eyebrow}</p>
           <h1>{content.title}</h1>
           <p>{content.summary}</p>
-          <div className="hero-actions">
-            <a className="btn" href="https://eternityhvacr.com/#schedule">Request service <span>↗</span></a>
-            <a className="btn-outline" href="tel:+12167033183">Call Eternity <span>→</span></a>
-          </div>
           <div className="location-hero-proof">
             <span>Real project proof</span>
             <strong>Verified residential installations in Euclid 44119 and 44123</strong>

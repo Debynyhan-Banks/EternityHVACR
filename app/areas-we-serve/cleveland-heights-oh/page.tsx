@@ -38,7 +38,6 @@ export default function ClevelandHeightsPage() {
           <p className="eyebrow"><i /> Cleveland Heights, Ohio</p>
           <h1>HVAC, boiler and mechanical service for Cleveland Heights properties.</h1>
           <p>Eternity Mechanical Services supports homes, businesses and managed properties across approved Cleveland Heights service ZIP codes with diagnostics, repair, installation and maintenance.</p>
-          <div className="hero-actions"><a className="btn" href="https://eternityhvacr.com/#schedule">Request service <span>↗</span></a><a className="btn-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a></div>
           <div className="city-coverage"><span>Approved priority market</span><strong>44106 • 44112 • 44118 • 44121</strong></div>
         </div>
         <figure><picture><source media="(max-width: 700px)" srcSet="/images/eternity-van-hero-mobile-b.webp" type="image/webp" /><img src="/images/eternity-van-hero.jpg" alt="Eternity Mechanical Services owner and service van serving Greater Cleveland" width="1400" height="900" /></picture><figcaption>Serving Greater Cleveland • Licensed & insured</figcaption></figure>
