@@ -148,6 +148,9 @@ test("publishes crawler files with the canonical sitemap", async () => {
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/services\/emergency-hvac-r<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/areas-we-serve<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/areas-we-serve\/euclid-oh<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/areas-we-serve\/cleveland-heights-oh<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/estimate<\/loc>/);
+  assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/second-opinion<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/projects<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/projects\/euclid-rooftop-hvac-diagnostic<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/projects\/euclid-payne-hvac-installation<\/loc>/);
@@ -160,6 +163,58 @@ test("publishes crawler files with the canonical sitemap", async () => {
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/privacy<\/loc>/);
   assert.match(sitemap, /<loc>https:\/\/eternityhvacr\.com\/terms<\/loc>/);
   assert.match(sitemap, /system-diagnostic-report\.jpg|hero-technician-black\.jpg/);
+});
+
+test("renders the planning estimator without presenting an unverified price", async () => {
+  const [response, component] = await Promise.all([
+    render("/estimate"),
+    readFile(new URL("../app/components/ProjectEstimator.tsx", import.meta.url), "utf8"),
+  ]);
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /HVAC Project Estimator/);
+  assert.match(html, /Does this estimator provide a final price/);
+  assert.match(html, /WebApplication/);
+  assert.match(component, /project_estimator_completed/);
+  assert.match(component, /A site visit is needed before final scope and pricing/);
+  assert.doesNotMatch(component, /\$\d/);
+});
+
+test("publishes a private 30-day second-opinion upload workflow", async () => {
+  const [response, form, route, downloadRoute, storage, auth] = await Promise.all([
+    render("/second-opinion"),
+    readFile(new URL("../app/components/SecondOpinionForm.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/api/second-opinion/route.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/api/admin/second-opinions/[fileId]/route.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/lib/secondOpinionStorage.ts", import.meta.url), "utf8"),
+    readFile(new URL("../app/lib/secondOpinionAdmin.ts", import.meta.url), "utf8"),
+  ]);
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /Owner\/admin only/);
+  assert.match(html, /30-day retention/);
+  assert.match(form, /PDF, JPG, PNG or WebP/);
+  assert.match(route, /contentMatches/);
+  assert.match(route, /MAX_TOTAL_BYTES = 20 \* 1024 \* 1024/);
+  assert.match(route, /second-opinions\/\$\{submissionId\}/);
+  assert.match(downloadRoute, /requireSecondOpinionAdmin/);
+  assert.match(downloadRoute, /Cache-Control.*private, no-store/);
+  assert.match(storage, /RETENTION_DAYS = 30/);
+  assert.match(storage, /UPLOADS\.delete/);
+  assert.match(auth, /SECOND_OPINION_ADMIN_EMAILS/);
+});
+
+test("renders the approved Cleveland Heights service-area page with shared schema", async () => {
+  const response = await render("/areas-we-serve/cleveland-heights-oh");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /HVAC Repair in Cleveland Heights, OH/);
+  assert.match(html, /44106.*44112.*44118.*44121/s);
+  assert.match(html, /Approved priority market/);
+  assert.match(html, /BreadcrumbList/);
+  assert.match(html, /FAQPage/);
+  assert.match(html, /&quot;Service&quot;|"Service"/);
+  assert.doesNotMatch(html, /completed in Cleveland Heights|Cleveland Heights project/i);
 });
 
 test("publishes clear privacy and website terms", async () => {

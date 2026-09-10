@@ -1,6 +1,6 @@
 # Eternity Mechanical Services Website Progress Tracker
 
-Last updated: September 3, 2026
+Last updated: September 9, 2026
 
 This file is the source of truth for the SEO, GEO, content and feature program. Update it whenever a task begins, finishes, becomes blocked or changes scope.
 
@@ -16,11 +16,11 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 ## Current position
 
-**Current milestone:** Monthly lead-source scorecard foundation
+**Current milestone:** Customer planning tools, private second opinions and Cleveland Heights market coverage
 
-**Current status:** The production assistant can create an idempotent service request, instantly confirm eligible residential diagnostics from live Eternity Dispatch availability, and give the customer a private 90-day link to view, reschedule or cancel the confirmed appointment. Privacy-safe website attribution is production-verified. Signmons now has a live tenant-scoped lead-source report and an owner/admin job-completion endpoint, but its authenticated operator UI remains planned in Signmons rather than on Eternity's public website. Eternity's first technical baseline was generated as a local private report and is excluded from GitHub and the public website.
+**Current status:** A scope-based project estimator, private second-opinion upload workflow, reusable structured-data system and evidence-bounded Cleveland Heights service-area page are built and verified locally. Second-opinion objects use private R2 storage, searchable metadata uses D1, owner/admin downloads require an explicit email allowlist, and both access and cleanup use a 30-day expiration boundary. Production publication is in progress.
 
-**Next action:** Publish the validated mobile performance maintenance release, verify that modern phones receive the smaller hero asset, and rerun the live mobile audit. Then use the next full operating month as the first decision-quality scorecard after technicians consistently mark completed work in Signmons. Build the reusable authenticated dashboard under the separate Signmons APP-014 plan; do not expose business metrics or reporting credentials on Eternity's public website.
+**Next action:** Publish the validated release, verify the three new public routes, complete one labeled test upload, confirm the owner can download it from the private review workspace, and verify the item becomes inaccessible at its 30-day expiration boundary.
 
 ## Phase 1 information blockers
 
@@ -57,7 +57,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 1 | Responsive image optimization | In progress | Production publish and re-audit | August 30 live Lighthouse samples scored Performance 79–83, Accessibility 100 and SEO 100 with 4.1-second LCP; a WebP version of the current mobile hero reduces that asset from 306,620 to 80,338 bytes without changing its crop, with the JPEG retained as fallback |
 | 2 | Priority service pages | Complete | Approved service scope and operating facts | AC repair, AC installation/replacement and emergency HVAC/R pages added to the heating and commercial service library, internally linked and included in the sitemap August 28, 2026 |
 | 2 | Market pages | Waiting on Eternity | Confirmed customer segments | Approved pages published |
-| 2 | Service-area hub and city pages | In progress | Approved priority and extended city/ZIP list plus genuine local proof | Comprehensive service-area hub and first proof-backed Euclid page published August 24, 2026; future city pages remain gated by location-specific evidence |
+| 2 | Service-area hub and city pages | In progress | Approved priority and extended city/ZIP list plus genuine local proof | Comprehensive service-area hub and proof-backed Euclid page published; Cleveland Heights page built from approved service-area evidence without inventing local project claims |
 | 3 | Owner, team and credentials | Complete | Approved biographies | Text-only Bernard Gray and Debynyhan Banks team section published August 27, 2026; photographs intentionally deferred |
 | 3 | Verified review system | Complete | Review links and permission | Direct Google review CTA and Charlotte Mancini’s approved five-star review published August 27, 2026 |
 | 3 | First three case studies | Complete | Project information and photos | Two residential installations and one commercial rooftop diagnostic published with verified facts and field photography |
@@ -65,7 +65,9 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 | 4 | AI-crawler and referral measurement | Complete | Analytics in Phase 1 | OpenAI crawler access is explicit; ChatGPT, Perplexity, Gemini, Copilot, Claude and Meta AI referrals generate a privacy-conscious analytics event |
 | 5 | Service-area checker | Complete | Approved ZIP list | Homepage and service-area page check approved ZIPs, preserve uncertain leads and record privacy-conscious result events |
 | 5 | Signmons AI intake, instant residential diagnostic booking and appointment management | Complete | Signmons backend, Eternity Dispatch calendar, Resend and approved booking rules | Production acceptance created exactly one job, calendar event and internal email; the `Test Banks` reschedule preserved one event at the replacement time and produced the expected same-job email sequence; secure 90-day management links now have verified live view, rescheduling and cancellation; website and paired-backend suites passed 71 checks on August 30, 2026 |
-| 5 | Photo/video request uploads | Waiting on Eternity | Storage and retention decisions | Secure upload test completed |
+| 5 | Second-opinion document/photo uploads | In review | Production D1/R2 provisioning and owner acceptance | Private owner/admin-only workflow built with PDF/image validation, no public object URLs and a 30-day access and cleanup boundary; 32 automated checks pass |
+| 5 | Scope-based project estimator | In review | Production publication | Planning estimator identifies the right service path without inventing a remote diagnosis, final price or binding quote |
+| 5 | Reusable structured-data system | In review | Production publication | Shared Breadcrumb, FAQ, Service and WebApplication builders cover the estimator, upload and Cleveland Heights pages |
 | 5 | Commercial equipment intake | Waiting on Eternity | Field requirements | Make/model/serial request path live |
 | 5 | Maintenance-plan comparison | Waiting on Eternity | Plan details | Approved comparison published |
 | 6 | Monthly performance scorecard | In progress | Consistent job completion status and one full attributed operating month | Private technical baseline created; first decision-quality monthly report pending |
