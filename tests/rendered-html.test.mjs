@@ -27,6 +27,20 @@ async function render(pathname = "/") {
   }));
 }
 
+test("all internal header/footer navigation destinations render and anchors exist", async () => {
+  const source = await readFile(new URL('../app/components/SiteChrome.tsx', import.meta.url), 'utf8');
+  assert.ok(!source.includes('<Link'), 'Navigation should use native browser links');
+  const hrefs = [...new Set([...source.matchAll(/href="([^"]+)"/g)].map(match => match[1]))];
+  for (const href of hrefs) {
+    const url = new URL(href, 'https://eternityhvacr.com');
+    if (url.origin !== 'https://eternityhvacr.com') continue;
+    const response = await render(url.pathname);
+    assert.equal(response.status, 200, href);
+    const html = await response.text();
+    if (url.hash) assert.ok(html.includes(`id="${url.hash.slice(1)}"`), `Missing anchor: ${href}`);
+  }
+});
+
 test("renders the Eternity homepage with approved business information", async () => {
   const response = await render();
   assert.equal(response.status, 200);
