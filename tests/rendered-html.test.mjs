@@ -165,19 +165,42 @@ test("publishes crawler files with the canonical sitemap", async () => {
   assert.match(sitemap, /system-diagnostic-report\.jpg|hero-technician-black\.jpg/);
 });
 
-test("renders the planning estimator without presenting an unverified price", async () => {
-  const [response, component] = await Promise.all([
+test("renders the approved Greater Cleveland estimator pricing and schema", async () => {
+  const [response, component, requestForm, assistant] = await Promise.all([
     render("/estimate"),
     readFile(new URL("../app/components/ProjectEstimator.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/ServiceRequest.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/SignmonsAssistant.tsx", import.meta.url), "utf8"),
   ]);
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /HVAC Project Estimator/);
-  assert.match(html, /Does this estimator provide a final price/);
+  assert.match(html, /Greater Cleveland HVAC Cost Estimator/);
+  assert.match(html, /\$2,800.*\$3,400/s);
+  assert.match(html, /\$6,800.*\$8,200/s);
+  assert.match(html, /As low as \$7,500/);
+  assert.match(html, /As low as \$5,000/);
+  assert.match(html, /Custom estimate/);
   assert.match(html, /WebApplication/);
+  assert.match(html, /OfferCatalog/);
+  assert.match(html, /minPrice.*2800.*maxPrice.*3400/s);
+  assert.match(html, /Real scope first.*Final price after site review/s);
+  assert.match(html, /Pricing reviewed September 2026/);
   assert.match(component, /project_estimator_completed/);
-  assert.match(component, /A site visit is needed before final scope and pricing/);
-  assert.doesNotMatch(component, /\$\d/);
+  assert.match(component, /project_estimator_scope_selected/);
+  assert.match(component, /Choose the project closest to yours/);
+  assert.match(component, /estimateScope=/);
+  assert.match(component, /Schedule a site estimate/);
+  assert.match(component, /data-assistant-estimate/);
+  assert.match(component, /direct-furnace-swap/);
+  assert.match(component, /\$2,800–\$3,400/);
+  assert.match(component, /\$6,800–\$8,200/);
+  assert.match(component, /As low as \$7,500/);
+  assert.match(component, /As low as \$5,000/);
+  assert.match(component, /Custom diagnostic & load calculation required/);
+  assert.match(requestForm, /estimatorPrefills/);
+  assert.match(requestForm, /estimator_handoff_loaded/);
+  assert.match(assistant, /assistant_estimator_context_received/);
+  assert.match(assistant, /Estimator context:/);
 });
 
 test("publishes a private 30-day second-opinion upload workflow", async () => {

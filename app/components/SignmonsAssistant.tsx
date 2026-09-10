@@ -47,6 +47,7 @@ export default function SignmonsAssistant() {
   const [screen, setScreen] = useState<Screen>("start");
   const [requestPath, setRequestPath] = useState<RequestPath | null>(null);
   const [propertyType, setPropertyType] = useState<PropertyType | null>(null);
+  const [estimatorContext, setEstimatorContext] = useState("");
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([initialChatMessage]);
   const [chatInput, setChatInput] = useState("");
   const [chatLoading, setChatLoading] = useState(false);
@@ -108,6 +109,14 @@ export default function SignmonsAssistant() {
       const control = target.closest<HTMLElement>("[data-open-assistant]");
       if (!control) return;
       openerRef.current = control;
+      const estimateScope = control.dataset.assistantEstimate;
+      if (estimateScope) {
+        setRequestPath("estimate");
+        setPropertyType(null);
+        setEstimatorContext(estimateScope);
+        setScreen("property");
+        trackGoogleEvent("assistant_estimator_context_received", { estimate_scope: estimateScope });
+      }
       openAssistant();
     };
     document.addEventListener("click", openFromPageControl);
@@ -136,6 +145,17 @@ export default function SignmonsAssistant() {
 
   function chooseProperty(property: PropertyType) {
     setPropertyType(property);
+    if (estimatorContext) {
+      if (!sessionIdRef.current) sessionIdRef.current = crypto.randomUUID();
+      setChatMessages([{
+        id: "estimate-context",
+        role: "assistant",
+        text: `I have the ${estimatorContext} planning scope for your ${propertyLabels[property].toLowerCase()}. What would you like Eternity to know about the project?`,
+      }]);
+      setScreen("chat");
+      trackGoogleEvent("assistant_chat_started", { assistant: "signmons_calldesk", source: "estimator" });
+      return;
+    }
     setScreen("handoff");
   }
 
@@ -179,7 +199,9 @@ export default function SignmonsAssistant() {
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
           sessionId: sessionIdRef.current,
-          message,
+          message: estimatorContext
+            ? `Estimator context: ${estimatorContext}. Property type: ${propertyType ? propertyLabels[propertyType] : "Not selected"}. Customer message: ${message}`
+            : message,
           website: "",
           attribution: leadAttributionRef.current ?? captureLeadAttribution("website_chat"),
         }),
@@ -278,6 +300,7 @@ export default function SignmonsAssistant() {
     setScreen("start");
     setRequestPath(null);
     setPropertyType(null);
+    setEstimatorContext("");
     setChatError("");
     setAppointmentSlots([]);
     setAppointmentJobId("");
@@ -336,6 +359,7 @@ export default function SignmonsAssistant() {
 
           {screen === "property" && <>
             <div className="signmons-progress"><span>Step 2 of 2</span><b>What kind of property needs help?</b></div>
+            {estimatorContext && <p className="signmons-estimator-context"><strong>Planning scope:</strong> {estimatorContext}</p>}
             <div className="signmons-choices signmons-property-choices">
               {propertyTypes.map((property) => <button type="button" key={property.id} onClick={() => chooseProperty(property.id)}>
                 <strong>{property.title}</strong>

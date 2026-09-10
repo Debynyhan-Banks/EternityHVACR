@@ -102,7 +102,7 @@ This plan treats SEO, local search, generative-engine visibility and conversion 
 
 - [x] Audit primary and secondary business categories
 - [x] Complete the Services section with every confirmed offering
-- [x] Add concise service descriptions; no prices were added because stable pricing or qualified ranges are not approved
+- [x] Add concise service descriptions; the September 10 approved estimator ranges are published only on the website estimator and should not be copied into Google Business Profile services without separate approval
 - [x] Verify hours, service-area presentation, phone, website and business description
 - [ ] Establish a regular real-project photo and video publishing process
 - [x] Assign ownership for review requests and public review responses

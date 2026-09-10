@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { trackGoogleEvent } from "./Analytics";
 import { captureLeadAttribution } from "./LeadAttribution";
 
@@ -41,6 +41,14 @@ const requestPaths = [
 
 const services = ["Air conditioning", "Heating", "Boiler", "Heat pump", "Commercial HVAC", "Refrigeration", "Installation", "Maintenance"];
 
+const estimatorPrefills: Record<string, Pick<RequestData, "requestType" | "service" | "timing" | "details">> = {
+  "direct-furnace-swap": { requestType: "Installation estimate", service: "Heating", timing: "Planning an estimate", details: "I used the estimator for a direct furnace swap ($2,800–$3,400 baseline range)." },
+  "boiler-conversion-attic-forced-air": { requestType: "Installation estimate", service: "Heating", timing: "Planning an estimate", details: "I used the estimator for a boiler conversion / full attic forced-air project ($6,800–$8,200 baseline range)." },
+  "furnace-condenser-coil": { requestType: "Installation estimate", service: "Installation", timing: "Planning an estimate", details: "I used the estimator for a furnace, condenser and coil package (starting at $7,500)." },
+  "cooling-condenser-coil": { requestType: "Installation estimate", service: "Air conditioning", timing: "Planning an estimate", details: "I used the estimator for a cooling-only condenser and coil package (starting at $5,000)." },
+  "commercial-rtu": { requestType: "Commercial / refrigeration", service: "Commercial HVAC", timing: "Planning an estimate", details: "I used the estimator for a commercial rooftop unit that requires a diagnostic and load calculation." },
+};
+
 function timingOptions(requestType: string) {
   if (requestType === "Emergency / system down") return ["Emergency / system down", "As soon as available"];
   if (requestType === "Installation estimate") return ["Planning an estimate", "This week", "As soon as available"];
@@ -57,6 +65,15 @@ export default function ServiceRequest() {
   const [confirmationSent, setConfirmationSent] = useState(true);
   const [startedAt, setStartedAt] = useState(() => Date.now());
   const trackedStart = useRef(false);
+
+  useEffect(() => {
+    const estimateScope = new URLSearchParams(window.location.search).get("estimateScope");
+    const preset = estimateScope ? estimatorPrefills[estimateScope] : undefined;
+    if (!preset) return;
+    const prefillTimer = window.setTimeout(() => setData((current) => ({ ...current, ...preset })), 0);
+    trackGoogleEvent("estimator_handoff_loaded", { estimator_project: estimateScope });
+    return () => window.clearTimeout(prefillTimer);
+  }, []);
 
   function trackStart() {
     if (trackedStart.current) return;

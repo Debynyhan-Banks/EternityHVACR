@@ -1,6 +1,6 @@
 # Eternity Mechanical Services Confirmed Business Facts
 
-Last updated: August 28, 2026
+Last updated: September 10, 2026
 
 This document is the source of truth for approved public business details used in website copy, contact actions, structured data and search profiles.
 
@@ -31,6 +31,18 @@ This document is the source of truth for approved public business details used i
 | Technician experience | More than 5 years in the industry |
 | Technician education and operations role | Computer science degree and MBA; leads website and marketing and handles much of Eternity's administrative work |
 
+## Approved estimator pricing
+
+These figures are approved for public planning content and structured data. They are baseline estimates or starting prices for the exact scopes shown, not binding quotes.
+
+| Project scope | Approved public price | Included public scope |
+|---|---|---|
+| Direct furnace swap | $2,800–$3,400 baseline range | 80% AFUE standard swap; complete unit removal, licensed installation, transition sheet metal and safety test |
+| Boiler conversion / full attic forced air | $6,800–$8,200 baseline range | Complete rough-in, horizontal attic furnace, R-8 flex ductwork, B-vent roof penetration and utility extensions; ideal for duplex investors separating tenant utilities |
+| Furnace, condenser and coil | As low as $7,500 | Furnace, outdoor condenser and matching evaporator coil; final scope confirmed after the site review |
+| Cooling-only condenser and coil | As low as $5,000 | Outdoor condenser and matching evaporator coil; final scope confirmed after the site review |
+| Commercial rooftop unit (RTU) | Custom diagnostic and load calculation required | No public baseline price; verify capacity, controls, access, utilities and site conditions |
+
 ## Verified project evidence
 
 | Project | Approved public facts |
@@ -59,6 +71,7 @@ This document is the source of truth for approved public business details used i
 - Bernard Gray reviewed and approved the first four expert answers on August 28, 2026. His reviewer attribution may be displayed on those guides.
 - Eternity confirmed on August 28, 2026 that `216-703-3183` is the approved public phone. The website, structured data and Google Business Profile should use that number consistently.
 - Google approved the August 28, 2026 correction to Saturday hours of 9:00 a.m.–5:00 p.m.
+- Public estimator pricing must stay tied to its stated scope and labeled as a baseline range or starting price. Do not present it as a final or binding quote.
 
 ## Still needed
 

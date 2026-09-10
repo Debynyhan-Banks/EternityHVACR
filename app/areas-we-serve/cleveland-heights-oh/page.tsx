@@ -47,7 +47,7 @@ export default function ClevelandHeightsPage() {
       <section className="section city-services"><div className="section-head"><div><p className="kicker">Cleveland Heights service</p><h2>One contractor for the building&apos;s comfort systems.</h2></div><p>Eternity evaluates the equipment and operating conditions before recommending approved work.</p></div><div className="location-service-grid">{services.map(([label, title, copy, href]) => <article key={title}><span>{label}</span><h3>{title}</h3><p>{copy}</p><Link href={href}>Explore service <b aria-hidden="true">→</b></Link></article>)}</div></section>
 
       <section className="city-paths">
-        <div><p className="kicker light">Plan the next step</p><h2>Not sure which service fits?</h2><p>Use the project estimator to identify the right planning path without presenting a price before the equipment and property conditions are known.</p><Link href="/estimate">Open the estimator →</Link></div>
+        <div><p className="kicker light">Plan the next step</p><h2>Not sure which installation fits?</h2><p>Use the project estimator to review approved baseline ranges for common furnace and forced-air installation scopes. Eternity confirms final pricing after reviewing the property and equipment conditions.</p><Link href="/estimate">Open the estimator →</Link></div>
         <div><p className="kicker light">Already have a proposal?</p><h2>Request a private second opinion.</h2><p>Send a diagnosis, quote or equipment photos through the owner/admin-only, 30-day upload workflow.</p><Link href="/second-opinion">Upload for review →</Link></div>
       </section>
 

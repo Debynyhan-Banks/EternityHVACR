@@ -77,3 +77,47 @@ export function webApplicationSchema({ name, description, path }: { name: string
     provider: { "@id": BUSINESS_ID },
   };
 }
+
+export function servicePriceCatalogSchema({
+  name,
+  description,
+  path,
+  offers,
+}: {
+  name: string;
+  description: string;
+  path: string;
+  offers: Array<{
+    name: string;
+    description: string;
+    minPrice?: number;
+    maxPrice?: number;
+    startingPrice?: number;
+  }>;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    description,
+    url: new URL(path, SITE_URL).toString(),
+    provider: { "@id": BUSINESS_ID },
+    areaServed: { "@type": "AdministrativeArea", name: "Greater Cleveland, Ohio" },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "HVAC project planning prices",
+      itemListElement: offers.map((offer) => ({
+        "@type": "Offer",
+        name: offer.name,
+        description: offer.description,
+        priceSpecification: {
+          "@type": "PriceSpecification",
+          priceCurrency: "USD",
+          ...(offer.minPrice !== undefined ? { minPrice: offer.minPrice } : {}),
+          ...(offer.maxPrice !== undefined ? { maxPrice: offer.maxPrice } : {}),
+          ...(offer.startingPrice !== undefined ? { price: offer.startingPrice } : {}),
+        },
+      })),
+    },
+  };
+}
