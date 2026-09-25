@@ -52,10 +52,17 @@ const content: ServiceLandingContent = {
       ["Defined scope", "Equipment, included work, assumptions and applicable pricing should be clear before the installation begins."],
     ],
   },
+  relatedGuides: [
+    {
+      href: "/estimate",
+      title: "2026 Greater Cleveland HVAC replacement cost guide",
+      copy: "See historical complete-system and cooling-only examples, typical installation labor, the disclosed 15% material markup and the conditions that change a final proposal.",
+    },
+  ],
   faqs: [
     ["Do you install and replace central air-conditioning systems?", "Yes. Eternity provides central-air installation, replacement planning and matched heating-and-cooling system work throughout the approved service area."],
     ["Can you replace both heating and cooling equipment?", "Yes. Eternity installs and replaces furnaces, central-air systems and other HVAC equipment. The recommended scope depends on the existing system and property needs."],
-    ["Do you publish a standard AC replacement price?", "No. Equipment, site conditions and installation scope vary. Eternity reviews the proposed work and applicable pricing before approved work begins."],
+    ["How much can AC or complete-system replacement cost?", "Eternity's historical Greater Cleveland planning examples include $4,400–$5,400 for one 2.5-ton condenser-and-coil configuration and $6,800–$17,600 across several complete-system configurations. These are historical examples, not current supplier prices or binding proposals. Review the cost guide for the calculation and scope factors."],
     ["Which areas do you serve?", "Eternity serves approved communities throughout Greater Cleveland and Northeast Ohio. Use the Areas We Serve page or ZIP-code checker to confirm coverage."],
   ],
 };

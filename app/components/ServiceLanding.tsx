@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { SiteFooter, SiteHeader } from "./SiteChrome";
 
 export type ServiceLandingContent = {
@@ -81,7 +80,7 @@ export default function ServiceLanding({ content }: { content: ServiceLandingCon
     <section className="section landing-process"><div className="center-head"><p className="kicker">How service works</p><h2>Measured before recommended.</h2></div><div>{content.process.map(([title, copy], index) => <article key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{copy}</p></article>)}</div></section>
     {content.caseStudy && <section className="commercial-proof">
       <figure><img src={content.caseStudy.image} alt={content.caseStudy.imageAlt} width="1200" height="900" loading="lazy" decoding="async" /><figcaption>{content.caseStudy.label}</figcaption></figure>
-      <div><p className="kicker light">Verified field work</p><h2>{content.caseStudy.title}</h2><p>{content.caseStudy.copy}</p><Link className="inline-cta light-link" href={content.caseStudy.href}>Read the case study <span>→</span></Link></div>
+      <div><p className="kicker light">Verified field work</p><h2>{content.caseStudy.title}</h2><p>{content.caseStudy.copy}</p><a className="inline-cta light-link" href={content.caseStudy.href}>Read the case study <span>→</span></a></div>
     </section>}
     {content.guidance && <section className="section landing-process">
       <div className="center-head"><p className="kicker">{content.guidance.eyebrow}</p><h2>{content.guidance.title}</h2></div>
@@ -89,10 +88,10 @@ export default function ServiceLanding({ content }: { content: ServiceLandingCon
     </section>}
     {content.relatedGuides && <section className="section landing-process">
       <div className="center-head"><p className="kicker">Expert guidance</p><h2>Learn what the equipment may be telling you.</h2></div>
-      <div>{content.relatedGuides.map((guide, index) => <article key={guide.href}><span>{String(index + 1).padStart(2, "0")}</span><h3>{guide.title}</h3><p>{guide.copy}</p><Link className="inline-cta" href={guide.href}>Read the expert guide <span>→</span></Link></article>)}</div>
+      <div>{content.relatedGuides.map((guide, index) => <article key={guide.href}><span>{String(index + 1).padStart(2, "0")}</span><h3>{guide.title}</h3><p>{guide.copy}</p><a className="inline-cta" href={guide.href}>Read the guide <span>→</span></a></article>)}</div>
     </section>}
     <section className="section landing-faq"><div><p className="kicker">Common questions</p><h2>Before you request service</h2></div><div>{content.faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
-    <section className="emergency landing-cta"><div><p className="kicker light">Ready to get started?</p><h2>Tell Eternity what the equipment needs.</h2><p>Use the guided request form for service details, timing and contact information.</p></div><div><a className="btn btn-orange" href="https://eternityhvacr.com/#schedule">Request service <span>↗</span></a><a data-sms-link className="btn-outline light-outline" href="sms:+12167033183">Text Eternity <span>→</span></a><Link className="contact-service-link" href="/areas-we-serve">View service areas →</Link><small>Texts are monitored 24/7 with a 15-minute reply target; this is not an arrival-time promise. Message and data rates may apply. Reply STOP to opt out. For urgent help, call 216-703-3183.</small></div></section>
+    <section className="emergency landing-cta"><div><p className="kicker light">Ready to get started?</p><h2>Tell Eternity what the equipment needs.</h2><p>Use the guided request form for service details, timing and contact information.</p></div><div><a className="btn btn-orange" href="https://eternityhvacr.com/#schedule">Request service <span>↗</span></a><a data-sms-link className="btn-outline light-outline" href="sms:+12167033183">Text Eternity <span>→</span></a><a className="contact-service-link" href="/areas-we-serve">View service areas →</a><small>Texts are monitored 24/7 with a 15-minute reply target; this is not an arrival-time promise. Message and data rates may apply. Reply STOP to opt out. For urgent help, call 216-703-3183.</small></div></section>
     <SiteFooter />
   </main>;
 }

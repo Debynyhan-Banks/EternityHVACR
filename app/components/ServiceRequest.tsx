@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { trackGoogleEvent } from "./Analytics";
 import { captureLeadAttribution } from "./LeadAttribution";
@@ -42,10 +41,10 @@ const requestPaths = [
 const services = ["Air conditioning", "Heating", "Boiler", "Heat pump", "Commercial HVAC", "Refrigeration", "Installation", "Maintenance"];
 
 const estimatorPrefills: Record<string, Pick<RequestData, "requestType" | "service" | "timing" | "details">> = {
-  "direct-furnace-swap": { requestType: "Installation estimate", service: "Heating", timing: "Planning an estimate", details: "I used the estimator for a direct furnace swap ($2,800–$3,400 baseline range)." },
+  "direct-furnace-swap": { requestType: "Installation estimate", service: "Heating", timing: "Planning an estimate", details: "I used the estimator for a furnace changeout ($1,500–$2,500 typical installation labor, with equipment and materials separate)." },
   "boiler-conversion-attic-forced-air": { requestType: "Installation estimate", service: "Heating", timing: "Planning an estimate", details: "I used the estimator for a boiler conversion / full attic forced-air project ($6,800–$8,200 baseline range)." },
-  "furnace-condenser-coil": { requestType: "Installation estimate", service: "Installation", timing: "Planning an estimate", details: "I used the estimator for a furnace, condenser and coil package (starting at $7,500)." },
-  "cooling-condenser-coil": { requestType: "Installation estimate", service: "Air conditioning", timing: "Planning an estimate", details: "I used the estimator for a cooling-only condenser and coil package (starting at $5,000)." },
+  "furnace-condenser-coil": { requestType: "Installation estimate", service: "Installation", timing: "Planning an estimate", details: "I used the estimator for a complete furnace, condenser and coil system ($3,000–$5,000 typical installation labor, with equipment and materials separate)." },
+  "cooling-condenser-coil": { requestType: "Installation estimate", service: "Air conditioning", timing: "Planning an estimate", details: "I used the estimator for a cooling-only condenser and coil replacement ($2,000–$3,000 typical installation labor, with equipment and materials separate)." },
   "commercial-rtu": { requestType: "Commercial / refrigeration", service: "Commercial HVAC", timing: "Planning an estimate", details: "I used the estimator for a commercial rooftop unit that requires a diagnostic and load calculation." },
 };
 
@@ -229,7 +228,7 @@ export default function ServiceRequest() {
         <legend>How should we contact you?</legend>
         <p>We’ll use these details only to follow up about this service or estimate request.</p>
         <div className="contact-fields"><label className="field-label">Name<input value={data.name} minLength={2} onChange={(event) => update("name", event.target.value)} placeholder="Full name" autoComplete="name" required /></label><label className="field-label">Phone<input value={data.phone} type="tel" onChange={(event) => update("phone", event.target.value)} placeholder="Phone number" autoComplete="tel" required /><small className="field-hint">Enter at least 7 digits.</small></label><label className="field-label full">Email<input value={data.email} type="email" onChange={(event) => update("email", event.target.value)} placeholder="Email address" autoComplete="email" required /></label></div>
-        <label className="consent-row"><input type="checkbox" checked={data.serviceConsent} onChange={(event) => update("serviceConsent", event.target.checked)} required /><span>I authorize Eternity Mechanical Services to contact me by phone, service-related text message or email about this request. This is not marketing consent. Message and data rates may apply. I have reviewed the <Link href="/privacy">Privacy & Data Use notice</Link> and <Link href="/terms">Website Terms</Link>.</span></label>
+        <label className="consent-row"><input type="checkbox" checked={data.serviceConsent} onChange={(event) => update("serviceConsent", event.target.checked)} required /><span>I authorize Eternity Mechanical Services to contact me by phone, service-related text message or email about this request. This is not marketing consent. Message and data rates may apply. I have reviewed the <a href="/privacy">Privacy & Data Use notice</a> and <a href="/terms">Website Terms</a>.</span></label>
         <label className="form-honeypot" aria-hidden="true">Website<input value={data.website} onChange={(event) => update("website", event.target.value)} tabIndex={-1} autoComplete="off" /></label>
         <div className="request-summary"><span>{data.requestType}</span><span>{data.service}</span><span>{data.customer}</span><span>{data.timing}</span></div>
       </fieldset>}

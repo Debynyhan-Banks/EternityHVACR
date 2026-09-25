@@ -123,6 +123,7 @@ export function SiteFooter() {
     <nav className="mobile-bar" aria-label="Quick contact actions">
       <a href="tel:+12167033183"><span aria-hidden="true">☎</span>Call</a>
       <a href="https://eternityhvacr.com/#schedule"><span aria-hidden="true">＋</span>Request</a>
+      <button type="button" data-open-assistant aria-label="Open Ask Eternity service assistant" aria-haspopup="dialog"><span aria-hidden="true">◉</span>Ask</button>
       <a data-sms-link href="sms:+12167033183"><span aria-hidden="true">✉</span>Text</a>
     </nav>
   </>;

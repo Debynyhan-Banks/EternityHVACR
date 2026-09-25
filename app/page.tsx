@@ -1,4 +1,3 @@
-import Link from "next/link";
 import ServiceRequest from "./components/ServiceRequest";
 import ServiceAreaChecker from "./components/ServiceAreaChecker";
 import ServiceCards, { type ServiceCardItem } from "./components/ServiceCards";
@@ -59,8 +58,8 @@ export default function Home() {
         <p className="hero-lede">Residential and commercial repair, installation and preventive maintenance throughout Greater Cleveland and Northeast Ohio.</p>
         <nav className="hero-actions hero-task-actions" aria-label="Choose your next step">
           <a className="hero-task-link hero-task-link--primary" href="#schedule"><strong>Get service</strong><span>Tell us what the equipment needs</span></a>
-          <Link className="hero-task-link" href="/estimate"><strong>Plan replacement</strong><span>Review approved planning ranges</span></Link>
-          <Link className="hero-task-link" href="/second-opinion"><strong>Review a quote</strong><span>Send documents privately</span></Link>
+          <a className="hero-task-link" href="/estimate"><strong>Plan replacement</strong><span>See labor and quote-based examples</span></a>
+          <a className="hero-task-link" href="/second-opinion"><strong>Review a quote</strong><span>Send documents privately</span></a>
         </nav>
         <div className="hero-assurance"><span>28 years of owner experience</span><span>Licensed &amp; insured • #28303</span><span>Emergency service available</span></div>
       </div>
@@ -92,6 +91,16 @@ export default function Home() {
     <section className="section services" id="services">
       <div className="section-head"><div><p className="kicker">Capabilities</p><h2>Complete Mechanical Services</h2></div><p>From residential comfort systems to commercial HVAC and refrigeration, Eternity Mechanical Services provides professional installation, diagnostics, repair and maintenance.</p></div>
       <ServiceCards items={services} />
+    </section>
+
+    <section className="section pricing-preview" id="pricing" aria-labelledby="pricing-preview-heading">
+      <div className="section-head"><div><p className="kicker">Transparent replacement planning</p><h2 id="pricing-preview-heading">What HVAC replacement may cost in Greater Cleveland</h2></div><p>Eternity reviewed six historical supplier estimates and built these planning examples with a disclosed 15% material markup and typical installation labor.</p></div>
+      <div className="pricing-preview-grid">
+        <article><span>Historical complete-system examples</span><strong>$6,800–$17,600</strong><p>Furnace, condenser and coil configurations from 2.5 to 4 tons. Equipment selection and scope explain the wide range.</p></article>
+        <article><span>Historical cooling-only example</span><strong>$4,400–$5,400</strong><p>One 2.5-ton condenser-and-coil planning example, including the markup and typical installation labor.</p></article>
+        <article><span>Typical furnace-changeout labor</span><strong>$1,500–$2,500</strong><p>Labor only. Equipment, materials, permits and property-specific work are priced separately.</p></article>
+      </div>
+      <div className="pricing-preview-action"><a className="btn" href="/estimate">See the full cost guide and assumptions <span>→</span></a><p>Historical examples are not live supplier prices or binding proposals. Final pricing is confirmed in writing after an on-site review.</p></div>
     </section>
 
     <div className="infinity-divider" aria-hidden="true"><span /><div><img src="/images/eternity-mark.svg" alt="" /></div><span /></div>
@@ -132,16 +141,16 @@ export default function Home() {
     <section className="section projects" id="projects">
       <div className="section-head"><div><p className="kicker">Verified field work</p><h2>Real HVAC Projects in Euclid</h2></div><p>Genuine project photography and confirmed equipment facts show how Eternity approaches residential replacement and installation work.</p></div>
       <div className="project-grid project-proof-grid">
-        <Link className="project-proof-card" href="/projects/euclid-payne-hvac-installation">
+        <a className="project-proof-card" href="/projects/euclid-payne-hvac-installation">
           <picture><source media="(max-width: 700px)" srcSet="/images/euclid/euclid-oh-residential-furnace-installation-720.webp" type="image/webp" /><img src="/images/euclid/euclid-oh-residential-furnace-installation-1200.webp" alt="Payne furnace and matching evaporator coil installed by Eternity Mechanical in Euclid" width="1200" height="2132" loading="lazy" decoding="async" /></picture>
           <div><span>Euclid 44123 • Residential replacement</span><h3>Matched Payne HVAC Replacement</h3><p>An outdated system replaced with an 80,000 BTU, 80% AFUE furnace, matching coil and 2.5-ton condenser for a home being prepared for sale.</p><b>Read the case study <i aria-hidden="true">→</i></b></div>
-        </Link>
-        <Link className="project-proof-card" href="/projects/euclid-central-air-installation">
+        </a>
+        <a className="project-proof-card" href="/projects/euclid-central-air-installation">
           <picture><source media="(max-width: 700px)" srcSet="/images/euclid/euclid-oh-sinclair-furnace-installation-720.webp" type="image/webp" /><img src="/images/euclid/euclid-oh-sinclair-furnace-installation-1200.webp" alt="Eternity Mechanical technician beside a completed Sinclair furnace and coil installation in Euclid" width="1200" height="2132" loading="lazy" decoding="async" /></picture>
           <div><span>Euclid 44119 • Residential installation</span><h3>Central Air &amp; High-Efficiency Furnace</h3><p>A furnace more than 40 years old replaced while adding a 96% efficiency furnace and complete 3-ton central-air system.</p><b>Read the case study <i aria-hidden="true">→</i></b></div>
-        </Link>
+        </a>
       </div>
-      <Link className="inline-cta centered-link" href="/projects">View all verified project case studies <span>→</span></Link>
+      <a className="inline-cta centered-link" href="/projects">View all verified project case studies <span>→</span></a>
     </section>
 
     <section className="proof-service branded-section" id="about"><div><p className="kicker light">Owner & team</p><h2>Field experience meets business and digital leadership.</h2><p>Eternity combines hands-on mechanical experience with the operational systems, communication and marketing that support dependable customer service.</p></div><div className="team-cards"><article><span>Owner</span><h3>Bernard Gray</h3><p>Bernard brings 28 years of industry experience to Eternity. His background includes HVAC systems, boilers and refrigeration, providing broad experience across the equipment customers depend on.</p></article><article><span>Technician</span><h3>Debynyhan Banks</h3><p>Debynyhan brings more than five years of industry experience and holds a degree in computer science and an MBA. In addition to technical work, Debynyhan leads the website and marketing and handles much of Eternity’s administrative work, bringing a love of new challenges to both field and business operations.</p></article></div></section>

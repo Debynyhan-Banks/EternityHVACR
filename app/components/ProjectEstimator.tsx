@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 import { trackGoogleEvent } from "./Analytics";
 import ServiceIcon from "./ServiceIcon";
@@ -12,10 +11,10 @@ const projectOptions = [
     shortLabel: "Furnace swap",
     label: "Direct furnace swap",
     title: "Direct furnace swap",
-    priceLabel: "Estimated baseline range",
-    price: "$2,800–$3,400",
-    context: "80% AFUE standard swap",
-    details: ["Complete unit removal", "Licensed installation", "Transition sheet metal", "Safety test"],
+    priceLabel: "Typical installation labor",
+    price: "$1,500–$2,500",
+    context: "Equipment, materials and added scope are separate",
+    details: ["Furnace changeout labor", "Existing equipment removal", "Standard installation work", "Final equipment and site scope confirmed in writing"],
     serviceHref: "/services/furnace-heating-repair",
   },
   {
@@ -36,10 +35,10 @@ const projectOptions = [
     shortLabel: "Complete system",
     label: "Furnace, condenser and coil",
     title: "Furnace, condenser and coil",
-    priceLabel: "Estimated starting price",
-    price: "As low as $7,500",
-    context: "Complete heating and cooling equipment package",
-    details: ["Furnace", "Outdoor condenser", "Matching evaporator coil", "Final scope confirmed after the site review"],
+    priceLabel: "Typical installation labor",
+    price: "$3,000–$5,000",
+    context: "Complete-system equipment and marked-up materials are separate",
+    details: ["Furnace, condenser and matching coil", "Complete-system installation labor", "Efficiency and job complexity affect labor", "Historical installed examples appear below"],
     serviceHref: "/services/air-conditioning-installation",
   },
   {
@@ -48,10 +47,10 @@ const projectOptions = [
     shortLabel: "Cooling only",
     label: "Cooling only: condenser and coil",
     title: "Cooling-only condenser and coil",
-    priceLabel: "Estimated starting price",
-    price: "As low as $5,000",
-    context: "Cooling-only equipment package",
-    details: ["Outdoor condenser", "Matching evaporator coil", "Final scope confirmed after the site review"],
+    priceLabel: "Typical installation labor",
+    price: "$2,000–$3,000",
+    context: "Cooling equipment and marked-up materials are separate",
+    details: ["Outdoor condenser and matching coil", "Cooling-only installation labor", "Retained furnace must be compatible", "Historical 2.5-ton example appears below"],
     serviceHref: "/services/air-conditioning-installation",
   },
   {
@@ -126,7 +125,7 @@ export default function ProjectEstimator() {
           </div>
         </div>
 
-        <p className="estimator-result-note">This is a planning price for the scope shown—not a binding quote. Eternity confirms the equipment, property conditions and final written proposal on site.</p>
+        <p className="estimator-result-note">This is a planning figure for the scope shown—not a binding quote. Where the result is labor only, equipment, materials and added work remain separate. Eternity confirms every final price in a written proposal after reviewing the property.</p>
         <div className="estimator-result-actions">
           <a
             className="btn btn-orange"
@@ -146,8 +145,8 @@ export default function ProjectEstimator() {
           </button>
         </div>
         <div className="estimator-result-links">
-          <Link href={result.serviceHref}>View related service details →</Link>
-          <Link href="/second-opinion">Already have a proposal? Upload a private second opinion →</Link>
+          <a href={result.serviceHref}>View related service details →</a>
+          <a href="/second-opinion">Already have a proposal? Upload a private second opinion →</a>
         </div>
       </section>
     </div>

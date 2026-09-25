@@ -58,10 +58,16 @@ const content: ServiceLandingContent = {
       title: "When should a furnace be repaired versus replaced?",
       copy: "Use safety, verified condition, repair history, cost, comfort and long-term plans to evaluate the decision instead of relying on age alone.",
     },
+    {
+      href: "/estimate",
+      title: "2026 Greater Cleveland HVAC replacement cost guide",
+      copy: "Review the established direct-swap baseline, typical furnace-changeout labor and historical complete-system examples before requesting a written proposal.",
+    },
   ],
   faqs: [
     ["What should I do if the furnace stops producing heat?", "Check the thermostat setting and whether the system has power without opening equipment panels. If heat is still unavailable, submit the symptoms and call 216-703-3183 for urgent service."],
     ["Do you repair and replace furnaces?", "Yes. Eternity provides furnace diagnostics, repair, maintenance, installation and replacement planning for residential, multifamily and commercial properties."],
+    ["How much is furnace-changeout installation labor?", "Typical furnace-changeout installation labor is $1,500–$2,500, with equipment, materials and added scope priced separately. Eternity's established $2,800–$3,400 direct-swap baseline applies only to its defined standard 80% AFUE scope. Final pricing is confirmed in writing after the site review."],
     ["How do I decide between furnace repair and replacement?", "The decision should consider safety, equipment condition, repair scope, age, failure history and property needs. Eternity explains the observed findings before recommending approved work."],
     ["Which areas do you serve?", "Eternity serves approved communities throughout Greater Cleveland and Northeast Ohio. Use the Areas We Serve page or ZIP-code checker to confirm coverage."],
   ],

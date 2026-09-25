@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { SiteFooter, SiteHeader } from "../components/SiteChrome";
 
 export const metadata: Metadata = {
@@ -25,7 +24,7 @@ export default function TermsPage() {
 
       <h2>Requests, estimates and appointments</h2>
       <p>Except for an eligible residential diagnostic appointment explicitly confirmed from live assistant availability, a website, phone, email or text request is an invitation for Eternity to follow up. Appointment timing, technician availability, scope, pricing, payment terms, parts, warranty coverage and other job-specific conditions are confirmed separately by Eternity. The stated 15-minute target refers to review or reply during regular business hours and is not a technician-arrival promise.</p>
-      <p>The project estimator is a planning tool. It displays approved baseline ranges or starting prices for the specific installation scopes shown, but it does not inspect equipment, diagnose a condition or create a binding quote. Equipment selection, permits, access, electrical work, existing conditions and added scope can change the final written proposal.</p>
+      <p>The project estimator is a planning tool. It displays defined baseline scopes, typical labor ranges and historical supplier-based examples calculated with the disclosed material markup. Historical examples are not current supplier prices, an offer of specific equipment or a binding quote. Equipment selection, availability, permits, access, electrical work, existing conditions and added scope can change the final written proposal.</p>
       <p>A confirmed residential diagnostic appointment may include a private management link. Anyone with that link may be able to view, reschedule or cancel the appointment, so keep it private. Online rescheduling is limited to live windows that meet Eternity&apos;s minimum-notice rules and is not complete until the replacement time is confirmed. Online cancellation releases the reserved time only after the website displays a cancellation confirmation. Call 216-703-3183 if the link is unavailable or the appointment is too close to change online.</p>
 
       <h2>Second-opinion uploads</h2>
@@ -44,7 +43,7 @@ export default function TermsPage() {
       <p>Unless otherwise stated, the website’s original text, layout, branding and project documentation are owned by Eternity Mechanical Services or used with permission. We may update the website and these terms as services and processes change.</p>
 
       <h2>Privacy and contact</h2>
-      <p>Review the <Link href="/privacy">Privacy & Data Use notice</Link> for information about website forms, analytics and service communications. Questions may be sent to <a href="mailto:ben@eternityhvacr.com">ben@eternityhvacr.com</a> or <a href="tel:+12167033183">216-703-3183</a>.</p>
+      <p>Review the <a href="/privacy">Privacy & Data Use notice</a> for information about website forms, analytics and service communications. Questions may be sent to <a href="mailto:ben@eternityhvacr.com">ben@eternityhvacr.com</a> or <a href="tel:+12167033183">216-703-3183</a>.</p>
     </article>
     <SiteFooter />
   </main>;

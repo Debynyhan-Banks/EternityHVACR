@@ -33,15 +33,23 @@ This document is the source of truth for approved public business details used i
 
 ## Approved estimator pricing
 
-These figures are approved for public planning content and structured data. They are baseline estimates or starting prices for the exact scopes shown, not binding quotes.
+These figures are approved for public planning content and matching structured data. They are defined baselines, typical installation-labor ranges or historical quote-based examples—not live supplier prices, offers of specific equipment or binding quotes.
 
 | Project scope | Approved public price | Included public scope |
 |---|---|---|
-| Direct furnace swap | $2,800–$3,400 baseline range | 80% AFUE standard swap; complete unit removal, licensed installation, transition sheet metal and safety test |
+| Direct furnace swap | $2,800–$3,400 established baseline; $1,500–$2,500 typical installation labor | The baseline is for an 80% AFUE standard swap with complete unit removal, licensed installation, transition sheet metal and safety test. The labor figure excludes equipment, materials and added scope. |
 | Boiler conversion / full attic forced air | $6,800–$8,200 baseline range | Complete rough-in, horizontal attic furnace, R-8 flex ductwork, B-vent roof penetration and utility extensions; ideal for duplex investors separating tenant utilities |
-| Furnace, condenser and coil | As low as $7,500 | Furnace, outdoor condenser and matching evaporator coil; final scope confirmed after the site review |
-| Cooling-only condenser and coil | As low as $5,000 | Outdoor condenser and matching evaporator coil; final scope confirmed after the site review |
+| Complete furnace, condenser and coil installation labor | $3,000–$5,000 typical labor | Equipment, materials and added site scope are separate. Efficiency and job complexity can change the labor requirement. |
+| Historical Goodman 2.5-ton complete-system example | $6,800–$8,800 installed planning estimate | Historical landed material total with 15% markup plus $3,000–$5,000 installation labor |
+| Historical Ducane or Goodman 4-ton complete-system examples | $9,300–$11,300 installed planning estimate | Two historical material configurations produced the same rounded range after 15% markup and $3,000–$5,000 installation labor |
+| Historical Lennox 4-ton complete-system configurations | $15,400–$17,600 installed planning estimate | Two historical configurations with supplier-listed freight, surcharges and tax, 15% markup and $3,000–$5,000 installation labor |
+| Cooling-only condenser and coil installation labor | $2,000–$3,000 typical labor | Condenser, matching coil, materials and added site scope are separate |
+| Historical Payne 2.5-ton condenser-and-coil example | $4,400–$5,400 installed planning estimate | Per-system historical landed material total with 15% markup plus $2,000–$3,000 installation labor |
 | Commercial rooftop unit (RTU) | Custom diagnostic and load calculation required | No public baseline price; verify capacity, controls, access, utilities and site conditions |
+
+The historical examples use six supplier estimates dated July through September 2026. The approved public calculation is `historical landed material total × 1.15 + typical installation labor`. Landed material cost means the equipment and listed accessories plus supplier-listed freight, surcharges and supplier tax when present. Public copy must state that equipment prices and availability may have changed and that the final price requires an on-site review and written proposal.
+
+Do not publish supplier names, quote numbers, account or customer details, street addresses, raw acquisition costs or exact model/efficiency claims that the source estimate does not support. Do not describe the quoted Payne `14S` label as a verified SEER2 rating. Do not publish the conflicting coil-capacity description from the September Goodman estimate until the match is verified.
 
 ## Verified project evidence
 
@@ -71,7 +79,7 @@ These figures are approved for public planning content and structured data. They
 - Bernard Gray reviewed and approved the first four expert answers on August 28, 2026. His reviewer attribution may be displayed on those guides.
 - Eternity confirmed on August 28, 2026 that `216-703-3183` is the approved public phone. The website, structured data and Google Business Profile should use that number consistently.
 - Google approved the August 28, 2026 correction to Saturday hours of 9:00 a.m.–5:00 p.m.
-- Public estimator pricing must stay tied to its stated scope and labeled as a baseline range or starting price. Do not present it as a final or binding quote.
+- Public estimator pricing must stay tied to its stated calculation and scope. Label historical examples, labor-only ranges and established baselines accurately; never present them as current supplier prices or final or binding quotes.
 
 ## Still needed
 

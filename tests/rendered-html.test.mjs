@@ -68,6 +68,12 @@ test("renders the Eternity homepage with approved business information", async (
   assert.match(html, /href="#schedule"[^>]*>\s*<strong>Get service<\/strong>/);
   assert.match(html, /href="\/estimate"[^>]*>\s*<strong>Plan replacement<\/strong>/);
   assert.match(html, /href="\/second-opinion"[^>]*>\s*<strong>Review a quote<\/strong>/);
+  assert.match(html, /What HVAC replacement may cost in Greater Cleveland/);
+  assert.match(html, /\$6,800.*\$17,600/s);
+  assert.match(html, /\$4,400.*\$5,400/s);
+  assert.match(html, /\$1,500.*\$2,500/s);
+  assert.match(html, /disclosed 15% material markup/);
+  assert.match(html, /href="\/estimate"[^>]*>See the full cost guide and assumptions/);
   assert.match(html, /href="#main-content"[^>]*>Skip to main content<\/a>/);
   assert.equal((html.match(/id="main-content"/g) ?? []).length, 1);
   assert.match(html, /href="\/projects\/euclid-payne-hvac-installation"/);
@@ -99,6 +105,23 @@ test("renders the Eternity homepage with approved business information", async (
   assert.match(html, /name="service-zip"/);
   assert.match(html, /system-diagnostic-report\.jpg/);
   assert.doesNotMatch(html, /Your site is taking shape|Building your site|Lorem ipsum/i);
+});
+
+test("uses reliable homepage links and centers mobile task actions", async () => {
+  const [homeSource, chromeSource, styles] = await Promise.all([
+    readFile(new URL("../app/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/components/SiteChrome.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/globals.css", import.meta.url), "utf8"),
+  ]);
+
+  assert.doesNotMatch(homeSource, /import Link from "next\/link"|<Link\b/);
+  assert.match(homeSource, /<a className="hero-task-link" href="\/estimate"/);
+  assert.match(homeSource, /<a className="project-proof-card" href="\/projects\/euclid-payne-hvac-installation"/);
+  assert.match(styles, /\.hero-task-actions\{left:20px;right:20px;bottom:112px;width:auto/);
+  assert.match(styles, /\.hero-task-link\{width:auto;min-height:48px;[^}]*align-items:center;[^}]*text-align:center/);
+  assert.match(chromeSource, /data-open-assistant[^>]*aria-label="Open Ask Eternity service assistant"/);
+  assert.match(styles, /grid-template-columns:repeat\(4,1fr\)/);
+  assert.match(styles, /\.signmons-launcher\{display:none\}/);
 });
 
 test("uses the supplied responsive artwork across all six service cards", async () => {
@@ -191,26 +214,47 @@ test("publishes crawler files with the canonical sitemap", async () => {
   assert.match(sitemap, /images\/eternity-van-hero\.jpg/);
 });
 
-test("renders the approved Greater Cleveland estimator pricing and schema", async () => {
-  const [response, component, requestForm, assistant] = await Promise.all([
+test("renders transparent historical Greater Cleveland pricing and matching schema", async () => {
+  const [response, component, requestForm, assistant, acResponse, furnaceResponse] = await Promise.all([
     render("/estimate"),
     readFile(new URL("../app/components/ProjectEstimator.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/components/ServiceRequest.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/components/SignmonsAssistant.tsx", import.meta.url), "utf8"),
+    render("/services/air-conditioning-installation"),
+    render("/services/furnace-heating-repair"),
   ]);
   assert.equal(response.status, 200);
+  assert.equal(acResponse.status, 200);
+  assert.equal(furnaceResponse.status, 200);
   const html = await response.text();
-  assert.match(html, /Greater Cleveland HVAC Cost Estimator/);
+  const [acHtml, furnaceHtml] = await Promise.all([acResponse.text(), furnaceResponse.text()]);
+  assert.match(html, /2026 Greater Cleveland HVAC Replacement Cost Guide/);
+  assert.match(html, /six historical supplier estimates dated July through September 2026/i);
+  assert.match(html, /15% markup/);
+  assert.match(html, /Historical landed material total.*1\.15.*typical installation labor/s);
+  assert.match(html, /\$1,500.*\$2,500/s);
+  assert.match(html, /\$2,000.*\$3,000/s);
+  assert.match(html, /\$3,000.*\$5,000/s);
   assert.match(html, /\$2,800.*\$3,400/s);
   assert.match(html, /\$6,800.*\$8,200/s);
-  assert.match(html, /As low as \$7,500/);
-  assert.match(html, /As low as \$5,000/);
+  assert.match(html, /\$6,800.*\$8,800/s);
+  assert.match(html, /\$9,300.*\$11,300/s);
+  assert.match(html, /\$15,400.*\$17,600/s);
+  assert.match(html, /\$4,400.*\$5,400/s);
+  assert.match(html, /current supplier prices or binding proposals/i);
+  assert.match(html, /Equipment pricing and availability can change/);
   assert.match(html, /Custom estimate/);
   assert.match(html, /WebApplication/);
   assert.match(html, /OfferCatalog/);
   assert.match(html, /minPrice.*2800.*maxPrice.*3400/s);
+  assert.match(html, /minPrice.*6800.*maxPrice.*8800/s);
+  assert.match(html, /minPrice.*9300.*maxPrice.*11300/s);
+  assert.match(html, /minPrice.*15400.*maxPrice.*17600/s);
+  assert.match(html, /minPrice.*4400.*maxPrice.*5400/s);
   assert.match(html, /Real scope first.*Final price after site review/s);
-  assert.match(html, /Pricing reviewed September 2026/);
+  assert.match(html, /Historical pricing examples reviewed September 2026/);
+  assert.doesNotMatch(html, /EST39796|IC49058|IK53636|EST26634|27333416[56]/);
+  assert.doesNotMatch(html, /\$3,286\.57|\$5,395\.27|\$5,470\.52|\$10,775\.28|\$10,891\.80/);
   assert.match(component, /project_estimator_completed/);
   assert.match(component, /project_estimator_scope_selected/);
   assert.match(component, /Choose the project closest to yours/);
@@ -218,13 +262,16 @@ test("renders the approved Greater Cleveland estimator pricing and schema", asyn
   assert.match(component, /Schedule a site estimate/);
   assert.match(component, /data-assistant-estimate/);
   assert.match(component, /direct-furnace-swap/);
-  assert.match(component, /\$2,800–\$3,400/);
+  assert.match(component, /\$1,500–\$2,500/);
   assert.match(component, /\$6,800–\$8,200/);
-  assert.match(component, /As low as \$7,500/);
-  assert.match(component, /As low as \$5,000/);
+  assert.match(component, /\$3,000–\$5,000/);
+  assert.match(component, /\$2,000–\$3,000/);
   assert.match(component, /Custom diagnostic & load calculation required/);
   assert.match(requestForm, /estimatorPrefills/);
   assert.match(requestForm, /estimator_handoff_loaded/);
+  assert.match(requestForm, /equipment and materials separate/);
+  assert.match(acHtml, /\$4,400.*\$5,400.*\$6,800.*\$17,600/s);
+  assert.match(furnaceHtml, /\$1,500.*\$2,500.*\$2,800.*\$3,400/s);
   assert.match(assistant, /assistant_estimator_context_received/);
   assert.match(assistant, /Estimator context:/);
 });
