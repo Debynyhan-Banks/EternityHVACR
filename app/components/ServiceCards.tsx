@@ -62,9 +62,9 @@ export default function ServiceCards({ items }: { items: readonly ServiceCardIte
         </div>
         <div className="service-card__cta">{service.cta}<span aria-hidden="true">→</span></div>
         <div className="service-card__art" aria-hidden="true">
-          {/* The supplied transparent PNG artwork is intentionally served directly. */}
+          {/* The supplied transparent artwork is resized to a display-appropriate 520 px source. */}
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={serviceArtwork[service.icon]} alt="" width="760" height="760" loading="lazy" decoding="async" />
+          <img src={serviceArtwork[service.icon]} alt="" width="520" height="520" loading="lazy" decoding="async" />
         </div>
       </a>;
     })}

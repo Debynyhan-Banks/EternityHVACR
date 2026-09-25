@@ -141,7 +141,7 @@ export const expertAnswers: ExpertAnswer[] = [
     serviceHref: "/services/commercial-hvac",
     serviceLabel: "Commercial HVAC service",
     proofHref: "/projects/euclid-rooftop-hvac-diagnostic",
-    proofLabel: "Read a verified rooftop diagnostic case study",
+    proofLabel: "Read the rooftop equipment field record",
     published: "2026-08-28",
     updated: "2026-08-28",
   },

@@ -68,11 +68,16 @@ export default function ServiceRequest() {
 
   useEffect(() => {
     const estimateScope = new URLSearchParams(window.location.search).get("estimateScope");
-    const preset = estimateScope ? estimatorPrefills[estimateScope] : undefined;
+    if (!estimateScope) return;
+    const preset = estimatorPrefills[estimateScope];
     if (!preset) return;
     const prefillTimer = window.setTimeout(() => setData((current) => ({ ...current, ...preset })), 0);
     trackGoogleEvent("estimator_handoff_loaded", { estimator_project: estimateScope });
     return () => window.clearTimeout(prefillTimer);
+  }, []);
+
+  useEffect(() => () => {
+    delete document.body.dataset.serviceFormActive;
   }, []);
 
   function trackStart() {
@@ -138,6 +143,7 @@ export default function ServiceRequest() {
           customer_type: data.customer,
         });
       }
+      delete document.body.dataset.serviceFormActive;
       setComplete(true);
     } catch (reason) {
       const message = reason instanceof Error ? reason.message : "We couldn’t send your request. Please try again.";
@@ -186,7 +192,16 @@ export default function ServiceRequest() {
         );
 
   return (
-    <form className="request-form" onSubmit={submit}>
+    <form
+      className="request-form"
+      onSubmit={submit}
+      onFocusCapture={() => { document.body.dataset.serviceFormActive = "true"; }}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+          delete document.body.dataset.serviceFormActive;
+        }
+      }}
+    >
       <div className="form-progress">
         <div><p className="form-eyebrow">Service or estimate request</p><b>Step {step + 1} of 3</b></div>
         <div role="progressbar" aria-label={`Step ${step + 1} of 3`} aria-valuemin={1} aria-valuemax={3} aria-valuenow={step + 1}><i style={{ width: `${((step + 1) / 3) * 100}%` }} /></div>

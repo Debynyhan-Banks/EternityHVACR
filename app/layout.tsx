@@ -12,21 +12,21 @@ const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://eternityhvacr.com"),
-  title: "Eternity Mechanical Services | HVAC & Mechanical Contractor",
-  description: "Professional HVAC, refrigeration, installation, repair and preventive maintenance for residential and commercial customers throughout Northeast Ohio.",
+  title: "Cleveland HVAC, Refrigeration & Boiler Service | Eternity",
+  description: "Licensed and insured HVAC, commercial refrigeration, boiler repair, installation and preventive maintenance across Greater Cleveland and Northeast Ohio.",
   alternates: { canonical: "/" },
   robots: { index: true, follow: true },
   icons: { icon: "/favicon.svg" },
   openGraph: {
-    title: "Eternity Mechanical Services | HVAC/R in Northeast Ohio",
-    description: "Built for Comfort. Engineered for Reliability.",
+    title: "Cleveland HVAC, Refrigeration & Boiler Service | Eternity",
+    description: "Residential and commercial HVAC/R, boiler and preventive-maintenance service across Greater Cleveland and Northeast Ohio.",
     type: "website",
     url: "/",
     siteName: "Eternity Mechanical Services",
     locale: "en_US",
     images: [{ url: "/og-eternity-uniform-v2.png", width: 1200, height: 630, alt: "Eternity Mechanical Services — Built for Comfort. Engineered for Reliability." }],
   },
-  twitter: { card: "summary_large_image", title: "Eternity Mechanical Services | HVAC/R in Northeast Ohio", description: "Built for Comfort. Engineered for Reliability.", images: ["/og-eternity-uniform-v2.png"] },
+  twitter: { card: "summary_large_image", title: "Cleveland HVAC, Refrigeration & Boiler Service | Eternity", description: "Residential and commercial HVAC/R, boiler and preventive-maintenance service across Greater Cleveland and Northeast Ohio.", images: ["/og-eternity-uniform-v2.png"] },
 };
 
 const businessSchema = {

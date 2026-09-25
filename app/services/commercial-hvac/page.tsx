@@ -28,10 +28,10 @@ const content: ServiceLandingContent = {
   caseStudy: {
     href: "/projects/euclid-rooftop-hvac-diagnostic",
     image: "/images/euclid/cleveland-commercial-rooftop-hvac-service-1200.webp",
-    imageAlt: "Commercial rooftop HVAC unit opened during diagnostic service in Euclid, Ohio",
-    label: "Commercial rooftop diagnostic • Euclid 44119",
-    title: "A frozen evaporator did not automatically mean a refrigerant leak.",
-    copy: "The owner suspected low refrigerant and a leak. After the coil thawed, Eternity pressure-tested the system and found no leak, while documenting severe blower contamination and missing filtration.",
+    imageAlt: "Commercial rooftop HVAC equipment opened during service in the 44119 Cleveland-area market",
+    label: "Commercial rooftop service • 44119 market",
+    title: "Documented rooftop-unit conditions.",
+    copy: "Field photography documents a frozen evaporator coil, significant equipment contamination, dust accumulation on the blower motor and no installed filter. The final diagnosis and repair outcome are not claimed because they have not been confirmed.",
   },
   relatedGuides: [
     {

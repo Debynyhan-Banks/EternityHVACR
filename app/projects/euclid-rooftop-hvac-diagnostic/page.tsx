@@ -6,19 +6,20 @@ const pageUrl = "https://eternityhvacr.com/projects/euclid-rooftop-hvac-diagnost
 const projectImage = "https://eternityhvacr.com/images/euclid/cleveland-commercial-rooftop-hvac-service-1200.webp";
 
 export const metadata: Metadata = {
-  title: "Frozen Rooftop HVAC Diagnostic in Euclid | Case Study",
-  description: "See how Eternity investigated a frozen, heavily contaminated rooftop HVAC unit in Euclid 44119 and pressure-tested the system for a suspected refrigerant leak.",
+  title: "Commercial Rooftop HVAC Equipment Conditions | Field Record",
+  description: "A photo-supported field record of a frozen evaporator coil, equipment contamination, blower dust and missing filtration on commercial rooftop equipment in the 44119 market.",
   alternates: { canonical: "/projects/euclid-rooftop-hvac-diagnostic" },
+  robots: { index: false, follow: true },
   openGraph: {
-    title: "Frozen Rooftop HVAC Diagnostic in Euclid",
-    description: "A field-documented commercial rooftop-unit diagnostic involving a frozen evaporator, pressure test and severe blower contamination.",
+    title: "Commercial Rooftop HVAC Equipment Field Record",
+    description: "Documented rooftop-unit conditions from a commercial HVAC service visit in Greater Cleveland's 44119 market.",
     url: "/projects/euclid-rooftop-hvac-diagnostic",
     type: "article",
     images: [{
       url: "/images/euclid/cleveland-commercial-rooftop-hvac-service-1200.webp",
       width: 1200,
       height: 900,
-      alt: "Commercial rooftop HVAC unit opened for diagnostic service in Euclid, Ohio",
+      alt: "Commercial rooftop HVAC equipment opened during a service visit",
     }],
   },
 };
@@ -28,17 +29,16 @@ const schema = {
   "@graph": [
     {
       "@type": "Article",
-      "@id": `${pageUrl}#case-study`,
-      headline: "Frozen Rooftop HVAC Diagnostic in Euclid, Ohio",
+      "@id": `${pageUrl}#field-record`,
+      headline: "Commercial Rooftop HVAC Equipment Field Record",
       description: metadata.description,
       url: pageUrl,
       image: projectImage,
       datePublished: "2026-08-25",
-      dateModified: "2026-08-25",
+      dateModified: "2026-09-25",
       author: { "@id": "https://eternityhvacr.com/#business" },
       publisher: { "@id": "https://eternityhvacr.com/#business" },
-      about: ["Commercial rooftop HVAC", "Frozen evaporator coil", "Refrigerant leak testing", "HVAC diagnostics"],
-      spatialCoverage: { "@type": "City", name: "Euclid", containedInPlace: { "@type": "State", name: "Ohio" } },
+      about: ["Commercial rooftop HVAC", "Frozen evaporator coil", "Equipment contamination", "HVAC service"],
       mainEntityOfPage: pageUrl,
     },
     {
@@ -46,20 +46,20 @@ const schema = {
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Home", item: "https://eternityhvacr.com/" },
         { "@type": "ListItem", position: 2, name: "Projects", item: "https://eternityhvacr.com/projects" },
-        { "@type": "ListItem", position: 3, name: "Euclid Rooftop HVAC Diagnostic", item: pageUrl },
+        { "@type": "ListItem", position: 3, name: "Commercial Rooftop Field Record", item: pageUrl },
       ],
     },
     {
       "@type": "ImageObject",
       contentUrl: projectImage,
-      caption: "Commercial rooftop HVAC unit opened during diagnostic service in Euclid, Ohio 44119",
+      caption: "Commercial rooftop HVAC equipment documented during a service visit in the 44119 market",
       representativeOfPage: true,
       creator: { "@id": "https://eternityhvacr.com/#business" },
     },
   ],
 };
 
-export default function EuclidRooftopDiagnosticCaseStudy() {
+export default function RooftopEquipmentFieldRecord() {
   return (
     <main>
       <SiteHeader />
@@ -68,94 +68,93 @@ export default function EuclidRooftopDiagnosticCaseStudy() {
       <section className="case-study-hero">
         <div className="case-study-hero-copy">
           <nav className="case-study-breadcrumbs" aria-label="Breadcrumb">
-            <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/projects">Projects</Link><span aria-hidden="true">/</span><span>Case study</span>
+            <Link href="/">Home</Link><span aria-hidden="true">/</span><Link href="/projects">Projects</Link><span aria-hidden="true">/</span><span>Field record</span>
           </nav>
-          <p className="eyebrow"><i /> Commercial diagnostic • Euclid 44119</p>
-          <h1>Frozen Rooftop HVAC Unit: What the Diagnostic Actually Found</h1>
-          <p className="case-study-lede">The owner suspected the rooftop unit was low on refrigerant and had a leak. The evaporator coil was frozen solid, but the test results and physical inspection told a more complete story.</p>
-          <div className="case-study-quick-facts" aria-label="Project summary">
-            <div><span>Location</span><strong>Euclid, OH 44119</strong></div>
+          <p className="eyebrow"><i /> Commercial service record • 44119 market</p>
+          <h1>Commercial Rooftop HVAC Unit: Documented Equipment Conditions</h1>
+          <p className="case-study-lede">This photo-supported record documents the equipment conditions confirmed from a commercial rooftop service visit. The exact municipality, customer, final diagnosis and repair outcome are not published because they have not been confirmed.</p>
+          <div className="case-study-quick-facts" aria-label="Field record summary">
+            <div><span>Service market</span><strong>44119 Cleveland/Euclid area</strong></div>
             <div><span>Equipment</span><strong>Commercial rooftop unit</strong></div>
-            <div><span>Reported concern</span><strong>Low refrigerant or leak</strong></div>
-            <div><span>Confirmed by test</span><strong>No leak found</strong></div>
+            <div><span>Observed</span><strong>Frozen evaporator coil</strong></div>
+            <div><span>Observed</span><strong>Contamination and no filter</strong></div>
           </div>
         </div>
         <figure className="case-study-hero-image rooftop-case-image">
           <picture>
             <source media="(max-width: 700px)" srcSet="/images/euclid/cleveland-commercial-rooftop-hvac-service-720.webp" type="image/webp" />
-            <img src="/images/euclid/cleveland-commercial-rooftop-hvac-service-1200.webp" alt="Commercial rooftop HVAC unit opened for diagnostic service in Euclid, Ohio" width="1200" height="900" fetchPriority="high" decoding="async" />
+            <img src="/images/euclid/cleveland-commercial-rooftop-hvac-service-1200.webp" alt="Commercial rooftop HVAC equipment opened during a service visit" width="1200" height="900" fetchPriority="high" decoding="async" />
           </picture>
-          <figcaption>Rooftop packaged unit during diagnostic service • Euclid 44119</figcaption>
+          <figcaption>Commercial rooftop HVAC equipment • 44119 market</figcaption>
         </figure>
       </section>
 
-      <section className="case-study-summary" aria-label="Diagnostic findings">
-        <div><strong>Frozen solid</strong><span>Evaporator coil</span></div>
-        <div><strong>No leak found</strong><span>After pressure test</span></div>
-        <div><strong>Heavy buildup</strong><span>Grease & dirt</span></div>
-        <div><strong>Missing</strong><span>Air filter & filter-drier</span></div>
+      <section className="case-study-summary" aria-label="Documented equipment conditions">
+        <div><strong>Frozen</strong><span>Evaporator coil</span></div>
+        <div><strong>Significant</strong><span>Equipment contamination</span></div>
+        <div><strong>Dust buildup</strong><span>Blower motor</span></div>
+        <div><strong>Not installed</strong><span>Air filter</span></div>
       </section>
 
       <section className="section case-study-story">
         <div className="case-study-heading">
-          <p className="kicker">The diagnostic sequence</p>
-          <h2>The reported cause was tested instead of assumed.</h2>
+          <p className="kicker">What the record shows</p>
+          <h2>Observed conditions separated from outcomes that were not confirmed.</h2>
         </div>
         <div className="case-study-story-grid">
           <article>
             <span>01</span>
-            <h3>The owner’s concern</h3>
-            <p>The owner suspected the unit was low on refrigerant because of a leak. The evaporator was frozen solid when the system was inspected.</p>
+            <h3>Frozen evaporator</h3>
+            <p>The evaporator coil was documented in a frozen condition during the commercial rooftop service visit.</p>
           </article>
           <article>
             <span>02</span>
-            <h3>Thaw and pressure test</h3>
-            <p>The evaporator was allowed to thaw before the refrigerant circuit was pressurized. No leak was found under the test conditions.</p>
+            <h3>Equipment contamination</h3>
+            <p>The equipment showed significant contamination, including dust accumulation on the blower motor.</p>
           </article>
           <article>
             <span>03</span>
-            <h3>Physical inspection</h3>
-            <p>The unit was heavily contaminated, the blower wheel and cage assembly was caked with grease and dirt, and neither an air filter nor a refrigerant filter-drier was present.</p>
+            <h3>Missing filtration</h3>
+            <p>No installed air filter was documented at the equipment when the service photograph was taken.</p>
           </article>
         </div>
       </section>
 
       <section className="case-study-solution">
         <div>
-          <p className="kicker light">Observed conditions</p>
-          <h2>The equipment condition mattered as much as the refrigerant concern.</h2>
-          <p>The service visit did not confirm the suspected leak. It did document a frozen evaporator, severe contamination at the blower assembly, a missing air filter and a missing refrigerant filter-drier.</p>
-          <p>Those findings separate a verified equipment condition from the owner’s original theory and create a factual basis for discussing the next approved work.</p>
+          <p className="kicker light">Evidence boundary</p>
+          <h2>The photograph supports an equipment-condition record.</h2>
+          <p>The verified evidence supports publishing the frozen coil, equipment contamination, blower-motor dust and absent air filter as observed conditions.</p>
+          <p>It does not establish the exact municipality, final diagnosis, completed repair, parts replaced, operating result or price. Those details are intentionally omitted.</p>
         </div>
-        <div className="case-study-install-list" aria-label="Observed rooftop-unit conditions">
-          <span><i>✓</i><b>Evaporator thawed</b><small>Required before pressure testing</small></span>
-          <span><i>✓</i><b>Refrigerant circuit tested</b><small>No leak found during the pressure test</small></span>
-          <span><i>✓</i><b>Blower contamination documented</b><small>Caked with grease and dirt</small></span>
-          <span><i>✓</i><b>Missing components noted</b><small>No air filter or refrigerant filter-drier present</small></span>
+        <div className="case-study-install-list" aria-label="Field-record boundaries">
+          <span><i>✓</i><b>Field photograph retained</b><small>Genuine commercial rooftop equipment</small></span>
+          <span><i>✓</i><b>Observed conditions listed</b><small>Limited to documented evidence</small></span>
+          <span><i>—</i><b>Diagnosis not claimed</b><small>No unsupported conclusion published</small></span>
+          <span><i>—</i><b>Outcome not claimed</b><small>No repair or restored-operation result published</small></span>
         </div>
       </section>
 
       <section className="section case-study-result">
         <div>
-          <p className="kicker">What the visit established</p>
-          <h2>No leak was found, but the rooftop unit had serious maintenance conditions.</h2>
-          <p>The diagnostic moved the conversation beyond “low refrigerant.” After the evaporator thawed, pressure testing did not reveal a leak under the test conditions.</p>
-          <p>The confirmed field findings were the frozen evaporator, heavy grease and dirt accumulation at the blower assembly, absence of an air filter and absence of a refrigerant filter-drier.</p>
-          <p>No cleaning, component installation, refrigerant charge or restored-operation result was provided for this record, so none is claimed here.</p>
+          <p className="kicker">What is established</p>
+          <h2>A factual record of the rooftop unit’s observed condition.</h2>
+          <p>The available project evidence shows a frozen evaporator coil, substantial contamination, dust on the blower motor and no installed air filter during a commercial rooftop service visit in the 44119 Cleveland/Euclid-area market.</p>
+          <p>The exact municipality, final diagnosis and repair outcome remain outside this public record unless those details are later confirmed.</p>
         </div>
         <aside className="case-study-result-card">
-          <span>Suspected vs. verified</span>
-          <strong>A diagnostic record built from test results and observed conditions</strong>
+          <span>Published evidence boundary</span>
+          <strong>Observed facts without an invented diagnosis or result</strong>
           <div className="case-study-before-after">
-            <div><em>Suspected</em><b>Low refrigerant caused by a leak</b><small>Owner’s initial concern</small></div>
-            <div><em>Tested</em><b>No leak found</b><small>After thawing and pressurizing the system</small></div>
-            <div><em>Observed</em><b>Severe contamination and missing components</b><small>Blower assembly, air filter and refrigerant filter-drier findings</small></div>
+            <div><em>Observed</em><b>Frozen evaporator coil</b><small>Documented at the equipment</small></div>
+            <div><em>Observed</em><b>Contamination and blower dust</b><small>Visible equipment condition</small></div>
+            <div><em>Unconfirmed</em><b>Final diagnosis and repair outcome</b><small>Not presented as public facts</small></div>
           </div>
         </aside>
       </section>
 
       <section className="emergency landing-cta">
-        <div><p className="kicker light">Rooftop unit frozen or not cooling?</p><h2>Start with a measured commercial HVAC diagnostic.</h2><p>Tell Eternity what the equipment is doing and what your team has already observed.</p></div>
+        <div><p className="kicker light">Rooftop unit frozen or not cooling?</p><h2>Request a measured commercial HVAC diagnostic.</h2><p>Tell Eternity what the equipment is doing and what your team has already observed.</p></div>
         <div><a className="btn btn-orange" href="https://eternityhvacr.com/#schedule">Request commercial service <span>↗</span></a><Link className="btn-outline light-outline" href="/services/commercial-hvac">Commercial HVAC services <span>→</span></Link><small>For urgent system-down service, call 216-703-3183.</small></div>
       </section>
 

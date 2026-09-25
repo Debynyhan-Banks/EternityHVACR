@@ -174,26 +174,6 @@ export default function LocationLanding({ content, schema }: { content: Location
         </div>
       </section>
 
-      <section className="commercial-proof">
-        <figure>
-          <ProjectImage
-            src="/images/euclid/cleveland-commercial-rooftop-hvac-service-1200.webp"
-            smallSrc="/images/euclid/cleveland-commercial-rooftop-hvac-service-720.webp"
-            alt="Commercial rooftop packaged HVAC equipment inspected in the Cleveland and Euclid service area"
-            width={1200}
-            height={900}
-          />
-          <figcaption>Commercial rooftop HVAC diagnostic service • 44119 market</figcaption>
-        </figure>
-        <div>
-          <p className="kicker light">Commercial field experience</p>
-          <h2>Commercial HVAC diagnostics & service</h2>
-          <p>During a rooftop packaged-unit service call in the 44119 Cleveland/Euclid-area market, Eternity encountered significant equipment contamination, dust accumulation on the blower motor, a missing filter and a frozen evaporator coil.</p>
-          <p>Conditions like these require a careful inspection of the equipment and operating conditions. The photograph documents the equipment condition at the service visit.</p>
-          <Link className="inline-cta light-link" href="/projects/euclid-rooftop-hvac-diagnostic">Read the rooftop diagnostic case study <span>→</span></Link>
-        </div>
-      </section>
-
       <section className="section location-diagnostics">
         <div>
           <p className="kicker">Measured system diagnostics</p>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import ServiceRequest from "./components/ServiceRequest";
 import ServiceAreaChecker from "./components/ServiceAreaChecker";
 import ServiceCards, { type ServiceCardItem } from "./components/ServiceCards";
@@ -24,9 +25,31 @@ const maintenance = [
   ["04", "Coil & equipment condition"], ["05", "Filter & airflow inspection"], ["06", "Documented recommendations"],
 ];
 
+const verifiedProjectListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Verified Euclid HVAC project case studies",
+  numberOfItems: 2,
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Matched Payne HVAC Replacement",
+      url: "https://eternityhvacr.com/projects/euclid-payne-hvac-installation",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Central Air and High-Efficiency Furnace Installation",
+      url: "https://eternityhvacr.com/projects/euclid-central-air-installation",
+    },
+  ],
+};
+
 export default function Home() {
   return <main>
     <SiteHeader />
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(verifiedProjectListSchema) }} />
 
     <section className="hero" id="top">
       <div className="hero-copy">
@@ -34,6 +57,11 @@ export default function Home() {
         <h1>Cleveland HVAC,<br /><em>refrigeration</em><br />&amp; boiler service.</h1>
         <p className="hero-brand-line">Comfort. Performance. Peace of mind.</p>
         <p className="hero-lede">Residential and commercial repair, installation and preventive maintenance throughout Greater Cleveland and Northeast Ohio.</p>
+        <nav className="hero-actions hero-task-actions" aria-label="Choose your next step">
+          <a className="hero-task-link hero-task-link--primary" href="#schedule"><strong>Get service</strong><span>Tell us what the equipment needs</span></a>
+          <Link className="hero-task-link" href="/estimate"><strong>Plan replacement</strong><span>Review approved planning ranges</span></Link>
+          <Link className="hero-task-link" href="/second-opinion"><strong>Review a quote</strong><span>Send documents privately</span></Link>
+        </nav>
         <div className="hero-assurance"><span>28 years of owner experience</span><span>Licensed &amp; insured • #28303</span><span>Emergency service available</span></div>
       </div>
       <div className="hero-media">
@@ -102,9 +130,18 @@ export default function Home() {
     </section>
 
     <section className="section projects" id="projects">
-      <div className="section-head"><div><p className="kicker">Service environments</p><h2>Built for the Systems You Depend On</h2></div><p>Eternity supports the residential, multifamily and commercial equipment environments that keep people comfortable and operations moving.</p></div>
-      <div className="project-grid"><article><img src="/images/apartment-complex.webp" alt="Modern apartment community representing multifamily HVAC service" width="800" height="540" loading="lazy" decoding="async" /><div><span>Core capability</span><h3>Apartment Communities</h3><p>HVAC diagnostics, repair, replacement and maintenance for multifamily properties and managed communities.</p></div></article><article><img src="/images/walk-in-cold-storage.jpg" alt="Walk-in cold storage room representing commercial refrigeration service" width="1800" height="1200" loading="lazy" decoding="async" /><div><span>Core capability</span><h3>Walk-In Coolers & Cold Storage</h3><p>Responsive refrigeration diagnostics and service for businesses that depend on controlled temperatures.</p></div></article><article><img src="/images/hero-technician-black.jpg" alt="Black skilled trades professional working on an electrical control" width="1800" height="1202" loading="lazy" decoding="async" /><div><span>Core capability</span><h3>Measured System Diagnostics</h3><p>Electrical, temperature and operational findings documented before recommendations are made.</p></div></article></div>
-      <a className="inline-cta centered-link" href="/projects">View verified project case studies <span>→</span></a>
+      <div className="section-head"><div><p className="kicker">Verified field work</p><h2>Real HVAC Projects in Euclid</h2></div><p>Genuine project photography and confirmed equipment facts show how Eternity approaches residential replacement and installation work.</p></div>
+      <div className="project-grid project-proof-grid">
+        <Link className="project-proof-card" href="/projects/euclid-payne-hvac-installation">
+          <picture><source media="(max-width: 700px)" srcSet="/images/euclid/euclid-oh-residential-furnace-installation-720.webp" type="image/webp" /><img src="/images/euclid/euclid-oh-residential-furnace-installation-1200.webp" alt="Payne furnace and matching evaporator coil installed by Eternity Mechanical in Euclid" width="1200" height="2132" loading="lazy" decoding="async" /></picture>
+          <div><span>Euclid 44123 • Residential replacement</span><h3>Matched Payne HVAC Replacement</h3><p>An outdated system replaced with an 80,000 BTU, 80% AFUE furnace, matching coil and 2.5-ton condenser for a home being prepared for sale.</p><b>Read the case study <i aria-hidden="true">→</i></b></div>
+        </Link>
+        <Link className="project-proof-card" href="/projects/euclid-central-air-installation">
+          <picture><source media="(max-width: 700px)" srcSet="/images/euclid/euclid-oh-sinclair-furnace-installation-720.webp" type="image/webp" /><img src="/images/euclid/euclid-oh-sinclair-furnace-installation-1200.webp" alt="Eternity Mechanical technician beside a completed Sinclair furnace and coil installation in Euclid" width="1200" height="2132" loading="lazy" decoding="async" /></picture>
+          <div><span>Euclid 44119 • Residential installation</span><h3>Central Air &amp; High-Efficiency Furnace</h3><p>A furnace more than 40 years old replaced while adding a 96% efficiency furnace and complete 3-ton central-air system.</p><b>Read the case study <i aria-hidden="true">→</i></b></div>
+        </Link>
+      </div>
+      <Link className="inline-cta centered-link" href="/projects">View all verified project case studies <span>→</span></Link>
     </section>
 
     <section className="proof-service branded-section" id="about"><div><p className="kicker light">Owner & team</p><h2>Field experience meets business and digital leadership.</h2><p>Eternity combines hands-on mechanical experience with the operational systems, communication and marketing that support dependable customer service.</p></div><div className="team-cards"><article><span>Owner</span><h3>Bernard Gray</h3><p>Bernard brings 28 years of industry experience to Eternity. His background includes HVAC systems, boilers and refrigeration, providing broad experience across the equipment customers depend on.</p></article><article><span>Technician</span><h3>Debynyhan Banks</h3><p>Debynyhan brings more than five years of industry experience and holds a degree in computer science and an MBA. In addition to technical work, Debynyhan leads the website and marketing and handles much of Eternity’s administrative work, bringing a love of new challenges to both field and business operations.</p></article></div></section>

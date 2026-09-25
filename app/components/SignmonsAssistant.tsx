@@ -66,6 +66,18 @@ export default function SignmonsAssistant() {
   const leadAttributionRef = useRef<LeadAttribution | null>(null);
   const chatEndRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    if (!open) {
+      delete document.body.dataset.assistantOpen;
+      return;
+    }
+
+    document.body.dataset.assistantOpen = "true";
+    return () => {
+      delete document.body.dataset.assistantOpen;
+    };
+  }, [open]);
+
   const openAssistant = useCallback((opener?: HTMLElement) => {
     if (opener) openerRef.current = opener;
     if (!leadAttributionRef.current) leadAttributionRef.current = captureLeadAttribution("website_chat");
@@ -354,7 +366,7 @@ export default function SignmonsAssistant() {
             </div>
             <div className="signmons-progress"><span>Choose a service type</span><b>Guided routing</b></div>
             <div className="signmons-choices">
-              {requestPaths.map((path) => <button type="button" key={path.id} onClick={() => choosePath(path)}>
+              {requestPaths.map((path) => <button type="button" key={path.id} onClick={() => choosePath(path.id)}>
                 <strong>{path.title}</strong>
                 <span>{path.detail}</span>
               </button>)}
