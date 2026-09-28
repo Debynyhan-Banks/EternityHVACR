@@ -429,6 +429,7 @@ export default function SignmonsAssistant() {
               <span>Live availability</span>
               <h3 id="signmons-slots-title">Choose an arrival window</h3>
               <p>Selecting a time confirms this residential diagnostic appointment.</p>
+              <p><strong>Residential service charge: $99 during regular hours; $149 after hours ($99 + $50).</strong> Regular hours are Monday–Friday, 7 a.m.–7 p.m., and Saturday, 9 a.m.–5 p.m., Eastern Time. Sunday is emergency service only; call 216-703-3183.</p>
               <div>
                 {appointmentSlots.map((slot) => <button
                   type="button"

@@ -250,3 +250,7 @@ Complete after analytics and search platforms are connected.
 ## September 28, 2026 — Free second-opinion wording
 
 Owner authorized updating the existing second-opinion page to describe the free licensed-contractor quote review and possible better price for comparable work. Updated headline, introductory copy, metadata and visible FAQ/schema. Existing form, API, privacy and retention controls are unchanged. No booking-flow or Google Business Profile changes in this scope.
+
+## September 28, 2026 — Booking destination
+
+Prepared /book using confirmed service charges and business hours, existing Signmons residential booking control, commercial/estimate request links, and private second-opinion upload. Added fee disclosure at residential appointment selection. Navigation, footer Sunday wording, metadata, sitemap and sanitized public analytics path updated. 36 rendered/API tests and 23 browser tests passed; see BOOKING-PAGE-REVIEW.md. No backend/payment/provider or Google Business Profile changes; no real appointment submitted.

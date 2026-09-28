@@ -1,0 +1,17 @@
+.booking-page .tool-hero { max-width: 1200px; margin: auto; }
+.booking-page .section { display: block; }
+.booking-page .booking-fees { background: #f3f6f8; }
+.booking-fee-grid, .booking-option-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 28px; }
+.booking-fee-grid article, .booking-option-grid article { background: white; border: 1px solid #d9e1e8; border-top: 4px solid #fa7c35; border-radius: 8px; padding: 28px; }
+.booking-option-grid article { display: flex; flex-direction: column; align-items: flex-start; }
+.booking-page h3 { color: #0c2747; font-size: 1.5rem; margin: 0 0 14px; }
+.booking-page p { line-height: 1.65; }
+.booking-price { color: #0c2747; font-size: 2.5rem; font-weight: 700; margin: 10px 0; }
+.booking-price small { display: block; font-size: 1rem; font-weight: 400; }
+.booking-label { color: #725038; font-size: .85rem; font-weight: 700; margin-bottom: 14px; }
+.booking-page .booking-action { display: inline-block; margin-top: auto; background: #0c2747; color: white; border: 0; border-radius: 6px; padding: 14px 18px; text-decoration: none; font: inherit; font-weight: 700; cursor: pointer; }
+.booking-page .booking-action:focus-visible { outline: 3px solid #fa7c35; outline-offset: 4px; }
+.booking-hours { margin-top: 24px; }
+@media (max-width: 700px) { .booking-fee-grid, .booking-option-grid { grid-template-columns: 1fr; } .booking-fee-grid article, .booking-option-grid article { padding: 22px; } }
+
+.booking-page h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.15; color: #0c2747; margin: 12px 0 18px; }

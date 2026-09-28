@@ -101,6 +101,10 @@ Do not publish supplier names, quote numbers, account or customer details, stree
 
 Owner confirmed September 28, 2026: customers may upload a written quote from a verifiable, licensed HVAC contractor for a free review of equipment, scope and price. Eternity explains whether the price looks reasonable and whether it can offer a better price for comparable work; a lower price is not guaranteed. Reuse the existing private upload form and 30-day retention controls.
 
+## Booking service charges and hours
+
+Owner confirmed September 28, 2026: residential service $99, commercial service $150. After-hours additions are $50 residential and $75 commercial, for totals of $149 and $225. Regular hours are Monday-Friday 7 a.m.-7 p.m. and Saturday 9 a.m.-5 p.m., Eastern Time. Sunday emergencies only. Estimates and second opinions are free onsite or remotely; remote details are submitted through the website. No claim of repair credit, payment collection or guaranteed availability is authorized. The existing widget only advertises instant confirmation for eligible residential diagnostic visits; other requests require team follow-up.
+
 ## Change control
 
 When a fact changes:
