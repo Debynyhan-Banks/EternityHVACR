@@ -129,7 +129,7 @@
   </url>
   <url>
     <loc>https://eternityhvacr.com/projects</loc>
-    <lastmod>2026-09-25</lastmod>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -194,5 +194,19 @@
     <lastmod>2026-08-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://eternityhvacr.com/projects/half-moon-bakery-walk-in-cooler-repair</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://eternityhvacr.com/images/half-moon/walk-in-cooler-condensing-unit-1200.webp</image:loc>
+      <image:caption>Walk-in cooler condensing unit at Half Moon Bakery in Cleveland</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://eternityhvacr.com/images/half-moon/high-side-service-port-1200.webp</image:loc>
+      <image:caption>Refrigerant service-port assembly photographed during the repair</image:caption>
+    </image:image>
   </url>
 </urlset>

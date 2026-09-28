@@ -1,6 +1,6 @@
 # Eternity Mechanical Services Confirmed Business Facts
 
-Last updated: September 10, 2026
+Last updated: September 28, 2026
 
 This document is the source of truth for approved public business details used in website copy, contact actions, structured data and search profiles.
 
@@ -57,6 +57,7 @@ Do not publish supplier names, quote numbers, account or customer details, stree
 |---|---|
 | Euclid residential HVAC installation | Completed in Euclid, OH 44123. Full heating and cooling installation with an 80,000 BTU, 80% AFUE Payne furnace; Payne PA4SAN53000N 2.5-ton / 30,000 BTU R-454B air conditioner; matching CVAVA3017XMA 17.5-inch vertical cased R-454B evaporator coil; equipment pad; 30A fused disconnect; AC electrical whip; and associated installation work. Genuine project photographs were supplied August 24, 2026. Do not publish internal acquisition costs or contractor pricing. |
 | Euclid 44119 residential HVAC installation | Completed August 2026. The homeowner wanted central air, and the existing furnace was more than 40 years old. Eternity completed a full residential installation in Euclid, OH 44119 with an 80,000 BTU, 96% efficiency Sinclair furnace, 3-ton air-conditioning system, outdoor condenser and matching evaporator coil. The owner identified the supplied technician-at-work photograph as the final result after installation. The exact residential street address is retained internally and should not be published without explicit property-owner permission. |
+| Half Moon Bakery walk-in cooler repair | Owner/technician supplied the project facts and two photos on September 28, 2026. The owner confirmed the bakery moved to 2203 Chester Ave, Cleveland, OH 44114; use this confirmed job address rather than older public listings. Cooler was low on refrigerant; nitrogen pressurization and bubble solution identified a leak at a high-side service port. Refrigerant was recovered, the service port replaced, and the system recharged. Technician observed 34°F box temperature and normal on/off cycling. Photos show equipment and the service-port assembly, not measured temperatures or a documented before/after comparison. No exact test PSI, refrigerant type/quantity, evaporator TD, measured SST/SCT, superheat/subcooling, evacuation readings, service date, warranty, savings or food-safety outcome supplied. Publication remains pending review. |
 | Commercial rooftop HVAC service | Commercial rooftop packaged-unit diagnostic/service in the 44119 Cleveland/Euclid-area market. Documented conditions include significant equipment contamination, dust accumulation on the blower motor, no installed filter and a frozen evaporator coil. Genuine project photography was supplied August 24, 2026. The exact municipality, customer, equipment capacity, repair outcome, parts replaced, final diagnosis and pricing remain unverified and must not be published as facts. |
 
 ## Approved brand identity

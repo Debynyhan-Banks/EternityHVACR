@@ -18,6 +18,14 @@ const content: ServiceLandingContent = {
   services: ["Walk-in cooler and freezer service", "Temperature and operating diagnostics", "Electrical and control evaluation", "Cold-storage equipment service", "Preventive maintenance", "Repair and replacement planning"],
   customers: ["Restaurants and food service", "Retail and grocery operations", "Cold-storage facilities", "Property and facility managers"],
   process: [["Describe the problem", "Share the affected equipment, temperature condition, timing and access details."], ["Evaluate the system", "Operating conditions, electrical performance, controls and equipment condition are checked."], ["Review the findings", "The observed problem and recommended next steps are explained before approved work begins."], ["Complete and verify", "Approved work is completed and system operation is checked before closeout."]],
+  caseStudy: {
+    href: "/projects/half-moon-bakery-walk-in-cooler-repair",
+    image: "/images/half-moon/walk-in-cooler-condensing-unit-720.webp",
+    imageAlt: "Walk-in cooler condensing unit at Half Moon Bakery in Cleveland",
+    label: "Half Moon Bakery • Cleveland 44114",
+    title: "A service-port leak repaired. Cooler operation verified at 34°F.",
+    copy: "Eternity located a high-side service-port refrigerant leak, replaced the port and recharged the walk-in cooler. The technician then verified 34°F operation and normal on/off cycling.",
+  },
   relatedGuides: [
     {
       href: "/resources/walk-in-cooler-icing-up",

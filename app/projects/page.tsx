@@ -4,17 +4,26 @@ import { SiteFooter, SiteHeader } from "../components/SiteChrome";
 
 export const metadata: Metadata = {
   title: "HVAC Project Case Studies | Eternity Mechanical",
-  description: "Explore verified heating and cooling installations completed by Eternity Mechanical Services in Greater Cleveland and Northeast Ohio.",
+  description: "Explore verified HVAC installations and commercial refrigeration repairs completed by Eternity Mechanical Services in Greater Cleveland and Northeast Ohio.",
   alternates: { canonical: "/projects" },
   openGraph: {
     title: "Verified HVAC Projects from Eternity Mechanical",
-    description: "Real Greater Cleveland HVAC installations documented with project facts and field photography.",
+    description: "Real Greater Cleveland HVAC and refrigeration projects documented with project facts and field photography.",
     url: "/projects",
     type: "website",
   },
 };
 
 const projects = [
+  {
+    href: "/projects/half-moon-bakery-walk-in-cooler-repair",
+    image: "/images/half-moon/walk-in-cooler-condensing-unit-1200.webp",
+    imageSmall: "/images/half-moon/walk-in-cooler-condensing-unit-720.webp",
+    alt: "Walk-in cooler condensing unit photographed during the Half Moon Bakery repair in Cleveland",
+    label: "Cleveland 44114 • Commercial refrigeration",
+    title: "Half Moon Bakery Walk-In Cooler Repair",
+    copy: "A high-side service-port leak repaired, the system recharged, and 34°F cooler operation with normal on/off cycling verified during the visit.",
+  },
   {
     href: "/projects/euclid-payne-hvac-installation",
     image: "/images/euclid/euclid-oh-residential-furnace-installation-1200.webp",
@@ -41,11 +50,11 @@ export default function ProjectsPage() {
       <SiteHeader />
       <section className="project-index-hero">
         <p className="eyebrow"><i /> Verified field work</p>
-        <h1>Real HVAC Projects. Specific Equipment. Documented Results.</h1>
+        <h1>Real HVAC & Refrigeration Projects. Documented Results.</h1>
         <p>Each case study uses genuine project photography and confirmed job facts. Customer goals are separated from outcomes that were not measured.</p>
       </section>
       <section className="section project-index-section">
-        <div className="section-head"><div><p className="kicker">Project library</p><h2>Verified residential HVAC work in Euclid</h2></div><p>Two field-documented installations with genuine project photography and confirmed equipment facts.</p></div>
+        <div className="section-head"><div><p className="kicker">Project library</p><h2>Heating, cooling and commercial refrigeration</h2></div><p>Residential installations and commercial refrigeration repairs, documented with project photographs and confirmed service details.</p></div>
         <div className="project-index-grid">
           {projects.map((project) => (
             <Link className="project-index-card" href={project.href} key={project.href}>
@@ -56,8 +65,8 @@ export default function ProjectsPage() {
         </div>
       </section>
       <section className="emergency landing-cta">
-        <div><p className="kicker light">Planning an HVAC project?</p><h2>Tell Eternity what the property needs.</h2><p>Request an installation estimate for a home, rental, managed property or commercial facility.</p></div>
-        <div><a className="btn btn-orange" href="https://eternityhvacr.com/#schedule">Request an estimate <span>↗</span></a><a className="btn-outline light-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a></div>
+        <div><p className="kicker light">Need HVAC or refrigeration service?</p><h2>Tell Eternity what the property needs.</h2><p>Request repair, maintenance or installation support for a home, rental, managed property or commercial facility.</p></div>
+        <div><a className="btn btn-orange" href="https://eternityhvacr.com/#schedule">Request service <span>↗</span></a><a className="btn-outline light-outline" href="tel:+12167033183">Call 216-703-3183 <span>→</span></a></div>
       </section>
       <SiteFooter />
     </main>

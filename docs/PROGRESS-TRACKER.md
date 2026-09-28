@@ -237,3 +237,12 @@ Complete after analytics and search platforms are connected.
 - No runtime performance change without demonstrated improvement. Next profiling target is render-blocking CSS/resource competition; no image rewrite, font change or assistant-loading change made on conjecture.
 - Fresh build + 36 rendered/API tests pass; TypeScript passes; lint zero errors/15 existing image warnings; whitespace clean. See SEARCH-PERFORMANCE-REVIEW.md and dated JSON evidence.
 - Local review candidate only; not pushed/published. No account mutations, indexing requests or live customer submissions. Next: review candidate, then authorized publication; separately profile production-like compressed delivery if further speed work is approved.
+
+
+## September 28, 2026 — Half Moon Bakery case-study candidate
+
+- Base: published Sites version 107 / 1be91ede08bcb2c92b7c678a88cef3d973b2ffa9. New local branch codex/eternity-half-moon-case-study-20260928.
+- Owner supplied and clarified repair facts, confirmed relocation to 2203 Chester Ave, Cleveland, OH 44114, and authorized faithful WebP conversion of two original project photographs.
+- Prepared the cooler case study, project-library card, refrigeration-service proof link, canonical/Article/Breadcrumb metadata, sitemap entry, and public analytics route allowlist entry. Existing private-route protections and service form behavior remain unchanged.
+- Case study reports the observed 34°F temperature and normal cycling during the visit. It makes no long-term temperature, savings, food-safety or universal charging-rule claim. Exact readings not supplied remain absent.
+- Local candidate only: no website publication, Google settings/indexing requests, customer contact or live form submissions in this milestone. See HALF-MOON-CASE-STUDY-REVIEW.md for validation and release decision.
