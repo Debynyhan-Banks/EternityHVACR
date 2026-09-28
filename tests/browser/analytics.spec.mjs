@@ -317,3 +317,69 @@ test('admin sign-in redirect remains outside marketing collection', async ({ con
   expect(capture.traffic).toEqual([]);
   expect(page.url()).not.toBe('http://127.0.0.1:4179/');
 });
+
+for (const [slug, service, requestPath] of [
+  ['furnace-heating-repair', 'Heating', 'Repair or diagnostic'],
+  ['boiler-service', 'Boiler', 'Repair or diagnostic'],
+  ['commercial-refrigeration', 'Refrigeration', 'Commercial / refrigeration'],
+]) {
+  test(`service journey: ${slug}, editable prefill and one accepted lead`, async ({ context, page }) => {
+    const capture = await network(context);
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    const bodies = [];
+    await page.route('**/api/service-request', route => {
+      bodies.push(route.request().postDataJSON());
+      return route.fulfill({ json: { ok: true, confirmationSent: true } });
+    });
+    await page.goto(`/services/${slug}`);
+    const hero = page.locator('.service-hero-actions');
+    const call = hero.getByRole('link', { name: 'Call 216-703-3183' });
+    await expect(call).toHaveAttribute('href', 'tel:+12167033183');
+    for (const link of await hero.getByRole('link').all()) {
+      const box = await link.boundingBox();
+      expect(box.height).toBeGreaterThanOrEqual(44);
+      expect(box.x + box.width).toBeLessThanOrEqual(390);
+    }
+    await page.screenshot({ path: `/private/tmp/eternity-${slug}-mobile.png`, fullPage: false });
+    const request = hero.getByRole('link', { name: 'Request service' });
+    await request.focus();
+    await request.press('Enter');
+    await expect(page).toHaveURL(new RegExp(`serviceScope=${slug}#schedule`));
+    await expect(page.getByRole('radio', { name: requestPath })).toBeChecked();
+    await page.locator('label').filter({ hasText: 'A managed property' }).click();
+    await page.getByRole('button', { name: 'Continue' }).click();
+    await expect(page.getByLabel('Service category')).toHaveValue(service);
+    await page.getByLabel('Service category').selectOption('Heat pump');
+    await page.getByRole('button', { name: 'Back' }).click();
+    await page.getByRole('button', { name: 'Continue' }).click();
+    await expect(page.getByLabel('Service category')).toHaveValue('Heat pump');
+    await page.getByLabel('Service category').selectOption(service);
+    await page.getByLabel('When do you need service?').selectOption('This week');
+    await page.getByRole('textbox', { name: /equipment|happening|details/i }).fill(canary);
+    await expect(page.locator('.mobile-bar')).toBeHidden();
+    await page.getByRole('button', { name: 'Continue' }).click();
+    await page.getByPlaceholder('Full name').fill('Synthetic Test');
+    await page.getByPlaceholder('Phone number').fill('2025550100');
+    await page.getByPlaceholder('Email address').fill('synthetic@example.invalid');
+    await page.getByRole('checkbox').check();
+    await loadTag(page, capture);
+    await page.getByRole('button', { name: 'Send request to Eternity' }).click();
+    await expect(page.getByRole('status')).toContainText('Your request is with Eternity');
+    expect(bodies).toHaveLength(1);
+    expect(bodies[0]).toMatchObject({ service, requestType: requestPath });
+    expect(bodies[0].attribution).toMatchObject({ landingPage: `/services/${slug}`, sourcePage: '/' });
+    await expect.poll(() => capture.events().filter(x => x.name === 'generate_lead').length).toBe(1);
+    expect(JSON.stringify(capture.traffic)).not.toContain(canary);
+  });
+}
+
+test('invalid and conflicting handoffs are ignored; estimator still prefills', async ({ context, page }) => {
+  await network(context);
+  for (const query of ['serviceScope=__proto__', 'serviceScope=unknown', 'serviceScope=boiler-service&serviceScope=furnace-heating-repair', 'serviceScope=boiler-service&estimateScope=direct-furnace-swap']) {
+    await page.goto(`/?${query}#schedule`); await ready(page);
+    await expect(page.locator('input[name="requestType"]:checked')).toHaveCount(0);
+  }
+  await page.goto('/?estimateScope=direct-furnace-swap#schedule');
+  await expect(page.getByRole('radio', { name: 'Installation estimate' })).toBeChecked();
+});

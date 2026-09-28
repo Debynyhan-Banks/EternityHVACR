@@ -1,3 +1,4 @@
+import { servicePrefill } from "../lib/service-prefills";
 import { SiteFooter, SiteHeader } from "./SiteChrome";
 
 export type ServiceLandingContent = {
@@ -34,6 +35,8 @@ export type ServiceLandingContent = {
 };
 
 export default function ServiceLanding({ content }: { content: ServiceLandingContent }) {
+  const preset = servicePrefill(content.slug);
+  const requestHref = preset ? `/?serviceScope=${content.slug}#schedule` : "/#schedule";
   const pageUrl = `https://eternityhvacr.com/services/${content.slug}`;
   const schema = {
     "@context": "https://schema.org",
@@ -71,7 +74,7 @@ export default function ServiceLanding({ content }: { content: ServiceLandingCon
     <SiteHeader />
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
     <section className="landing-hero">
-      <div className="landing-hero-copy"><p className="eyebrow"><i /> {content.eyebrow}</p><h1>{content.title}</h1><p>{content.summary}</p><div className="landing-trust"><span>✓ Licensed & insured</span><span>✓ License #28303</span><span>✓ Residential & commercial expertise</span></div></div>
+      <div className="landing-hero-copy"><p className="eyebrow"><i /> {content.eyebrow}</p><h1>{content.title}</h1><p>{content.summary}</p>{preset && <div className="service-hero-actions"><a className="btn btn-orange" href="tel:+12167033183">Call 216-703-3183</a><a className="btn btn-navy" href={requestHref}>Request service <span aria-hidden="true">→</span></a></div>}<div className="landing-trust"><span>✓ Licensed & insured</span><span>✓ License #28303</span><span>✓ Residential & commercial expertise</span></div></div>
       <div className="landing-hero-image"><img src={content.image} alt={content.imageAlt} width="1800" height="1200" fetchPriority="high" decoding="async" /><span>Greater Cleveland & Northeast Ohio</span></div>
     </section>
     <section className="response-band"><strong>15-minute response target</strong><span>Website requests are typically reviewed within 15 minutes during regular business hours. For urgent service, call directly.</span><a href="tel:+12167033183">Call now →</a></section>
@@ -91,7 +94,7 @@ export default function ServiceLanding({ content }: { content: ServiceLandingCon
       <div>{content.relatedGuides.map((guide, index) => <article key={guide.href}><span>{String(index + 1).padStart(2, "0")}</span><h3>{guide.title}</h3><p>{guide.copy}</p><a className="inline-cta" href={guide.href}>Read the guide <span>→</span></a></article>)}</div>
     </section>}
     <section className="section landing-faq"><div><p className="kicker">Common questions</p><h2>Before you request service</h2></div><div>{content.faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></section>
-    <section className="emergency landing-cta"><div><p className="kicker light">Ready to get started?</p><h2>Tell Eternity what the equipment needs.</h2><p>Use the guided request form for service details, timing and contact information.</p></div><div><a className="btn btn-orange" href="https://eternityhvacr.com/#schedule">Request service <span>↗</span></a><a data-sms-link className="btn-outline light-outline" href="sms:+12167033183">Text Eternity <span>→</span></a><a className="contact-service-link" href="/areas-we-serve">View service areas →</a><small>Texts are monitored 24/7 with a 15-minute reply target; this is not an arrival-time promise. Message and data rates may apply. Reply STOP to opt out. For urgent help, call 216-703-3183.</small></div></section>
+    <section className="emergency landing-cta"><div><p className="kicker light">Ready to get started?</p><h2>Tell Eternity what the equipment needs.</h2><p>Use the guided request form for service details, timing and contact information.</p></div><div><a className="btn btn-orange" href={requestHref}>Request service <span>↗</span></a><a data-sms-link className="btn-outline light-outline" href="sms:+12167033183">Text Eternity <span>→</span></a><a className="contact-service-link" href="/areas-we-serve">View service areas →</a><small>Texts are monitored 24/7 with a 15-minute reply target; this is not an arrival-time promise. Message and data rates may apply. Reply STOP to opt out. For urgent help, call 216-703-3183.</small></div></section>
     <SiteFooter />
   </main>;
 }

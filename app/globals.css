@@ -818,3 +818,9 @@ footer .sms-disclosure,.footer-bottom{font-size:14px;line-height:1.65;color:#d7e
 .mobile-menu>div{max-height:calc(100dvh - 150px);overflow:auto}
 .mobile-menu>div a{min-height:44px;display:flex;align-items:center;font-size:14px}
 @media(min-width:1100px){.header .grouped-navigation{display:flex;gap:24px}.header .mobile-menu{display:none}}
+
+/* Priority service-page actions reuse the established brand buttons. */
+.service-hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:24px 0}
+.service-hero-actions .btn{min-height:48px;white-space:normal;text-align:center}
+.service-hero-actions .btn-navy{background:var(--navy);color:#fff}
+@media(max-width:700px){.service-hero-actions{display:grid;grid-template-columns:1fr}.service-hero-actions .btn{width:100%}}

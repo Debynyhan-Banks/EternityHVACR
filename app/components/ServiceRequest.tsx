@@ -1,5 +1,6 @@
 "use client";
 
+import { servicePrefill } from "../lib/service-prefills";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { trackGoogleEvent } from "./Analytics";
 import { captureLeadAttribution } from "./LeadAttribution";
@@ -68,12 +69,20 @@ export default function ServiceRequest() {
   const requestAccepted = useRef(false);
 
   useEffect(() => {
-    const estimateScope = new URLSearchParams(window.location.search).get("estimateScope");
-    if (!estimateScope) return;
-    const preset = estimatorPrefills[estimateScope];
+    const params = new URLSearchParams(window.location.search);
+    const estimateScope = params.get("estimateScope");
+    // Ambiguous handoffs and duplicate values are ignored. Presets run once,
+    // never on form Back/Continue, so customer edits stay authoritative.
+    if (params.has("estimateScope") && params.has("serviceScope")) return;
+    const estimate = params.getAll("estimateScope").length === 1 && estimateScope
+      && Object.hasOwn(estimatorPrefills, estimateScope) ? estimatorPrefills[estimateScope] : undefined;
+    const service = params.getAll("serviceScope").length === 1
+      ? servicePrefill(params.get("serviceScope")) : undefined;
+    const preset = estimate || service;
     if (!preset) return;
-    const prefillTimer = window.setTimeout(() => setData((current) => ({ ...current, ...preset })), 0);
-    trackGoogleEvent("estimator_handoff_loaded", { estimator_project: estimateScope });
+    const prefillTimer = window.setTimeout(() => setData((current) =>
+      current.requestType || current.service ? current : { ...current, ...preset }), 0);
+    if (estimate && estimateScope) trackGoogleEvent("estimator_handoff_loaded", { estimator_project: estimateScope });
     return () => window.clearTimeout(prefillTimer);
   }, []);
 

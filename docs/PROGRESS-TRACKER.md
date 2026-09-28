@@ -221,3 +221,10 @@ Complete after analytics and search platforms are connected.
 - [Local profile and review operations](LOCAL-PROFILE-OPERATIONS-2026-08-28.md)
 - [Confirmed business facts](BUSINESS-FACTS.md)
 - [Information and content checklist](CLIENT-CONTENT-CHECKLIST.md)
+
+## September 28, 2026 — Service conversion candidate (Milestone 2)
+
+- Prior privacy milestone published as Sites version 104 from baa9e65; approved GA4 settings applied in the preceding task. This supersedes earlier unpublished status for that commit.
+- New local branch codex/eternity-service-conversion-20260928 adds Call/Request actions to furnace, boiler and refrigeration heroes and allowlisted, editable existing-form prefills.
+- Build + 35 rendered/API tests, TypeScript and whitespace checks pass; lint has zero errors/15 existing warnings. All 21 browser cases have passing results across the initial and corrected focused runs. Three mobile screenshots inspected.
+- Review: docs/SERVICE-CONVERSION-REVIEW.md. Candidate is not pushed or deployed; no live submissions or account mutations. Next: owner review/publication decision; physical-device keyboard QA and incoming live GA4 reporting remain unverified.
