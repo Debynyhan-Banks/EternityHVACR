@@ -1,6 +1,7 @@
 // Local, built-output fixture server. All API requests are refused unless the
 // browser test intercepts them; no credentials or external service is needed.
 import { createServer } from 'node:http';
+import { gzipSync } from 'node:zlib';
 import { readFile } from 'node:fs/promises';
 import { resolve, extname } from 'node:path';
 import worker from '../dist/server/index.js';
@@ -19,8 +20,13 @@ const server = createServer(async (req, res) => {
     const request = new Request(`https://eternityhvacr.com${req.url}`, { headers: req.headers });
     let response = await asset(request);
     if (response.status === 404) response = await worker.fetch(request, { ASSETS: { fetch: asset } }, { waitUntil() {}, passThroughOnException() {} });
-    res.writeHead(response.status, Object.fromEntries(response.headers));
-    res.end(Buffer.from(await response.arrayBuffer()));
+    const body = Buffer.from(await response.arrayBuffer());
+    const headers = Object.fromEntries(response.headers);
+    // Opt-in compressed transport for controlled performance comparisons.
+    const compress = process.env.PERF_COMPRESSION === '1' && /text|javascript|json|svg/.test(headers['content-type'] || '');
+    if (compress) headers['content-encoding'] = 'gzip';
+    res.writeHead(response.status, headers);
+    res.end(compress ? gzipSync(body) : body);
   } catch { res.writeHead(500); res.end('Local fixture error'); }
 });
 server.listen(4179, '127.0.0.1');

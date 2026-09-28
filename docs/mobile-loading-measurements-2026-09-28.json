@@ -1,0 +1,551 @@
+{
+  "source_sha": "641a5b6050b9204056a43f3a954f3ee87724465f",
+  "method": "Chromium 1217, 390x844 DPR2 mobile, 150ms latency, 1.6Mbps download, 750Kbps upload, 4x CPU slowdown, 3 cold samples per page, load plus 3 seconds. No interaction. Non-GET/HEAD blocked. Live includes third-party GET resources; local excludes third parties and uses gzip. Navigation-only lab, not field or Lighthouse.",
+  "experiment_note": "Experiment combined footer lazy loading and mobile-home hero preload. Hero preload rejected and removed. Final service/estimate loading behavior matches experiment; no final homepage speed improvement claimed.",
+  "live_baseline": [
+    {
+      "path": "/",
+      "lcp_ms": [
+        2908,
+        2436,
+        2556
+      ],
+      "median_lcp_ms": 2556,
+      "lcp_elements": [
+        "IMG",
+        "IMG",
+        "IMG"
+      ],
+      "cls": [
+        0,
+        0,
+        0
+      ],
+      "overflow": false,
+      "reverse_logo_loads": [
+        [
+          {
+            "bytes": 10263,
+            "start": 503.5
+          }
+        ],
+        [
+          {
+            "bytes": 10263,
+            "start": 225.80000019073486
+          }
+        ],
+        [
+          {
+            "bytes": 10263,
+            "start": 358.09999990463257
+          }
+        ]
+      ]
+    },
+    {
+      "path": "/services/furnace-heating-repair",
+      "lcp_ms": [
+        1552,
+        1576,
+        1640
+      ],
+      "median_lcp_ms": 1576,
+      "lcp_elements": [
+        "H1",
+        "H1",
+        "H1"
+      ],
+      "cls": [
+        0,
+        0,
+        0
+      ],
+      "overflow": false,
+      "reverse_logo_loads": [
+        [
+          {
+            "bytes": 10263,
+            "start": 227.90000009536743
+          }
+        ],
+        [
+          {
+            "bytes": 10263,
+            "start": 219.69999980926514
+          }
+        ],
+        [
+          {
+            "bytes": 10263,
+            "start": 227.90000009536743
+          }
+        ]
+      ]
+    },
+    {
+      "path": "/services/boiler-service",
+      "lcp_ms": [
+        3068,
+        1616,
+        1548
+      ],
+      "median_lcp_ms": 1616,
+      "lcp_elements": [
+        "P",
+        "P",
+        "P"
+      ],
+      "cls": [
+        0,
+        0,
+        0
+      ],
+      "overflow": false,
+      "reverse_logo_loads": [
+        [
+          {
+            "bytes": 10263,
+            "start": 1253.3000001907349
+          }
+        ],
+        [
+          {
+            "bytes": 10263,
+            "start": 228.19999980926514
+          }
+        ],
+        [
+          {
+            "bytes": 10263,
+            "start": 220.59999990463257
+          }
+        ]
+      ]
+    },
+    {
+      "path": "/services/commercial-refrigeration",
+      "lcp_ms": [
+        1528,
+        1620,
+        1580
+      ],
+      "median_lcp_ms": 1580,
+      "lcp_elements": [
+        "H1",
+        "H1",
+        "H1"
+      ],
+      "cls": [
+        0,
+        0,
+        0
+      ],
+      "overflow": false,
+      "reverse_logo_loads": [
+        [
+          {
+            "bytes": 10263,
+            "start": 212.89999961853027
+          }
+        ],
+        [
+          {
+            "bytes": 10263,
+            "start": 272.40000009536743
+          }
+        ],
+        [
+          {
+            "bytes": 10263,
+            "start": 225.5
+          }
+        ]
+      ]
+    },
+    {
+      "path": "/estimate",
+      "lcp_ms": [
+        2168,
+        2004,
+        2016
+      ],
+      "median_lcp_ms": 2016,
+      "lcp_elements": [
+        "IMG",
+        "IMG",
+        "IMG"
+      ],
+      "cls": [
+        0,
+        0,
+        0
+      ],
+      "overflow": false,
+      "reverse_logo_loads": [
+        [
+          {
+            "bytes": 10263,
+            "start": 228
+          }
+        ],
+        [
+          {
+            "bytes": 10263,
+            "start": 220.7000002861023
+          }
+        ],
+        [
+          {
+            "bytes": 10263,
+            "start": 228.5
+          }
+        ]
+      ]
+    }
+  ],
+  "compressed_baseline": [
+    {
+      "path": "/",
+      "lcp_ms": [
+        1168,
+        1056,
+        1068
+      ],
+      "median_lcp_ms": 1068,
+      "lcp_elements": [
+        "H1",
+        "H1",
+        "H1"
+      ],
+      "cls": [
+        0,
+        0,
+        0
+      ],
+      "overflow": false,
+      "reverse_logo_loads": [
+        [
+          {
+            "bytes": 10043,
+            "start": 179.40000009536743
+          }
+        ],
+        [
+          {
+            "bytes": 10043,
+            "start": 174
+          }
+        ],
+        [
+          {
+            "bytes": 10043,
+            "start": 175.7000002861023
+          }
+        ]
+      ]
+    },
+    {
+      "path": "/services/furnace-heating-repair",
+      "lcp_ms": [
+        1180,
+        1180,
+        1192
+      ],
+      "median_lcp_ms": 1180,
+      "lcp_elements": [
+        "H1",
+        "H1",
+        "H1"
+      ],
+      "cls": [
+        0,
+        0,
+        0
+      ],
+      "overflow": false,
+      "reverse_logo_loads": [
+        [
+          {
+            "bytes": 10043,
+            "start": 169.5
+          }
+        ],
+        [
+          {
+            "bytes": 10043,
+            "start": 168.80000019073486
+          }
+        ],
+        [
+          {
+            "bytes": 10043,
+            "start": 169.5
+          }
+        ]
+      ]
+    },
+    {
+      "path": "/services/boiler-service",
+      "lcp_ms": [
+        1184,
+        1176,
+        1176
+      ],
+      "median_lcp_ms": 1176,
+      "lcp_elements": [
+        "P",
+        "P",
+        "P"
+      ],
+      "cls": [
+        0,
+        0,
+        0
+      ],
+      "overflow": false,
+      "reverse_logo_loads": [
+        [
+          {
+            "bytes": 10043,
+            "start": 168.40000009536743
+          }
+        ],
+        [
+          {
+            "bytes": 10043,
+            "start": 170.19999980926514
+          }
+        ],
+        [
+          {
+            "bytes": 10043,
+            "start": 169.90000009536743
+          }
+        ]
+      ]
+    },
+    {
+      "path": "/services/commercial-refrigeration",
+      "lcp_ms": [
+        1200,
+        1188,
+        1224
+      ],
+      "median_lcp_ms": 1200,
+      "lcp_elements": [
+        "H1",
+        "H1",
+        "H1"
+      ],
+      "cls": [
+        0,
+        0,
+        0
+      ],
+      "overflow": false,
+      "reverse_logo_loads": [
+        [
+          {
+            "bytes": 10043,
+            "start": 161.5
+          }
+        ],
+        [
+          {
+            "bytes": 10043,
+            "start": 169.19999980926514
+          }
+        ],
+        [
+          {
+            "bytes": 10043,
+            "start": 169.2000002861023
+          }
+        ]
+      ]
+    },
+    {
+      "path": "/estimate",
+      "lcp_ms": [
+        1436,
+        1448,
+        1440
+      ],
+      "median_lcp_ms": 1440,
+      "lcp_elements": [
+        "IMG",
+        "IMG",
+        "IMG"
+      ],
+      "cls": [
+        0,
+        0,
+        0
+      ],
+      "overflow": false,
+      "reverse_logo_loads": [
+        [
+          {
+            "bytes": 10043,
+            "start": 160.60000038146973
+          }
+        ],
+        [
+          {
+            "bytes": 10043,
+            "start": 168.40000009536743
+          }
+        ],
+        [
+          {
+            "bytes": 10043,
+            "start": 161.09999990463257
+          }
+        ]
+      ]
+    }
+  ],
+  "experiment": [
+    {
+      "path": "/",
+      "lcp_ms": [
+        1252,
+        1136,
+        1128
+      ],
+      "median_lcp_ms": 1136,
+      "lcp_elements": [
+        "H1",
+        "H1",
+        "H1"
+      ],
+      "cls": [
+        0,
+        0,
+        0
+      ],
+      "overflow": false,
+      "reverse_logo_loads": [
+        [
+          {
+            "bytes": 10043,
+            "start": 187.30000019073486
+          }
+        ],
+        [
+          {
+            "bytes": 10043,
+            "start": 175.39999961853027
+          }
+        ],
+        [
+          {
+            "bytes": 10043,
+            "start": 175.60000038146973
+          }
+        ]
+      ]
+    },
+    {
+      "path": "/services/furnace-heating-repair",
+      "lcp_ms": [
+        1176,
+        1176,
+        1172
+      ],
+      "median_lcp_ms": 1176,
+      "lcp_elements": [
+        "H1",
+        "H1",
+        "H1"
+      ],
+      "cls": [
+        0,
+        0,
+        0
+      ],
+      "overflow": false,
+      "reverse_logo_loads": [
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "path": "/services/boiler-service",
+      "lcp_ms": [
+        1180,
+        1200,
+        1176
+      ],
+      "median_lcp_ms": 1180,
+      "lcp_elements": [
+        "P",
+        "P",
+        "P"
+      ],
+      "cls": [
+        0,
+        0,
+        0
+      ],
+      "overflow": false,
+      "reverse_logo_loads": [
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "path": "/services/commercial-refrigeration",
+      "lcp_ms": [
+        1184,
+        1184,
+        1184
+      ],
+      "median_lcp_ms": 1184,
+      "lcp_elements": [
+        "H1",
+        "H1",
+        "H1"
+      ],
+      "cls": [
+        0,
+        0,
+        0
+      ],
+      "overflow": false,
+      "reverse_logo_loads": [
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "path": "/estimate",
+      "lcp_ms": [
+        1444,
+        1444,
+        1432
+      ],
+      "median_lcp_ms": 1444,
+      "lcp_elements": [
+        "IMG",
+        "IMG",
+        "IMG"
+      ],
+      "cls": [
+        0,
+        0,
+        0
+      ],
+      "overflow": false,
+      "reverse_logo_loads": [
+        [],
+        [],
+        []
+      ]
+    }
+  ]
+}
