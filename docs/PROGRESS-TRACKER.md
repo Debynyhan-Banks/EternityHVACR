@@ -228,3 +228,12 @@ Complete after analytics and search platforms are connected.
 - New local branch codex/eternity-service-conversion-20260928 adds Call/Request actions to furnace, boiler and refrigeration heroes and allowlisted, editable existing-form prefills.
 - Build + 35 rendered/API tests, TypeScript and whitespace checks pass; lint has zero errors/15 existing warnings. All 21 browser cases have passing results across the initial and corrected focused runs. Three mobile screenshots inspected.
 - Review: docs/SERVICE-CONVERSION-REVIEW.md. Candidate is not pushed or deployed; no live submissions or account mutations. Next: owner review/publication decision; physical-device keyboard QA and incoming live GA4 reporting remain unverified.
+
+## September 28, 2026 — Search consistency and measured performance (Milestone 3)
+
+- Base: published service-conversion release 105 / 128ae46. New local branch codex/eternity-search-performance-20260928.
+- Audited 25 sitemap URLs, private/incomplete exclusions and missing-page response. Fixed three service-page lastmod dates and the estimate date using dated source/releases; reconciled approved response targets in BUSINESS-FACTS.md.
+- Added reusable rendered metadata audit and local performance sampler. Thirty cold-load samples over five pages: mobile median LCP 3.356–3.560 seconds, desktop 0.544–0.600 seconds, zero sampled load CLS/overflow. Local uncompressed fixture with third parties blocked; no field or production speed claim.
+- No runtime performance change without demonstrated improvement. Next profiling target is render-blocking CSS/resource competition; no image rewrite, font change or assistant-loading change made on conjecture.
+- Fresh build + 36 rendered/API tests pass; TypeScript passes; lint zero errors/15 existing image warnings; whitespace clean. See SEARCH-PERFORMANCE-REVIEW.md and dated JSON evidence.
+- Local review candidate only; not pushed/published. No account mutations, indexing requests or live customer submissions. Next: review candidate, then authorized publication; separately profile production-like compressed delivery if further speed work is approved.

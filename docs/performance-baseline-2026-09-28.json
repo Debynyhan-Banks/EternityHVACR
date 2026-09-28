@@ -1,0 +1,392 @@
+[
+  {
+    "path": "/",
+    "mobile": true,
+    "run": 1,
+    "cls": 0,
+    "lcp": {
+      "ms": 3508,
+      "tag": "H1",
+      "text": "Cleveland HVAC,refrigeration& boiler service.",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "mobile": true,
+    "run": 2,
+    "cls": 0,
+    "lcp": {
+      "ms": 3468,
+      "tag": "H1",
+      "text": "Cleveland HVAC,refrigeration& boiler service.",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "mobile": true,
+    "run": 3,
+    "cls": 0,
+    "lcp": {
+      "ms": 3460,
+      "tag": "H1",
+      "text": "Cleveland HVAC,refrigeration& boiler service.",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/services/furnace-heating-repair",
+    "mobile": true,
+    "run": 1,
+    "cls": 0,
+    "lcp": {
+      "ms": 3556,
+      "tag": "H1",
+      "text": "Furnace and Heating Repair in Greater Cleveland",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/services/furnace-heating-repair",
+    "mobile": true,
+    "run": 2,
+    "cls": 0,
+    "lcp": {
+      "ms": 3532,
+      "tag": "H1",
+      "text": "Furnace and Heating Repair in Greater Cleveland",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/services/furnace-heating-repair",
+    "mobile": true,
+    "run": 3,
+    "cls": 0,
+    "lcp": {
+      "ms": 3532,
+      "tag": "H1",
+      "text": "Furnace and Heating Repair in Greater Cleveland",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/services/boiler-service",
+    "mobile": true,
+    "run": 1,
+    "cls": 0,
+    "lcp": {
+      "ms": 3528,
+      "tag": "P",
+      "text": "Boiler diagnostics, repair, operating checks and preventive maintenance for homes, multifamily build",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/services/boiler-service",
+    "mobile": true,
+    "run": 2,
+    "cls": 0,
+    "lcp": {
+      "ms": 3536,
+      "tag": "P",
+      "text": "Boiler diagnostics, repair, operating checks and preventive maintenance for homes, multifamily build",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/services/boiler-service",
+    "mobile": true,
+    "run": 3,
+    "cls": 0,
+    "lcp": {
+      "ms": 3540,
+      "tag": "P",
+      "text": "Boiler diagnostics, repair, operating checks and preventive maintenance for homes, multifamily build",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/services/commercial-refrigeration",
+    "mobile": true,
+    "run": 1,
+    "cls": 0,
+    "lcp": {
+      "ms": 3540,
+      "tag": "H1",
+      "text": "Commercial Refrigeration Service in Greater Cleveland",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/services/commercial-refrigeration",
+    "mobile": true,
+    "run": 2,
+    "cls": 0,
+    "lcp": {
+      "ms": 3572,
+      "tag": "H1",
+      "text": "Commercial Refrigeration Service in Greater Cleveland",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/services/commercial-refrigeration",
+    "mobile": true,
+    "run": 3,
+    "cls": 0,
+    "lcp": {
+      "ms": 3560,
+      "tag": "H1",
+      "text": "Commercial Refrigeration Service in Greater Cleveland",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/estimate",
+    "mobile": true,
+    "run": 1,
+    "cls": 0,
+    "lcp": {
+      "ms": 3340,
+      "tag": "IMG",
+      "text": "",
+      "url": "http://127.0.0.1:4179/images/euclid/euclid-oh-sinclair-furnace-installation-720.webp"
+    },
+    "overflow": false
+  },
+  {
+    "path": "/estimate",
+    "mobile": true,
+    "run": 2,
+    "cls": 0,
+    "lcp": {
+      "ms": 3360,
+      "tag": "IMG",
+      "text": "",
+      "url": "http://127.0.0.1:4179/images/euclid/euclid-oh-sinclair-furnace-installation-720.webp"
+    },
+    "overflow": false
+  },
+  {
+    "path": "/estimate",
+    "mobile": true,
+    "run": 3,
+    "cls": 0,
+    "lcp": {
+      "ms": 3356,
+      "tag": "IMG",
+      "text": "",
+      "url": "http://127.0.0.1:4179/images/euclid/euclid-oh-sinclair-furnace-installation-720.webp"
+    },
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "mobile": false,
+    "run": 1,
+    "cls": 0,
+    "lcp": {
+      "ms": 564,
+      "tag": "H1",
+      "text": "Cleveland HVAC,refrigeration& boiler service.",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "mobile": false,
+    "run": 2,
+    "cls": 0,
+    "lcp": {
+      "ms": 544,
+      "tag": "H1",
+      "text": "Cleveland HVAC,refrigeration& boiler service.",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/",
+    "mobile": false,
+    "run": 3,
+    "cls": 0,
+    "lcp": {
+      "ms": 540,
+      "tag": "H1",
+      "text": "Cleveland HVAC,refrigeration& boiler service.",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/services/furnace-heating-repair",
+    "mobile": false,
+    "run": 1,
+    "cls": 0,
+    "lcp": {
+      "ms": 600,
+      "tag": "IMG",
+      "text": "",
+      "url": "http://127.0.0.1:4179/images/residential-hvac.jpg"
+    },
+    "overflow": false
+  },
+  {
+    "path": "/services/furnace-heating-repair",
+    "mobile": false,
+    "run": 2,
+    "cls": 0,
+    "lcp": {
+      "ms": 600,
+      "tag": "IMG",
+      "text": "",
+      "url": "http://127.0.0.1:4179/images/residential-hvac.jpg"
+    },
+    "overflow": false
+  },
+  {
+    "path": "/services/furnace-heating-repair",
+    "mobile": false,
+    "run": 3,
+    "cls": 0,
+    "lcp": {
+      "ms": 604,
+      "tag": "IMG",
+      "text": "",
+      "url": "http://127.0.0.1:4179/images/residential-hvac.jpg"
+    },
+    "overflow": false
+  },
+  {
+    "path": "/services/boiler-service",
+    "mobile": false,
+    "run": 1,
+    "cls": 0,
+    "lcp": {
+      "ms": 600,
+      "tag": "H1",
+      "text": "Boiler Service and Repair in Greater Cleveland",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/services/boiler-service",
+    "mobile": false,
+    "run": 2,
+    "cls": 0,
+    "lcp": {
+      "ms": 580,
+      "tag": "H1",
+      "text": "Boiler Service and Repair in Greater Cleveland",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/services/boiler-service",
+    "mobile": false,
+    "run": 3,
+    "cls": 0,
+    "lcp": {
+      "ms": 600,
+      "tag": "H1",
+      "text": "Boiler Service and Repair in Greater Cleveland",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/services/commercial-refrigeration",
+    "mobile": false,
+    "run": 1,
+    "cls": 0,
+    "lcp": {
+      "ms": 600,
+      "tag": "H1",
+      "text": "Commercial Refrigeration Service in Greater Cleveland",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/services/commercial-refrigeration",
+    "mobile": false,
+    "run": 2,
+    "cls": 0,
+    "lcp": {
+      "ms": 600,
+      "tag": "H1",
+      "text": "Commercial Refrigeration Service in Greater Cleveland",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/services/commercial-refrigeration",
+    "mobile": false,
+    "run": 3,
+    "cls": 0,
+    "lcp": {
+      "ms": 608,
+      "tag": "H1",
+      "text": "Commercial Refrigeration Service in Greater Cleveland",
+      "url": ""
+    },
+    "overflow": false
+  },
+  {
+    "path": "/estimate",
+    "mobile": false,
+    "run": 1,
+    "cls": 0,
+    "lcp": {
+      "ms": 560,
+      "tag": "IMG",
+      "text": "",
+      "url": "http://127.0.0.1:4179/images/euclid/euclid-oh-sinclair-furnace-installation-720.webp"
+    },
+    "overflow": false
+  },
+  {
+    "path": "/estimate",
+    "mobile": false,
+    "run": 2,
+    "cls": 0,
+    "lcp": {
+      "ms": 568,
+      "tag": "IMG",
+      "text": "",
+      "url": "http://127.0.0.1:4179/images/euclid/euclid-oh-sinclair-furnace-installation-720.webp"
+    },
+    "overflow": false
+  },
+  {
+    "path": "/estimate",
+    "mobile": false,
+    "run": 3,
+    "cls": 0,
+    "lcp": {
+      "ms": 564,
+      "tag": "IMG",
+      "text": "",
+      "url": "http://127.0.0.1:4179/images/euclid/euclid-oh-sinclair-furnace-installation-720.webp"
+    },
+    "overflow": false
+  }
+]

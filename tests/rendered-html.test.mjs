@@ -1018,3 +1018,26 @@ test("uses the tightly cropped transparent Eternity brand assets", async () => {
   assert.match(favicon, /viewBox="286 270 452 236"/);
   assert.match(chrome, /eternity-logo-reverse\.svg/);
 });
+
+test('all sitemap pages have unique metadata, self canonicals and indexable HTML', async () => {
+  const sitemap = await readFile(new URL('../public/sitemap.xml', import.meta.url), 'utf8');
+  const urls = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)].map(x => x[1]);
+  const titles = new Set();
+  for (const url of urls) {
+    const response = await render(new URL(url).pathname);
+    assert.equal(response.status, 200, url);
+    const html = await response.text();
+    const title = html.match(/<title>(.*?)<\/title>/s)?.[1];
+    assert.ok(title && !titles.has(title), `Missing or duplicate title: ${url}`);
+    titles.add(title);
+    assert.match(html, /<meta name="description" content="[^"]+"/);
+    const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+    assert.equal(new URL(canonical).href, new URL(url).href);
+    assert.doesNotMatch(html, /<meta name="robots" content="[^"]*noindex/);
+    for (const match of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)) assert.ok(JSON.parse(match[1]));
+  }
+  assert.doesNotMatch(sitemap, /<loc>[^<]*(?:\/admin\/|\/appointment\/|euclid-rooftop-hvac-diagnostic)/);
+  const missing = await render('/not-a-real-page-audit');
+  assert.equal(missing.status, 404);
+  assert.match(await missing.text(), /<meta name="robots" content="noindex"/);
+});

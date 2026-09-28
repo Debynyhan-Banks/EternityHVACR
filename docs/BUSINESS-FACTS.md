@@ -73,7 +73,7 @@ Do not publish supplier names, quote numbers, account or customer details, stree
 
 - The repeated email supplied by Eternity is recorded as both the public email and the service-request destination.
 - Cleveland, Cuyahoga County and the approved priority and extended communities in `app/data/serviceAreas.ts` are approved for general website copy. Dedicated location pages still require genuine, location-specific proof before publication.
-- Emergency service is confirmed outside normal hours. Exact 24/7 coverage and expected response time remain unconfirmed, so public copy should say “Emergency service available” rather than promise 24/7 response.
+- Emergency service is confirmed outside normal hours. Continuous 24/7 technician availability and arrival times remain unconfirmed. Keep “Emergency service available”; do not turn reply targets into arrival promises. The approved CLIENT-CONTENT-CHECKLIST.md records website requests typically reviewed within 15 minutes during regular business hours, and SMS monitored 24/7 with a 15-minute reply target.
 - Being a service-area business means the website can describe the service region without publishing a customer-facing street address.
 - The Google share link was supplied by Eternity and redirects through Google's sharing service. Keep it as the approved profile link unless a permanent Maps or Business Profile URL is later supplied.
 - Bernard Gray reviewed and approved the first four expert answers on August 28, 2026. His reviewer attribution may be displayed on those guides.
@@ -84,8 +84,8 @@ Do not publish supplier names, quote numbers, account or customer details, stree
 ## Still needed
 
 - [ ] Confirm whether emergency service is continuously available 24/7 or subject to availability
-- [ ] Expected response time for normal requests
-- [ ] Expected response time for urgent requests
+- [x] Website request review target — typically within 15 minutes during regular business hours; reconciled September 28, 2026 with the existing approved client checklist.
+- [ ] Technician arrival time for urgent requests — not promised; urgent requests should call directly.
 - [x] Exact cities regularly served — approved priority and extended list is maintained in `app/data/serviceAreas.ts`
 - [x] ZIP codes regularly served — approved list is maintained in `app/data/serviceAreas.ts`
 - [ ] Maximum normal travel radius

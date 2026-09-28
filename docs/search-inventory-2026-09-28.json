@@ -1,0 +1,312 @@
+[
+  {
+    "path": "/admin/second-opinions",
+    "status": "requires Cloudflare runtime",
+    "sitemap": false
+  },
+  {
+    "path": "/appointment/manage",
+    "status": 200,
+    "title": "Manage Appointment | Eternity Mechanical Services",
+    "description": "Securely view, reschedule or cancel an Eternity Mechanical Services appointment.",
+    "canonical": "https://eternityhvacr.com",
+    "robots": "noindex, nofollow",
+    "sitemap": false,
+    "schemaBlocks": 1
+  },
+  {
+    "path": "/areas-we-serve/cleveland-heights-oh",
+    "status": 200,
+    "title": "HVAC Repair in Cleveland Heights, OH | Eternity",
+    "description": "HVAC repair, furnace, boiler, heat-pump, installation and commercial mechanical service in Cleveland Heights, Ohio from Eternity Mechanical Services.",
+    "canonical": "https://eternityhvacr.com/areas-we-serve/cleveland-heights-oh",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-09-09",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/areas-we-serve/euclid-oh",
+    "status": 200,
+    "title": "HVAC Repair &amp; Installation in Euclid, OH | Eternity",
+    "description": "Residential HVAC installation, commercial HVAC diagnostics and refrigeration service in Euclid, Ohio from Eternity Mechanical Services.",
+    "canonical": "https://eternityhvacr.com/areas-we-serve/euclid-oh",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-08-25",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/areas-we-serve",
+    "status": 200,
+    "title": "HVAC Service Areas Near Cleveland, OH | Eternity",
+    "description": "Find HVAC repair, boiler, heat pump, commercial refrigeration and preventive-maintenance coverage across Cleveland, Euclid and Northeast Ohio.",
+    "canonical": "https://eternityhvacr.com/areas-we-serve",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-08-24",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/estimate",
+    "status": 200,
+    "title": "2026 Cleveland HVAC Replacement Cost Guide | Eternity",
+    "description": "See supplier-based Greater Cleveland HVAC planning examples, labor ranges, a disclosed 15% material markup and factors that change the final proposal.",
+    "canonical": "https://eternityhvacr.com/estimate",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-09-25",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/",
+    "status": 200,
+    "title": "Cleveland HVAC, Refrigeration &amp; Boiler Service | Eternity",
+    "description": "Licensed and insured HVAC, commercial refrigeration, boiler repair, installation and preventive maintenance across Greater Cleveland and Northeast Ohio.",
+    "canonical": "https://eternityhvacr.com",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-09-25",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/privacy",
+    "status": 200,
+    "title": "Privacy &amp; Data Use | Eternity Mechanical Services",
+    "description": "How Eternity Mechanical Services collects, uses and protects information submitted through eternityhvacr.com.",
+    "canonical": "https://eternityhvacr.com/privacy",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-08-28",
+    "schemaBlocks": 1
+  },
+  {
+    "path": "/projects/euclid-central-air-installation",
+    "status": 200,
+    "title": "Euclid Central Air &amp; Furnace Installation | Case Study",
+    "description": "See how Eternity replaced a furnace more than 40 years old and added a complete 3-ton central-air system for a Euclid, Ohio homeowner.",
+    "canonical": "https://eternityhvacr.com/projects/euclid-central-air-installation",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-08-25",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/projects/euclid-payne-hvac-installation",
+    "status": 200,
+    "title": "Euclid Payne HVAC Replacement | Case Study",
+    "description": "See the matched 80,000 BTU Payne furnace, coil and 2.5-ton condenser Eternity installed for a Euclid, Ohio home being prepared for resale.",
+    "canonical": "https://eternityhvacr.com/projects/euclid-payne-hvac-installation",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-08-25",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/projects/euclid-rooftop-hvac-diagnostic",
+    "status": 200,
+    "title": "Commercial Rooftop HVAC Equipment Conditions | Field Record",
+    "description": "A photo-supported field record of a frozen evaporator coil, equipment contamination, blower dust and missing filtration on commercial rooftop equipment in the 44119 market.",
+    "canonical": "https://eternityhvacr.com/projects/euclid-rooftop-hvac-diagnostic",
+    "robots": "noindex, follow",
+    "sitemap": false,
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/projects",
+    "status": 200,
+    "title": "HVAC Project Case Studies | Eternity Mechanical",
+    "description": "Explore verified heating and cooling installations completed by Eternity Mechanical Services in Greater Cleveland and Northeast Ohio.",
+    "canonical": "https://eternityhvacr.com/projects",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-09-25",
+    "schemaBlocks": 1
+  },
+  {
+    "path": "/resources/commercial-refrigeration-maintenance-frequency",
+    "status": 200,
+    "title": "Commercial Refrigeration Maintenance Frequency | Eternity",
+    "description": "How to set a commercial refrigeration maintenance schedule based on equipment, operating load, environment, door traffic and manufacturer requirements.",
+    "canonical": "https://eternityhvacr.com/resources/commercial-refrigeration-maintenance-frequency",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-08-28",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/resources/furnace-repair-vs-replacement",
+    "status": 200,
+    "title": "Furnace Repair or Replacement: How to Decide | Eternity",
+    "description": "A practical furnace repair-or-replace framework using safety, verified condition, repair history, cost, comfort and long-term plans—not age alone.",
+    "canonical": "https://eternityhvacr.com/resources/furnace-repair-vs-replacement",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-08-28",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/resources",
+    "status": 200,
+    "title": "HVAC &amp; Refrigeration Expert Answers | Eternity Mechanical",
+    "description": "Direct, safety-conscious HVAC and refrigeration answers for Greater Cleveland property owners, facility managers, restaurants and homeowners.",
+    "canonical": "https://eternityhvacr.com/resources",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-08-28",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/resources/rooftop-hvac-short-cycling",
+    "status": 200,
+    "title": "What causes a rooftop HVAC unit to short-cycle? | Eternity Mechanical",
+    "description": "Why a commercial rooftop HVAC unit starts and stops too often, what a facility manager can document and how technicians diagnose the cause.",
+    "canonical": "https://eternityhvacr.com/resources/rooftop-hvac-short-cycling",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-08-28",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/resources/walk-in-cooler-icing-up",
+    "status": 200,
+    "title": "Why is my walk-in cooler icing up? | Eternity Mechanical",
+    "description": "Common causes of ice on a walk-in cooler evaporator, safe observations to make and when a Greater Cleveland refrigeration technician is needed.",
+    "canonical": "https://eternityhvacr.com/resources/walk-in-cooler-icing-up",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-08-28",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/second-opinion",
+    "status": 200,
+    "title": "HVAC Second Opinion Upload | Eternity Mechanical",
+    "description": "Privately upload an HVAC diagnosis, quote or equipment photos for an Eternity Mechanical second-opinion review in Greater Cleveland.",
+    "canonical": "https://eternityhvacr.com/second-opinion",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-09-09",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/services/air-conditioning-installation",
+    "status": 200,
+    "title": "AC Installation &amp; Replacement | Cleveland, OH | Eternity",
+    "description": "Air-conditioning installation and replacement planning for homes, multifamily properties and businesses throughout Greater Cleveland.",
+    "canonical": "https://eternityhvacr.com/services/air-conditioning-installation",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-08-28",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/services/air-conditioning-repair",
+    "status": 200,
+    "title": "AC Repair | Cleveland, OH | Eternity",
+    "description": "Air-conditioning diagnostics and repair for homes, multifamily properties and businesses throughout Greater Cleveland and Northeast Ohio.",
+    "canonical": "https://eternityhvacr.com/services/air-conditioning-repair",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-08-28",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/services/boiler-service",
+    "status": 200,
+    "title": "Boiler Service &amp; Repair | Cleveland, OH | Eternity",
+    "description": "Boiler diagnostics, service, repair and preventive maintenance for residential and commercial properties throughout Greater Cleveland and Northeast Ohio.",
+    "canonical": "https://eternityhvacr.com/services/boiler-service",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-09-28",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/services/commercial-hvac",
+    "status": 200,
+    "title": "Commercial HVAC Repair | Cleveland, OH | Eternity",
+    "description": "Commercial HVAC repair, diagnostics and maintenance for rooftop units, packaged systems and managed properties across Cleveland and Northeast Ohio.",
+    "canonical": "https://eternityhvacr.com/services/commercial-hvac",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-08-24",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/services/commercial-refrigeration",
+    "status": 200,
+    "title": "Commercial Refrigeration Service | Greater Cleveland | Eternity",
+    "description": "Commercial refrigeration diagnostics, repair and preventive maintenance for walk-ins, cold storage and controls throughout Greater Cleveland and Northeast Ohio.",
+    "canonical": "https://eternityhvacr.com/services/commercial-refrigeration",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-09-28",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/services/emergency-hvac-r",
+    "status": 200,
+    "title": "Emergency HVAC/R Service | Cleveland, OH | Eternity",
+    "description": "Urgent HVAC and refrigeration diagnostics for system-down and time-sensitive equipment problems throughout Greater Cleveland. Call to confirm availability.",
+    "canonical": "https://eternityhvacr.com/services/emergency-hvac-r",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-08-28",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/services/furnace-heating-repair",
+    "status": 200,
+    "title": "Furnace &amp; Heating Repair | Cleveland, OH | Eternity",
+    "description": "Furnace and heating diagnostics, repair, installation and replacement for homes, multifamily properties and businesses throughout Greater Cleveland.",
+    "canonical": "https://eternityhvacr.com/services/furnace-heating-repair",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-09-28",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/services/heat-pump-service",
+    "status": 200,
+    "title": "Heat Pump Service &amp; Repair | Cleveland, OH | Eternity",
+    "description": "Heat-pump diagnostics, repair, maintenance, installation and replacement for Greater Cleveland homes, multifamily properties and businesses.",
+    "canonical": "https://eternityhvacr.com/services/heat-pump-service",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-08-28",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/services/preventive-maintenance",
+    "status": 200,
+    "title": "HVAC Maintenance | Cleveland, OH | Eternity",
+    "description": "Residential and commercial HVAC preventive maintenance for furnaces, air conditioners, rooftop units and refrigeration equipment across Greater Cleveland.",
+    "canonical": "https://eternityhvacr.com/services/preventive-maintenance",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-08-24",
+    "schemaBlocks": 2
+  },
+  {
+    "path": "/terms",
+    "status": 200,
+    "title": "Website Terms | Eternity Mechanical Services",
+    "description": "Terms for using eternityhvacr.com and submitting service or estimate requests to Eternity Mechanical Services.",
+    "canonical": "https://eternityhvacr.com/terms",
+    "robots": "index, follow",
+    "sitemap": true,
+    "lastmod": "2026-08-28",
+    "schemaBlocks": 1
+  },
+  {
+    "path": "/not-a-real-page-audit",
+    "status": 404,
+    "title": "Cleveland HVAC, Refrigeration &amp; Boiler Service | Eternity",
+    "description": "Licensed and insured HVAC, commercial refrigeration, boiler repair, installation and preventive maintenance across Greater Cleveland and Northeast Ohio.",
+    "canonical": "https://eternityhvacr.com",
+    "robots": "noindex",
+    "sitemap": false,
+    "schemaBlocks": 1
+  }
+]
