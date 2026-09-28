@@ -55,6 +55,7 @@ export default function SignmonsAssistant() {
   const [chatLoadingStage, setChatLoadingStage] = useState(0);
   const [chatError, setChatError] = useState("");
   const [lastFailedMessage, setLastFailedMessage] = useState("");
+  const [feeAcknowledged, setFeeAcknowledged] = useState(false);
   const [appointmentSlots, setAppointmentSlots] = useState<AppointmentSlot[]>([]);
   const [appointmentJobId, setAppointmentJobId] = useState("");
   const [bookingSlotToken, setBookingSlotToken] = useState("");
@@ -236,6 +237,7 @@ export default function SignmonsAssistant() {
       if (result.status === "availability" && result.jobId && result.slots?.length) {
         setAppointmentJobId(result.jobId);
         setAppointmentSlots(result.slots);
+        setFeeAcknowledged(false);
       }
       setLastFailedMessage("");
       trackGoogleEvent("assistant_response_received", {
@@ -253,7 +255,7 @@ export default function SignmonsAssistant() {
   }
 
   async function confirmAppointment(slot: AppointmentSlot) {
-    if (!appointmentJobId || bookingSlotToken) return;
+    if (!appointmentJobId || bookingSlotToken || !feeAcknowledged) return;
     setBookingSlotToken(slot.token);
     setChatError("");
     try {
@@ -264,6 +266,7 @@ export default function SignmonsAssistant() {
           sessionId: sessionIdRef.current,
           jobId: appointmentJobId,
           slotToken: slot.token,
+          feeAcknowledged,
         }),
       });
       const result = await response.json() as { status?: string; appointmentLabel?: string; jobReference?: string; managementPath?: string; error?: string };
@@ -278,6 +281,7 @@ export default function SignmonsAssistant() {
         throw new Error(result.error || "We could not confirm that appointment.");
       }
       setAppointmentSlots([]);
+      setFeeAcknowledged(false);
       setAppointmentJobId("");
       setChatMessages((messages) => [...messages, {
         id: crypto.randomUUID(),
@@ -317,6 +321,7 @@ export default function SignmonsAssistant() {
     setEstimatorContext("");
     setChatError("");
     setAppointmentSlots([]);
+    setFeeAcknowledged(false);
     setAppointmentJobId("");
   }
 
@@ -430,11 +435,12 @@ export default function SignmonsAssistant() {
               <h3 id="signmons-slots-title">Choose an arrival window</h3>
               <p>Selecting a time confirms this residential diagnostic appointment.</p>
               <p><strong>Residential service charge: $99 during regular hours; $149 after hours ($99 + $50).</strong> Regular hours are Monday–Friday, 7 a.m.–7 p.m., and Saturday, 9 a.m.–5 p.m., Eastern Time. Sunday is emergency service only; call 216-703-3183.</p>
+              <label className="consent-row"><input type="checkbox" checked={feeAcknowledged} onChange={(event) => setFeeAcknowledged(event.target.checked)} disabled={Boolean(bookingSlotToken)} /><span>I acknowledge the $99 residential service charge, or $149 after hours. Pay at the visit. Repair work is quoted separately.</span></label>
               <div>
                 {appointmentSlots.map((slot) => <button
                   type="button"
                   key={slot.token}
-                  disabled={Boolean(bookingSlotToken)}
+                  disabled={Boolean(bookingSlotToken) || !feeAcknowledged}
                   onClick={() => void confirmAppointment(slot)}
                 >
                   {bookingSlotToken === slot.token ? "Confirming…" : slot.label}

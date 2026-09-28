@@ -254,3 +254,7 @@ Owner authorized updating the existing second-opinion page to describe the free 
 ## September 28, 2026 — Booking destination
 
 Prepared /book using confirmed service charges and business hours, existing Signmons residential booking control, commercial/estimate request links, and private second-opinion upload. Added fee disclosure at residential appointment selection. Navigation, footer Sunday wording, metadata, sitemap and sanitized public analytics path updated. 36 rendered/API tests and 23 browser tests passed; see BOOKING-PAGE-REVIEW.md. No backend/payment/provider or Google Business Profile changes; no real appointment submitted.
+
+### September 28, 2026 — Website service-charge acknowledgment
+
+Implemented separate paid-service/free-estimate handoffs, payment-at-visit disclosure, required paid-request acknowledgment, email terms, and a website-side residential confirmation acknowledgment. Signmons backend and Stripe remain outside this website change. See SERVICE-CHARGE-REVIEW-20260928.md for scope and validation boundaries.

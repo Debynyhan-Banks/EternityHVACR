@@ -2,6 +2,7 @@ type ConfirmationRequest = {
   sessionId?: unknown;
   jobId?: unknown;
   slotToken?: unknown;
+  feeAcknowledged?: unknown;
 };
 
 const NO_STORE_HEADERS = { "cache-control": "no-store" };
@@ -44,6 +45,10 @@ export async function POST(request: Request) {
     slotToken.length > 2048
   ) {
     return jsonResponse({ error: "That appointment choice is invalid." }, 400);
+  }
+
+  if (payload.feeAcknowledged !== true) {
+    return jsonResponse({ error: "Please acknowledge the service charge and payment at the visit." }, 400);
   }
 
   const apiUrl = process.env.SIGNMONS_API_URL?.replace(/\/$/, "");

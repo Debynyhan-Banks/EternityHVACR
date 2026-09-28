@@ -522,6 +522,7 @@ test("proxies appointment confirmation with conflict and idempotency safeguards"
     sessionId: "session-1234",
     jobId: "11111111-1111-4111-8111-111111111111",
     slotToken: "valid-slot-token-1234567890",
+    feeAcknowledged: true,
   };
   let upstream = {
     status: 200,
@@ -531,7 +532,11 @@ test("proxies appointment confirmation with conflict and idempotency safeguards"
       managementToken: "secure-management-token-1234567890",
     },
   };
-  globalThis.fetch = async () => Response.json(upstream.body, { status: upstream.status });
+  globalThis.fetch = async (_url, init) => {
+    const { feeAcknowledged: _ack, ...originalContract } = requestBody;
+    assert.deepEqual(JSON.parse(init.body), originalContract);
+    return Response.json(upstream.body, { status: upstream.status });
+  };
 
   const confirmed = await dispatch(new Request("https://eternityhvacr.com/api/signmons/appointments/confirm", {
     method: "POST",
@@ -888,6 +893,7 @@ test("keeps delivery unavailable until the server-side email key is configured",
       phone: "216-555-0100",
       email: "test@example.com",
       serviceConsent: true,
+      feeAcknowledged: true,
       website: "",
       startedAt: Date.now() - 2000,
     }),
@@ -1040,4 +1046,51 @@ test('all sitemap pages have unique metadata, self canonicals and indexable HTML
   const missing = await render('/not-a-real-page-audit');
   assert.equal(missing.status, 404);
   assert.match(await missing.text(), /<meta name="robots" content="noindex"/);
+});
+
+test("paid requests require explicit fee acknowledgment; free estimates do not, and emails preserve the terms", async (t) => {
+  const originalFetch = globalThis.fetch;
+  const originalKey = process.env.RESEND_API_KEY;
+  process.env.RESEND_API_KEY = 'synthetic-test-key';
+  const deliveries = [];
+  globalThis.fetch = async (_url, init) => { deliveries.push(JSON.parse(init.body)); return Response.json({ id: 'synthetic' }); };
+  t.after(() => { globalThis.fetch = originalFetch; if (originalKey === undefined) delete process.env.RESEND_API_KEY; else process.env.RESEND_API_KEY = originalKey; });
+  let ip = 30;
+  const send = (extra) => dispatch(new Request('https://eternityhvacr.com/api/service-request', {
+    method: 'POST', headers: { origin: 'https://eternityhvacr.com', 'content-type': 'application/json', 'x-forwarded-for': `192.0.2.${ip++}` },
+    body: JSON.stringify({ requestType: 'Repair or diagnostic', service: 'Heating', customer: 'My home', timing: 'This week', details: 'Synthetic local equipment request.', name: 'Test Customer', phone: '2025550100', email: 'test@example.invalid', serviceConsent: true, website: '', startedAt: Date.now() - 3000, ...extra }),
+  }));
+  for (const feeAcknowledged of [undefined, false, 'true']) {
+    assert.equal((await send({ feeAcknowledged })).status, 400);
+  }
+  assert.equal(deliveries.length, 0);
+  assert.equal((await send({ feeAcknowledged: true, customer: 'A business', requestType: 'Commercial / refrigeration' })).status, 200);
+  assert.equal(deliveries.length, 2);
+  for (const email of deliveries) for (const content of [email.text, email.html]) {
+    assert.match(content, /Service-charge acknowledgment: Confirmed on website/);
+    assert.match(content, /Commercial: \$150/);
+    assert.match(content, /Pay at the visit/);
+  }
+  deliveries.length = 0;
+  assert.equal((await send({ requestType: 'Installation estimate', feeAcknowledged: false })).status, 200);
+  assert.equal(deliveries.length, 2);
+  for (const email of deliveries) {
+    assert.match(email.html, /Free installation estimate/);
+    assert.doesNotMatch(email.html, /Service-charge acknowledgment: Confirmed/);
+  }
+});
+
+test("website appointment confirmation rejects unacknowledged fees without calling upstream", async (t) => {
+  const originalFetch = globalThis.fetch;
+  let calls = 0;
+  globalThis.fetch = async () => { calls++; throw new Error('must not call upstream'); };
+  t.after(() => { globalThis.fetch = originalFetch; });
+  for (const feeAcknowledged of [undefined, false, 'true']) {
+    const response = await dispatch(new Request('https://eternityhvacr.com/api/signmons/appointments/confirm', {
+      method: 'POST', headers: { origin: 'https://eternityhvacr.com', 'content-type': 'application/json' },
+      body: JSON.stringify({ sessionId: 'session-test', jobId: '11111111-1111-4111-8111-111111111111', slotToken: 'synthetic-slot-token-only', feeAcknowledged }),
+    }));
+    assert.equal(response.status, 400);
+  }
+  assert.equal(calls, 0);
 });

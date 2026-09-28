@@ -1,3 +1,4 @@
+import { isPaidServiceRequest, requestChargeSummary } from "../../lib/service-charges";
 const SERVICES = new Set([
   "Air conditioning",
   "Heating",
@@ -41,6 +42,7 @@ type ServiceRequestPayload = {
   phone?: unknown;
   email?: unknown;
   serviceConsent?: unknown;
+  feeAcknowledged?: unknown;
   website?: unknown;
   startedAt?: unknown;
   attribution?: unknown;
@@ -181,7 +183,7 @@ function buildInternalHtmlEmail({
             <tr>
               <td style="padding:22px 32px 8px;">
                 <h2 style="margin:0 0 10px;color:#0B2646;font-size:16px;line-height:1.3;">Equipment or issue</h2>
-                <div style="padding:18px;background:#f8fafc;border-left:4px solid #0B2646;color:#344054;font-size:14px;line-height:1.7;">${safeDetails}</div>
+                <div style="padding:18px;background:#f8fafc;border-left:4px solid #0B2646;color:#344054;font-size:14px;line-height:1.7;">${safeDetails}</div><p style="font-size:14px;line-height:1.7;">${escapeHtml(requestChargeSummary(requestType))}</p>
               </td>
             </tr>
             <tr>
@@ -293,7 +295,7 @@ function buildCustomerHtmlEmail({
             <tr>
               <td style="padding:22px 32px 8px;">
                 <h2 style="margin:0 0 10px;color:#0B2646;font-size:16px;line-height:1.3;">Your request details</h2>
-                <div style="padding:18px;background:#f8fafc;border-left:4px solid #0B2646;color:#344054;font-size:14px;line-height:1.7;">${safeDetails}</div>
+                <div style="padding:18px;background:#f8fafc;border-left:4px solid #0B2646;color:#344054;font-size:14px;line-height:1.7;">${safeDetails}</div><p style="font-size:14px;line-height:1.7;">${escapeHtml(requestChargeSummary(requestType))}</p>
               </td>
             </tr>
             <tr>
@@ -417,6 +419,10 @@ export async function POST(request: Request) {
     return Response.json({ error: "Please complete every field with valid information." }, { status: 400 });
   }
 
+  if (isPaidServiceRequest(requestType) && payload.feeAcknowledged !== true) {
+    return Response.json({ error: "Please acknowledge the service charge and payment at the visit." }, { status: 400 });
+  }
+
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     return Response.json({ error: "Service request delivery is temporarily unavailable." }, { status: 503 });
@@ -431,6 +437,7 @@ export async function POST(request: Request) {
     `Service: ${service}`,
     `Customer type: ${customer}`,
     `Timing: ${timing}`,
+    requestChargeSummary(requestType),
     "",
     "Equipment or issue:",
     details,
@@ -474,6 +481,7 @@ export async function POST(request: Request) {
     `Service: ${service}`,
     `Property: ${customer}`,
     `Requested timing: ${timing}`,
+    requestChargeSummary(requestType),
     "",
     "Your request details:",
     details,

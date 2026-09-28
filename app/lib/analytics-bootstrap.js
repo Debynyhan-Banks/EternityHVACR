@@ -244,7 +244,7 @@ export const analyticsConfig = {
   sources: ["google", "bing", "facebook", "instagram", "linkedin", "newsletter", "gbp", "chatgpt", "openai", "perplexity", "gemini", "copilot", "claude", "meta.ai"],
   mediums: ["organic", "referral", "email", "social", "cpc", "paid_social"],
   campaigns: [],
-  serviceScopes: ["furnace-heating-repair", "boiler-service", "commercial-refrigeration"],
+  serviceScopes: ["furnace-heating-repair", "boiler-service", "commercial-refrigeration", "commercial-service", "installation-estimate"],
   referrers: ["google.com", "bing.com", "facebook.com", "instagram.com", "linkedin.com", "chatgpt.com", "chat.openai.com", "perplexity.ai", "gemini.google.com", "copilot.microsoft.com", "claude.ai", "meta.ai"],
   aiSources: { chatgpt: "chatgpt", openai: "chatgpt", "chatgpt.com": "chatgpt", "chat.openai.com": "chatgpt", perplexity: "perplexity", "perplexity.ai": "perplexity", gemini: "gemini", "gemini.google.com": "gemini", copilot: "copilot", "copilot.microsoft.com": "copilot", claude: "claude", "claude.ai": "claude", "meta.ai": "meta_ai" },
   events: ["phone_click", "text_click", "email_click", "review_link_click", "ai_referral_visit", "service_form_start", "service_form_step", "service_form_complete", "service_form_error", "generate_lead", "emergency_request", "service_area_check", "estimator_handoff_loaded", "project_estimator_scope_selected", "project_estimator_completed", "project_estimator_assistant_opened", "assistant_open", "assistant_estimator_context_received", "assistant_path_selected", "assistant_chat_started", "assistant_message_sent", "assistant_response_received", "assistant_appointment_failed", "assistant_appointment_confirmed", "assistant_handoff"],

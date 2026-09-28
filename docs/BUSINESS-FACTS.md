@@ -113,3 +113,7 @@ When a fact changes:
 2. Update the website, structured data and search profiles together.
 3. Record the change in `PROGRESS-TRACKER.md`.
 4. Confirm that the public website and Google Business Profile remain consistent.
+
+## Website service-charge acknowledgment — September 28, 2026
+
+Owner-approved: service visits are paid at the visit, with no online payment required. Residential is $99 during regular hours, plus $50 after hours ($149 total); commercial is $150, plus $75 after hours ($225 total). Regular hours are Monday–Friday 7 a.m.–7 p.m. and Saturday 9 a.m.–5 p.m., Eastern; Sunday emergencies only. Installation estimates and second opinions remain free, onsite or remote. Free installation pricing does not include diagnostic or repair visits. Website paid request submissions and residential arrival-window confirmation require an explicit fee acknowledgment. This does not alter the separate Signmons backend or payment configuration.

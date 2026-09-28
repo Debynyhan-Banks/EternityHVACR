@@ -220,7 +220,8 @@ async function fillRequest(page) {
   await page.getByPlaceholder('Full name').fill('Synthetic Test');
   await page.getByPlaceholder('Phone number').fill('2025550100');
   await page.getByPlaceholder('Email address').fill('synthetic@example.invalid');
-  await page.getByRole('checkbox').check();
+  await page.getByRole('checkbox', { name: /I authorize Eternity/ }).check();
+  await page.getByRole('checkbox', { name: /I acknowledge/ }).check();
 }
 
 test('accepted request counts one lead; errors and duplicate submissions do not', async ({ context, page }) => {
@@ -362,7 +363,8 @@ for (const [slug, service, requestPath] of [
     await page.getByPlaceholder('Full name').fill('Synthetic Test');
     await page.getByPlaceholder('Phone number').fill('2025550100');
     await page.getByPlaceholder('Email address').fill('synthetic@example.invalid');
-    await page.getByRole('checkbox').check();
+    await page.getByRole('checkbox', { name: /I authorize Eternity/ }).check();
+    await page.getByRole('checkbox', { name: /I acknowledge/ }).check();
     await loadTag(page, capture);
     await page.getByRole('button', { name: 'Send request to Eternity' }).click();
     await expect(page.getByRole('status')).toContainText('Your request is with Eternity');

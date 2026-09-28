@@ -1,5 +1,6 @@
 "use client";
 
+import { isPaidServiceRequest, paidServiceTerms, freeEstimateTerms, serviceHours } from "../lib/service-charges";
 import { servicePrefill } from "../lib/service-prefills";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { trackGoogleEvent } from "./Analytics";
@@ -15,6 +16,7 @@ type RequestData = {
   phone: string;
   email: string;
   serviceConsent: boolean;
+  feeAcknowledged: boolean;
   website: string;
 };
 
@@ -28,15 +30,16 @@ const initial: RequestData = {
   phone: "",
   email: "",
   serviceConsent: false,
+  feeAcknowledged: false,
   website: "",
 };
 
 const requestPaths = [
-  ["Emergency / system down", "Urgent equipment problem"],
-  ["Repair or diagnostic", "Troubleshoot an existing system"],
-  ["Installation estimate", "Plan replacement or new equipment"],
-  ["Commercial / refrigeration", "Business, facility or cold storage"],
-  ["Preventive maintenance", "Inspection or recurring service"],
+  ["Emergency / system down", "Paid service visit · Urgent equipment problem"],
+  ["Repair or diagnostic", "Paid service visit · Troubleshoot an existing system"],
+  ["Installation estimate", "Free estimate · Replacement or new equipment"],
+  ["Commercial / refrigeration", "Paid service visit · Business, facility or cold storage"],
+  ["Preventive maintenance", "Paid service visit · Inspection or recurring service"],
 ];
 
 const services = ["Air conditioning", "Heating", "Boiler", "Heat pump", "Commercial HVAC", "Refrigeration", "Installation", "Maintenance"];
@@ -98,12 +101,12 @@ export default function ServiceRequest() {
 
   function update<K extends keyof RequestData>(key: K, value: RequestData[K]) {
     if (key !== "website") trackStart();
-    setData((current) => ({ ...current, [key]: value }));
+    setData((current) => ({ ...current, [key]: value, ...(key === "customer" ? { feeAcknowledged: false } : {}) }));
   }
 
   function chooseRequestType(requestType: string) {
     trackStart();
-    setData((current) => ({ ...current, requestType, service: "", timing: "" }));
+    setData((current) => ({ ...current, requestType, service: "", timing: "", feeAcknowledged: false }));
   }
 
   function continueForm() {
@@ -118,7 +121,7 @@ export default function ServiceRequest() {
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (requestInFlight.current || requestAccepted.current) return;
+    if (requestInFlight.current || requestAccepted.current || (isPaidServiceRequest(data.requestType) && !data.feeAcknowledged)) return;
     requestInFlight.current = true;
     setSubmitting(true);
     setError("");
@@ -201,7 +204,8 @@ export default function ServiceRequest() {
           data.name.trim().length >= 2
           && data.phone.replace(/\D/g, "").length >= 7
           && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim())
-          && data.serviceConsent,
+          && data.serviceConsent
+          && (!isPaidServiceRequest(data.requestType) || data.feeAcknowledged),
         );
 
   return (
@@ -229,6 +233,8 @@ export default function ServiceRequest() {
         <div className="customer-row"><b>I’m requesting help for</b>{["My home", "A business", "A managed property"].map((item) => <label className={data.customer === item ? "active" : ""} key={item}><input type="radio" name="customer" checked={data.customer === item} onChange={() => update("customer", item)} />{item}</label>)}</div>
       </fieldset>}
 
+      {data.requestType && <div className="urgent-note"><p><strong>{isPaidServiceRequest(data.requestType) ? "Paid service visit — Pay at the visit" : "Free installation estimate"}</strong></p><p>{isPaidServiceRequest(data.requestType) ? paidServiceTerms : freeEstimateTerms}</p>{isPaidServiceRequest(data.requestType) && <p>{serviceHours}</p>}<p>For a free review of another contractor’s quote, <a href="/second-opinion">request a second opinion</a>.</p></div>}
+
       {step === 1 && <fieldset>
         <legend>Tell us about the equipment.</legend>
         <p>Share enough detail for the team to understand the service category, condition and urgency.</p>
@@ -242,6 +248,7 @@ export default function ServiceRequest() {
         <legend>How should we contact you?</legend>
         <p>We’ll use these details only to follow up about this service or estimate request.</p>
         <div className="contact-fields"><label className="field-label">Name<input value={data.name} minLength={2} onChange={(event) => update("name", event.target.value)} placeholder="Full name" autoComplete="name" required /></label><label className="field-label">Phone<input value={data.phone} type="tel" onChange={(event) => update("phone", event.target.value)} placeholder="Phone number" autoComplete="tel" required /><small className="field-hint">Enter at least 7 digits.</small></label><label className="field-label full">Email<input value={data.email} type="email" onChange={(event) => update("email", event.target.value)} placeholder="Email address" autoComplete="email" required /></label></div>
+        {isPaidServiceRequest(data.requestType) && <label className="consent-row"><input type="checkbox" checked={data.feeAcknowledged} onChange={(event) => update("feeAcknowledged", event.target.checked)} required /><span>I acknowledge the residential or commercial service charge shown above, including the applicable after-hours charge. I will pay at the visit. This is a paid service request, not a free estimate.</span></label>}
         <label className="consent-row"><input type="checkbox" checked={data.serviceConsent} onChange={(event) => update("serviceConsent", event.target.checked)} required /><span>I authorize Eternity Mechanical Services to contact me by phone, service-related text message or email about this request. This is not marketing consent. Message and data rates may apply. I have reviewed the <a href="/privacy">Privacy & Data Use notice</a> and <a href="/terms">Website Terms</a>.</span></label>
         <label className="form-honeypot" aria-hidden="true">Website<input value={data.website} onChange={(event) => update("website", event.target.value)} tabIndex={-1} autoComplete="off" /></label>
         <div className="request-summary"><span>{data.requestType}</span><span>{data.service}</span><span>{data.customer}</span><span>{data.timing}</span></div>
@@ -253,7 +260,7 @@ export default function ServiceRequest() {
         {step > 0 && <button className="form-back" type="button" disabled={submitting} onClick={() => setStep((value) => value - 1)}>← Back</button>}
         {step < 2 ? <button className="form-next" type="button" disabled={!ready} onClick={continueForm}>Continue <span>→</span></button> : <button className="form-next" type="submit" disabled={!ready || submitting}>{submitting ? "Sending request…" : "Send request to Eternity"} <span>↗</span></button>}
       </div>
-      <small>Appointment availability, scope and service details are confirmed directly by Eternity Mechanical Services. A website submission does not schedule an appointment.</small>
+      <small>Appointment availability, scope and service details are confirmed directly by Eternity Mechanical Services. Submitting this request form does not confirm an appointment.</small>
     </form>
   );
 }

@@ -40,6 +40,7 @@ test('residential charges are visible before a live slot can be confirmed', asyn
       slots: [{ token: 'synthetic_local_slot_token_only', start: '2026-09-29T14:00:00Z', end: '2026-09-29T16:00:00Z', label: 'Tuesday, 10 a.m.–noon' }],
     } });
     if (url.pathname === '/api/signmons/appointments/confirm') {
+      expect(route.request().postDataJSON().feeAcknowledged).toBe(true);
       confirmations++;
       return route.fulfill({ json: { status: 'appointment_confirmed', appointmentLabel: 'Tuesday, 10 a.m.–noon', jobReference: 'LOCALTEST', managementPath: '/appointment/manage#synthetic_local_token_only' } });
     }
@@ -52,7 +53,50 @@ test('residential charges are visible before a live slot can be confirmed', asyn
   await page.getByRole('button', { name: 'Send message', exact: true }).click();
   await expect(page.getByText('Residential service charge: $99 during regular hours; $149 after hours ($99 + $50).', { exact: true })).toBeVisible();
   expect(confirmations).toBe(0);
+  await expect(page.getByRole('button', { name: 'Tuesday, 10 a.m.–noon', exact: true })).toBeDisabled();
+  await page.getByRole('checkbox', { name: /I acknowledge/ }).check();
   await page.getByRole('button', { name: 'Tuesday, 10 a.m.–noon', exact: true }).click();
   await expect(page.getByText(/Your residential diagnostic appointment is confirmed/)).toBeVisible();
   expect(confirmations).toBe(1);
+});
+
+test('free estimate stays free; switching to a paid request requires acknowledgment again', async ({ context, page }) => {
+  const submissions = [];
+  await context.route('**/*', route => {
+    const url = new URL(route.request().url());
+    if (url.hostname !== '127.0.0.1') return route.abort();
+    if (url.pathname === '/api/service-request') { submissions.push(route.request().postDataJSON()); return route.fulfill({ json: { ok: true } }); }
+    if (url.pathname.startsWith('/api/')) return route.abort();
+    return route.continue();
+  });
+  await page.goto('/?serviceScope=installation-estimate#schedule');
+  await expect(page.getByRole('radio', { name: /Installation estimate/ })).toBeChecked();
+  await page.locator('label').filter({ hasText: 'My home' }).click();
+  await page.getByRole('button', { name: 'Continue', exact: false }).click();
+  await page.getByLabel('Equipment or issue').fill('Synthetic replacement estimate request');
+  await page.getByRole('button', { name: 'Continue', exact: false }).click();
+  await page.getByPlaceholder('Full name').fill('Synthetic Test');
+  await page.getByPlaceholder('Phone number').fill('2025550100');
+  await page.getByPlaceholder('Email address').fill('synthetic@example.invalid');
+  await page.getByRole('checkbox', { name: /I authorize/ }).check();
+  await expect(page.getByRole('checkbox', { name: /I acknowledge/ })).toHaveCount(0);
+  await expect(page.getByRole('button', { name: /Send request to Eternity/ })).toBeEnabled();
+  await page.getByRole('button', { name: /Back/ }).click();
+  await page.getByRole('button', { name: /Back/ }).click();
+  await page.locator('label').filter({ hasText: 'Repair or diagnostic' }).click();
+  await page.getByRole('button', { name: 'Continue', exact: false }).click();
+  await page.getByLabel('Service category').selectOption('Heating');
+  await page.getByLabel('When do you need service?').selectOption('This week');
+  await page.getByRole('button', { name: 'Continue', exact: false }).click();
+  await expect(page.getByRole('button', { name: /Send request to Eternity/ })).toBeDisabled();
+  await page.getByRole('checkbox', { name: /I acknowledge/ }).check();
+  await expect(page.getByRole('button', { name: /Send request to Eternity/ })).toBeEnabled();
+  await page.getByRole('button', { name: /Back/ }).click();
+  await page.getByRole('button', { name: /Back/ }).click();
+  await page.locator('label').filter({ hasText: 'A business' }).click();
+  await page.getByRole('button', { name: 'Continue', exact: false }).click();
+  await page.getByRole('button', { name: 'Continue', exact: false }).click();
+  await expect(page.getByRole('checkbox', { name: /I acknowledge/ })).not.toBeChecked();
+  await expect(page.getByRole('button', { name: /Send request to Eternity/ })).toBeDisabled();
+  expect(submissions).toEqual([]);
 });
