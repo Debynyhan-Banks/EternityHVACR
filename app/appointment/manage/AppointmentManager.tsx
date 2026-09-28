@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { trackGoogleEvent } from "../../components/Analytics";
 
 type Slot = { token: string; start: string; end: string; label: string };
 type Appointment = { label: string; start?: string; end?: string };
@@ -51,7 +50,6 @@ export default function AppointmentManager() {
         setAppointment(result.appointment);
         setReference(result.reference);
         setState(result.state === "cancelled" ? "cancelled" : "confirmed");
-        trackGoogleEvent("appointment_manage_viewed", { appointment_state: result.state ?? "confirmed" });
       } catch (cause) {
         if (!active) return;
         setState("error");
@@ -79,7 +77,6 @@ export default function AppointmentManager() {
     try {
       const result = await request("availability");
       setSlots(result.slots ?? []);
-      trackGoogleEvent("appointment_reschedule_started", {});
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "No alternate times are available.");
     } finally {
@@ -95,7 +92,6 @@ export default function AppointmentManager() {
       if (!result.appointment) throw new Error("The new time could not be verified.");
       setAppointment(result.appointment);
       setSlots([]);
-      trackGoogleEvent("appointment_rescheduled", { appointment_start: slot.start });
     } catch (cause) {
       setSlots((current) => current.filter((choice) => choice.token !== slot.token));
       setError(cause instanceof Error ? cause.message : "We could not change the appointment.");
@@ -112,7 +108,6 @@ export default function AppointmentManager() {
       await request("cancel");
       setState("cancelled");
       setSlots([]);
-      trackGoogleEvent("appointment_cancelled", {});
     } catch (cause) {
       setError(cause instanceof Error ? cause.message : "We could not cancel the appointment.");
     } finally {

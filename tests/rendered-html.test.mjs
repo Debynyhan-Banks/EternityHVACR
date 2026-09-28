@@ -346,7 +346,7 @@ test("publishes a disclosed Signmons service-routing assistant with safety and h
   assert.match(component, /Choose an arrival window/);
   assert.match(component, /assistant_appointment_confirmed/);
   assert.match(component, /<a[\s\S]*className="signmons-manage-link"[\s\S]*href=\{message\.manageHref\}/);
-  assert.match(component, /appointment_manage_opened/);
+  assert.doesNotMatch(component, /appointment_manage_opened|appointment_start/);
   assert.doesNotMatch(component, /<Link className="signmons-manage-link"/);
   assert.match(component, /fetch\("\/api\/signmons"/);
   assert.match(component, /Describe a problem/);
@@ -930,8 +930,7 @@ test("captures first-touch attribution and uses reliable request-service navigat
   ]);
 
   assert.match(layout, /<AttributionCapture \/>/);
-  assert.match(attribution, /sessionStorage\.setItem\(ATTRIBUTION_STORAGE_KEY/);
-  assert.match(attribution, /landingPage: stored\.landingPage \?\? currentPath\(\)/);
+  assert.match(attribution, /eternityAnalytics\?\.getAttribution/);
   assert.match(form, /captureLeadAttribution\("website_service_request"\)/);
   assert.match(form, /JSON\.stringify\(\{ \.\.\.data, startedAt, attribution \}\)/);
   assert.match(form, /landing_page: attribution\.landingPage/);
@@ -973,13 +972,15 @@ test("keeps client and server service-request validation aligned", async () => {
 test("installs Google Analytics and records lead actions without customer PII", async () => {
   const [layout, analytics, form, checker] = await Promise.all([
     readFile(new URL("../app/layout.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../app/components/Analytics.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../app/lib/analytics-bootstrap.js", import.meta.url), "utf8"),
     readFile(new URL("../app/components/ServiceRequest.tsx", import.meta.url), "utf8"),
     readFile(new URL("../app/components/ServiceAreaChecker.tsx", import.meta.url), "utf8"),
   ]);
 
-  assert.match(layout, /G-32W3PBPD8Y/);
-  assert.match(layout, /googletagmanager\.com\/gtag\/js/);
+  assert.match(layout, /analyticsBootstrap/);
+  const bootstrap = await readFile(new URL("../app/lib/analytics-bootstrap.js", import.meta.url), "utf8");
+  assert.match(bootstrap, /G-32W3PBPD8Y/);
+  assert.match(bootstrap, /googletagmanager\.com\/gtag\/js/);
   assert.match(form, /trackGoogleEvent\("generate_lead"/);
   assert.match(form, /trackGoogleEvent\("service_form_start"/);
   assert.match(form, /trackGoogleEvent\("service_form_step"/);

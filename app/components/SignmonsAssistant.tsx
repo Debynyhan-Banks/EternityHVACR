@@ -288,7 +288,6 @@ export default function SignmonsAssistant() {
       }]);
       trackGoogleEvent("assistant_appointment_confirmed", {
         assistant: "signmons_calldesk",
-        appointment_start: slot.start,
       });
     } catch (error) {
       setChatError(error instanceof Error ? error.message : "We could not confirm that appointment.");
@@ -417,7 +416,6 @@ export default function SignmonsAssistant() {
                 {message.manageHref && <a
                   className="signmons-manage-link"
                   href={message.manageHref}
-                  onClick={() => trackGoogleEvent("appointment_manage_opened", { source: "assistant_confirmation" })}
                 >Manage appointment →</a>}
               </div>)}
               {chatLoading && <div className="signmons-message assistant loading"><span>Assistant</span><p>{[

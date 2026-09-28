@@ -64,6 +64,8 @@ export default function ServiceRequest() {
   const [confirmationSent, setConfirmationSent] = useState(true);
   const [startedAt, setStartedAt] = useState(() => Date.now());
   const trackedStart = useRef(false);
+  const requestInFlight = useRef(false);
+  const requestAccepted = useRef(false);
 
   useEffect(() => {
     const estimateScope = new URLSearchParams(window.location.search).get("estimateScope");
@@ -107,6 +109,8 @@ export default function ServiceRequest() {
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (requestInFlight.current || requestAccepted.current) return;
+    requestInFlight.current = true;
     setSubmitting(true);
     setError("");
 
@@ -120,6 +124,7 @@ export default function ServiceRequest() {
 
       const result = await response.json() as { error?: string; confirmationSent?: boolean };
       if (!response.ok) throw new Error(result.error || "We couldn’t send your request. Please try again.");
+      requestAccepted.current = true;
       setConfirmationSent(result.confirmationSent !== false);
       const eventParameters = {
         lead_source: "website_service_request",
@@ -129,9 +134,6 @@ export default function ServiceRequest() {
         requested_timing: data.timing,
         landing_page: attribution.landingPage,
         source_page: attribution.sourcePage,
-        campaign_source: attribution.utmSource ?? "direct",
-        campaign_medium: attribution.utmMedium ?? "none",
-        campaign_name: attribution.utmCampaign ?? "none",
       };
       trackGoogleEvent("generate_lead", eventParameters);
       trackGoogleEvent("service_form_complete", eventParameters);
@@ -149,6 +151,7 @@ export default function ServiceRequest() {
       trackGoogleEvent("service_form_error", { request_path: data.requestType, service_type: data.service });
       setError(`${message} You can also call 216-703-3183 or email Ben directly.`);
     } finally {
+      requestInFlight.current = false;
       setSubmitting(false);
     }
   }
@@ -160,6 +163,8 @@ export default function ServiceRequest() {
     setConfirmationSent(true);
     setStartedAt(Date.now());
     trackedStart.current = false;
+    requestAccepted.current = false;
+    requestInFlight.current = false;
   }
 
   if (complete) {

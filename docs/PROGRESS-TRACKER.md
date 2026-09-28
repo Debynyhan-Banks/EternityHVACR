@@ -1,6 +1,6 @@
 # Eternity Mechanical Services Website Progress Tracker
 
-Last updated: September 10, 2026
+Last updated: September 27, 2026
 
 This file is the source of truth for the SEO, GEO, content and feature program. Update it whenever a task begins, finishes, becomes blocked or changes scope.
 
@@ -16,11 +16,11 @@ This file is the source of truth for the SEO, GEO, content and feature program. 
 
 ## Current position
 
-**Current milestone:** Search-ready HVAC pricing estimator and customer planning tools
+**Current milestone:** Website optimization — baseline and privacy/measurement (Milestones 0–1).
 
-**Current status:** The published estimator uses five visual scope selectors, scope-aware service-request and Ask Eternity handoffs, local service links, crawlable comparison content, methodology and reviewer context. An unpublished local candidate now adds six historical supplier-based pricing examples, a disclosed 15% material-markup method, separate labor ranges, matching FAQ and OfferCatalog data, service-page links and clearer nonbinding-price language. Commercial RTUs still require a custom diagnostic and load calculation. The private second-opinion workflow and Cleveland Heights page remain published.
+**Current status:** The existing pricing source `40bc39b` is published as Sites version 103; fresh read-only version/deployment receipts supersede the older unpublished-candidate note. The approved privacy/measurement change is implemented and locally verified in an isolated worktree: build, 35 rendered/API checks, 17 mocked browser tests, type checking and whitespace pass; lint has zero errors and 15 existing image warnings. It has not been pushed or deployed. See [baseline and evidence](WEBSITE-OPTIMIZATION-BASELINE.md) and [event contract](ANALYTICS-EVENT-CONTRACT.md).
 
-**Next action:** Review the local pricing candidate, then obtain separate approval before pushing or publishing it. The remaining labeled second-opinion acceptance upload and 30-day cleanup evidence stay open as a separate workflow.
+**Next action:** Review the bounded diff and [verification/release package](WEBSITE-OPTIMIZATION-REVIEW.md). Verify the existing GA4 enhanced-measurement and key-event settings before any separately authorized publication. Service conversion, SEO/performance and content milestones remain queued. The separate labeled second-opinion acceptance upload and 30-day cleanup evidence remain open.
 
 ## Phase 1 information blockers
 
@@ -102,6 +102,7 @@ Full intake checklist: [CLIENT-CONTENT-CHECKLIST.md](CLIENT-CONTENT-CHECKLIST.md
 
 | Date | Change | Outcome | Next step |
 |---|---|---|---|
+| 2026-09-27 | Implemented local analytics privacy/measurement milestone | Early route isolation, URL/event allowlists, fail-safe contact tracking, one counted form-lead contract and duplicate-submit guards; 35 rendered/API and 17 mocked browser checks pass. Sites receipts confirm prior version 103 is published. This new change is locally tested only. | Review diff; verify GA4 account settings before separately approved publication |
 | 2026-09-25 | Prepared the authentic Greater Cleveland HVAC pricing candidate | Added homepage price previews, a 2026 replacement-cost guide, historical quote dates, disclosed 15% material-markup calculation, separate installation-labor ranges, matching FAQ and structured data, and native-link/mobile CTA reliability fixes. No raw supplier costs, quote IDs, customer details or unsupported efficiency claims are published. Build, all 35 rendered checks and lint with no errors pass locally; this candidate is not yet pushed or published. | Complete owner review, then request separate push and Sites publication approval |
 | 2026-09-10 | Published the approved estimator pricing and conversion release | Added the cooling-only condenser-and-coil $5,000 starting price; replaced the dropdown and extra submit step with five visual instant-result choices; clarified included scope and price factors; added service links, methodology and reviewed-date context; carried the selection into the service-request form and Ask Eternity; and corrected action spacing. Build, lint with no errors and all 32 checks pass; production routes return HTTP 200; Chrome verified the live $5,000 selection and cooling-scope request prefill | Complete one labeled second-opinion upload, verify the owner download and retain cleanup evidence |
 | 2026-09-09 | Published the estimator, private second-opinion workflow, shared schema system and Cleveland Heights page | Added D1 metadata and private R2 objects, content-signature and size validation, explicit owner/admin authentication, 30-day access/cleanup, internal email notification, evidence-bounded city copy, sitemap/internal links and privacy/terms updates; build, zero-error lint, 32 automated checks, Chrome desktop/mobile review and production HTTP checks pass | Complete one labeled upload, verify the owner download and confirm retention cleanup evidence |

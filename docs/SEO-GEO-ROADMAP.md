@@ -18,7 +18,13 @@ This plan treats SEO, local search, generative-engine visibility and conversion 
 - Measure calls, requests and booked work instead of judging success by traffic alone.
 - Do not create mass-produced city pages or fake reviews.
 
-## Baseline audit
+## Current execution checkpoint — September 27, 2026
+
+The September 25 audit/implementation plan is now authorized for **Milestones 0–1 only**: establish the exact baseline and implement privacy-safe, resilient analytics. Existing GA4/crawlers/sitemap/request delivery are already implemented; the original checklists below are historical planning, not instructions to reinstall them. Source and Sites receipts confirm pricing version 103 is published. Current work is local and not yet published; follow the [progress tracker](PROGRESS-TRACKER.md), [baseline](WEBSITE-OPTIMIZATION-BASELINE.md) and [event contract](ANALYTICS-EVENT-CONTRACT.md).
+
+Next queue: existing furnace/boiler/refrigeration conversion → metadata/fact consistency and measured performance → evidence-approved case study/guides/property-manager content. Account configuration and production verification are distinct from code completion.
+
+## Historical baseline audit
 
 ### Already completed
 

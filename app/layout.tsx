@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
-import AnalyticsEvents from "./components/Analytics";
+import { analyticsBootstrap } from "./lib/analytics-bootstrap";
 import AttributionCapture from "./components/AttributionCapture";
 import SignmonsAssistant from "./components/SignmonsAssistant";
 import "./globals.css";
-
-const GOOGLE_ANALYTICS_ID = "G-32W3PBPD8Y";
 
 const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"] });
 const inter = Inter({ variable: "--font-inter", subsets: ["latin"] });
@@ -101,28 +99,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <head>
-        <script dangerouslySetInnerHTML={{ __html: `window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${GOOGLE_ANALYTICS_ID}');
-(function loadAnalytics(){
-  function insertTag(){
-    if (document.querySelector('script[data-eternity-analytics]')) return;
-    var script = document.createElement('script');
-    script.async = true;
-    script.dataset.eternityAnalytics = 'true';
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}';
-    document.head.appendChild(script);
-  }
-  function scheduleTag(){ window.setTimeout(insertTag, 2500); }
-  if (document.readyState === 'complete') scheduleTag();
-  else window.addEventListener('load', scheduleTag, { once: true });
-})();` }} />
+        <script dangerouslySetInnerHTML={{ __html: analyticsBootstrap }} />
       </head>
       <body className={`${manrope.variable} ${inter.variable}`}>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(businessSchema) }} />
         <AttributionCapture />
-        <AnalyticsEvents />
         {children}
         <SignmonsAssistant />
       </body>
