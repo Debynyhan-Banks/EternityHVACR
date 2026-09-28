@@ -246,3 +246,7 @@ Complete after analytics and search platforms are connected.
 - Prepared the cooler case study, project-library card, refrigeration-service proof link, canonical/Article/Breadcrumb metadata, sitemap entry, and public analytics route allowlist entry. Existing private-route protections and service form behavior remain unchanged.
 - Case study reports the observed 34°F temperature and normal cycling during the visit. It makes no long-term temperature, savings, food-safety or universal charging-rule claim. Exact readings not supplied remain absent.
 - Local candidate only: no website publication, Google settings/indexing requests, customer contact or live form submissions in this milestone. See HALF-MOON-CASE-STUDY-REVIEW.md for validation and release decision.
+
+## September 28, 2026 — Free second-opinion wording
+
+Owner authorized updating the existing second-opinion page to describe the free licensed-contractor quote review and possible better price for comparable work. Updated headline, introductory copy, metadata and visible FAQ/schema. Existing form, API, privacy and retention controls are unchanged. No booking-flow or Google Business Profile changes in this scope.

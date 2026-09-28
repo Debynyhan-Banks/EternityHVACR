@@ -97,6 +97,10 @@ Do not publish supplier names, quote numbers, account or customer details, stree
 - [x] Owner/founder name, title and biography — Bernard Gray, Owner; 28 years of HVAC/R experience including boilers and refrigeration
 - [ ] Approved minority-owned statement and any certifications
 
+## Free second-opinion quote review
+
+Owner confirmed September 28, 2026: customers may upload a written quote from a verifiable, licensed HVAC contractor for a free review of equipment, scope and price. Eternity explains whether the price looks reasonable and whether it can offer a better price for comparable work; a lower price is not guaranteed. Reuse the existing private upload form and 30-day retention controls.
+
 ## Change control
 
 When a fact changes:
