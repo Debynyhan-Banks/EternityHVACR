@@ -357,9 +357,15 @@ for (const [slug, service, requestPath] of [
     await expect(page.getByLabel('Service category')).toHaveValue('Heat pump');
     await page.getByLabel('Service category').selectOption(service);
     await page.getByLabel('When do you need service?').selectOption('This week');
+    await page.getByLabel('Property address', { exact: true }).fill('123 Synthetic Street');
+    await page.getByRole('combobox', { name: 'Property type', exact: true }).selectOption('Rental home');
+    await page.getByLabel('Affected units or buildings').fill('1');
+    await page.getByLabel('Access arrangements').fill('Manager will coordinate');
     await page.getByRole('textbox', { name: /equipment|happening|details/i }).fill(canary);
     await expect(page.locator('.mobile-bar')).toBeHidden();
     await page.getByRole('button', { name: 'Continue' }).click();
+    await page.getByRole('combobox', { name: 'Your role', exact: true }).selectOption('Property owner');
+    await page.getByRole('checkbox', { name: /I am the property owner/ }).check();
     await page.getByPlaceholder('Full name').fill('Synthetic Test');
     await page.getByPlaceholder('Phone number').fill('2025550100');
     await page.getByPlaceholder('Email address').fill('synthetic@example.invalid');

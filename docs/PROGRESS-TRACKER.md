@@ -258,3 +258,7 @@ Prepared /book using confirmed service charges and business hours, existing Sign
 ### September 28, 2026 — Website service-charge acknowledgment
 
 Implemented separate paid-service/free-estimate handoffs, payment-at-visit disclosure, required paid-request acknowledgment, email terms, and a website-side residential confirmation acknowledgment. Signmons backend and Stripe remain outside this website change. See SERVICE-CHARGE-REVIEW-20260928.md for scope and validation boundaries.
+
+### Property-manager page
+
+Added `/multifamily-hvac` for landlords and managed communities, including the owner-confirmed Eliza Bryant PTAC swap, management-only request details, property-dependent service-charge acknowledgment, free estimate and maintenance handoffs, and search metadata/internal links. See PROPERTY-MANAGER-PAGE-REVIEW.md.

@@ -1,6 +1,7 @@
 "use client";
 
 import { isPaidServiceRequest, paidServiceTerms, freeEstimateTerms, serviceHours } from "../lib/service-charges";
+import { managementTerms, managementRoles, propertyTypes } from "../lib/property-management";
 import { servicePrefill } from "../lib/service-prefills";
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { trackGoogleEvent } from "./Analytics";
@@ -18,6 +19,14 @@ type RequestData = {
   serviceConsent: boolean;
   feeAcknowledged: boolean;
   website: string;
+  managementAuthorized: boolean;
+  managementRole: string;
+  company: string;
+  propertyAddress: string;
+  propertyType: string;
+  affectedUnits: string;
+  accessDetails: string;
+  vendorRequirements: string;
 };
 
 const initial: RequestData = {
@@ -32,6 +41,14 @@ const initial: RequestData = {
   serviceConsent: false,
   feeAcknowledged: false,
   website: "",
+  managementAuthorized: false,
+  managementRole: "",
+  company: "",
+  propertyAddress: "",
+  propertyType: "",
+  affectedUnits: "",
+  accessDetails: "",
+  vendorRequirements: "",
 };
 
 const requestPaths = [
@@ -42,7 +59,7 @@ const requestPaths = [
   ["Preventive maintenance", "Paid service visit · Inspection or recurring service"],
 ];
 
-const services = ["Air conditioning", "Heating", "Boiler", "Heat pump", "Commercial HVAC", "Refrigeration", "Installation", "Maintenance"];
+const services = ["Air conditioning", "Heating", "Boiler", "Heat pump", "Commercial HVAC", "Refrigeration", "PTAC", "Installation", "Maintenance"];
 
 const estimatorPrefills: Record<string, Pick<RequestData, "requestType" | "service" | "timing" | "details">> = {
   "direct-furnace-swap": { requestType: "Installation estimate", service: "Heating", timing: "Planning an estimate", details: "I used the estimator for a furnace changeout ($1,500–$2,500 typical installation labor, with equipment and materials separate)." },
@@ -59,9 +76,10 @@ function timingOptions(requestType: string) {
   return ["As soon as available", "This week", "Planning an estimate", "Routine maintenance", "Emergency / system down"];
 }
 
-export default function ServiceRequest() {
+export default function ServiceRequest({ managementOnly = false }: { managementOnly?: boolean }) {
   const [step, setStep] = useState(0);
-  const [data, setData] = useState<RequestData>(initial);
+  const [data, setData] = useState<RequestData>(() => ({ ...initial, customer: managementOnly ? "A managed property" : "" }));
+  const isManaged = data.customer === "A managed property";
   const [complete, setComplete] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
@@ -84,10 +102,10 @@ export default function ServiceRequest() {
     const preset = estimate || service;
     if (!preset) return;
     const prefillTimer = window.setTimeout(() => setData((current) =>
-      current.requestType || current.service ? current : { ...current, ...preset }), 0);
+      current.requestType || current.service ? current : { ...current, ...preset, ...(managementOnly ? { customer: "A managed property" } : {}) }), 0);
     if (estimate && estimateScope) trackGoogleEvent("estimator_handoff_loaded", { estimator_project: estimateScope });
     return () => window.clearTimeout(prefillTimer);
-  }, []);
+  }, [managementOnly]);
 
   useEffect(() => () => {
     delete document.body.dataset.serviceFormActive;
@@ -101,7 +119,7 @@ export default function ServiceRequest() {
 
   function update<K extends keyof RequestData>(key: K, value: RequestData[K]) {
     if (key !== "website") trackStart();
-    setData((current) => ({ ...current, [key]: value, ...(key === "customer" ? { feeAcknowledged: false } : {}) }));
+    setData((current) => ({ ...current, [key]: value, ...(key === "customer" ? { feeAcknowledged: false, managementAuthorized: false } : {}) }));
   }
 
   function chooseRequestType(requestType: string) {
@@ -121,7 +139,7 @@ export default function ServiceRequest() {
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (requestInFlight.current || requestAccepted.current || (isPaidServiceRequest(data.requestType) && !data.feeAcknowledged)) return;
+    if ((isManaged && !data.managementAuthorized) || requestInFlight.current || requestAccepted.current || (isPaidServiceRequest(data.requestType) && !data.feeAcknowledged)) return;
     requestInFlight.current = true;
     setSubmitting(true);
     setError("");
@@ -171,7 +189,7 @@ export default function ServiceRequest() {
   function resetForm() {
     setComplete(false);
     setStep(0);
-    setData(initial);
+    setData({ ...initial, customer: managementOnly ? "A managed property" : "" });
     setConfirmationSent(true);
     setStartedAt(Date.now());
     trackedStart.current = false;
@@ -199,11 +217,13 @@ export default function ServiceRequest() {
   const ready = step === 0
     ? Boolean(data.requestType && data.customer)
     : step === 1
-      ? Boolean(data.service && data.timing && data.details.trim().length >= 10)
+      ? Boolean(data.service && data.timing && data.details.trim().length >= 10
+        && (!isManaged || (data.propertyAddress.trim().length >= 5 && data.propertyType && data.affectedUnits.trim() && data.accessDetails.trim().length >= 3)))
       : Boolean(
           data.name.trim().length >= 2
           && data.phone.replace(/\D/g, "").length >= 7
           && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim())
+          && (!isManaged || (data.managementRole && data.managementAuthorized))
           && data.serviceConsent
           && (!isPaidServiceRequest(data.requestType) || data.feeAcknowledged),
         );
@@ -230,14 +250,21 @@ export default function ServiceRequest() {
         <div className="choice-grid request-path-grid">
           {requestPaths.map(([value, description]) => <label className={data.requestType === value ? "active" : ""} key={value}><input type="radio" name="requestType" checked={data.requestType === value} onChange={() => chooseRequestType(value)} /><span><b>{value}</b><small>{description}</small></span><i>→</i></label>)}
         </div>
-        <div className="customer-row"><b>I’m requesting help for</b>{["My home", "A business", "A managed property"].map((item) => <label className={data.customer === item ? "active" : ""} key={item}><input type="radio" name="customer" checked={data.customer === item} onChange={() => update("customer", item)} />{item}</label>)}</div>
+        {managementOnly ? <p><strong>For property owners and authorized management only.</strong> Tenants should report equipment problems to their property manager.</p> : <div className="customer-row"><b>I’m requesting help for</b>{["My home", "A business", "A managed property"].map((item) => <label className={data.customer === item ? "active" : ""} key={item}><input type="radio" name="customer" checked={data.customer === item} onChange={() => update("customer", item)} />{item}</label>)}</div>}
       </fieldset>}
 
-      {data.requestType && <div className="urgent-note"><p><strong>{isPaidServiceRequest(data.requestType) ? "Paid service visit — Pay at the visit" : "Free installation estimate"}</strong></p><p>{isPaidServiceRequest(data.requestType) ? paidServiceTerms : freeEstimateTerms}</p>{isPaidServiceRequest(data.requestType) && <p>{serviceHours}</p>}<p>For a free review of another contractor’s quote, <a href="/second-opinion">request a second opinion</a>.</p></div>}
+      {data.requestType && <div className="urgent-note"><p><strong>{isPaidServiceRequest(data.requestType) ? "Paid service visit — Pay at the visit" : "Free installation estimate"}</strong></p><p>{isPaidServiceRequest(data.requestType) ? (isManaged ? managementTerms : paidServiceTerms) : freeEstimateTerms}</p>{isPaidServiceRequest(data.requestType) && <p>{serviceHours}</p>}<p>For a free review of another contractor’s quote, <a href="/second-opinion">request a second opinion</a>.</p></div>}
 
       {step === 1 && <fieldset>
         <legend>Tell us about the equipment.</legend>
         <p>Share enough detail for the team to understand the service category, condition and urgency.</p>
+        {isManaged && <div className="management-fields">
+          <label className="field-label">Property address<input value={data.propertyAddress} minLength={5} maxLength={250} onChange={(event) => update("propertyAddress", event.target.value)} required /></label>
+          <label className="field-label">Property type<select value={data.propertyType} onChange={(event) => update("propertyType", event.target.value)} required><option value="" disabled>Select property type</option>{propertyTypes.map((type) => <option key={type}>{type}</option>)}</select></label>
+          <label className="field-label">Affected units or buildings<input value={data.affectedUnits} maxLength={160} onChange={(event) => update("affectedUnits", event.target.value)} placeholder="Number of units, building or common area" required /></label>
+          <label className="field-label">Access arrangements<input value={data.accessDetails} minLength={3} maxLength={500} onChange={(event) => update("accessDetails", event.target.value)} placeholder="Who will coordinate access? Do not include access codes." required /></label>
+          <label className="field-label">Purchase-order or vendor requirements (optional)<input value={data.vendorRequirements} maxLength={500} onChange={(event) => update("vendorRequirements", event.target.value)} /></label>
+        </div>}
         <label className="field-label">Service category<select value={data.service} onChange={(event) => update("service", event.target.value)} required><option value="" disabled>Select service</option>{services.map((service) => <option key={service}>{service}</option>)}</select></label>
         <label className="field-label">When do you need service?<select value={data.timing} onChange={(event) => update("timing", event.target.value)} required><option value="" disabled>Select timing</option>{timingOptions(data.requestType).map((timing) => <option key={timing}>{timing}</option>)}</select></label>
         <label className="field-label">Equipment or issue<textarea value={data.details} minLength={10} onChange={(event) => update("details", event.target.value)} placeholder="Tell us what equipment is affected, what you are noticing, and any access details." required /><small className="field-hint">Please enter at least 10 characters. Do not include passwords, payment details or other sensitive information.</small></label>
@@ -247,8 +274,13 @@ export default function ServiceRequest() {
       {step === 2 && <fieldset>
         <legend>How should we contact you?</legend>
         <p>We’ll use these details only to follow up about this service or estimate request.</p>
+        {isManaged && <>
+          <label className="field-label">Management company (optional)<input value={data.company} maxLength={160} onChange={(event) => update("company", event.target.value)} /></label>
+          <label className="field-label">Your role<select value={data.managementRole} onChange={(event) => update("managementRole", event.target.value)} required><option value="" disabled>Select your role</option>{managementRoles.map((role) => <option key={role}>{role}</option>)}</select></label>
+          <label className="consent-row"><input type="checkbox" checked={data.managementAuthorized} onChange={(event) => update("managementAuthorized", event.target.checked)} required /><span>I am the property owner or an authorized management representative submitting this request.</span></label>
+        </>}
         <div className="contact-fields"><label className="field-label">Name<input value={data.name} minLength={2} onChange={(event) => update("name", event.target.value)} placeholder="Full name" autoComplete="name" required /></label><label className="field-label">Phone<input value={data.phone} type="tel" onChange={(event) => update("phone", event.target.value)} placeholder="Phone number" autoComplete="tel" required /><small className="field-hint">Enter at least 7 digits.</small></label><label className="field-label full">Email<input value={data.email} type="email" onChange={(event) => update("email", event.target.value)} placeholder="Email address" autoComplete="email" required /></label></div>
-        {isPaidServiceRequest(data.requestType) && <label className="consent-row"><input type="checkbox" checked={data.feeAcknowledged} onChange={(event) => update("feeAcknowledged", event.target.checked)} required /><span>I acknowledge the residential or commercial service charge shown above, including the applicable after-hours charge. I will pay at the visit. This is a paid service request, not a free estimate.</span></label>}
+        {isPaidServiceRequest(data.requestType) && <label className="consent-row"><input type="checkbox" checked={data.feeAcknowledged} onChange={(event) => update("feeAcknowledged", event.target.checked)} required /><span>{isManaged ? "I acknowledge this is a paid service request. Eternity will confirm the applicable charge based on the property and equipment before scheduling. I will pay at the visit." : "I acknowledge the residential or commercial service charge shown above, including the applicable after-hours charge. I will pay at the visit. This is a paid service request, not a free estimate."}</span></label>}
         <label className="consent-row"><input type="checkbox" checked={data.serviceConsent} onChange={(event) => update("serviceConsent", event.target.checked)} required /><span>I authorize Eternity Mechanical Services to contact me by phone, service-related text message or email about this request. This is not marketing consent. Message and data rates may apply. I have reviewed the <a href="/privacy">Privacy & Data Use notice</a> and <a href="/terms">Website Terms</a>.</span></label>
         <label className="form-honeypot" aria-hidden="true">Website<input value={data.website} onChange={(event) => update("website", event.target.value)} tabIndex={-1} autoComplete="off" /></label>
         <div className="request-summary"><span>{data.requestType}</span><span>{data.service}</span><span>{data.customer}</span><span>{data.timing}</span></div>

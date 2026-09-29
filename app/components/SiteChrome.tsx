@@ -12,7 +12,7 @@ function currentPage(pathname: string, href: string, includeChildren = false) {
     : undefined;
 }
 
-export function SiteHeader() {
+export function SiteHeader({ requestHref = "https://eternityhvacr.com/#schedule" }: { requestHref?: string }) {
   const pathname = usePathname() ?? "/";
   const headerRef = useRef<HTMLElement>(null);
 
@@ -57,6 +57,7 @@ export function SiteHeader() {
             <a href="/services/furnace-heating-repair" aria-current={currentPage(pathname, "/services/furnace-heating-repair")}>Furnace &amp; heating</a>
             <a href="/services/boiler-service" aria-current={currentPage(pathname, "/services/boiler-service")}>Boilers</a>
             <a href="/services/heat-pump-service" aria-current={currentPage(pathname, "/services/heat-pump-service")}>Heat pumps</a>
+            <a href="/multifamily-hvac" aria-current={currentPage(pathname, "/multifamily-hvac")}>Property managers</a>
             <a href="/services/commercial-hvac" aria-current={currentPage(pathname, "/services/commercial-hvac")}>Commercial HVAC</a>
             <a href="/services/commercial-refrigeration" aria-current={currentPage(pathname, "/services/commercial-refrigeration")}>Refrigeration</a>
             <a href="/services/preventive-maintenance" aria-current={currentPage(pathname, "/services/preventive-maintenance")}>Maintenance</a>
@@ -82,7 +83,7 @@ export function SiteHeader() {
           </div>
         </details>
       </nav>
-      <div className="header-actions"><a className="btn btn-small" href="https://eternityhvacr.com/#schedule">Request service</a></div>
+      <div className="header-actions"><a className="btn btn-small" href={requestHref}>Request service</a></div>
       <details className="mobile-menu">
         <summary aria-label="Open navigation"><span /><span /><span /></summary>
         <div>
@@ -92,7 +93,8 @@ export function SiteHeader() {
           <a href="/services/boiler-service" aria-current={currentPage(pathname, "/services/boiler-service")}>Boilers</a>
           <a href="/services/heat-pump-service" aria-current={currentPage(pathname, "/services/heat-pump-service")}>Heat pumps</a>
           <a href="/services/emergency-hvac-r" aria-current={currentPage(pathname, "/services/emergency-hvac-r")}>Emergency HVAC/R</a>
-          <a href="/services/commercial-hvac" aria-current={currentPage(pathname, "/services/commercial-hvac")}>Commercial HVAC</a>
+          <a href="/multifamily-hvac" aria-current={currentPage(pathname, "/multifamily-hvac")}>Property managers</a>
+            <a href="/services/commercial-hvac" aria-current={currentPage(pathname, "/services/commercial-hvac")}>Commercial HVAC</a>
           <a href="/services/commercial-refrigeration" aria-current={currentPage(pathname, "/services/commercial-refrigeration")}>Refrigeration</a>
           <a href="/services/preventive-maintenance" aria-current={currentPage(pathname, "/services/preventive-maintenance")}>Maintenance</a>
           <a href="/book" aria-current={currentPage(pathname, "/book")}>Book service</a>
@@ -109,14 +111,14 @@ export function SiteHeader() {
   </>;
 }
 
-export function SiteFooter() {
+export function SiteFooter({ requestHref = "https://eternityhvacr.com/#schedule" }: { requestHref?: string }) {
   return <>
     <footer>
       <div className="footer-grid">
         <div className="footer-brand"><div className="logo-crop footer-logo"><img src="/images/eternity-logo-reverse.svg" alt="Eternity Mechanical Services" width="924" height="486" loading="lazy" decoding="async" /></div><p>Licensed and insured HVAC, refrigeration, installation, repair and preventive maintenance for residential and commercial customers.</p></div>
         <div><h3>Services</h3><a href="/services/air-conditioning-repair">AC repair</a><a href="/services/air-conditioning-installation">AC installation &amp; replacement</a><a href="/services/furnace-heating-repair">Furnace &amp; heating</a><a href="/services/boiler-service">Boiler service</a><a href="/services/heat-pump-service">Heat pumps</a><a href="/services/emergency-hvac-r">Emergency HVAC/R</a><a href="/services/commercial-hvac">Commercial HVAC</a><a href="/services/commercial-refrigeration">Commercial refrigeration</a><a href="/services/preventive-maintenance">Preventive maintenance</a></div>
-        <div><h3>Company</h3><a href="/#about">About</a><a href="/projects">Project case studies</a><a href="/resources">Expert answers</a><a href="https://share.google/1bUl6S4x9x90TJ7Mf" target="_blank" rel="noreferrer">Google profile</a><a data-review-link href="https://g.page/r/CYsWl6Bz9AJvEBM/review" target="_blank" rel="noreferrer">Write a Google review</a><a href="/areas-we-serve">Areas we serve</a><a href="/areas-we-serve/euclid-oh">Euclid HVAC service</a><a href="/areas-we-serve/cleveland-heights-oh">Cleveland Heights HVAC</a><a href="/#contact">Contact</a></div>
-        <div><h3>Customer</h3><a href="/book">Book service</a><a href="https://eternityhvacr.com/#schedule">Request service</a><a href="/estimate">Project estimator</a><a href="/second-opinion">Private second opinion</a><a data-sms-link href="sms:+12167033183">Text Eternity</a><a href="/services/commercial-hvac">Commercial service</a><a href="/services/preventive-maintenance">Maintenance</a><a href="/privacy">Privacy &amp; data use</a><a href="/terms">Website terms</a></div>
+        <div><h3>Company</h3><a href="/multifamily-hvac">Property managers</a><a href="/#about">About</a><a href="/projects">Project case studies</a><a href="/resources">Expert answers</a><a href="https://share.google/1bUl6S4x9x90TJ7Mf" target="_blank" rel="noreferrer">Google profile</a><a data-review-link href="https://g.page/r/CYsWl6Bz9AJvEBM/review" target="_blank" rel="noreferrer">Write a Google review</a><a href="/areas-we-serve">Areas we serve</a><a href="/areas-we-serve/euclid-oh">Euclid HVAC service</a><a href="/areas-we-serve/cleveland-heights-oh">Cleveland Heights HVAC</a><a href="/#contact">Contact</a></div>
+        <div><h3>Customer</h3><a href="/book">Book service</a><a href={requestHref}>Request service</a><a href="/estimate">Project estimator</a><a href="/second-opinion">Private second opinion</a><a data-sms-link href="sms:+12167033183">Text Eternity</a><a href="/services/commercial-hvac">Commercial service</a><a href="/services/preventive-maintenance">Maintenance</a><a href="/privacy">Privacy &amp; data use</a><a href="/terms">Website terms</a></div>
         <div><h3>Contact</h3><p>Cleveland, Cuyahoga County<br />Greater Cleveland &amp; Northeast Ohio</p><a href="tel:+12167033183">Call 216-703-3183</a><a data-sms-link href="sms:+12167033183">Text 216-703-3183</a><a href="mailto:ben@eternityhvacr.com">ben@eternityhvacr.com</a><span>Mon–Fri: 7 a.m.–7 p.m.</span><span>Sat: 9 a.m.–5 p.m. • Sun: Emergencies only</span></div>
       </div>
       <p className="sms-disclosure">Texts are monitored 24/7 with a 15-minute reply target. This is not an arrival-time promise. By texting, you agree to receive service-related replies at the number you use. Message and data rates may apply. Reply STOP to opt out. No marketing texts without separate consent. See our <a href="/privacy">Privacy &amp; Data Use notice</a>.</p>
@@ -124,7 +126,7 @@ export function SiteFooter() {
     </footer>
     <nav className="mobile-bar" aria-label="Quick contact actions">
       <a href="tel:+12167033183"><span aria-hidden="true">☎</span>Call</a>
-      <a href="https://eternityhvacr.com/#schedule"><span aria-hidden="true">＋</span>Request</a>
+      <a href={requestHref}><span aria-hidden="true">＋</span>Request</a>
       <button type="button" data-open-assistant aria-label="Open Ask Eternity service assistant" aria-haspopup="dialog"><span aria-hidden="true">◉</span>Ask</button>
       <a data-sms-link href="sms:+12167033183"><span aria-hidden="true">✉</span>Text</a>
     </nav>

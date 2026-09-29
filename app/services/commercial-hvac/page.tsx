@@ -34,6 +34,7 @@ const content: ServiceLandingContent = {
     copy: "Field photography documents a frozen evaporator coil, significant equipment contamination, dust accumulation on the blower motor and no installed filter. The final diagnosis and repair outcome are not claimed because they have not been confirmed.",
   },
   relatedGuides: [
+    { href: "/multifamily-hvac", title: "HVAC for landlords and property managers", copy: "Management-only requests, written findings, job photos and recurring maintenance for rental properties and residential communities." },
     {
       href: "/resources/rooftop-hvac-short-cycling",
       title: "What causes a rooftop HVAC unit to short-cycle?",

@@ -117,3 +117,9 @@ When a fact changes:
 ## Website service-charge acknowledgment — September 28, 2026
 
 Owner-approved: service visits are paid at the visit, with no online payment required. Residential is $99 during regular hours, plus $50 after hours ($149 total); commercial is $150, plus $75 after hours ($225 total). Regular hours are Monday–Friday 7 a.m.–7 p.m. and Saturday 9 a.m.–5 p.m., Eastern; Sunday emergencies only. Installation estimates and second opinions remain free, onsite or remote. Free installation pricing does not include diagnostic or repair visits. Website paid request submissions and residential arrival-window confirmation require an explicit fee acknowledgment. This does not alter the separate Signmons backend or payment configuration.
+
+## Property-manager page — owner-confirmed scope
+
+Audience includes smaller landlords and larger managed communities. Every managed-property request must originate from a property owner or authorized management representative; tenants are directed to management. Service pricing depends on the property and equipment, with the applicable charge confirmed before scheduling and payment at the visit. Free installation estimates and second opinions remain separate from paid diagnostic/repair visits. Owner confirms written findings, job photos, recurring preventive-maintenance agreements and management coordination.
+
+Owner-authorized public example: at Eliza Bryant, management authorized exchanging a nonworking PTAC with an existing working unit elsewhere at the property. Eternity checked refrigerant pressures and confirmed heating and cooling operation afterward. No job date, exact pressure, customer endorsement, ongoing contract, new-equipment installation or project photograph is claimed.

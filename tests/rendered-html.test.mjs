@@ -533,7 +533,7 @@ test("proxies appointment confirmation with conflict and idempotency safeguards"
     },
   };
   globalThis.fetch = async (_url, init) => {
-    const { feeAcknowledged: _ack, ...originalContract } = requestBody;
+    const originalContract = { sessionId: requestBody.sessionId, jobId: requestBody.jobId, slotToken: requestBody.slotToken };
     assert.deepEqual(JSON.parse(init.body), originalContract);
     return Response.json(upstream.body, { status: upstream.status });
   };
@@ -1093,4 +1093,50 @@ test("website appointment confirmation rejects unacknowledged fees without calli
     assert.equal(response.status, 400);
   }
   assert.equal(calls, 0);
+});
+
+test('property-manager page renders factual case, management flow and matching structured data', async () => {
+  const response = await render('/multifamily-hvac');
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /PTAC unit swap at Eliza Bryant/);
+  assert.match(html, /checked refrigerant pressures and verified that both heating and cooling operated/);
+  assert.match(html, /Service-call pricing depends on the property and equipment/);
+  assert.match(html, /id="schedule"/);
+  assert.match(html, /serviceScope=property-estimate/);
+  assert.match(html, /serviceScope=property-maintenance/);
+  assert.match(html, /rel="canonical" href="https:\/\/eternityhvacr.com\/multifamily-hvac"/);
+  const schemas = [...html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/gs)].map(m => JSON.parse(m[1])).flat();
+  const faq = schemas.find(x => x['@type'] === 'FAQPage');
+  assert.ok(faq.mainEntity.some(x => x.name === 'Can a tenant submit a service request?'));
+  assert.ok(schemas.some(x => x['@type'] === 'Service' && x.url.endsWith('/multifamily-hvac')));
+});
+
+test('managed-property delivery requires authority and property details and preserves them in both emails', async (t) => {
+  const originalFetch = globalThis.fetch, originalKey = process.env.RESEND_API_KEY;
+  process.env.RESEND_API_KEY = 'synthetic-key';
+  const deliveries = [];
+  globalThis.fetch = async (_url, init) => { deliveries.push(JSON.parse(init.body)); return Response.json({ id: 'synthetic' }); };
+  t.after(() => { globalThis.fetch = originalFetch; if (originalKey === undefined) delete process.env.RESEND_API_KEY; else process.env.RESEND_API_KEY = originalKey; });
+  let ip = 90;
+  const send = extra => dispatch(new Request('https://eternityhvacr.com/api/service-request', {
+    method:'POST', headers:{ origin:'https://eternityhvacr.com', 'content-type':'application/json', 'x-forwarded-for':`192.0.2.${ip++}` },
+    body:JSON.stringify({ requestType:'Repair or diagnostic', service:'PTAC', customer:'A managed property', timing:'This week', details:'Synthetic PTAC heating concern.', name:'Synthetic Manager', phone:'2025550100', email:'synthetic@example.invalid', serviceConsent:true, feeAcknowledged:true, startedAt:Date.now()-3000, managementAuthorized:true, managementRole:'Authorized property manager', propertyAddress:'123 Synthetic Street', propertyType:'Apartment community', affectedUnits:'2', accessDetails:'Manager meets technician', vendorRequirements:'PO required <script>bad</script>', ...extra }),
+  }));
+  for (const extra of [{managementAuthorized:false}, {managementAuthorized:'true'}, {managementRole:'Tenant'}, {propertyAddress:''}, {propertyType:'Invented'}, {accessDetails:''}, {feeAcknowledged:false}]) assert.equal((await send(extra)).status,400);
+  assert.equal(deliveries.length,0);
+  assert.equal((await send({})).status,200);
+  assert.equal(deliveries.length,2);
+  for(const mail of deliveries) {
+    assert.match(mail.text,/Management authority: Confirmed on website/);
+    assert.match(mail.text,/123 Synthetic Street/);
+    assert.match(mail.text,/confirm the applicable charge before scheduling/);
+    assert.doesNotMatch(mail.html,/<script>bad/);
+    assert.match(mail.html,/&lt;script&gt;bad/);
+  }
+  deliveries.length=0;
+  assert.equal((await send({ requestType:'Installation estimate', feeAcknowledged:false })).status,200);
+  assert.equal(deliveries.length,2);
+  assert.match(deliveries[0].text,/Free installation estimate/);
+  assert.match(deliveries[0].text,/Management authority: Confirmed/);
 });

@@ -18,7 +18,7 @@ export default function PrivacyPage() {
       <div className="legal-summary"><strong>The short version</strong><p>We use the information you provide to respond to service requests, communicate about requested work, operate the website and understand which pages and contact options are useful. We do not sell personal information.</p></div>
 
       <h2>Information we collect</h2>
-      <p>When you send a service request, we collect the information you enter, such as your name, phone number, email address, property type, requested service, timing and equipment or issue details. If you call, text or email Eternity directly, we receive the information included in that communication.</p>
+      <p>When you send a service request, we collect the information you enter, such as your name, phone number, email address, property type, requested service, timing and equipment or issue details. Managed-property requests also include the requester’s role and authority acknowledgment, property address, affected units or buildings, access arrangements, and any management-company or vendor requirements provided. If you call, text or email Eternity directly, we receive the information included in that communication.</p>
       <p>The website also receives limited technical information needed to operate securely, such as request timing and network information used for abuse prevention. Google Analytics collects website usage information such as page visits, referral source and contact-button events. Eternity does not intentionally send service-request names, phone numbers, email addresses or issue descriptions to Google Analytics.</p>
 
       <h2>Automated service assistant</h2>

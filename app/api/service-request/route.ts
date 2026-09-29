@@ -1,3 +1,4 @@
+import { managementRoles, propertyTypes } from "../../lib/property-management";
 import { isPaidServiceRequest, requestChargeSummary } from "../../lib/service-charges";
 const SERVICES = new Set([
   "Air conditioning",
@@ -6,6 +7,7 @@ const SERVICES = new Set([
   "Heat pump",
   "Commercial HVAC",
   "Refrigeration",
+  "PTAC",
   "Installation",
   "Maintenance",
 ]);
@@ -43,6 +45,14 @@ type ServiceRequestPayload = {
   email?: unknown;
   serviceConsent?: unknown;
   feeAcknowledged?: unknown;
+  managementAuthorized?: unknown;
+  managementRole?: unknown;
+  company?: unknown;
+  propertyAddress?: unknown;
+  propertyType?: unknown;
+  affectedUnits?: unknown;
+  accessDetails?: unknown;
+  vendorRequirements?: unknown;
   website?: unknown;
   startedAt?: unknown;
   attribution?: unknown;
@@ -183,7 +193,7 @@ function buildInternalHtmlEmail({
             <tr>
               <td style="padding:22px 32px 8px;">
                 <h2 style="margin:0 0 10px;color:#0B2646;font-size:16px;line-height:1.3;">Equipment or issue</h2>
-                <div style="padding:18px;background:#f8fafc;border-left:4px solid #0B2646;color:#344054;font-size:14px;line-height:1.7;">${safeDetails}</div><p style="font-size:14px;line-height:1.7;">${escapeHtml(requestChargeSummary(requestType))}</p>
+                <div style="padding:18px;background:#f8fafc;border-left:4px solid #0B2646;color:#344054;font-size:14px;line-height:1.7;">${safeDetails}</div><p style="font-size:14px;line-height:1.7;">${escapeHtml(requestChargeSummary(requestType, customer))}</p>
               </td>
             </tr>
             <tr>
@@ -295,7 +305,7 @@ function buildCustomerHtmlEmail({
             <tr>
               <td style="padding:22px 32px 8px;">
                 <h2 style="margin:0 0 10px;color:#0B2646;font-size:16px;line-height:1.3;">Your request details</h2>
-                <div style="padding:18px;background:#f8fafc;border-left:4px solid #0B2646;color:#344054;font-size:14px;line-height:1.7;">${safeDetails}</div><p style="font-size:14px;line-height:1.7;">${escapeHtml(requestChargeSummary(requestType))}</p>
+                <div style="padding:18px;background:#f8fafc;border-left:4px solid #0B2646;color:#344054;font-size:14px;line-height:1.7;">${safeDetails}</div><p style="font-size:14px;line-height:1.7;">${escapeHtml(requestChargeSummary(requestType, customer))}</p>
               </td>
             </tr>
             <tr>
@@ -391,7 +401,7 @@ export async function POST(request: Request) {
   const service = text(payload.service, 80);
   const customer = text(payload.customer, 80);
   const timing = text(payload.timing, 80);
-  const details = text(payload.details, 2500);
+  let details = text(payload.details, 2500);
   const name = text(payload.name, 120);
   const phone = text(payload.phone, 50);
   const email = text(payload.email, 254).toLowerCase();
@@ -423,6 +433,22 @@ export async function POST(request: Request) {
     return Response.json({ error: "Please acknowledge the service charge and payment at the visit." }, { status: 400 });
   }
 
+  if (customer === "A managed property") {
+    const role = text(payload.managementRole, 80);
+    const propertyType = text(payload.propertyType, 80);
+    const address = text(payload.propertyAddress, 250);
+    const affected = text(payload.affectedUnits, 160);
+    const access = text(payload.accessDetails, 500);
+    if (payload.managementAuthorized !== true || !managementRoles.some((value) => value === role)
+      || !propertyTypes.some((value) => value === propertyType) || address.length < 5 || !affected || access.length < 3) {
+      return Response.json({ error: "An owner or authorized management representative must submit the property and access details." }, { status: 400 });
+    }
+    details = [details, "", "PROPERTY MANAGEMENT REQUEST", "Management authority: Confirmed on website",
+      `Role: ${role}`, `Company: ${text(payload.company, 160) || "Not provided"}`, `Property address: ${address}`,
+      `Property type: ${propertyType}`, `Affected units/buildings: ${affected}`, `Access arrangements: ${access}`,
+      `PO/vendor requirements: ${text(payload.vendorRequirements, 500) || "Not provided"}`].join("\n");
+  }
+
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
     return Response.json({ error: "Service request delivery is temporarily unavailable." }, { status: 503 });
@@ -437,7 +463,7 @@ export async function POST(request: Request) {
     `Service: ${service}`,
     `Customer type: ${customer}`,
     `Timing: ${timing}`,
-    requestChargeSummary(requestType),
+    requestChargeSummary(requestType, customer),
     "",
     "Equipment or issue:",
     details,
@@ -481,7 +507,7 @@ export async function POST(request: Request) {
     `Service: ${service}`,
     `Property: ${customer}`,
     `Requested timing: ${timing}`,
-    requestChargeSummary(requestType),
+    requestChargeSummary(requestType, customer),
     "",
     "Your request details:",
     details,

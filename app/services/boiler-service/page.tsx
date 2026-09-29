@@ -44,6 +44,7 @@ const content: ServiceLandingContent = {
       ["Repeated resets", "A system that repeatedly locks out or requires resets may have an underlying condition that should be diagnosed before continued operation."],
     ],
   },
+  relatedGuides: [{ href: "/multifamily-hvac", title: "HVAC for landlords and property managers", copy: "Management-only requests, written findings, job photos and recurring maintenance for rental properties and residential communities." },],
   faqs: [
     ["Does Eternity Mechanical Services work on boilers?", "Yes. Owner Bernard Gray has 28 years of industry experience, including boilers, HVAC systems and refrigeration. Eternity provides boiler diagnostics, service, repair and maintenance."],
     ["Do you service boilers in multifamily or commercial properties?", "Yes. Boiler service is available for residential, multifamily, managed and commercial properties, subject to equipment and appointment availability."],
